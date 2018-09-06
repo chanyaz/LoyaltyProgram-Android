@@ -1,1 +1,1 @@
-include ':app', ':core', ':vendor'
+include ':customer', ':core', ':vendor'
