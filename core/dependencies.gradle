@@ -1,5 +1,5 @@
 ext {
-    v_compat = "1.0.0-alpha1"
+    v_compat = "1.0.0-rc02"
     v_rxAndroid = "2.1.0"
     v_rxJava = "2.2.2"
     v_retrofit = "2.4.0"
