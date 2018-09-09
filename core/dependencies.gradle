@@ -1,0 +1,48 @@
+ext {
+    v_support = "28.0.0-rc02"
+    v_rxAndroid = "2.1.0"
+    v_rxJava = "2.2.2"
+    v_retrofit = "2.4.0"
+    v_okHttp = "3.11.0"
+    v_picasso = "2.71828"
+    v_koin = "1.0.0-RC-1"
+    v_lifecycle = "2.0.0-rc01"
+}
+
+ext.kotlin = [
+        stdlib: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$v_kotlin"
+]
+
+ext.support = [
+        appcompat: "com.android.support:appcompat-v7:$v_support",
+]
+
+ext.rxjava = [
+        core: "io.reactivex.rxjava2:rxjava:$v_rxJava",
+        rxandroid: "io.reactivex.rxjava2:rxandroid:$v_rxAndroid"
+]
+
+ext.retrofit = [
+        core: "com.squareup.retrofit2:retrofit:$v_retrofit",
+        rxjavaadapter: "com.squareup.retrofit2:adapter-rxjava2:$v_retrofit",
+        gsonconverter: "com.squareup.retrofit2:converter-gson:$v_retrofit",
+        logging: "com.squareup.okhttp3:logging-interceptor:$v_okHttp"
+]
+
+ext.picasso = [
+        core: "com.squareup.picasso:picasso:$v_picasso",
+]
+
+ext.koin = [
+        koinandroid: "org.koin:koin-android:$v_koin",
+        koinscope: "org.koin:koin-androidx-scope:$v_koin",
+        koinviewmodel: "org.koin:koin-androidx-viewmodel:$v_koin"
+]
+
+ext.lifecycle = [
+        viewmodel: "androidx.lifecycle:lifecycle-viewmodel:$v_lifecycle",
+        livedata: "androidx.lifecycle:lifecycle-livedata:$v_lifecycle",
+        runtime: "androidx.lifecycle:lifecycle-runtime:$v_lifecycle",
+        compiler: "androidx.lifecycle:lifecycle-compiler:$v_lifecycle",
+        reactivestreams: "androidx.lifecycle:lifecycle-reactivestreams:$v_lifecycle"
+]
