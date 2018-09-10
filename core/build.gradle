@@ -49,5 +49,7 @@ dependencies {
     kapt lifecycle.compiler
     api lifecycle.reactivestreams
 
+    api logs.timber
+
     // add testlifecycle and junit
 }
