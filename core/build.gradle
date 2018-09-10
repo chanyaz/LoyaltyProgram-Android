@@ -23,31 +23,31 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation kotlin.stdlib
+    api kotlin.stdlib
 
-    implementation compat.core
+    api compat.core
 
-    implementation design.constraint
+    api design.constraint
 
-    implementation rxjava.core
-    implementation rxjava.rxandroid
+    api rxjava.core
+    api rxjava.rxandroid
 
-    implementation retrofit.core
-    implementation retrofit.rxjavaadapter
-    implementation retrofit.gsonconverter
-    implementation retrofit.logging
+    api retrofit.core
+    api retrofit.rxjavaadapter
+    api retrofit.gsonconverter
+    api retrofit.logging
 
-    implementation picasso.core
+    api picasso.core
 
-    implementation koin.koinandroid
-    implementation koin.koinscope
-    implementation koin.koinviewmodel
+    api koin.koinandroid
+    api koin.koinscope
+    api koin.koinviewmodel
 
-    implementation lifecycle.viewmodel
-    implementation lifecycle.livedata
-    implementation lifecycle.runtime
-    implementation lifecycle.compiler
-    implementation lifecycle.reactivestreams
+    api lifecycle.viewmodel
+    api lifecycle.livedata
+    api lifecycle.runtime
+    api lifecycle.compiler
+    api lifecycle.reactivestreams
 
     // add testlifecycle and junit
 }
