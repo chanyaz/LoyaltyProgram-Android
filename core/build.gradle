@@ -46,7 +46,7 @@ dependencies {
     api lifecycle.viewmodel
     api lifecycle.livedata
     api lifecycle.runtime
-    api lifecycle.compiler
+    kapt lifecycle.compiler
     api lifecycle.reactivestreams
 
     // add testlifecycle and junit
