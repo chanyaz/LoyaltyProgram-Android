@@ -1,4 +1,4 @@
-package com.loyalty.cikava
+package com.loyalty.customer
 
 import android.os.Bundle
 
