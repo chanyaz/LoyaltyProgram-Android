@@ -1,5 +1,6 @@
 package com.loyalty.core.logging
 
+import android.annotation.SuppressLint
 import android.util.Log
 import timber.log.Timber
 
@@ -7,6 +8,7 @@ abstract class BaseTree: Timber.Tree() {
 
     abstract val LOG_LENGTH: Int
 
+    @SuppressLint("LogNotTimber")
     override fun log(priority: Int, tag: String?, message: String, t: Throwable?) {
         if (message.length < LOG_LENGTH) {
             if (priority == Log.ASSERT) {
