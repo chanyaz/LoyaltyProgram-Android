@@ -4,6 +4,7 @@ import android.content.Context
 import android.security.KeyPairGeneratorSpec
 import com.loyalty.core.exceptions.KeyAlreadyExistsException
 import io.reactivex.Completable
+import io.reactivex.Scheduler
 import io.reactivex.Single
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
@@ -17,7 +18,12 @@ import javax.crypto.CipherInputStream
 import javax.crypto.CipherOutputStream
 import javax.security.auth.x500.X500Principal
 
-class EncryptorImpl(private val context: Context): Encryptor {
+/**
+ * Scheduler:
+ * all the encryption operations should be made on the computation Scheduler
+ */
+
+class EncryptorImpl(private val context: Context, private val scheduler: Scheduler): Encryptor {
 
     private val keyStore: KeyStore = KeyStore.getInstance("AndroidKeyStore").apply {
         load(null)
@@ -59,14 +65,14 @@ class EncryptorImpl(private val context: Context): Encryptor {
             generator.generateKeyPair()
 
             refreshKeys()
-        }
+        }.subscribeOn(scheduler)
     }
 
     override fun deleteKeys(): Completable {
         return Completable.fromCallable {
             keyStore.deleteEntry(alias)
             refreshKeys()
-        }
+        }.subscribeOn(scheduler)
     }
 
     override fun encryptString(text: String): Single<String> {
@@ -89,7 +95,7 @@ class EncryptorImpl(private val context: Context): Encryptor {
 
                     val vals = outputStream.toByteArray()
                     android.util.Base64.encodeToString(vals, android.util.Base64.DEFAULT)
-                }
+                }.subscribeOn(scheduler)
     }
 
     override fun decryptString(encryptedText: String): Single<String> {
@@ -117,7 +123,7 @@ class EncryptorImpl(private val context: Context): Encryptor {
                     }
 
                     String(bytes, 0, bytes.size, charset("UTF-8"))
-                }
+                }.subscribeOn(scheduler)
     }
 
     companion object {
