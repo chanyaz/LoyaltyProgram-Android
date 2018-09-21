@@ -27,20 +27,6 @@ class EncryptorImpl(private val context: Context, private val scheduler: Schedul
     private val keyStore: KeyStore = KeyStore.getInstance("AndroidKeyStore").apply {
         load(null)
     }
-    private val keyAliases: MutableList<String> = mutableListOf()
-
-    init {
-        refreshKeys()
-    }
-
-    private fun refreshKeys() {
-        keyAliases.clear()
-
-        val keyStoreAliases = keyStore.aliases()
-        while (keyStoreAliases.hasMoreElements()) {
-            keyAliases.add(keyStoreAliases.nextElement())
-        }
-    }
 
     override fun createNewKeys(): Completable {
         return Completable.fromCallable {
@@ -62,15 +48,12 @@ class EncryptorImpl(private val context: Context, private val scheduler: Schedul
             val generator = KeyPairGenerator.getInstance("RSA", "AndroidKeyStore")
             generator.initialize(spec)
             generator.generateKeyPair()
-
-            refreshKeys()
         }.subscribeOn(scheduler)
     }
 
     override fun deleteKeys(): Completable {
         return Completable.fromCallable {
             keyStore.deleteEntry(alias)
-            refreshKeys()
         }.subscribeOn(scheduler)
     }
 
