@@ -22,7 +22,6 @@ import javax.security.auth.x500.X500Principal
  * Scheduler:
  * all the encryption operations should be made on the computation Scheduler
  */
-
 class EncryptorImpl(private val context: Context, private val scheduler: Scheduler): Encryptor {
 
     private val keyStore: KeyStore = KeyStore.getInstance("AndroidKeyStore").apply {
