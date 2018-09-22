@@ -9,6 +9,7 @@ ext {
     v_lifecycle = "2.0.0-rc01"
     v_constraint = "1.1.2"
     v_timber = "4.7.1"
+    v_zxing = "3.6.0"
 }
 
 ext.kotlin = [
@@ -51,6 +52,10 @@ ext.lifecycle = [
         runtime: "androidx.lifecycle:lifecycle-runtime:$v_lifecycle",
         compiler: "androidx.lifecycle:lifecycle-compiler:$v_lifecycle",
         reactivestreams: "androidx.lifecycle:lifecycle-reactivestreams:$v_lifecycle"
+]
+
+ext.zxing = [
+        core: "com.journeyapps:zxing-android-embedded:$v_zxing"
 ]
 
 ext.logs = [
