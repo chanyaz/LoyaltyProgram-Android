@@ -3,6 +3,7 @@
     package="com.loyalty.vendor">
 
     <application
+        android:name="com.loyalty.core.BaseApp"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"

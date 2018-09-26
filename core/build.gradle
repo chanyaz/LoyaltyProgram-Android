@@ -49,7 +49,11 @@ dependencies {
     kapt lifecycle.compiler
     api lifecycle.reactivestreams
 
+    api zxing.core
+
     api logs.timber
+
+    api multidex.core
 
     // add testlifecycle and junit
 }

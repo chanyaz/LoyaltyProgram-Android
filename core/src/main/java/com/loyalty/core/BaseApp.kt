@@ -1,11 +1,11 @@
 package com.loyalty.core
 
-import android.app.Application
+import android.support.multidex.MultiDexApplication
 import com.loyalty.core.logging.DebugTree
 import com.loyalty.core.logging.ReleaseTree
 import timber.log.Timber
 
-class BaseApp: Application() {
+class BaseApp: MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()

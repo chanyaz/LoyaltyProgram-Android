@@ -10,6 +10,7 @@ ext {
     v_constraint = "1.1.2"
     v_timber = "4.7.1"
     v_zxing = "3.6.0"
+    v_multidex = "1.0.3"
 }
 
 ext.kotlin = [
@@ -60,4 +61,8 @@ ext.zxing = [
 
 ext.logs = [
         timber: "com.jakewharton.timber:timber:$v_timber"
+]
+
+ext.multidex = [
+        core: "com.android.support:multidex:$v_multidex"
 ]
