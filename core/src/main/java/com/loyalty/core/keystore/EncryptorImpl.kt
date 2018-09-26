@@ -22,7 +22,7 @@ import javax.security.auth.x500.X500Principal
  * Scheduler:
  * all the encryption operations should be made on the computation Scheduler
  */
-class EncryptorImpl(private val context: Context, private val scheduler: Scheduler): Encryptor {
+class EncryptorImpl(private val context: Context, private val computation: Scheduler): Encryptor {
 
     private val keyStore: KeyStore = KeyStore.getInstance("AndroidKeyStore").apply {
         load(null)
@@ -48,13 +48,13 @@ class EncryptorImpl(private val context: Context, private val scheduler: Schedul
             val generator = KeyPairGenerator.getInstance("RSA", "AndroidKeyStore")
             generator.initialize(spec)
             generator.generateKeyPair()
-        }.subscribeOn(scheduler)
+        }.subscribeOn(computation)
     }
 
     override fun deleteKeys(): Completable {
         return Completable.fromCallable {
             keyStore.deleteEntry(alias)
-        }.subscribeOn(scheduler)
+        }.subscribeOn(computation)
     }
 
     override fun encryptString(text: String): Single<String> {
@@ -77,7 +77,7 @@ class EncryptorImpl(private val context: Context, private val scheduler: Schedul
 
                     val vals = outputStream.toByteArray()
                     android.util.Base64.encodeToString(vals, android.util.Base64.DEFAULT)
-                }.subscribeOn(scheduler)
+                }.subscribeOn(computation)
     }
 
     override fun decryptString(encryptedText: String): Single<String> {
@@ -105,7 +105,7 @@ class EncryptorImpl(private val context: Context, private val scheduler: Schedul
                     }
 
                     String(bytes, 0, bytes.size, charset("UTF-8"))
-                }.subscribeOn(scheduler)
+                }.subscribeOn(computation)
     }
 
     companion object {
