@@ -50,7 +50,7 @@ dependencies {
     kapt lifecycle.compiler
     api lifecycle.reactivestreams
 
-    api zxing.core
+    api vision.core
 
     api logs.timber
 

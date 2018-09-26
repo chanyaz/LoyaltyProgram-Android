@@ -9,7 +9,7 @@ ext {
     v_lifecycle = "2.0.0-rc01"
     v_constraint = "1.1.2"
     v_timber = "4.7.1"
-    v_zxing = "3.6.0"
+    v_vision = "15.0.2"
     v_multidex = "1.0.3"
 }
 
@@ -56,8 +56,8 @@ ext.lifecycle = [
         reactivestreams: "androidx.lifecycle:lifecycle-reactivestreams:$v_lifecycle"
 ]
 
-ext.zxing = [
-        core: "com.journeyapps:zxing-android-embedded:$v_zxing"
+ext.vision = [
+        core: "com.google.android.gms:play-services-vision:$v_vision"
 ]
 
 ext.logs = [
