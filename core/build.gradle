@@ -37,7 +37,8 @@ dependencies {
     api retrofit.gsonconverter
     api retrofit.logging
 
-    api picasso.core
+    api glide.core
+    kapt glide.compiler
 
     api koin.koinandroid
     api koin.koinscope
