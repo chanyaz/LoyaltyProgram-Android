@@ -50,8 +50,12 @@ dependencies {
     kapt lifecycle.compiler
     api lifecycle.reactivestreams
 
-//    api vision.core
-//    api "com.google.android.gms:play-services-vision:15.0.2"
+    api (vision.core) {
+        exclude group: 'com.android.support'
+    }
+    api (zxing.core) {
+        exclude group: 'com.android.support'
+    }
 
     api logs.timber
 
