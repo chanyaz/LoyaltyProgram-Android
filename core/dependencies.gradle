@@ -1,12 +1,12 @@
 ext {
-    v_compat = "1.0.0-rc02"
+    v_compat = "28.0.0"
     v_rxAndroid = "2.1.0"
     v_rxJava = "2.2.2"
     v_retrofit = "2.4.0"
     v_okHttp = "3.11.0"
     v_glide = "4.8.0"
     v_koin = "1.0.0-RC-1"
-    v_lifecycle = "2.0.0-rc01"
+    v_lifecycle = "1.1.1"
     v_constraint = "1.1.2"
     v_timber = "4.7.1"
     v_vision = "15.0.2"
@@ -18,11 +18,11 @@ ext.kotlin = [
 ]
 
 ext.compat = [
-        core: "androidx.appcompat:appcompat:$v_compat",
+        core: "com.android.support:appcompat-v7:$v_compat",
 ]
 
 ext.design = [
-        constraint: "androidx.constraintlayout:constraintlayout:$v_constraint"
+        constraint: "com.android.support.constraint:constraint-layout:$v_constraint"
 ]
 
 ext.rxjava = [
@@ -44,16 +44,16 @@ ext.glide = [
 
 ext.koin = [
         koinandroid: "org.koin:koin-android:$v_koin",
-        koinscope: "org.koin:koin-androidx-scope:$v_koin",
-        koinviewmodel: "org.koin:koin-androidx-viewmodel:$v_koin"
+        koinscope: "org.koin:koin-android-scope:$v_koin",
+        koinviewmodel: "org.koin:koin-android-viewmodel:$v_koin"
 ]
 
 ext.lifecycle = [
-        viewmodel: "androidx.lifecycle:lifecycle-viewmodel:$v_lifecycle",
-        livedata: "androidx.lifecycle:lifecycle-livedata:$v_lifecycle",
-        runtime: "androidx.lifecycle:lifecycle-runtime:$v_lifecycle",
-        compiler: "androidx.lifecycle:lifecycle-compiler:$v_lifecycle",
-        reactivestreams: "androidx.lifecycle:lifecycle-reactivestreams:$v_lifecycle"
+        viewmodel: "android.arch.lifecycle:viewmodel:$v_lifecycle",
+        livedata: "android.arch.lifecycle:livedata:$v_lifecycle",
+        runtime: "android.arch.lifecycle:runtime:$v_lifecycle",
+        compiler: "android.arch.lifecycle:compiler:$v_lifecycle",
+        reactivestreams: "android.arch.lifecycle:reactivestreams:$v_lifecycle"
 ]
 
 ext.vision = [
