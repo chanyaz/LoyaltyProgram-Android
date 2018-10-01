@@ -12,6 +12,7 @@ ext {
     v_zxing = "3.6.0"
     v_vision = "15.0.2"
     v_multidex = "1.0.3"
+    v_permissiondispatcher = "3.3.1"
 }
 
 ext.kotlin = [
@@ -55,6 +56,11 @@ ext.lifecycle = [
         runtime: "android.arch.lifecycle:runtime:$v_lifecycle",
         compiler: "android.arch.lifecycle:compiler:$v_lifecycle",
         reactivestreams: "android.arch.lifecycle:reactivestreams:$v_lifecycle"
+]
+
+ext.permissiondispatcher = [
+        core: "com.github.hotchemi:permissionsdispatcher:$v_permissiondispatcher",
+        compiler: "com.github.hotchemi:permissionsdispatcher-processor:$v_permissiondispatcher"
 ]
 
 ext.zxing = [
