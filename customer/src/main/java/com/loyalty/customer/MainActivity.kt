@@ -23,8 +23,7 @@ import android.R.attr.data
 import android.widget.Toast
 import com.google.zxing.integration.android.IntentResult
 
-
-
+/* todo refactor this activity */
 @RuntimePermissions
 class MainActivity : AppCompatActivity() {
 
@@ -42,7 +41,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btnActivateCamera).setOnClickListener {
-            showCamera()
+//            showCamera()
+            startCameraStream()
         }
 //        EncryptorImpl(this, AndroidSchedulers.mainThread())
 //                .decryptString("gKn1iHDsWr3Fw6RMkmbWSN4vbqU2mKnF+g6N3dlV84/P9fNAUDvq7x4PdpzMruDAwVmY79l8d/aP\n" +
@@ -55,6 +55,11 @@ class MainActivity : AppCompatActivity() {
 //                }, {
 //                    Log.d("myLog", it.message)
 //                })
+    }
+
+    @NeedsPermission(Manifest.permission.CAMERA)
+    fun startCameraStream() {
+
     }
 
     @NeedsPermission(Manifest.permission.CAMERA)

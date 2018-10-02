@@ -6,10 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!--<ImageView-->
-    <!--android:id="@+id/qrCode"-->
-    <!--android:layout_width="200dp"-->
-    <!--android:layout_height="200dp" />-->
+    <!-- todo edit the layout -->
 
     <Button
         android:id="@+id/btnActivateCamera"
@@ -23,7 +20,7 @@
         android:id="@+id/container"
         android:layout_width="300dp"
         android:layout_height="300dp">
-        
+
     </FrameLayout>
 
 </RelativeLayout>
