@@ -27,9 +27,10 @@ dependencies {
 
     api kotlin.stdlib
 
-    /* Core */
+    /* Compat */
 
     api compat.core
+    api compat.recycler
 
     /* Design */
 
@@ -71,7 +72,7 @@ dependencies {
     }
     kapt permissiondispatcher.compiler
 
-    /* QR todo: exclude one of the dependencies */
+    /* todo: exclude one of the dependencies */
 
     api (vision.core) {
         exclude group: 'com.android.support'
@@ -88,7 +89,6 @@ dependencies {
 
     api multidex.core
 
-    /* Tests todo: add test libraries etc. */
+    /* todo: add test libraries (testlifecycle and junit) */
 
-    // add testlifecycle and junit
 }
