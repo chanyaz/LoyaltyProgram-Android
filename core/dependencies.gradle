@@ -6,7 +6,7 @@ ext {
     v_retrofit = "2.4.0"
     v_okHttp = "3.11.0"
     v_glide = "4.8.0"
-    v_koin = "1.0.0-RC-1"
+    v_koin = "1.0.1"
     v_lifecycle = "1.1.1"
     v_constraint = "1.1.2"
     v_timber = "4.7.1"

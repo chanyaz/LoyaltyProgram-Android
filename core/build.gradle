@@ -5,12 +5,14 @@ apply plugin: 'kotlin-kapt'
 apply from: 'dependencies.gradle'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion project.v_compileSdk
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 28
+        minSdkVersion project.v_minSdk
+        targetSdkVersion project.v_targetSdk
         versionCode 1
         versionName "1.0"
+
+        multiDexEnabled project.isMultiDexEnabled
     }
     buildTypes {
         release {
@@ -72,7 +74,7 @@ dependencies {
 
     /* Auth */
 
-//    api auth.core
+    api auth.core
 
     /* Vision */
 

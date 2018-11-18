@@ -4,14 +4,15 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion project.v_compileSdk
     defaultConfig {
         applicationId "com.loyalty.cikava"
-        minSdkVersion 19
-        targetSdkVersion 28
+        minSdkVersion project.v_minSdk
+        targetSdkVersion project.v_targetSdk
         versionCode 1
         versionName "1.0"
-        multiDexEnabled true
+
+        multiDexEnabled project.isMultiDexEnabled
     }
     buildTypes {
         release {
