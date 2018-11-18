@@ -60,10 +60,8 @@ dependencies {
     /* Lifecycle */
 
     api lifecycle.viewmodel
-    api lifecycle.livedata
     api lifecycle.runtime
     kapt lifecycle.compiler
-    api lifecycle.reactivestreams
 
     /* Permissions */
 
@@ -72,11 +70,12 @@ dependencies {
     }
     kapt permissiondispatcher.compiler
 
-    /* todo: exclude one of the dependencies */
+    /* Auth */
 
-    api (vision.core) {
-        exclude group: 'com.android.support'
-    }
+//    api auth.core
+
+    /* Vision */
+
     api (zxing.core) {
         exclude group: 'com.android.support'
     }
