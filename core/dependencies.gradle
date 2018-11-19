@@ -1,6 +1,6 @@
 ext {
     /* not using the latest version of compat because of sources issue */
-    v_compat = "27.0.0"
+    v_compat = "27.1.0"
     v_rxAndroid = "2.1.0"
     v_rxJava = "2.2.2"
     v_retrofit = "2.4.0"

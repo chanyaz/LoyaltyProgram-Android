@@ -1,11 +1,11 @@
 buildscript {
     ext {
         v_kotlin = "1.3.0"
-        v_compileSdk = 28
+        v_compileSdk = 27
         v_minSdk = 21
         v_targetSdk = 28
 
-        isMultiDexEnabled = false
+        isMultiDexEnabled = true
     }
     repositories {
         google()
