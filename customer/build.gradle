@@ -6,7 +6,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion project.v_compileSdk
     defaultConfig {
-        applicationId "com.loyalty.cikava"
+        applicationId "com.loyalty.customer"
         minSdkVersion project.v_minSdk
         targetSdkVersion project.v_targetSdk
         versionCode 1
