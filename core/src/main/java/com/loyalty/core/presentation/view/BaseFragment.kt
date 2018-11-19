@@ -11,7 +11,7 @@ import com.loyalty.core.presentation.BaseViewModel
 import io.reactivex.disposables.CompositeDisposable
 
 abstract class BaseFragment<S: BaseState, E: BaseEvent, VM: BaseViewModel<S, E>>
-    : Fragment(), BaseView<S, E, VM> {
+    : Fragment(), BaseView<S, E> {
 
     override val lifecycleDisposable: CompositeDisposable = CompositeDisposable()
 

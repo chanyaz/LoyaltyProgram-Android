@@ -7,8 +7,8 @@ import com.loyalty.core.presentation.BaseState
 import com.loyalty.core.presentation.BaseViewModel
 import io.reactivex.disposables.CompositeDisposable
 
-abstract class BaseActivity<S: BaseState, E: BaseEvent, VM: BaseViewModel<S, E>>
-    : AppCompatActivity(), BaseView<S, E, VM> {
+abstract class BaseActivity<S: BaseState, E: BaseEvent>
+    : AppCompatActivity(), BaseView<S, E> {
 
     override val lifecycleDisposable: CompositeDisposable = CompositeDisposable()
 

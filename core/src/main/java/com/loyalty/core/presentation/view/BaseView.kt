@@ -8,11 +8,11 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import timber.log.Timber
 
-interface BaseView<S: BaseState, E: BaseEvent, VM: BaseViewModel<S, E>> {
+interface BaseView<S: BaseState, E: BaseEvent> {
 
     @get:LayoutRes
     val layout: Int
-    val viewModel: VM
+    val viewModel: BaseViewModel<S, E>
 
     val lifecycleDisposable: CompositeDisposable
 
