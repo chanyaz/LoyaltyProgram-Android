@@ -1,4 +1,4 @@
-package com.loyalty.core.keystore
+package com.loyalty.core.storage.keystore
 
 import android.content.Context
 import android.security.KeyPairGeneratorSpec

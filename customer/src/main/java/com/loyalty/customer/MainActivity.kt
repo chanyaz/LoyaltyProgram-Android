@@ -2,26 +2,13 @@ package com.loyalty.customer
 
 import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
 
-import com.loyalty.core.keystore.EncryptorImpl
-import io.reactivex.android.schedulers.AndroidSchedulers
-import android.graphics.Bitmap
-import android.support.v4.app.ActivityCompat
-import android.support.v4.app.FragmentManager
-import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
-import android.widget.ImageView
-import com.google.zxing.BarcodeFormat
 import com.google.zxing.integration.android.IntentIntegrator
-import com.journeyapps.barcodescanner.BarcodeEncoder
 import permissions.dispatcher.*
-import android.R.attr.data
 import android.widget.Toast
-import com.google.zxing.integration.android.IntentResult
 
 /* todo refactor this activity */
 @RuntimePermissions

@@ -1,7 +1,7 @@
-package com.loyalty.core.preferences
+package com.loyalty.core.storage.preferences
 
 import android.content.Context
-import com.loyalty.core.extensions.editAndApply
+import com.loyalty.core.util.extensions.editAndApply
 import io.reactivex.Completable
 import io.reactivex.Scheduler
 import io.reactivex.Single

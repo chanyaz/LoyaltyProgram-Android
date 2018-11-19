@@ -1,4 +1,4 @@
-package com.loyalty.core.extensions
+package com.loyalty.core.util.extensions
 
 import android.text.Editable
 import android.widget.EditText
