@@ -1,6 +1,9 @@
-package com.loyalty.core.presentation
+package com.loyalty.core.presentation.view
 
 import android.support.annotation.LayoutRes
+import com.loyalty.core.presentation.BaseEvent
+import com.loyalty.core.presentation.BaseState
+import com.loyalty.core.presentation.BaseViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import timber.log.Timber

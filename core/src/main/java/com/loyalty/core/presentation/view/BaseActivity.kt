@@ -1,17 +1,19 @@
-package com.loyalty.core.presentation
+package com.loyalty.core.presentation.view
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.loyalty.core.presentation.BaseEvent
+import com.loyalty.core.presentation.BaseState
+import com.loyalty.core.presentation.BaseViewModel
 import io.reactivex.disposables.CompositeDisposable
-import timber.log.Timber
 
-abstract class BaseActivity<S: BaseState, E: BaseEvent, VM: BaseViewModel<S, E>> : AppCompatActivity(), BaseView<S, E, VM> {
+abstract class BaseActivity<S: BaseState, E: BaseEvent, VM: BaseViewModel<S, E>>
+    : AppCompatActivity(), BaseView<S, E, VM> {
 
     override val lifecycleDisposable: CompositeDisposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Timber.d("Activity loaded: ${this.javaClass.simpleName}")
         setContentView(layout)
 
         observeViewModel()
@@ -19,8 +21,6 @@ abstract class BaseActivity<S: BaseState, E: BaseEvent, VM: BaseViewModel<S, E>>
 
     override fun onDestroy() {
         super.onDestroy()
-        Timber.d("Activity destroyed: ${this.javaClass.simpleName}")
-
         lifecycleDisposable.clear()
     }
 
