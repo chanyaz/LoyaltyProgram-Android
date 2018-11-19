@@ -90,6 +90,8 @@ dependencies {
 
     api multidex.core
 
-    /* todo: add test libraries (testlifecycle and junit) */
+    /* Test */
+
+//    testApi "org.koin:koin-test:$v_koin"
 
 }
