@@ -7,7 +7,7 @@ import com.loyalty.core.logging.ReleaseTree
 import com.loyalty.core.util.delegates.ApplicationDelegate
 import timber.log.Timber
 
-class BaseApp: MultiDexApplication() {
+abstract class BaseApp: MultiDexApplication() {
 
     companion object {
         var application: Application by ApplicationDelegate()
