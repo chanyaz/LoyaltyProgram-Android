@@ -54,6 +54,7 @@ ext.koin = [
 
 ext.lifecycle = [
         viewmodel: "android.arch.lifecycle:viewmodel:$v_lifecycle",
+        livedata: "android.arch.lifecycle:livedata:$v_lifecycle",
         runtime: "android.arch.lifecycle:runtime:$v_lifecycle",
         compiler: "android.arch.lifecycle:compiler:$v_lifecycle",
 ]

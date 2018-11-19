@@ -62,6 +62,7 @@ dependencies {
     /* Lifecycle */
 
     api lifecycle.viewmodel
+    api lifecycle.livedata
     api lifecycle.runtime
     kapt lifecycle.compiler
 
