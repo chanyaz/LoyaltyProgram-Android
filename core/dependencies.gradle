@@ -2,6 +2,7 @@ ext {
     /* not using the latest version of compat because of sources issue */
     v_compat = "28.0.0"
     v_rxAndroid = "2.1.0"
+    v_rxBinding = "2.2.0"
     v_rxJava = "2.2.2"
     v_retrofit = "2.4.0"
     v_okHttp = "3.11.0"
@@ -30,7 +31,8 @@ ext.compat = [
 
 ext.rxjava = [
         core: "io.reactivex.rxjava2:rxjava:$v_rxJava",
-        rxandroid: "io.reactivex.rxjava2:rxandroid:$v_rxAndroid"
+        rxandroid: "io.reactivex.rxjava2:rxandroid:$v_rxAndroid",
+        rxbinding: "com.jakewharton.rxbinding2:rxbinding:$v_rxBinding"
 ]
 
 ext.retrofit = [

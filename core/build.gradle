@@ -20,6 +20,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility project.v_source
+        targetCompatibility project.v_target
+    }
 }
 
 dependencies {
@@ -41,6 +45,7 @@ dependencies {
 
     api rxjava.core
     api rxjava.rxandroid
+    api rxjava.rxbinding
 
     /* Network */
 

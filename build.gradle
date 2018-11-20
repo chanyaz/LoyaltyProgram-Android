@@ -4,6 +4,8 @@ buildscript {
         v_compileSdk = 28
         v_minSdk = 21
         v_targetSdk = 28
+        v_source = 1.8
+        v_target = 1.8
 
         isMultiDexEnabled = true
     }
