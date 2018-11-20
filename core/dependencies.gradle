@@ -1,6 +1,6 @@
 ext {
     /* not using the latest version of compat because of sources issue */
-    v_compat = "27.1.0"
+    v_compat = "28.0.0"
     v_rxAndroid = "2.1.0"
     v_rxJava = "2.2.2"
     v_retrofit = "2.4.0"
@@ -22,10 +22,9 @@ ext.kotlin = [
 
 ext.compat = [
         core: "com.android.support:appcompat-v7:$v_compat",
-        recycler: "com.android.support:recyclerview-v7:$v_compat"
-]
-
-ext.design = [
+        recycler: "com.android.support:recyclerview-v7:$v_compat",
+        design: "com.android.support:design:$v_compat",
+        cards: "com.android.support:cardview-v7:$v_compat",
         constraint: "com.android.support.constraint:constraint-layout:$v_constraint"
 ]
 

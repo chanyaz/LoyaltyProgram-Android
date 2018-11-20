@@ -29,14 +29,13 @@ dependencies {
 
     api kotlin.stdlib
 
-    /* Compat */
+    /* Compat & Design */
 
     api compat.core
     api compat.recycler
-
-    /* Design */
-
-    api design.constraint
+    api compat.design
+    api compat.cards
+    api compat.constraint
 
     /* Rx */
 
