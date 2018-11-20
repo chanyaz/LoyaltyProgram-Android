@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/buttonNavigationQr"
+        android:icon="@android:drawable/presence_online"
+        android:title="@string/navigation_qr" />
+
+    <item
+        android:id="@+id/buttonNavigationVenues"
+        android:icon="@android:drawable/presence_online"
+        android:title="@string/navigation_venues" />
+
+    <item
+        android:id="@+id/buttonNavigationCards"
+        android:icon="@android:drawable/presence_online"
+        android:title="@string/navigation_cards" />
+
+    <item
+        android:id="@+id/buttonNavigationMap"
+        android:icon="@android:drawable/presence_online"
+        android:title="@string/navigation_map" />
+
+    <item
+        android:id="@+id/buttonNavigationProfile"
+        android:icon="@android:drawable/presence_online"
+        android:title="@string/navigation_profile" />
+
+</menu>
