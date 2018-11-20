@@ -1,11 +1,30 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="Zalik"/>
+
+    <style name="Zalik.Default" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/color_primary_dark</item>
+        <item name="colorAccent">@color/color_accent</item>
+
+        <item name="android:statusBarColor">?colorPrimary</item>
+        <item name="android:colorBackground">@color/window_background</item>
+
+        <item name="android:textViewStyle">@style/Zalik.Text</item>
+    </style>
+
+    <!-- The theme should have the "AppTheme" name because of sucky microsoft, yey! -->
+    <style name="AppTheme" parent="Zalik.Default" tools:ignore="PrivateResource" />
+
+    <style name="Zalik.Text">
+        <item name="android:textColor">@color/dark_grey</item>
+    </style>
+
+    <style name="Zalik.BottomNavigationView">
+        <item name="android:background">@color/navigation_menu_background</item>
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="itemIconTint">@color/navigation_menu_item_tint</item>
+        <item name="itemTextColor">@color/navigation_menu_text_color</item>
     </style>
 
 </resources>

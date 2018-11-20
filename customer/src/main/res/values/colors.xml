@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+
+    <!-- Colors -->
+
+    <color name="white">#ffffff</color>
+    <color name="light_green">#49B9BA</color>
+
+    <color name="pale_grey">#F5F3FA</color>
+    <color name="dark_grey">#8B93A9</color>
+
+    <!-- Theme colors -->
+
+    <color name="color_primary">@color/light_green</color>
+    <color name="color_primary_dark">@color/light_green</color>
+    <color name="color_accent">@color/white</color>
+
+    <color name="window_background">@color/pale_grey</color>
+    <color name="text_color_primary">@color/dark_grey</color>
+
+    <!-- Bottom navigation -->
+
+    <color name="navigation_menu_background">@color/color_primary</color>
+    <color name="navigation_menu_item_tint">@color/color_accent</color>
+    <color name="navigation_menu_text_color">@color/color_accent</color>
+
 </resources>
