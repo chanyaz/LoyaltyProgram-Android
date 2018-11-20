@@ -4,6 +4,7 @@ import android.support.annotation.LayoutRes
 import com.loyalty.core.presentation.BaseEvent
 import com.loyalty.core.presentation.BaseState
 import com.loyalty.core.presentation.BaseViewModel
+import com.loyalty.core.util.extensions.plusAssign
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import timber.log.Timber
@@ -29,19 +30,19 @@ interface BaseView<S: BaseState, E: BaseEvent> {
     }
 
     private fun observeEvents() {
-        lifecycleDisposable.add(viewModel.event
+        lifecycleDisposable += viewModel.event
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
                     processEvent(it)
-                })
+                }
     }
 
     private fun observeState() {
-        lifecycleDisposable.add(viewModel.state
+        lifecycleDisposable += viewModel.state
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
                     processState(it)
-                })
+                }
     }
 
 }
