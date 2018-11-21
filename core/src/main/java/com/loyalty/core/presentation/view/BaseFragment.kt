@@ -7,10 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.loyalty.core.presentation.BaseEvent
 import com.loyalty.core.presentation.BaseState
-import com.loyalty.core.presentation.BaseViewModel
 import io.reactivex.disposables.CompositeDisposable
 
-abstract class BaseFragment<S: BaseState, E: BaseEvent, VM: BaseViewModel<S, E>>
+abstract class BaseFragment<S: BaseState, E: BaseEvent>
     : Fragment(), BaseView<S, E> {
 
     override val lifecycleDisposable: CompositeDisposable = CompositeDisposable()
