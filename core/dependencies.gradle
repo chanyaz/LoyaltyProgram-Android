@@ -1,6 +1,7 @@
 ext {
     /* not using the latest version of compat because of sources issue */
     v_compat = "28.0.0"
+    v_cicerone = "1.0"
     v_rxAndroid = "2.1.0"
     v_rxBinding = "2.2.0"
     v_rxJava = "2.2.2"
@@ -27,6 +28,10 @@ ext.compat = [
         design: "com.android.support:design:$v_compat",
         cards: "com.android.support:cardview-v7:$v_compat",
         constraint: "com.android.support.constraint:constraint-layout:$v_constraint"
+]
+
+ext.cicerone = [
+        core: "ru.terrakok.cicerone:cicerone:$v_cicerone"
 ]
 
 ext.rxjava = [

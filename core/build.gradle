@@ -30,25 +30,24 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     /* Kotlin */
-
     api kotlin.stdlib
 
     /* Compat & Design */
-
     api compat.core
     api compat.recycler
     api compat.design
     api compat.cards
     api compat.constraint
 
-    /* Rx */
+    /* Navigation */
+    api cicerone.core
 
+    /* Rx */
     api rxjava.core
     api rxjava.rxandroid
     api rxjava.rxbinding
 
     /* Network */
-
     api retrofit.core
     api retrofit.rxjavaadapter
     api retrofit.gsonconverter
@@ -58,45 +57,41 @@ dependencies {
     kapt glide.compiler
 
     /* DI */
-
     api koin.koinandroid
     api koin.koinscope
     api koin.koinviewmodel
 
     /* Lifecycle */
-
     api lifecycle.viewmodel
     api lifecycle.livedata
     api lifecycle.runtime
     kapt lifecycle.compiler
 
     /* Permissions */
-
     api (permissiondispatcher.core) {
         exclude group: 'com.android.support'
     }
     kapt permissiondispatcher.compiler
 
     /* Auth */
-
     api auth.core
 
     /* Vision */
-
     api (zxing.core) {
         exclude group: 'com.android.support'
     }
 
     /* Logging */
-
     api logs.timber
 
     /* Multidex */
-
     api multidex.core
 
     /* Test */
-
 //    testApi "org.koin:koin-test:$v_koin"
 
+}
+
+androidExtensions {
+    experimental = true
 }
