@@ -19,7 +19,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".presentation.navigation.NavigationActivity"
+            android:name=".presentation.navigation.CustomerNavigationActivity"
             android:screenOrientation="portrait"
             tools:replace="screenOrientation">
             <intent-filter>

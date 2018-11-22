@@ -10,11 +10,11 @@
 //
 //class NavigationAdapter(navigationStacks: List<Pair<ViewId, BaseFragment<BaseState, BaseEvent>>>, fm: FragmentManager) : FragmentPagerAdapter(fm) {
 //
-//    private val navigationFragments: MutableList<ContainerFragment> = mutableListOf()
+//    private val navigationFragments: MutableList<NavigationFragment> = mutableListOf()
 //
 //    init {
 //        for (number in 1..navigationStacks.size)
-//            navigationFragments.add(ContainerFragment())
+//            navigationFragments.add(NavigationFragment())
 //    }
 //
 //    override fun getItem(position: Int): Fragment = navigationFragments[position]

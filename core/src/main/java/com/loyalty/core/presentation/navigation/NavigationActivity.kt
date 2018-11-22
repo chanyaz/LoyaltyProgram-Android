@@ -20,14 +20,16 @@ abstract class NavigationActivity<S: BaseState, E: BaseEvent>
 
     abstract val idToKeyMap: Map<Int, String>
 
+    abstract val initialFragmentKey: String
+
     @get:IdRes
     abstract val containerId: Int
 
-    abstract fun createContainerFragment(screenKey: String?): ContainerFragment
+    abstract fun createNavigationFragment(screenKey: String): NavigationFragment
 
     protected open val navigator: Navigator by lazy {
         object : SupportFragmentNavigator(supportFragmentManager, containerId) {
-            override fun createFragment(screenKey: String?, data: Any?): Fragment = createContainerFragment(screenKey)
+            override fun createFragment(screenKey: String, data: Any?): Fragment = createNavigationFragment(screenKey)
             override fun exit() = finish()
             override fun showSystemMessage(message: String?) = Unit
         }
@@ -36,6 +38,8 @@ abstract class NavigationActivity<S: BaseState, E: BaseEvent>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initNavigationView()
+
+        navigator.applyCommand(Replace(initialFragmentKey, null))
     }
 
     private fun initNavigationView() {
