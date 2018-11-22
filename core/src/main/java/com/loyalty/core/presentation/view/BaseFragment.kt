@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.loyalty.core.presentation.BaseEvent
 import com.loyalty.core.presentation.BaseState
+import com.loyalty.core.util.extensions.plusAssign
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 
 abstract class BaseFragment<S: BaseState, E: BaseEvent>
@@ -21,12 +23,34 @@ abstract class BaseFragment<S: BaseState, E: BaseEvent>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        observeViewModel()
+        lifecycleDisposable += viewModel.eventObservable
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe {
+                    super.processEvent(it)
+                    processEvent(it)
+                }
+
+        lifecycleDisposable += viewModel.stateObservable
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe {
+                    super.processState(it)
+                    processState(it)
+                }
     }
 
+    /* Some of the base states can be added here */
+    override fun processState(baseState: BaseState) {
+        super.processState(baseState)
+    }
+
+    /* Some of the base events can be added here */
     override fun processEvent(baseEvent: BaseEvent) {
         super.processEvent(baseEvent)
-        /* todo handle some of the base events */
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        lifecycleDisposable.clear()
     }
 
 }

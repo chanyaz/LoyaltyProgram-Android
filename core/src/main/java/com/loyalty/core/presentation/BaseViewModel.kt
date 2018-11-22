@@ -10,11 +10,11 @@ abstract class BaseViewModel<S, E> : ViewModel() {
 
     protected val disposables = CompositeDisposable()
 
-    protected val stateSubject: BehaviorSubject<S> = BehaviorSubject.create()
-    val state: Observable<S> = stateSubject
+    private val stateSubject: BehaviorSubject<S> = BehaviorSubject.create()
+    val stateObservable: Observable<S> = stateSubject
 
-    protected val eventSubject: PublishSubject<E> = PublishSubject.create()
-    val event: Observable<E> = eventSubject
+    private val eventSubject: PublishSubject<E> = PublishSubject.create()
+    val eventObservable: Observable<E> = eventSubject
 
     override fun onCleared() {
         disposables.clear()

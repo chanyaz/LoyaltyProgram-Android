@@ -1,5 +1,6 @@
 package com.loyalty.core.presentation.view
 
+import android.support.annotation.CallSuper
 import android.support.annotation.LayoutRes
 import com.loyalty.core.presentation.BaseEvent
 import com.loyalty.core.presentation.BaseState
@@ -17,32 +18,14 @@ interface BaseView<S: BaseState, E: BaseEvent> {
 
     val lifecycleDisposable: CompositeDisposable
 
+    @CallSuper
     fun processState(baseState: BaseState) {
-        Timber.d("Processing state: ${baseState.javaClass.simpleName}")
+        Timber.d("Processing stateObservable: ${baseState.javaClass.simpleName}")
     }
+
+    @CallSuper
     fun processEvent(baseEvent: BaseEvent) {
-        Timber.d("Processing event: ${baseEvent.javaClass.simpleName}")
-    }
-
-    fun observeViewModel() {
-        observeEvents()
-        observeState()
-    }
-
-    private fun observeEvents() {
-        lifecycleDisposable += viewModel.event
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe {
-                    processEvent(it)
-                }
-    }
-
-    private fun observeState() {
-        lifecycleDisposable += viewModel.state
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe {
-                    processState(it)
-                }
+        Timber.d("Processing eventObservable: ${baseEvent.javaClass.simpleName}")
     }
 
 }
