@@ -1,4 +1,4 @@
-package com.loyalty.core.presentation
+package com.loyalty.core.presentation.base
 
 import android.arch.lifecycle.ViewModel
 import io.reactivex.Observable
