@@ -7,7 +7,9 @@ import android.support.v4.app.Fragment
 import android.view.MenuItem
 import com.loyalty.core.BaseApp
 import com.loyalty.core.presentation.base.view.BaseActivity
+import org.koin.android.ext.android.inject
 import ru.terrakok.cicerone.Navigator
+import ru.terrakok.cicerone.Router
 import ru.terrakok.cicerone.android.SupportFragmentNavigator
 import ru.terrakok.cicerone.commands.Forward
 import ru.terrakok.cicerone.commands.Replace
@@ -25,6 +27,8 @@ abstract class NavigationActivity : BaseActivity() {
 
     abstract fun createNavigationFragment(screenKey: String): NavigationFragment
 
+    val router: Router by inject()
+
     protected open val navigator: Navigator by lazy {
         object : SupportFragmentNavigator(supportFragmentManager, containerId) {
             override fun createFragment(screenKey: String, data: Any?): Fragment = createNavigationFragment(screenKey)
@@ -37,7 +41,8 @@ abstract class NavigationActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         initNavigationView()
 
-        navigator.applyCommand(Replace(initialFragmentKey, null))
+        router.newRootScreen(initialFragmentKey)
+//        navigator.applyCommand(Replace(initialFragmentKey, null))
     }
 
     private fun initNavigationView() {

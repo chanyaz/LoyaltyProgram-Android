@@ -28,11 +28,13 @@ abstract class NavigationFragment : Fragment() {
         arguments?.getString(KEY_EXTRA_INITIAL_FRAGMENT) ?: throw NavigationException("Initial fragment key should be present")
     }
 
-    private val navigator: Navigator = object : SupportFragmentNavigator(childFragmentManager, R.id.navigationContainer) {
-        override fun createFragment(screenKey: String, data: Any?): Fragment =
-                this@NavigationFragment.createFragment(screenKey, data)
-        override fun exit() = activity?.finish() ?: Unit
-        override fun showSystemMessage(message: String?) = Unit
+    private val navigator: Navigator by lazy {
+        object : SupportFragmentNavigator(childFragmentManager, R.id.navigationContainer) {
+            override fun createFragment(screenKey: String, data: Any?): Fragment =
+                    this@NavigationFragment.createFragment(screenKey, data)
+            override fun exit() = activity?.finish() ?: Unit
+            override fun showSystemMessage(message: String?) = Unit
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
@@ -41,7 +43,7 @@ abstract class NavigationFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        childFragmentManager.findFragmentById(R.id.navigationContainer)?.let {
+        if (childFragmentManager.findFragmentById(R.id.navigationContainer) == null) {
             ciceroneHolder.getCiceroneByTag(containerName).router.newRootScreen(initialFragmentKey, null)
         }
     }
@@ -57,11 +59,19 @@ abstract class NavigationFragment : Fragment() {
     }
 
     companion object {
-        @JvmStatic
-        protected val KEY_EXTRA_CONTAINER_NAME = "KEY_EXTRA_CONTAINER_NAME"
-        @JvmStatic
-        protected val KEY_EXTRA_INITIAL_FRAGMENT = "KEY_EXTRA_INITIAL_FRAGMENT"
+//        @JvmStatic
+        const val KEY_EXTRA_CONTAINER_NAME = "KEY_EXTRA_CONTAINER_NAME"
+//        @JvmStatic
+        const val KEY_EXTRA_INITIAL_FRAGMENT = "KEY_EXTRA_INITIAL_FRAGMENT"
 
+        inline fun <reified NF : NavigationFragment> newInstance(containerName: String, initialFragmentKey: String, fragment: NF): NF {
+            return fragment.apply {
+                arguments = Bundle().apply {
+                    putString(KEY_EXTRA_CONTAINER_NAME, containerName)
+                    putString(KEY_EXTRA_INITIAL_FRAGMENT, initialFragmentKey)
+                }
+            }
+        }
 //        fun newInstance(containerName: String, initialFragmentKey: String): NavigationFragment =
 //                NavigationFragment().apply {
 //                    arguments = Bundle().apply {
