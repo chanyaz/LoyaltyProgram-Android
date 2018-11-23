@@ -7,10 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.loyalty.core.BaseApp
 import com.loyalty.core.R
-import com.loyalty.core.presentation.BaseEvent
-import com.loyalty.core.presentation.BaseState
+import com.loyalty.core.exceptions.NavigationException
 import com.loyalty.core.presentation.navigation.subnavigation.LocalCiceroneHolder
-import com.loyalty.core.presentation.view.BaseFragment
+import com.loyalty.core.presentation.base.view.BaseFragment
 import org.koin.android.ext.android.inject
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.android.SupportFragmentNavigator
@@ -19,14 +18,14 @@ abstract class NavigationFragment : Fragment() {
 
     val ciceroneHolder: LocalCiceroneHolder by inject()
 
-    abstract fun createFragment(screenKey: String, data: Any?): BaseFragment<BaseState, BaseEvent>
+    abstract fun createFragment(screenKey: String, data: Any?): BaseFragment
 
     protected val containerName: String by lazy {
-        arguments?.getString(KEY_EXTRA_CONTAINER_NAME) ?: throw RuntimeException("Container name should be present")
+        arguments?.getString(KEY_EXTRA_CONTAINER_NAME) ?: throw NavigationException("Container name should be present")
     }
 
     protected val initialFragmentKey: String by lazy {
-        arguments?.getString(KEY_EXTRA_INITIAL_FRAGMENT) ?: throw RuntimeException("Initial fragment key should be present")
+        arguments?.getString(KEY_EXTRA_INITIAL_FRAGMENT) ?: throw NavigationException("Initial fragment key should be present")
     }
 
     private val navigator: Navigator = object : SupportFragmentNavigator(childFragmentManager, R.id.navigationContainer) {
@@ -43,7 +42,7 @@ abstract class NavigationFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         childFragmentManager.findFragmentById(R.id.navigationContainer)?.let {
-            ciceroneHolder.getCiceroneByTag(containerName).router.replaceScreen(initialFragmentKey, null)
+            ciceroneHolder.getCiceroneByTag(containerName).router.newRootScreen(initialFragmentKey, null)
         }
     }
 
@@ -58,8 +57,10 @@ abstract class NavigationFragment : Fragment() {
     }
 
     companion object {
-        protected const val KEY_EXTRA_CONTAINER_NAME = "KEY_EXTRA_CONTAINER_NAME"
-        protected const val KEY_EXTRA_INITIAL_FRAGMENT = "KEY_EXTRA_INITIAL_FRAGMENT"
+        @JvmStatic
+        protected val KEY_EXTRA_CONTAINER_NAME = "KEY_EXTRA_CONTAINER_NAME"
+        @JvmStatic
+        protected val KEY_EXTRA_INITIAL_FRAGMENT = "KEY_EXTRA_INITIAL_FRAGMENT"
 
 //        fun newInstance(containerName: String, initialFragmentKey: String): NavigationFragment =
 //                NavigationFragment().apply {

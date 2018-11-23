@@ -6,15 +6,13 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.view.MenuItem
 import com.loyalty.core.BaseApp
-import com.loyalty.core.presentation.BaseEvent
-import com.loyalty.core.presentation.BaseState
-import com.loyalty.core.presentation.view.BaseActivity
+import com.loyalty.core.presentation.base.view.BaseActivity
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.android.SupportFragmentNavigator
+import ru.terrakok.cicerone.commands.Forward
 import ru.terrakok.cicerone.commands.Replace
 
-abstract class NavigationActivity<S: BaseState, E: BaseEvent>
-    : BaseActivity<S, E>() {
+abstract class NavigationActivity : BaseActivity() {
 
     abstract val navigationBar: BottomNavigationView
 

@@ -4,9 +4,9 @@
 //import android.support.v4.app.FragmentManager
 //import android.support.v4.app.FragmentPagerAdapter
 //import com.loyalty.core.inline.ViewId
-//import com.loyalty.core.presentation.BaseEvent
-//import com.loyalty.core.presentation.BaseState
-//import com.loyalty.core.presentation.view.BaseFragment
+//import com.loyalty.core.presentation.base.BaseEvent
+//import com.loyalty.core.presentation.base.BaseState
+//import com.loyalty.core.presentation.base.BaseFragment
 //
 //class NavigationAdapter(navigationStacks: List<Pair<ViewId, BaseFragment<BaseState, BaseEvent>>>, fm: FragmentManager) : FragmentPagerAdapter(fm) {
 //
