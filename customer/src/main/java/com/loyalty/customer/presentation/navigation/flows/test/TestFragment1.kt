@@ -18,7 +18,7 @@ class TestFragment1 : MvvmFragment<BaseState, BaseEvent>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         test1.setOnClickListener {
-
+            viewModel.moveToTwo()
         }
     }
 }

@@ -7,7 +7,7 @@ import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 
 val viewModelModule = module {
-    viewModel { TestViewModel1(get()) }
-    viewModel { TestViewModel2(get()) }
-    viewModel { TestViewModel3(get()) }
+    viewModel { TestViewModel1() }
+    viewModel { TestViewModel2() }
+    viewModel { TestViewModel3() }
 }

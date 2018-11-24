@@ -6,7 +6,9 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.loyalty.core.presentation.navigation.NavigationFragment
 import io.reactivex.disposables.CompositeDisposable
+import ru.terrakok.cicerone.Router
 
 abstract class BaseFragment : Fragment() {
 
@@ -14,6 +16,10 @@ abstract class BaseFragment : Fragment() {
     abstract val layout: Int
 
     protected val lifecycleDisposable: CompositeDisposable = CompositeDisposable()
+
+    val router: Router? by lazy {
+        (parentFragment as? NavigationFragment)?.cicerone?.router
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(layout, container, false)

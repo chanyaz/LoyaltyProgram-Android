@@ -1,22 +1,32 @@
 package com.loyalty.core.presentation.navigation
 
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.loyalty.core.BaseApp
 import com.loyalty.core.R
 import com.loyalty.core.exceptions.NavigationException
 import com.loyalty.core.presentation.navigation.subnavigation.LocalCiceroneHolder
 import com.loyalty.core.presentation.base.view.BaseFragment
+import kotlinx.android.synthetic.main.navigation_fragment.navigationContainer
 import org.koin.android.ext.android.inject
+import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.Navigator
+import ru.terrakok.cicerone.Router
 import ru.terrakok.cicerone.android.SupportFragmentNavigator
+import java.util.Random
 
 abstract class NavigationFragment : Fragment() {
 
+    /* *
+     * The holder should be used only for obtaining Cicerone<Router> instance
+     * */
     val ciceroneHolder: LocalCiceroneHolder by inject()
+    val cicerone: Cicerone<Router> by lazy {
+        ciceroneHolder.getCiceroneByTag(containerName)
+    }
 
     abstract fun createFragment(screenKey: String, data: Any?): BaseFragment
 
@@ -40,28 +50,35 @@ abstract class NavigationFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.navigation_fragment, container, false)
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val rnd = Random()
+        val color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
+
+        navigationContainer.setBackgroundColor(color)
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        if (childFragmentManager.findFragmentById(R.id.navigationContainer) == null) {
-            ciceroneHolder.getCiceroneByTag(containerName).router.newRootScreen(initialFragmentKey, null)
+        if (childFragmentManager.findFragmentById(R.id.navigationContainer) == null) { /* todo the issue is here! */
+            cicerone.router.replaceScreen(initialFragmentKey, null)
         }
     }
 
     override fun onResume() {
         super.onResume()
-        (activity?.application as? BaseApp)?.navigationHolder?.setNavigator(navigator)
+        cicerone.navigatorHolder.setNavigator(navigator)
     }
 
     override fun onPause() {
         super.onPause()
-        (activity?.application as? BaseApp)?.navigationHolder?.removeNavigator()
+        cicerone.navigatorHolder.removeNavigator()
     }
 
     companion object {
-//        @JvmStatic
         const val KEY_EXTRA_CONTAINER_NAME = "KEY_EXTRA_CONTAINER_NAME"
-//        @JvmStatic
         const val KEY_EXTRA_INITIAL_FRAGMENT = "KEY_EXTRA_INITIAL_FRAGMENT"
 
         inline fun <reified NF : NavigationFragment> newInstance(containerName: String, initialFragmentKey: String, fragment: NF): NF {
@@ -72,13 +89,6 @@ abstract class NavigationFragment : Fragment() {
                 }
             }
         }
-//        fun newInstance(containerName: String, initialFragmentKey: String): NavigationFragment =
-//                NavigationFragment().apply {
-//                    arguments = Bundle().apply {
-//                        putString(KEY_EXTRA_CONTAINER_NAME, containerName)
-//                        putString(KEY_EXTRA_INITIAL_FRAGMENT, initialFragmentKey)
-//                    }
-//                }
     }
 
 }
