@@ -5,6 +5,7 @@
 
     <color name="white">#ffffff</color>
     <color name="light_green">#49B9BA</color>
+    <color name="lighter_green">#a7dede</color>
 
     <color name="pale_grey">#F5F3FA</color>
     <color name="dark_grey">#8B93A9</color>
@@ -21,7 +22,7 @@
     <!-- Bottom navigation -->
 
     <color name="navigation_menu_background">@color/color_primary</color>
-    <color name="navigation_menu_item_tint">@color/color_accent</color>
-    <color name="navigation_menu_text_color">@color/color_accent</color>
+    <color name="navigation_menu_item_active">@color/color_accent</color>
+    <color name="navigation_menu_item_inactive">@color/lighter_green</color>
 
 </resources>

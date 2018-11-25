@@ -47,6 +47,7 @@ abstract class NavigationActivity : BaseActivity() {
         fragmentKey?.let {
             selectTab(it.navigationFragmentName)
         }
+        item.isChecked = true
         return false
     }
 
@@ -64,10 +65,6 @@ abstract class NavigationActivity : BaseActivity() {
             newFragment?.let { show(newFragment) }
             commitNow()
         }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return selectMenuItem(item)
     }
 
     override fun onBackPressed() {
