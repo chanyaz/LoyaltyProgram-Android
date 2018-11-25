@@ -36,15 +36,6 @@ class CustomerNavigationActivity : NavigationActivity() {
             KEY_NAVIGATION_PROFILE -> NavigationFragment.newInstance(KEY_NAVIGATION_PROFILE, "KEY_FIRST", ProfileNavigationFragment())
             else -> throw NavigationException("Navigation container key doesn't exist")
         }
-
-//        return when (screenKey) {
-//            KEY_NAVIGATION_QR -> NavigationFragment.newInstance(KEY_NAVIGATION_QR, "KEY_FIRST", QrNavigationFragment())
-//            KEY_NAVIGATION_VENUES -> VenuesNavigationFragment.newInstance(KEY_NAVIGATION_VENUES)
-//            KEY_NAVIGATION_CARDS -> CardsNavigationFragment.newInstance(KEY_NAVIGATION_CARDS)
-//            KEY_NAVIGATION_MAP -> MapNavigationFragment.newInstance(KEY_NAVIGATION_MAP)
-//            KEY_NAVIGATION_PROFILE -> ProfileNavigationFragment.newInstance(KEY_NAVIGATION_PROFILE)
-//            else -> throw NavigationException("Navigation container key doesn't exist")
-//        }
     }
 
     companion object {

@@ -1,6 +1,5 @@
 package com.loyalty.core.presentation.navigation
 
-import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -11,13 +10,11 @@ import com.loyalty.core.exceptions.NavigationException
 import com.loyalty.core.presentation.navigation.subnavigation.LocalCiceroneHolder
 import com.loyalty.core.presentation.base.view.BaseFragment
 import com.loyalty.core.presentation.base.view.OnBackPressedListener
-import kotlinx.android.synthetic.main.navigation_fragment.navigationContainer
 import org.koin.android.ext.android.inject
 import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.Router
 import ru.terrakok.cicerone.android.SupportFragmentNavigator
-import java.util.Random
 
 abstract class NavigationFragment : Fragment(), OnBackPressedListener {
 
@@ -30,8 +27,6 @@ abstract class NavigationFragment : Fragment(), OnBackPressedListener {
     }
 
     private val navigationContainerId: Int get() = R.id.navigationContainer
-
-    /* todo add global router :) */
 
     abstract fun createFragment(screenKey: String, data: Any?): BaseFragment
 
@@ -54,15 +49,6 @@ abstract class NavigationFragment : Fragment(), OnBackPressedListener {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.navigation_fragment, container, false)
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val rnd = Random()
-        val color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
-
-        navigationContainer.setBackgroundColor(color)
-    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
