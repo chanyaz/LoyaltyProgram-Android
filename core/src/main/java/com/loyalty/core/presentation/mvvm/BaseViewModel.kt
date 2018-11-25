@@ -10,7 +10,7 @@ import ru.terrakok.cicerone.Router
 abstract class BaseViewModel<S, E> : ViewModel() {
 
     protected val disposables: CompositeDisposable = CompositeDisposable()
-    protected var router: Router? = null
+    protected lateinit var router: Router
 
     private val stateSubject: BehaviorSubject<S> = BehaviorSubject.create()
     val stateObservable: Observable<S> = stateSubject
@@ -18,7 +18,7 @@ abstract class BaseViewModel<S, E> : ViewModel() {
     private val eventSubject: PublishSubject<E> = PublishSubject.create()
     val eventObservable: Observable<E> = eventSubject
 
-    fun initRouter(router: Router?) {
+    fun initRouter(router: Router) {
         this.router = router
     }
 

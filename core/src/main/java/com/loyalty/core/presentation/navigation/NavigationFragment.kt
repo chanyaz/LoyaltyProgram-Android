@@ -10,6 +10,7 @@ import com.loyalty.core.R
 import com.loyalty.core.exceptions.NavigationException
 import com.loyalty.core.presentation.navigation.subnavigation.LocalCiceroneHolder
 import com.loyalty.core.presentation.base.view.BaseFragment
+import com.loyalty.core.presentation.base.view.OnBackPressedListener
 import kotlinx.android.synthetic.main.navigation_fragment.navigationContainer
 import org.koin.android.ext.android.inject
 import ru.terrakok.cicerone.Cicerone
@@ -18,7 +19,7 @@ import ru.terrakok.cicerone.Router
 import ru.terrakok.cicerone.android.SupportFragmentNavigator
 import java.util.Random
 
-abstract class NavigationFragment : Fragment() {
+abstract class NavigationFragment : Fragment(), OnBackPressedListener {
 
     /* *
      * The holder should be used only for obtaining Cicerone<Router> instance
@@ -27,6 +28,10 @@ abstract class NavigationFragment : Fragment() {
     val cicerone: Cicerone<Router> by lazy {
         ciceroneHolder.getCiceroneByTag(containerName)
     }
+
+    private val navigationContainerId: Int get() = R.id.navigationContainer
+
+    /* todo add global router :) */
 
     abstract fun createFragment(screenKey: String, data: Any?): BaseFragment
 
@@ -39,7 +44,7 @@ abstract class NavigationFragment : Fragment() {
     }
 
     private val navigator: Navigator by lazy {
-        object : SupportFragmentNavigator(childFragmentManager, R.id.navigationContainer) {
+        object : SupportFragmentNavigator(childFragmentManager, navigationContainerId) {
             override fun createFragment(screenKey: String, data: Any?): Fragment =
                     this@NavigationFragment.createFragment(screenKey, data)
             override fun exit() = activity?.finish() ?: Unit
@@ -62,7 +67,7 @@ abstract class NavigationFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        if (childFragmentManager.findFragmentById(R.id.navigationContainer) == null) { /* todo the issue is here! */
+        if (childFragmentManager.findFragmentById(navigationContainerId) == null) {
             cicerone.router.replaceScreen(initialFragmentKey, null)
         }
     }
@@ -75,6 +80,14 @@ abstract class NavigationFragment : Fragment() {
     override fun onPause() {
         super.onPause()
         cicerone.navigatorHolder.removeNavigator()
+    }
+
+    override fun onBackPressed(): Boolean {
+        val fragment = childFragmentManager.findFragmentById(navigationContainerId)
+        if ((fragment as? OnBackPressedListener)?.onBackPressed() == false) {
+            (activity as? NavigationActivity)?.router?.exit()
+        }
+        return true
     }
 
     companion object {

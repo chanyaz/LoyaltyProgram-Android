@@ -13,7 +13,7 @@ import timber.log.Timber
 interface ViewModelOwner<S: BaseState, E: BaseEvent> {
 
     val viewModel: BaseViewModel<S, E>
-    val router: Router?
+    val router: Router
 
     fun initBaseViewModel(compositeDisposable: CompositeDisposable) {
         compositeDisposable += viewModel.stateObservable

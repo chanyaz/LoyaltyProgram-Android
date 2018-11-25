@@ -5,6 +5,9 @@ import android.support.annotation.IdRes
 import android.support.design.widget.BottomNavigationView
 import android.view.MenuItem
 import com.loyalty.core.presentation.base.view.BaseActivity
+import com.loyalty.core.presentation.base.view.OnBackPressedListener
+import org.koin.android.ext.android.inject
+import ru.terrakok.cicerone.Router
 
 abstract class NavigationActivity : BaseActivity() {
 
@@ -22,6 +25,8 @@ abstract class NavigationActivity : BaseActivity() {
     abstract val containerId: Int
 
     abstract fun createNavigationFragment(screenKey: String): NavigationFragment
+
+    val router: Router by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +67,15 @@ abstract class NavigationActivity : BaseActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return selectMenuItem(item)
+    }
+
+    override fun onBackPressed() {
+        val fragment = supportFragmentManager.fragments.find {
+            it.isVisible
+        }
+        if ((fragment as? OnBackPressedListener)?.onBackPressed() == false) {
+            router.exit()
+        }
     }
 
 }
