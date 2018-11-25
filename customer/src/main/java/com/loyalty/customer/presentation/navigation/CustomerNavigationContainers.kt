@@ -12,15 +12,15 @@ enum class CustomerNavigationContainers : NavigationContainer {
         override val startingPoint: String = CustomerScreens.KEY_FIRST.name
     },
     Cards {
-        override val navigationFragmentName: String = CustomerTabs.KEY_NAVIGATION_VENUES.name
-        override val startingPoint: String = CustomerScreens.KEY_FIRST.name
-    },
-    Map {
         override val navigationFragmentName: String = CustomerTabs.KEY_NAVIGATION_CARDS.name
         override val startingPoint: String = CustomerScreens.KEY_FIRST.name
     },
-    Profile {
+    Map {
         override val navigationFragmentName: String = CustomerTabs.KEY_NAVIGATION_MAP.name
+        override val startingPoint: String = CustomerScreens.KEY_FIRST.name
+    },
+    Profile {
+        override val navigationFragmentName: String = CustomerTabs.KEY_NAVIGATION_PROFILE.name
         override val startingPoint: String = CustomerScreens.KEY_FIRST.name
     }
 }
