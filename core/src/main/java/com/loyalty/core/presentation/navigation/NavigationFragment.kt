@@ -26,8 +26,6 @@ abstract class NavigationFragment : Fragment(), OnBackPressedListener {
         ciceroneHolder.getCiceroneByTag(containerName)
     }
 
-    private val navigationContainerId: Int get() = R.id.navigationContainer
-
     abstract fun createFragment(screenKey: String, data: Any?): BaseFragment
 
     protected val containerName: String by lazy {
@@ -37,6 +35,8 @@ abstract class NavigationFragment : Fragment(), OnBackPressedListener {
     protected val initialFragmentKey: String by lazy {
         arguments?.getString(KEY_EXTRA_INITIAL_FRAGMENT) ?: throw NavigationException("Initial fragment key should be present")
     }
+
+    private val navigationContainerId: Int get() = R.id.navigationContainer
 
     private val navigator: Navigator by lazy {
         object : SupportFragmentNavigator(childFragmentManager, navigationContainerId) {
@@ -80,11 +80,11 @@ abstract class NavigationFragment : Fragment(), OnBackPressedListener {
         const val KEY_EXTRA_CONTAINER_NAME = "KEY_EXTRA_CONTAINER_NAME"
         const val KEY_EXTRA_INITIAL_FRAGMENT = "KEY_EXTRA_INITIAL_FRAGMENT"
 
-        inline fun <reified NF : NavigationFragment> newInstance(containerName: String, initialFragmentKey: String, fragment: NF): NF {
+        inline fun <reified NF : NavigationFragment> newInstance(navigationContainer: NavigationContainer, fragment: NF): NF {
             return fragment.apply {
                 arguments = Bundle().apply {
-                    putString(KEY_EXTRA_CONTAINER_NAME, containerName)
-                    putString(KEY_EXTRA_INITIAL_FRAGMENT, initialFragmentKey)
+                    putString(KEY_EXTRA_CONTAINER_NAME, navigationContainer.navigationFragmentName)
+                    putString(KEY_EXTRA_INITIAL_FRAGMENT, navigationContainer.startingPoint)
                 }
             }
         }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.annotation.IdRes
 import android.support.design.widget.BottomNavigationView
 import android.view.MenuItem
+import com.loyalty.core.exceptions.NavigationException
 import com.loyalty.core.presentation.base.view.BaseActivity
 import com.loyalty.core.presentation.base.view.OnBackPressedListener
 import org.koin.android.ext.android.inject
@@ -14,10 +15,10 @@ abstract class NavigationActivity : BaseActivity() {
     abstract val navigationBar: BottomNavigationView
 
     /* *
-     * A map of bottom navigation button ids to the tab names.
-     * Tab names are used as keys during navigation.
+     * A map of bottom navigation button ids to the tab navigation.
+     * Tab navigationFragmentNames are used as keys during navigation.
      * */
-    abstract val idToKeyMap: Map<Int, String>
+    abstract val idToContainer: Map<Int, NavigationContainer>
 
     abstract val initialFragmentKey: String
 
@@ -42,9 +43,9 @@ abstract class NavigationActivity : BaseActivity() {
     }
 
     private fun selectMenuItem(item: MenuItem): Boolean {
-        val fragmentKey = idToKeyMap[item.itemId]
+        val fragmentKey = idToContainer[item.itemId]
         fragmentKey?.let {
-            selectTab(fragmentKey)
+            selectTab(it.navigationFragmentName)
         }
         return false
     }
@@ -77,5 +78,10 @@ abstract class NavigationActivity : BaseActivity() {
             router.exit()
         }
     }
+
+    protected fun findNavigationMap(screenKey: String): NavigationContainer =
+            idToContainer.entries.find {
+                it.value.navigationFragmentName == screenKey
+            }?.value ?: throw NavigationException("Navigation container key doesn't exist")
 
 }
