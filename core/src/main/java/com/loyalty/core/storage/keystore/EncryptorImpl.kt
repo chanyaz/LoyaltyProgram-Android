@@ -28,6 +28,9 @@ class EncryptorImpl(private val context: Context, private val computation: Sched
         load(null)
     }
 
+    /* *
+     * Note that encryption and decryption uses this function by default!
+     * */
     override fun createNewKeys(): Completable {
         return Completable.fromCallable {
             if (keyStore.containsAlias(alias))

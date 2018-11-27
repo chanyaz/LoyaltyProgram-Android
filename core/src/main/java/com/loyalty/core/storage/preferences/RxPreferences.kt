@@ -10,7 +10,7 @@ import io.reactivex.Single
  * Scheduler:
  * all the operations with preferences should be made on the io Scheduler
  */
-abstract class RxPreferences(context: Context, preferencesName: String, val io: Scheduler) {
+abstract class RxPreferences(context: Context, preferencesName: String, protected val io: Scheduler) {
 
     private val preferences = context.getSharedPreferences(preferencesName, Context.MODE_PRIVATE)
 
