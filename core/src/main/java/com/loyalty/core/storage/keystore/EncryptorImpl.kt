@@ -22,7 +22,7 @@ import javax.security.auth.x500.X500Principal
  * Scheduler:
  * all the encryption operations should be made on the computation Scheduler
  */
-class EncryptorImpl(private val context: Context, private val computation: Scheduler): Encryptor {
+class EncryptorImpl(private val context: Context, private val computation: Scheduler, private val alias: String): Encryptor {
 
     private val keyStore: KeyStore = KeyStore.getInstance("AndroidKeyStore").apply {
         load(null)
@@ -108,7 +108,4 @@ class EncryptorImpl(private val context: Context, private val computation: Sched
                 }.subscribeOn(computation)
     }
 
-    companion object {
-        private const val alias = "loyalty_alias"
-    }
 }
