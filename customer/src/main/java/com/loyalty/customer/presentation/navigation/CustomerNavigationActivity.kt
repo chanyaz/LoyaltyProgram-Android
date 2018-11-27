@@ -10,6 +10,7 @@ class CustomerNavigationActivity : NavigationActivity() {
     override val layout: Int get() = R.layout.navigation_activity
 
     override val navigationBar: BottomNavigationView get() = navigationCustomerBar
+
     override val idToContainer: Map<Int, CustomerNavigationContainers> = mapOf(
             R.id.buttonNavigationQr to CustomerNavigationContainers.Qr,
             R.id.buttonNavigationVenues to CustomerNavigationContainers.Venues,
@@ -18,6 +19,7 @@ class CustomerNavigationActivity : NavigationActivity() {
             R.id.buttonNavigationProfile to CustomerNavigationContainers.Profile
     )
     override val initialFragmentKey: String get() = CustomerNavigationContainers.Qr.navigationFragmentName
+
     override val containerId: Int get() = R.id.navigationCustomerContainer
 
     override fun createNavigationFragment(screenKey: String): CustomerNavigationFragment =
