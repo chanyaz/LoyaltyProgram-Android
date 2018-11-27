@@ -4,6 +4,7 @@ import android.support.multidex.MultiDexApplication
 import com.loyalty.core.logging.DebugTree
 import com.loyalty.core.logging.ReleaseTree
 import com.loyalty.core.di.ciceroneModule
+import com.loyalty.core.di.schedulerModule
 import org.koin.android.ext.android.startKoin
 import org.koin.dsl.module.Module
 import ru.terrakok.cicerone.Cicerone
@@ -16,7 +17,8 @@ abstract class BaseApp: MultiDexApplication() {
 
     val router: Router get() = cicerone.router
 
-    private val coreModules: List<Module> = listOf(ciceroneModule)
+    private val coreModules: List<Module> = listOf(ciceroneModule, schedulerModule)
+
     abstract val clientModules: List<Module>
 
     override fun onCreate() {
