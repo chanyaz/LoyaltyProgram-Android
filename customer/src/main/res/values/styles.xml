@@ -23,8 +23,8 @@
     <style name="Zalik.BottomNavigationView">
         <item name="android:background">@color/navigation_menu_background</item>
         <item name="labelVisibilityMode">labeled</item>
-        <item name="itemIconTint">@color/navigation_menu_item_tint</item>
-        <item name="itemTextColor">@color/navigation_menu_text_color</item>
+        <item name="itemIconTint">@drawable/bottom_navigation_color_selector</item>
+        <item name="itemTextColor">@drawable/bottom_navigation_color_selector</item>
     </style>
 
 </resources>

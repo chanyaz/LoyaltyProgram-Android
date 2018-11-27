@@ -5,18 +5,26 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.loyalty.core.BaseApp
 import com.loyalty.core.R
 import com.loyalty.core.exceptions.NavigationException
 import com.loyalty.core.presentation.navigation.subnavigation.LocalCiceroneHolder
 import com.loyalty.core.presentation.base.view.BaseFragment
+import com.loyalty.core.presentation.base.view.OnBackPressedListener
 import org.koin.android.ext.android.inject
+import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.Navigator
+import ru.terrakok.cicerone.Router
 import ru.terrakok.cicerone.android.SupportFragmentNavigator
 
-abstract class NavigationFragment : Fragment() {
+abstract class NavigationFragment : Fragment(), OnBackPressedListener {
 
+    /* *
+     * The holder should be used only for obtaining Cicerone<Router> instance
+     * */
     val ciceroneHolder: LocalCiceroneHolder by inject()
+    val cicerone: Cicerone<Router> by lazy {
+        ciceroneHolder.getCiceroneByTag(containerName)
+    }
 
     abstract fun createFragment(screenKey: String, data: Any?): BaseFragment
 
@@ -28,11 +36,15 @@ abstract class NavigationFragment : Fragment() {
         arguments?.getString(KEY_EXTRA_INITIAL_FRAGMENT) ?: throw NavigationException("Initial fragment key should be present")
     }
 
-    private val navigator: Navigator = object : SupportFragmentNavigator(childFragmentManager, R.id.navigationContainer) {
-        override fun createFragment(screenKey: String, data: Any?): Fragment =
-                this@NavigationFragment.createFragment(screenKey, data)
-        override fun exit() = activity?.finish() ?: Unit
-        override fun showSystemMessage(message: String?) = Unit
+    private val navigationContainerId: Int get() = R.id.navigationContainer
+
+    private val navigator: Navigator by lazy {
+        object : SupportFragmentNavigator(childFragmentManager, navigationContainerId) {
+            override fun createFragment(screenKey: String, data: Any?): Fragment =
+                    this@NavigationFragment.createFragment(screenKey, data)
+            override fun exit() = activity?.finish() ?: Unit
+            override fun showSystemMessage(message: String?) = Unit
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
@@ -41,34 +53,41 @@ abstract class NavigationFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        childFragmentManager.findFragmentById(R.id.navigationContainer)?.let {
-            ciceroneHolder.getCiceroneByTag(containerName).router.newRootScreen(initialFragmentKey, null)
+        if (childFragmentManager.findFragmentById(navigationContainerId) == null) {
+            cicerone.router.replaceScreen(initialFragmentKey, null)
         }
     }
 
     override fun onResume() {
         super.onResume()
-        (activity?.application as? BaseApp)?.navigationHolder?.setNavigator(navigator)
+        cicerone.navigatorHolder.setNavigator(navigator)
     }
 
     override fun onPause() {
         super.onPause()
-        (activity?.application as? BaseApp)?.navigationHolder?.removeNavigator()
+        cicerone.navigatorHolder.removeNavigator()
+    }
+
+    override fun onBackPressed(): Boolean {
+        val fragment = childFragmentManager.findFragmentById(navigationContainerId)
+        if ((fragment as? OnBackPressedListener)?.onBackPressed() == false) {
+            (activity as? NavigationActivity)?.router?.exit()
+        }
+        return true
     }
 
     companion object {
-        @JvmStatic
-        protected val KEY_EXTRA_CONTAINER_NAME = "KEY_EXTRA_CONTAINER_NAME"
-        @JvmStatic
-        protected val KEY_EXTRA_INITIAL_FRAGMENT = "KEY_EXTRA_INITIAL_FRAGMENT"
+        const val KEY_EXTRA_CONTAINER_NAME = "KEY_EXTRA_CONTAINER_NAME"
+        const val KEY_EXTRA_INITIAL_FRAGMENT = "KEY_EXTRA_INITIAL_FRAGMENT"
 
-//        fun newInstance(containerName: String, initialFragmentKey: String): NavigationFragment =
-//                NavigationFragment().apply {
-//                    arguments = Bundle().apply {
-//                        putString(KEY_EXTRA_CONTAINER_NAME, containerName)
-//                        putString(KEY_EXTRA_INITIAL_FRAGMENT, initialFragmentKey)
-//                    }
-//                }
+        inline fun <reified NF : NavigationFragment> newInstance(navigationContainer: NavigationContainer, fragment: NF): NF {
+            return fragment.apply {
+                arguments = Bundle().apply {
+                    putString(KEY_EXTRA_CONTAINER_NAME, navigationContainer.navigationFragmentName)
+                    putString(KEY_EXTRA_INITIAL_FRAGMENT, navigationContainer.startingPoint)
+                }
+            }
+        }
     }
 
 }
