@@ -1,5 +1,7 @@
 package com.loyalty.customer.presentation.navigation
 
+import android.content.Context
+import android.content.Intent
 import android.support.design.widget.BottomNavigationView
 import com.loyalty.core.presentation.navigation.NavigationActivity
 import com.loyalty.customer.R
@@ -24,5 +26,11 @@ class CustomerNavigationActivity : NavigationActivity() {
 
     override fun createNavigationFragment(screenKey: String): CustomerNavigationFragment =
             CustomerNavigationFragment.newInstance(findNavigationMap(screenKey))
+
+    companion object {
+        /* todo add separate menu for users which are not logged in */
+        fun newIntent(context: Context): Intent =
+                Intent(context, CustomerNavigationActivity::class.java)
+    }
 
 }
