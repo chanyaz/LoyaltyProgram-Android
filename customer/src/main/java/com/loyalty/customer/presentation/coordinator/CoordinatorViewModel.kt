@@ -18,11 +18,7 @@ class CoordinatorViewModel(
         subscribe(customerPreferences.isUserLoggedIn()
                 .observeOnUi()
                 .subscribeOrError("Unexpected error") { isUserLoggedIn ->
-                    triggerEvent(if (isUserLoggedIn)
-                        CoordinatorEvent.UserLoggedIn
-                    else
-                        CoordinatorEvent.UserNotLoggedIn
-                    )
+                    triggerEvent(CoordinatorEvent.CreateNavigation(isUserLoggedIn))
                 }
         )
     }

@@ -18,8 +18,8 @@ class CoordinatorActivity : MvvmActivity<BaseState, CoordinatorEvent>() {
     override fun processEvent(event: CoordinatorEvent) {
         super.processEvent(event)
         when (event) {
-            CoordinatorEvent.UserLoggedIn -> startActivity(CustomerNavigationActivity.newIntent(this))
-            CoordinatorEvent.UserNotLoggedIn -> startActivity(CustomerNavigationActivity.newIntent(this))
+            is CoordinatorEvent.CreateNavigation ->
+                startActivity(CustomerNavigationActivity.newIntent(this, event.isUserLoggedIn))
         }
     }
 

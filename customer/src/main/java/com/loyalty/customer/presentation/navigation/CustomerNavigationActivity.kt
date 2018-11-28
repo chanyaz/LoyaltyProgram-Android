@@ -21,13 +21,30 @@ class CustomerNavigationActivity : NavigationActivity() {
 
     override val containerId: Int get() = R.id.navigationCustomerContainer
 
+    private val isUserLoggedIn: Boolean by lazy {
+        intent?.extras?.getBoolean(KEY_IS_USER_LOGGED_IN) ?: throw NoArgumentException()
+    }
+
     override fun createNavigationFragment(screenKey: String): CustomerNavigationFragment =
             CustomerNavigationFragment.newInstance(findNavigationMap(screenKey))
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        inflateMenu()
+    }
+
+    private fun inflateMenu() {
+        navigationBar.inflateMenu(if (isUserLoggedIn) R.menu.navigation_menu else R.menu.navigation_menu_not_logged)
+    }
+
     companion object {
-        /* todo add separate menu for users which are not logged in */
-        fun newIntent(context: Context): Intent =
-                Intent(context, CustomerNavigationActivity::class.java)
+        private const val KEY_IS_USER_LOGGED_IN = "KEY_IS_USER_LOGGED_IN"
+
+        fun newIntent(context: Context, isUserLoggedIn: Boolean): Intent =
+                Intent(context, CustomerNavigationActivity::class.java).apply {
+                    putExtra(KEY_IS_USER_LOGGED_IN, isUserLoggedIn)
+                }
     }
 
 }

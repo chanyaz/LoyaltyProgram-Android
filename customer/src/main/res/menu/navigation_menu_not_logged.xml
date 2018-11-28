@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/buttonNavigationQr"
+        android:icon="@android:drawable/presence_online"
+        android:title="@string/navigation_qr" />
+
+    <item
+        android:id="@+id/buttonNavigationVenues"
+        android:icon="@android:drawable/presence_online"
+        android:title="@string/navigation_venues" />
+
+    <item
+        android:id="@+id/buttonNavigationMap"
+        android:icon="@android:drawable/presence_online"
+        android:title="@string/navigation_map" />
+
+</menu>
