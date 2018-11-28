@@ -9,4 +9,6 @@ interface CustomerPreferences {
 
     fun getCustomerToken(): Single<String>
 
+    fun isUserLoggedIn(): Single<Boolean>
+
 }

@@ -22,6 +22,10 @@ class CustomerPreferencesImpl(
             getString(CUSTOMER_TOKEN)
                     .flatMap { encryptor.decryptString(it) }
 
+    override fun isUserLoggedIn(): Single<Boolean> =
+            getString(CUSTOMER_TOKEN)
+                    .map { it.isNotEmpty() }
+
     companion object {
         private const val CUSTOMER_TOKEN = "CUSTOMER_TOKEN"
     }
