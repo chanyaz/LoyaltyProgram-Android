@@ -2,6 +2,8 @@
 
     <style name="Zalik"/>
 
+    <!-- Main theme -->
+
     <style name="Zalik.Default" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
@@ -15,6 +17,19 @@
 
     <!-- The theme should have the "AppTheme" name because of sucky microsoft, yey! -->
     <style name="AppTheme" parent="Zalik.Default" tools:ignore="PrivateResource" />
+
+    <!-- Transparent theme -->
+
+    <style name="Zalik.Transparent" parent="Theme.AppCompat">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/transparent_white</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <!-- Elements styles -->
 
     <style name="Zalik.Text">
         <item name="android:textColor">@color/dark_grey</item>
