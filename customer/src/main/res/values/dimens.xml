@@ -6,4 +6,18 @@
     <dimen name="design_bottom_navigation_text_size" tools:override="true">10dp</dimen>
     <dimen name="design_bottom_navigation_active_text_size" tools:override="true">10dp</dimen>
 
+    <!-- Margins -->
+
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_big">24dp</dimen>
+
+    <dimen name="margin_qr">@dimen/margin_big</dimen>
+
+    <!-- Text sizes -->
+
+    <dimen name="size_header">16dp</dimen>
+
+    <dimen name="size_qr_header">@dimen/size_header</dimen>
+
 </resources>

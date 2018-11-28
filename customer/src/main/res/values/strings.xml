@@ -9,4 +9,9 @@
     <string name="navigation_map">Карта</string>
     <string name="navigation_profile">Профиль</string>
 
+    <!-- Qr -->
+
+    <string name="qr_show_this_code">Покажите этот код кассиру</string>
+    <string name="qr_your_qr">Ваш QR-код</string>
+
 </resources>
