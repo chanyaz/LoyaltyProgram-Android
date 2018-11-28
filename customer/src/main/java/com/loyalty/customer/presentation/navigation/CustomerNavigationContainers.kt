@@ -1,36 +1,29 @@
 package com.loyalty.customer.presentation.navigation
 
 import com.loyalty.core.presentation.navigation.NavigationContainer
+import com.loyalty.customer.R
 
 enum class CustomerNavigationContainers : NavigationContainer {
     Qr {
-        override val navigationFragmentName: String = CustomerTabs.KEY_NAVIGATION_QR.name
+        override val navigationItemId: Int = R.id.buttonNavigationQr
         override val startingPoint: String = CustomerScreens.KEY_FIRST.name
     },
     Venues {
-        override val navigationFragmentName: String = CustomerTabs.KEY_NAVIGATION_VENUES.name
+        override val navigationItemId: Int = R.id.buttonNavigationVenues
         override val startingPoint: String = CustomerScreens.KEY_FIRST.name
     },
     Cards {
-        override val navigationFragmentName: String = CustomerTabs.KEY_NAVIGATION_CARDS.name
+        override val navigationItemId: Int = R.id.buttonNavigationCards
         override val startingPoint: String = CustomerScreens.KEY_FIRST.name
     },
     Map {
-        override val navigationFragmentName: String = CustomerTabs.KEY_NAVIGATION_MAP.name
+        override val navigationItemId: Int = R.id.buttonNavigationMap
         override val startingPoint: String = CustomerScreens.KEY_FIRST.name
     },
     Profile {
-        override val navigationFragmentName: String = CustomerTabs.KEY_NAVIGATION_PROFILE.name
+        override val navigationItemId: Int = R.id.buttonNavigationProfile
         override val startingPoint: String = CustomerScreens.KEY_FIRST.name
     }
-}
-
-enum class CustomerTabs {
-    KEY_NAVIGATION_QR,
-    KEY_NAVIGATION_VENUES,
-    KEY_NAVIGATION_CARDS,
-    KEY_NAVIGATION_MAP,
-    KEY_NAVIGATION_PROFILE
 }
 
 enum class CustomerScreens {

@@ -2,7 +2,9 @@ package com.loyalty.customer.presentation.navigation
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import com.loyalty.core.exceptions.NoArgumentException
 import com.loyalty.core.presentation.navigation.NavigationActivity
 import com.loyalty.customer.R
 import kotlinx.android.synthetic.main.navigation_activity.navigationCustomerBar
@@ -13,13 +15,8 @@ class CustomerNavigationActivity : NavigationActivity() {
 
     override val navigationBar: BottomNavigationView get() = navigationCustomerBar
 
-    override val idToContainer: Map<Int, CustomerNavigationContainers> = mapOf(
-            R.id.buttonNavigationQr to CustomerNavigationContainers.Qr,
-            R.id.buttonNavigationVenues to CustomerNavigationContainers.Venues,
-            R.id.buttonNavigationCards to CustomerNavigationContainers.Cards,
-            R.id.buttonNavigationMap to CustomerNavigationContainers.Map,
-            R.id.buttonNavigationProfile to CustomerNavigationContainers.Profile
-    )
+    override val navigationContainers: List<CustomerNavigationContainers> = CustomerNavigationContainers.values().toList()
+
     override val initialFragmentKey: String get() = CustomerNavigationContainers.Qr.navigationFragmentName
 
     override val containerId: Int get() = R.id.navigationCustomerContainer

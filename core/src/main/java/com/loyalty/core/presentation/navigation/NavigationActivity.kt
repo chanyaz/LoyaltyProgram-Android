@@ -18,7 +18,7 @@ abstract class NavigationActivity : BaseActivity() {
      * A map of bottom navigation button ids to the tab navigation.
      * Tab navigationFragmentNames are used as keys during navigation.
      * */
-    abstract val idToContainer: Map<Int, NavigationContainer>
+    abstract val navigationContainers: List<NavigationContainer>
 
     abstract val initialFragmentKey: String
 
@@ -43,7 +43,9 @@ abstract class NavigationActivity : BaseActivity() {
     }
 
     private fun selectMenuItem(item: MenuItem): Boolean {
-        val fragmentKey = idToContainer[item.itemId]
+        val fragmentKey = navigationContainers.find {
+            it.navigationItemId == item.itemId
+        }
         fragmentKey?.let {
             selectTab(it.navigationFragmentName)
         }
@@ -77,8 +79,8 @@ abstract class NavigationActivity : BaseActivity() {
     }
 
     protected fun findNavigationMap(screenKey: String): NavigationContainer =
-            idToContainer.entries.find {
-                it.value.navigationFragmentName == screenKey
-            }?.value ?: throw NavigationException("Navigation container key doesn't exist")
+            navigationContainers.find {
+                it.navigationFragmentName == screenKey
+            } ?: throw NavigationException("Navigation container key doesn't exist")
 
 }
