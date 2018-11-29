@@ -4,10 +4,10 @@ import com.loyalty.core.presentation.base.BaseState
 import com.loyalty.core.presentation.mvvm.BaseViewModel
 import com.loyalty.core.util.extensions.observeOnUi
 import com.loyalty.core.util.extensions.subscribeOrError
-import com.loyalty.customer.preferences.CustomerPreferences
+import com.loyalty.customer.preferences.customer.TokenPreferences
 
 class CoordinatorViewModel(
-        private val customerPreferences: CustomerPreferences
+        private val tokenPreferences: TokenPreferences
 ) : BaseViewModel<BaseState, CoordinatorEvent>() {
 
     init {
@@ -15,7 +15,7 @@ class CoordinatorViewModel(
     }
 
     private fun selectUserFlow() {
-        subscribe(customerPreferences.isUserLoggedIn()
+        subscribe(tokenPreferences.isUserLoggedIn()
                 .observeOnUi()
                 .subscribeOrError("Unexpected error") { isUserLoggedIn ->
                     triggerEvent(CoordinatorEvent.CreateNavigation(isUserLoggedIn))

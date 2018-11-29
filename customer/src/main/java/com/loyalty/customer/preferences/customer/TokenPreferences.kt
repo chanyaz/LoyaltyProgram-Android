@@ -1,9 +1,9 @@
-package com.loyalty.customer.preferences
+package com.loyalty.customer.preferences.customer
 
 import io.reactivex.Completable
 import io.reactivex.Single
 
-interface CustomerPreferences {
+interface TokenPreferences {
 
     fun saveCustomerToken(token: String): Completable
 

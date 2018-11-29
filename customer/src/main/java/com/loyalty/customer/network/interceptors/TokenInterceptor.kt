@@ -1,11 +1,11 @@
 package com.loyalty.customer.network.interceptors
 
-import com.loyalty.customer.preferences.CustomerPreferences
+import com.loyalty.customer.preferences.customer.TokenPreferences
 import okhttp3.Interceptor
 import okhttp3.Response
 
 class TokenInterceptor(
-        customerPreferences: CustomerPreferences
+        tokenPreferences: TokenPreferences
 ) : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
