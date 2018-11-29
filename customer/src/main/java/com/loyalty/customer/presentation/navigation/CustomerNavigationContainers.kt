@@ -6,7 +6,7 @@ import com.loyalty.customer.R
 enum class CustomerNavigationContainers : NavigationContainer {
     Qr {
         override val navigationItemId: Int = R.id.buttonNavigationQr
-        override val startingPoint: String = CustomerScreens.KEY_FIRST.name
+        override val startingPoint: String = CustomerScreens.KEY_QR.name
     },
     Venues {
         override val navigationItemId: Int = R.id.buttonNavigationVenues
@@ -29,5 +29,7 @@ enum class CustomerNavigationContainers : NavigationContainer {
 enum class CustomerScreens {
     KEY_FIRST,
     KEY_SECOND,
-    KEY_THIRD
+    KEY_THIRD,
+
+    KEY_QR
 }

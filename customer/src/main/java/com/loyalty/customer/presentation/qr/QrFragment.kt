@@ -3,6 +3,7 @@ package com.loyalty.customer.presentation.qr
 import com.loyalty.core.presentation.base.BaseEvent
 import com.loyalty.core.presentation.mvvm.MvvmFragment
 import com.loyalty.core.util.extensions.exhaustive
+import com.loyalty.core.util.extensions.gone
 import com.loyalty.core.util.extensions.invisible
 import com.loyalty.core.util.extensions.processQr
 import com.loyalty.core.util.extensions.visible
@@ -38,7 +39,7 @@ class QrFragment : MvvmFragment<QrState, BaseEvent>() {
 
     private fun processLoadedState(state: QrState.QrLoaded) {
         qrContent.visible()
-        qrProgressBar.invisible()
+        qrProgressBar.gone()
         qrCodeView.processQr(state.qrCodeString)
     }
 
