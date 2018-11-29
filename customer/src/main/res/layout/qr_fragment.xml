@@ -7,6 +7,7 @@
     tools:background="@color/lighter_green">
 
     <TextView
+        android:id="@+id/qrShowCashierHeader"
         style="@style/Zalik.Text.Header.Qr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,7 +29,17 @@
         tools:background="@color/dark_grey"
         tools:ignore="ContentDescription" />
 
+    <ProgressBar
+        android:id="@+id/qrProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/qrCodeView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/qrCodeView" />
+
     <TextView
+        android:id="@+id/qrYourQrHeader"
         style="@style/Zalik.Text.Header.Qr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,6 +48,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/qrCodeView" />
+
+    <android.support.constraint.Group
+        android:id="@+id/qrContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="qrShowCashierHeader,qrCodeView,qrYourQrHeader" />
 
     <android.support.constraint.Guideline
         android:id="@+id/mainGuideline"
