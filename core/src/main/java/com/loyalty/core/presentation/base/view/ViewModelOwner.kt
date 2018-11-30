@@ -15,7 +15,7 @@ interface ViewModelOwner<S: BaseState, E: BaseEvent> {
     val viewModel: BaseViewModel<S, E>
     val router: Router
 
-    fun initBaseViewModel(compositeDisposable: CompositeDisposable, shouldInitRouter: Boolean = true) {
+    fun subscribeToViewModel(compositeDisposable: CompositeDisposable, shouldInitRouter: Boolean = true) {
         compositeDisposable += viewModel.stateObservable
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {

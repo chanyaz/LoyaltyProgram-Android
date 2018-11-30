@@ -14,7 +14,7 @@ abstract class BaseViewModel<S, E> : ViewModel() {
     protected val disposables: CompositeDisposable = CompositeDisposable()
     protected lateinit var router: Router
 
-    private val stateSubject: BehaviorSubject<S> = BehaviorSubject.create()
+    protected val stateSubject: BehaviorSubject<S> = BehaviorSubject.create()
     internal val stateObservable: Observable<S> = stateSubject
 
     private val eventSubject: PublishSubject<E> = PublishSubject.create()

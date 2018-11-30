@@ -11,7 +11,7 @@ abstract class MvvmFragment<S: BaseState, E: BaseEvent> : BaseFragment(), ViewMo
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initBaseViewModel(lifecycleDisposable)
+        subscribeToViewModel(lifecycleDisposable)
     }
 
 }
