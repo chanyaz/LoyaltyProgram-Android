@@ -1,6 +1,5 @@
 package com.loyalty.core.util.extensions
 
-import com.loyalty.core.exceptions.LoyaltyException
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -15,5 +14,5 @@ fun <T> Single<T>.subscribeWithErrorLog(onSuccess: (T) -> Unit): Disposable =
 fun <T> Single<T>.subscribeOrError(message: String, onSuccess: (T) -> Unit): Disposable =
         this.subscribe(onSuccess) {
             Timber.e(message)
-            throw LoyaltyException(message)
+            throw RuntimeException(message)
         }

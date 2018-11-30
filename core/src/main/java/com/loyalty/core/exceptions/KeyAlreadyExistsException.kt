@@ -1,3 +1,3 @@
 package com.loyalty.core.exceptions
 
-class KeyAlreadyExistsException: LoyaltyException()
+class KeyAlreadyExistsException: RuntimeException()
