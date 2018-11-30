@@ -15,12 +15,12 @@ abstract class BaseViewModel<S, E> : ViewModel() {
     protected lateinit var router: Router
 
     private val stateSubject: BehaviorSubject<S> = BehaviorSubject.create()
-    val stateObservable: Observable<S> = stateSubject
+    internal val stateObservable: Observable<S> = stateSubject
 
     private val eventSubject: PublishSubject<E> = PublishSubject.create()
-    val eventObservable: Observable<E> = eventSubject
+    internal val eventObservable: Observable<E> = eventSubject
 
-    fun initRouter(router: Router) {
+    internal fun initRouter(router: Router) {
         this.router = router
     }
 
