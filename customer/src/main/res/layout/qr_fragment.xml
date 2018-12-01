@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/qrCodeView"
+        android:id="@+id/qrCodeImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintDimensionRatio="1:1"
@@ -48,14 +48,14 @@
         android:text="@string/qr_your_qr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/qrCodeView" />
+        app:layout_constraintTop_toBottomOf="@id/qrCodeImage" />
 
     <android.support.constraint.Group
         android:id="@+id/qrContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="invisible"
-        app:constraint_referenced_ids="qrShowCashierHeader,qrCodeView,qrYourQrHeader"
+        app:constraint_referenced_ids="qrShowCashierHeader,qrCodeImage,qrYourQrHeader"
         tools:visibility="visible" />
 
     <android.support.constraint.Guideline
