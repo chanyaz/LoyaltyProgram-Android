@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:background="@color/lighter_green">
 
     <TextView
@@ -53,7 +54,9 @@
         android:id="@+id/qrContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="qrShowCashierHeader,qrCodeView,qrYourQrHeader" />
+        android:visibility="invisible"
+        app:constraint_referenced_ids="qrShowCashierHeader,qrCodeView,qrYourQrHeader"
+        tools:visibility="visible" />
 
     <android.support.constraint.Guideline
         android:id="@+id/mainGuideline"
