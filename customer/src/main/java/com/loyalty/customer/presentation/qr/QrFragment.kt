@@ -1,11 +1,11 @@
 package com.loyalty.customer.presentation.qr
 
+import android.os.Bundle
+import android.view.View
 import com.loyalty.core.presentation.base.BaseEvent
 import com.loyalty.core.presentation.mvvm.MvvmFragment
 import com.loyalty.core.util.extensions.exhaustive
 import com.loyalty.core.util.extensions.gone
-import com.loyalty.core.util.extensions.invisible
-import com.loyalty.core.util.extensions.processQr
 import com.loyalty.core.util.extensions.visible
 import com.loyalty.customer.R
 import kotlinx.android.synthetic.main.qr_fragment.qrCodeView
@@ -19,17 +19,24 @@ class QrFragment : MvvmFragment<QrState, BaseEvent>() {
 
     override val viewModel: QrViewModel by viewModel()
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        qrCodeView.post {
+            viewModel.initViewModel(qrWidth = qrCodeView.width, qrHeight = qrCodeView.height)
+        }
+    }
+
     override fun processState(state: QrState) {
         super.processState(state)
-        when(state) {
+        when (state) {
             is QrState.QrLoading -> processLoadingState()
             is QrState.QrError -> processLoadingState()
-            is QrState.QrLoaded -> processLoadedState(state)
+            is QrState.QrLoaded -> processQrLoadedState(state)
         }.exhaustive
     }
 
     private fun processLoadingState() {
-        qrContent.invisible()
+        qrContent.gone()
         qrProgressBar.visible()
     }
 
@@ -37,10 +44,10 @@ class QrFragment : MvvmFragment<QrState, BaseEvent>() {
         TODO()
     }
 
-    private fun processLoadedState(state: QrState.QrLoaded) {
+    private fun processQrLoadedState(state: QrState.QrLoaded) {
         qrContent.visible()
         qrProgressBar.gone()
-        qrCodeView.processQr(state.qrCodeString)
+        qrCodeView.setImageBitmap(state.bitmap)
     }
 
 }
