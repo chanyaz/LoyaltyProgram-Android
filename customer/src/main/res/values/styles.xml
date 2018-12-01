@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Zalik"/>
+    <style name="Zalik" />
 
     <!-- Main theme -->
 
@@ -31,9 +31,13 @@
 
     <!-- Elements styles -->
 
+    <!-- Text -->
+
     <style name="Zalik.Text">
         <item name="android:textColor">@color/dark_grey</item>
     </style>
+
+    <!-- Bottom Navigation -->
 
     <style name="Zalik.BottomNavigationView">
         <item name="android:background">@color/navigation_menu_background</item>
@@ -42,14 +46,39 @@
         <item name="itemTextColor">@drawable/bottom_navigation_color_selector</item>
     </style>
 
-    <style name="Zalik.Text.Header">
-        <item name="android:textSize">@dimen/size_header</item>
+    <!-- Card -->
+
+    <style name="Zalik.Card">
+        <item name="android:background">@color/card_background</item>
+        <item name="android:layout_margin">@dimen/margin_small</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
     </style>
 
-    <style name="Zalik.Text.Header.Qr">
+    <!-- Qr -->
+
+    <style name="Zalik.Text.Qr">
         <item name="android:textColor">@color/color_accent</item>
         <item name="android:textSize">@dimen/size_qr_header</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <!-- Venues -->
+
+    <style name="Zalik.Text.Venues"/>
+
+    <style name="Zalik.Text.Venues.Header">
+        <item name="android:textSize">@dimen/size_venues_header</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Zalik.Text.Venues.Main">
+        <item name="android:textSize">@dimen/size_venues_main</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Zalik.Text.Venues.Secondary">
+        <item name="android:textSize">@dimen/size_venues_secondary</item>
+    </style>
+
 
 </resources>

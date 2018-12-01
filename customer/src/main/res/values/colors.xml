@@ -28,4 +28,8 @@
     <color name="navigation_menu_item_active">@color/color_accent</color>
     <color name="navigation_menu_item_inactive">@color/lighter_green</color>
 
+    <!-- Card -->
+
+    <color name="card_background">@color/white</color>
+
 </resources>
