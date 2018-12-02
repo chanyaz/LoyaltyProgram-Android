@@ -6,6 +6,8 @@ import com.loyalty.core.storage.keystore.EncryptorImpl
 import com.loyalty.customer.BuildConfig
 import com.loyalty.customer.preferences.customer.TokenPreferences
 import com.loyalty.customer.preferences.customer.TokenPreferencesImpl
+import com.loyalty.customer.preferences.location.CurrentLocationPreferences
+import com.loyalty.customer.preferences.location.CurrentLocationPreferencesImpl
 import com.loyalty.customer.preferences.qr.QrPreferences
 import com.loyalty.customer.preferences.qr.QrPreferencesImpl
 import com.loyalty.customer.preferences.venuesversion.VenuesVPreferences
@@ -37,6 +39,12 @@ val preferencesModule = module {
     }
     single<VenuesVPreferences> {
         VenuesVPreferencesImpl(
+                context = androidApplication(),
+                io = get(name = BaseConsts.SCHEDULER_IO)
+        )
+    }
+    single<CurrentLocationPreferences> {
+        CurrentLocationPreferencesImpl(
                 context = androidApplication(),
                 io = get(name = BaseConsts.SCHEDULER_IO)
         )
