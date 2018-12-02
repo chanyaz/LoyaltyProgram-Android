@@ -8,6 +8,8 @@ import com.loyalty.customer.preferences.customer.TokenPreferences
 import com.loyalty.customer.preferences.customer.TokenPreferencesImpl
 import com.loyalty.customer.preferences.qr.QrPreferences
 import com.loyalty.customer.preferences.qr.QrPreferencesImpl
+import com.loyalty.customer.preferences.venuesversion.VenuesVPreferences
+import com.loyalty.customer.preferences.venuesversion.VenuesVPreferencesImpl
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module.module
 
@@ -30,6 +32,12 @@ val preferencesModule = module {
         QrPreferencesImpl(
                 context = androidApplication(),
                 encryptor = get(),
+                io = get(name = BaseConsts.SCHEDULER_IO)
+        )
+    }
+    single<VenuesVPreferences> {
+        VenuesVPreferencesImpl(
+                context = androidApplication(),
                 io = get(name = BaseConsts.SCHEDULER_IO)
         )
     }
