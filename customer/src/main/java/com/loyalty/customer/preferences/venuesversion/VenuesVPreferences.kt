@@ -5,7 +5,7 @@ import io.reactivex.Single
 
 interface VenuesVPreferences {
 
-    fun saveVenuesVersion(version: Long, city: String): Completable
+    fun saveVenuesVersion(city: String, version: Long): Completable
 
     fun getVenuesVersion(city: String): Single<Long>
 

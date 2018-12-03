@@ -12,7 +12,7 @@ class VenuesVPreferencesImpl(
         io: Scheduler
 ) : RxPreferences(context, Consts.VENUES_V_PREFERENCES, io), VenuesVPreferences {
 
-    override fun saveVenuesVersion(version: Long, city: String): Completable = saveLong(city, version)
+    override fun saveVenuesVersion(city: String, version: Long): Completable = saveLong(city, version)
 
     override fun getVenuesVersion(city: String): Single<Long> = getLong(city)
 
