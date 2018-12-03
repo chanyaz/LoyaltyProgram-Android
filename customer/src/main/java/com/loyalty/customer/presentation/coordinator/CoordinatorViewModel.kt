@@ -4,7 +4,7 @@ import com.loyalty.core.presentation.base.BaseState
 import com.loyalty.core.presentation.mvvm.BaseViewModel
 import com.loyalty.core.util.extensions.observeOnUi
 import com.loyalty.core.util.extensions.subscribeOrError
-import com.loyalty.customer.preferences.customer.TokenPreferences
+import com.loyalty.customer.preferences.token.TokenPreferences
 
 class CoordinatorViewModel(
         private val tokenPreferences: TokenPreferences

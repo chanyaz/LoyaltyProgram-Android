@@ -1,4 +1,4 @@
-package com.loyalty.customer.preferences.customer
+package com.loyalty.customer.preferences.token
 
 import io.reactivex.Completable
 import io.reactivex.Single

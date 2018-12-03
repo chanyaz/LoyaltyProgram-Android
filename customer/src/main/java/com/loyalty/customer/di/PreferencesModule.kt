@@ -4,8 +4,8 @@ import com.loyalty.core.BaseConsts
 import com.loyalty.core.storage.keystore.Encryptor
 import com.loyalty.core.storage.keystore.EncryptorImpl
 import com.loyalty.customer.BuildConfig
-import com.loyalty.customer.preferences.customer.TokenPreferences
-import com.loyalty.customer.preferences.customer.TokenPreferencesImpl
+import com.loyalty.customer.preferences.token.TokenPreferences
+import com.loyalty.customer.preferences.token.TokenPreferencesImpl
 import com.loyalty.customer.preferences.location.CurrentLocationPreferences
 import com.loyalty.customer.preferences.location.CurrentLocationPreferencesImpl
 import com.loyalty.customer.preferences.qr.QrPreferences

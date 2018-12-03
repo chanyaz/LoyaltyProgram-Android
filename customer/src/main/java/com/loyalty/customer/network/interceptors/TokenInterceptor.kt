@@ -1,6 +1,6 @@
 package com.loyalty.customer.network.interceptors
 
-import com.loyalty.customer.preferences.customer.TokenPreferences
+import com.loyalty.customer.preferences.token.TokenPreferences
 import okhttp3.Interceptor
 import okhttp3.Response
 

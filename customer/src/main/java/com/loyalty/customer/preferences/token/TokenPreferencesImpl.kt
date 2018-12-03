@@ -1,4 +1,4 @@
-package com.loyalty.customer.preferences.customer
+package com.loyalty.customer.preferences.token
 
 import android.content.Context
 import com.loyalty.core.storage.keystore.Encryptor
