@@ -7,10 +7,10 @@ import io.reactivex.Completable
 import io.reactivex.Scheduler
 import io.reactivex.Single
 
-class CurrentLocationPreferencesImpl(
+class LocationPreferencesImpl(
         context: Context,
         io: Scheduler
-) : RxPreferences(context, Consts.LOCATION_PREFERENCES, io), CurrentLocationPreferences {
+) : RxPreferences(context, Consts.LOCATION_PREFERENCES, io), LocationPreferences {
 
     override fun saveCurrentLocation(currentLocation: String): Completable =
             saveString(KEY_CURRENT_LOCATION, currentLocation)

@@ -3,7 +3,7 @@ package com.loyalty.customer.preferences.location
 import io.reactivex.Completable
 import io.reactivex.Single
 
-interface CurrentLocationPreferences {
+interface LocationPreferences {
 
     fun saveCurrentLocation(currentLocation: String): Completable
 
