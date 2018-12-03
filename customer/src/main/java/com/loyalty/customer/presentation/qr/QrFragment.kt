@@ -31,7 +31,7 @@ class QrFragment : MvvmFragment<QrState, BaseEvent>() {
         when (state) {
             is QrState.QrLoading -> processLoadingState()
             is QrState.QrError -> processLoadingState()
-            is QrState.QrLoaded -> processQrLoadedState(state)
+            is QrState.QrLoaded -> processLoadedState(state)
         }.exhaustive
     }
 
@@ -44,7 +44,7 @@ class QrFragment : MvvmFragment<QrState, BaseEvent>() {
         TODO()
     }
 
-    private fun processQrLoadedState(state: QrState.QrLoaded) {
+    private fun processLoadedState(state: QrState.QrLoaded) {
         qrContent.visible()
         qrProgressBar.gone()
         qrCodeImage.setImageBitmap(state.bitmap)
