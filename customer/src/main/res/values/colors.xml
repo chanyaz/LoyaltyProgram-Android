@@ -20,21 +20,21 @@
     <color name="color_primary_dark">@color/dark_green</color>
     <color name="color_accent">@color/white</color>
 
-    <color name="window_background">@color/pale_grey</color>
-    <color name="text_color_primary">@color/dark_grey</color>
+    <color name="window_background_color">@color/pale_grey</color>
+    <color name="text_color_primary_color">@color/dark_grey</color>
 
     <!-- Bottom navigation -->
 
-    <color name="navigation_menu_background">@color/color_primary</color>
-    <color name="navigation_menu_item_active">@color/color_accent</color>
-    <color name="navigation_menu_item_inactive">@color/lighter_green</color>
+    <color name="navigation_menu_background_color">@color/color_primary</color>
+    <color name="navigation_menu_item_active_color">@color/color_accent</color>
+    <color name="navigation_menu_item_inactive_color">@color/lighter_green</color>
 
     <!-- Qr -->
 
-    <color name="qr_header">@color/white</color>
+    <color name="qr_header_color">@color/white</color>
 
     <!-- Card -->
 
-    <color name="card_background">@color/white</color>
+    <color name="card_background_color">@color/white</color>
 
 </resources>

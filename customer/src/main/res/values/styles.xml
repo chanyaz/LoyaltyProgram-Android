@@ -10,7 +10,7 @@
         <item name="colorAccent">@color/color_accent</item>
 
         <item name="android:statusBarColor">?colorPrimary</item>
-        <item name="android:colorBackground">@color/window_background</item>
+        <item name="android:colorBackground">@color/window_background_color</item>
 
         <item name="android:textViewStyle">@style/Zalik.Text</item>
     </style>
@@ -40,7 +40,7 @@
     <!-- Bottom Navigation -->
 
     <style name="Zalik.BottomNavigationView">
-        <item name="android:background">@color/navigation_menu_background</item>
+        <item name="android:background">@color/navigation_menu_background_color</item>
         <item name="labelVisibilityMode">labeled</item>
         <item name="itemIconTint">@drawable/bottom_navigation_color_selector</item>
         <item name="itemTextColor">@drawable/bottom_navigation_color_selector</item>
@@ -49,7 +49,7 @@
     <!-- Card -->
 
     <style name="Zalik.Card">
-        <item name="android:background">@color/card_background</item>
+        <item name="android:background">@color/card_background_color</item>
         <item name="android:layout_margin">@dimen/margin_xsmall</item>
         <item name="cardCornerRadius">@dimen/card_corner_radius</item>
     </style>
@@ -57,7 +57,7 @@
     <!-- Qr -->
 
     <style name="Zalik.Text.Qr">
-        <item name="android:textColor">@color/qr_header</item>
+        <item name="android:textColor">@color/qr_header_color</item>
         <item name="android:textSize">@dimen/size_qr_header</item>
         <item name="android:textStyle">bold</item>
     </style>
