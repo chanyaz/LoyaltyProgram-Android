@@ -14,26 +14,31 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_qr"
         android:text="@string/qr_show_this_code"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@id/mainGuideline"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/qrCodeImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:visibility="invisible"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mainGuideline"
         app:layout_constraintWidth_percent="0.6"
         tools:background="@color/dark_grey"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription"
+        tools:visibility="visible" />
 
     <ProgressBar
         android:id="@+id/qrProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,16 +51,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_qr"
         android:text="@string/qr_your_qr"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/qrCodeImage" />
-
-    <android.support.constraint.Group
-        android:id="@+id/qrContent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:constraint_referenced_ids="qrShowCashierHeader,qrCodeImage,qrYourQrHeader"
+        app:layout_constraintTop_toBottomOf="@id/qrCodeImage"
         tools:visibility="visible" />
 
     <android.support.constraint.Guideline

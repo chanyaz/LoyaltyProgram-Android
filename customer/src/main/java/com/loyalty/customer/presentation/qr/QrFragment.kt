@@ -9,8 +9,9 @@ import com.loyalty.core.util.extensions.gone
 import com.loyalty.core.util.extensions.visible
 import com.loyalty.customer.R
 import kotlinx.android.synthetic.main.qr_fragment.qrCodeImage
-import kotlinx.android.synthetic.main.qr_fragment.qrContent
 import kotlinx.android.synthetic.main.qr_fragment.qrProgressBar
+import kotlinx.android.synthetic.main.qr_fragment.qrShowCashierHeader
+import kotlinx.android.synthetic.main.qr_fragment.qrYourQrHeader
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class QrFragment : MvvmFragment<QrState, BaseEvent>() {
@@ -36,7 +37,9 @@ class QrFragment : MvvmFragment<QrState, BaseEvent>() {
     }
 
     private fun processLoadingState() {
-        qrContent.gone()
+        qrShowCashierHeader.gone()
+        qrCodeImage.gone()
+        qrYourQrHeader.gone()
         qrProgressBar.visible()
     }
 
@@ -45,7 +48,9 @@ class QrFragment : MvvmFragment<QrState, BaseEvent>() {
     }
 
     private fun processLoadedState(state: QrState.QrLoaded) {
-        qrContent.visible()
+        qrShowCashierHeader.visible()
+        qrCodeImage.visible()
+        qrYourQrHeader.visible()
         qrProgressBar.gone()
         qrCodeImage.setImageBitmap(state.bitmap)
     }
