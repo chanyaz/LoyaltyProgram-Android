@@ -10,7 +10,7 @@ enum class CustomerNavigationContainers : NavigationContainer {
     },
     Venues {
         override val navigationItemId: Int = R.id.buttonNavigationVenues
-        override val startingPoint: String = CustomerScreens.KEY_FIRST.name
+        override val startingPoint: String = CustomerScreens.KEY_VENUES.name
     },
     Cards {
         override val navigationItemId: Int = R.id.buttonNavigationCards
@@ -31,5 +31,6 @@ enum class CustomerScreens {
     KEY_SECOND,
     KEY_THIRD,
 
-    KEY_QR
+    KEY_QR,
+    KEY_VENUES
 }

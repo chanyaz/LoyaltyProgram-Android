@@ -14,4 +14,8 @@
     <string name="qr_show_this_code">Покажите этот код кассиру</string>
     <string name="qr_your_qr">Ваш QR-код</string>
 
+    <!-- Venues -->
+
+    <string name="venues_empty">Здесь пусто и очень грустно…</string>
+
 </resources>

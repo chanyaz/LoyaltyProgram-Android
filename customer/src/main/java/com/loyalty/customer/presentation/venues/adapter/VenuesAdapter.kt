@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import com.loyalty.customer.R
 import com.loyalty.customer.ui.models.VenueUIModel
 
-class VenueAdapter(private val elements: List<VenueUIModel>) : RecyclerView.Adapter<VenueHolder>() {
+class VenuesAdapter(private val elements: List<VenueUIModel>) : RecyclerView.Adapter<VenueHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): VenueHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.venue_item, parent, false)
