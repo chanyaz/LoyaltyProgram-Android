@@ -30,3 +30,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':core')
 }
+
+androidExtensions {
+    experimental = true
+}
