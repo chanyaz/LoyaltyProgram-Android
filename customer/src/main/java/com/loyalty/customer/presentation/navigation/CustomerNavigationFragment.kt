@@ -14,8 +14,8 @@ class CustomerNavigationFragment : NavigationFragment() {
 
     override fun createFragment(screenKey: String, data: Any?): BaseFragment {
         return when (screenKey) {
-            CustomerScreens.KEY_QR.name -> QrFragment()
-            CustomerScreens.KEY_VENUES.name -> VenuesFragment()
+            CustomerScreens.KEY_QR.name -> QrFragment.newInstance()
+            CustomerScreens.KEY_VENUES.name -> VenuesFragment.newInstance()
             CustomerScreens.KEY_FIRST.name -> TestFragment1()
             CustomerScreens.KEY_SECOND.name -> TestFragment2()
             CustomerScreens.KEY_THIRD.name -> TestFragment3()

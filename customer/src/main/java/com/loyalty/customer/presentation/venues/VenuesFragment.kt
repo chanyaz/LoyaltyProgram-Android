@@ -67,4 +67,8 @@ class VenuesFragment : MvvmFragment<VenuesState, VenuesEvent>() {
         venuesAdapter.notifyDataSetChanged()
     }
 
+    companion object {
+        fun newInstance(): VenuesFragment = VenuesFragment()
+    }
+
 }

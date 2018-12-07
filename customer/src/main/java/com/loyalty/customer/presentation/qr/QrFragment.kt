@@ -55,4 +55,8 @@ class QrFragment : MvvmFragment<QrState, BaseEvent>() {
         qrCodeImage.setImageBitmap(state.bitmap)
     }
 
+    companion object {
+        fun newInstance(): QrFragment = QrFragment()
+    }
+
 }
