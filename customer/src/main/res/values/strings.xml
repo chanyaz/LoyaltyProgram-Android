@@ -18,4 +18,9 @@
 
     <string name="venues_empty">Здесь пусто и очень грустно…</string>
 
+    <!-- Venue -->
+
+    <string name="venue_cards_in_this_venue">Карточки в этом заведении</string>
+    <string name="venue_about_this_venue">О заведении</string>
+
 </resources>

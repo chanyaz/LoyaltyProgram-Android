@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/venueImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/margin_big"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.25"
+            tools:background="@color/dark_grey" />
+
+        <TextView
+            android:id="@+id/venueName"
+            style="@style/Zalik.Text.Venues.Header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_xsmall"
+            android:layout_marginEnd="@dimen/margin_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/venueImage"
+            app:layout_constraintTop_toTopOf="@+id/venueImage"
+            tools:text="Calabria" />
+
+        <TextView
+            android:id="@+id/venueType"
+            style="@style/Zalik.Text.Venues.Secondary"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/margin_xxsmall"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/venueName"
+            app:layout_constraintStart_toStartOf="@id/venueName"
+            app:layout_constraintTop_toBottomOf="@+id/venueName"
+            tools:text="Ресторан и пиццерия" />
+
+        <TextView
+            android:id="@+id/venueCardsInThisVenueText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_big"
+            android:layout_marginTop="@dimen/margin_big"
+            android:layout_marginEnd="@dimen/margin_big"
+            android:text="@string/venue_cards_in_this_venue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/venueImage" />
+
+        <View
+            android:id="@+id/venueCardsInThisVenue"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/margin_small"
+            app:layout_constraintTop_toBottomOf="@id/venueCardsInThisVenueText"
+            tools:background="@color/dark_grey" />
+
+        <TextView
+            android:id="@+id/venueAboutText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/venue_about_this_venue"
+            app:layout_constraintEnd_toEndOf="@id/venueCardsInThisVenueText"
+            app:layout_constraintStart_toStartOf="@id/venueCardsInThisVenueText"
+            app:layout_constraintTop_toBottomOf="@id/venueCardsInThisVenue" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/venueRecyclerParameters"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xxsmall"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintEnd_toEndOf="@id/venueCardsInThisVenueText"
+            app:layout_constraintStart_toStartOf="@id/venueCardsInThisVenueText"
+            app:layout_constraintTop_toBottomOf="@id/venueAboutText"
+            tools:itemCount="5"
+            tools:listitem="@layout/venue_parameter_item" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/venueRecyclerImages"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xsmall"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="true"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/margin_xxsmall"
+            android:paddingEnd="@dimen/margin_xxsmall"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/venueRecyclerParameters"
+            tools:itemCount="5"
+            tools:listitem="@layout/venue_image_item" />
+
+        <View
+            android:id="@+id/venueMap"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="@dimen/margin_small"
+            app:layout_constraintTop_toBottomOf="@id/venueRecyclerImages"
+            tools:background="@color/dark_grey" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>
