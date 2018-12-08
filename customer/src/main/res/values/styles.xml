@@ -9,7 +9,7 @@
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
         <item name="colorAccent">@color/color_accent</item>
 
-        <item name="android:statusBarColor">?colorPrimary</item>
+        <item name="android:statusBarColor">?colorPrimaryDark</item>
         <item name="android:colorBackground">@color/window_background_color</item>
 
         <item name="android:textViewStyle">@style/Zalik.Text</item>
@@ -46,6 +46,47 @@
         <item name="itemTextColor">@drawable/bottom_navigation_color_selector</item>
     </style>
 
+    <!-- Toolbar -->
+
+    <style name="Zalik.Toolbar"/>
+
+    <style name="Zalik.Toolbar.Element">
+        <item name="android:background">@color/toolbar_background_color</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:contentInsetStart">@dimen/toolbar_margin</item>
+        <item name="contentInsetStart">@dimen/toolbar_margin</item>
+        <item name="android:contentInsetLeft">@dimen/toolbar_margin</item>
+        <item name="contentInsetLeft">@dimen/toolbar_margin</item>
+        <item name="android:contentInsetEnd">@dimen/toolbar_margin</item>
+        <item name="contentInsetEnd">@dimen/toolbar_margin</item>
+        <item name="android:contentInsetRight">@dimen/toolbar_margin</item>
+        <item name="contentInsetRight">@dimen/toolbar_margin</item>
+    </style>
+
+    <style name="Zalik.Toolbar.Title">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">@dimen/toolbar_text_size</item>
+        <item name="android:textColor">@color/toolbar_text_color</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Zalik.Toolbar.Icon">
+        <item name="android:layout_width">@dimen/toolbar_icon_size</item>
+        <item name="android:layout_height">@dimen/toolbar_icon_size</item>
+        <item name="android:tint">@color/toolbar_icon_color</item>
+    </style>
+
+    <style name="Zalik.Toolbar.Icon.Back">
+        <item name="android:layout_gravity">start</item>
+        <item name="android:src">?homeAsUpIndicator</item>
+    </style>
+
+    <style name="Zalik.Toolbar.Icon.Action">
+        <item name="android:layout_gravity">end</item>
+    </style>
+
     <!-- Card -->
 
     <style name="Zalik.Card">
@@ -79,6 +120,5 @@
     <style name="Zalik.Text.Venues.Secondary">
         <item name="android:textSize">@dimen/size_venues_secondary</item>
     </style>
-
 
 </resources>

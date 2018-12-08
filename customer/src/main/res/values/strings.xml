@@ -17,6 +17,7 @@
     <!-- Venues -->
 
     <string name="venues_empty">Здесь пусто и очень грустно…</string>
+    <string name="venues_list_title">Список заведений</string>
 
     <!-- Venue -->
 

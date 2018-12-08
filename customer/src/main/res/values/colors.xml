@@ -29,6 +29,12 @@
     <color name="navigation_menu_item_active_color">@color/color_accent</color>
     <color name="navigation_menu_item_inactive_color">@color/lighter_green</color>
 
+    <!-- Toolbar -->
+
+    <color name="toolbar_background_color">@color/color_primary</color>
+    <color name="toolbar_text_color">@color/color_accent</color>
+    <color name="toolbar_icon_color">@color/color_accent</color>
+
     <!-- Qr -->
 
     <color name="qr_header_color">@color/white</color>
