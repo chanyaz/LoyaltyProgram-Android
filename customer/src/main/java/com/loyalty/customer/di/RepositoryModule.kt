@@ -5,7 +5,7 @@ import com.loyalty.customer.repository.venues.VenuesRepository
 import org.koin.dsl.module.module
 
 val repositoryModule = module {
-    single<VenuesRepository> {
+    factory<VenuesRepository> {
         FakeVenuesRepository()
     }
 }

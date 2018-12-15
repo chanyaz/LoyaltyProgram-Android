@@ -16,34 +16,34 @@ import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module.module
 
 val preferencesModule = module {
-    single<Encryptor> {
+    factory<Encryptor> {
         EncryptorImpl(
                 context = androidApplication(),
                 computation = get(name = BaseConsts.SCHEDULER_COMPUTATION),
                 alias = BuildConfig.APPLICATION_ID
         )
     }
-    single<TokenPreferences> {
+    factory<TokenPreferences> {
         TokenPreferencesImpl(
                 context = androidApplication(),
                 encryptor = get(),
                 io = get(name = BaseConsts.SCHEDULER_IO)
         )
     }
-    single<QrPreferences> {
+    factory<QrPreferences> {
         QrPreferencesImpl(
                 context = androidApplication(),
                 encryptor = get(),
                 io = get(name = BaseConsts.SCHEDULER_IO)
         )
     }
-    single<VenuesVPreferences> {
+    factory<VenuesVPreferences> {
         VenuesVPreferencesImpl(
                 context = androidApplication(),
                 io = get(name = BaseConsts.SCHEDULER_IO)
         )
     }
-    single<LocationPreferences> {
+    factory<LocationPreferences> {
         FakeLocationPreferences(
                 context = androidApplication(),
                 io = get(name = BaseConsts.SCHEDULER_IO)

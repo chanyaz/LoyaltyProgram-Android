@@ -6,9 +6,11 @@ import android.view.View
 import com.loyalty.core.presentation.mvvm.MvvmFragment
 import com.loyalty.core.util.extensions.exhaustive
 import com.loyalty.core.util.extensions.gone
+import com.loyalty.core.util.extensions.setOnQueryChangedListener
 import com.loyalty.core.util.extensions.visible
 import com.loyalty.customer.R
 import com.loyalty.customer.presentation.venues.adapter.VenuesAdapter
+import kotlinx.android.synthetic.main.venues_fragment.searchVenues
 import kotlinx.android.synthetic.main.venues_fragment.venuesEmpty
 import kotlinx.android.synthetic.main.venues_fragment.venuesProgressBar
 import kotlinx.android.synthetic.main.venues_fragment.venuesRecycler
@@ -60,11 +62,20 @@ class VenuesFragment : MvvmFragment<VenuesState, VenuesEvent>() {
         venuesProgressBar.gone()
 
         if (!::venuesAdapter.isInitialized) {
-            venuesAdapter = VenuesAdapter(state.venues)
-            venuesRecycler.adapter = venuesAdapter
-            venuesRecycler.layoutManager = LinearLayoutManager(activity)
+            initVenuesAdapter(state)
         }
         venuesAdapter.notifyDataSetChanged()
+    }
+
+    private fun initVenuesAdapter(state: VenuesState.VenuesLoaded) {
+        venuesAdapter = VenuesAdapter(state.venues).apply { filter.filter("") }
+        venuesRecycler.apply {
+            adapter = venuesAdapter
+            layoutManager = LinearLayoutManager(activity)
+        }
+        searchVenues.setOnQueryChangedListener { query ->
+            venuesAdapter.filter.filter(query)
+        }
     }
 
     companion object {

@@ -7,10 +7,23 @@ import com.loyalty.customer.usecases.qr.LoadQrStringCase
 import com.loyalty.customer.usecases.qr.LoadQrStringCaseImpl
 import com.loyalty.customer.usecases.qr.StringToQrBitmapCase
 import com.loyalty.customer.usecases.qr.StringToQrBitmapCaseImpl
+import com.loyalty.customer.usecases.venues.FilterVenues
+import com.loyalty.customer.usecases.venues.FilterVenuesImpl
+import com.loyalty.customer.usecases.venues.LoadVenues
+import com.loyalty.customer.usecases.venues.LoadVenuesImpl
 import org.koin.dsl.module.module
 
 val useCasesModule = module {
-    single<LoadQrStringCase> { LoadQrStringCaseImpl(get()) }
-    single<StringToQrBitmapCase> { StringToQrBitmapCaseImpl(get(name = BaseConsts.SCHEDULER_COMPUTATION)) }
-    single<LoadQrBitmapCase> { LoadQrBitmapCaseImpl(get(), get()) }
+
+    /* Qr */
+
+    factory<LoadQrStringCase> { LoadQrStringCaseImpl(get()) }
+    factory<StringToQrBitmapCase> { StringToQrBitmapCaseImpl(get(name = BaseConsts.SCHEDULER_COMPUTATION)) }
+    factory<LoadQrBitmapCase> { LoadQrBitmapCaseImpl(get(), get()) }
+
+    /* Venues */
+
+    factory<FilterVenues> { FilterVenuesImpl(get(name = BaseConsts.SCHEDULER_COMPUTATION)) }
+    factory<LoadVenues> { LoadVenuesImpl(get(), get()) }
+
 }

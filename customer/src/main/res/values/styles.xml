@@ -65,7 +65,10 @@
     </style>
 
     <style name="Zalik.Toolbar.Title">
-        <item name="android:layout_gravity">center</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
         <item name="android:textSize">@dimen/toolbar_text_size</item>
         <item name="android:textColor">@color/toolbar_text_color</item>
         <item name="android:layout_width">wrap_content</item>
@@ -73,18 +76,16 @@
     </style>
 
     <style name="Zalik.Toolbar.Icon">
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
         <item name="android:layout_width">@dimen/toolbar_icon_size</item>
-        <item name="android:layout_height">@dimen/toolbar_icon_size</item>
+        <item name="android:layout_height">0dp</item>
         <item name="android:tint">@color/toolbar_icon_color</item>
     </style>
 
     <style name="Zalik.Toolbar.Icon.Back">
-        <item name="android:layout_gravity">start</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
         <item name="android:src">?homeAsUpIndicator</item>
-    </style>
-
-    <style name="Zalik.Toolbar.Icon.Action">
-        <item name="android:layout_gravity">end</item>
     </style>
 
     <!-- Card -->
