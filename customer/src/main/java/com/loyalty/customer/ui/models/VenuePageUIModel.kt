@@ -1,6 +1,6 @@
 package com.loyalty.customer.ui.models
 
-data class VenueUIModel(
+data class VenuePageUIModel(
         val imageUrl: String,
         val name: String,
         val type: String,

@@ -3,7 +3,7 @@ package com.loyalty.customer.repository.venues
 import com.loyalty.customer.network.api.VenuesApi
 import com.loyalty.customer.persistence.venues.VenuesStorage
 import com.loyalty.customer.preferences.venuesversion.VenuesVPreferences
-import com.loyalty.customer.ui.models.VenueUIModel
+import com.loyalty.customer.ui.models.VenueItemUIModel
 import io.reactivex.Completable
 import io.reactivex.Single
 import io.reactivex.functions.BiFunction
@@ -14,7 +14,7 @@ class VenuesRepositoryImpl(
         private val venuesVPreferences: VenuesVPreferences
 ) : VenuesRepository {
 
-    override fun getVenues(city: String): Single<List<VenueUIModel>> =
+    override fun getVenues(city: String): Single<List<VenueItemUIModel>> =
             shouldUpdateVenues(city)
                     .flatMap {
                         if (it.shouldUpdateVenues) {
@@ -33,7 +33,7 @@ class VenuesRepositoryImpl(
                         )
                     })
 
-    private fun getAndSaveVenues(city: String, shouldUpdateVenuesModel: ShouldUpdateVenuesModel): Single<List<VenueUIModel>> {
+    private fun getAndSaveVenues(city: String, shouldUpdateVenuesModel: ShouldUpdateVenuesModel): Single<List<VenueItemUIModel>> {
         return venuesApi.getVenues(city)
                 .doOnSuccess { venues ->
                     venuesStorage.clearVenues(city)

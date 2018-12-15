@@ -6,13 +6,13 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import com.loyalty.customer.R
-import com.loyalty.customer.ui.models.VenueUIModel
+import com.loyalty.customer.ui.models.VenueItemUIModel
 
 class VenuesAdapter(
-        private val elements: List<VenueUIModel>
+        private val elements: List<VenueItemUIModel>
 ) : RecyclerView.Adapter<VenueHolder>(), Filterable {
 
-    private var filteredElements: List<VenueUIModel> = mutableListOf()
+    private var filteredElements: List<VenueItemUIModel> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): VenueHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.venue_item, parent, false)
@@ -42,7 +42,7 @@ class VenuesAdapter(
 
         @Suppress("UNCHECKED_CAST")
         override fun publishResults(constraint: CharSequence, results: FilterResults) {
-            filteredElements = results.values as List<VenueUIModel>
+            filteredElements = results.values as List<VenueItemUIModel>
             notifyDataSetChanged()
         }
     }

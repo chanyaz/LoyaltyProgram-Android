@@ -2,7 +2,7 @@ package com.loyalty.customer.usecases.venues
 
 import com.loyalty.customer.preferences.location.LocationPreferences
 import com.loyalty.customer.repository.venues.VenuesRepository
-import com.loyalty.customer.ui.models.VenueUIModel
+import com.loyalty.customer.ui.models.VenueItemUIModel
 import io.reactivex.Single
 
 class LoadVenuesImpl(
@@ -10,7 +10,7 @@ class LoadVenuesImpl(
         private val locationPreferences: LocationPreferences
 ) : LoadVenues {
 
-    override fun loadVenues(): Single<List<VenueUIModel>> =
+    override fun loadVenues(): Single<List<VenueItemUIModel>> =
             locationPreferences.getCurrentLocation()
                     .flatMap { venuesRepository.getVenues(it) }
 
