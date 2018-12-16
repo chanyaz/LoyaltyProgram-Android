@@ -87,7 +87,7 @@
             tools:visibility="visible" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/venueRecyclerParameters"
+            android:id="@+id/venueOptionsRecycler"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_xxsmall"
@@ -97,11 +97,11 @@
             app:layout_constraintStart_toStartOf="@id/venueCardsInThisVenueText"
             app:layout_constraintTop_toBottomOf="@id/venueAboutText"
             tools:itemCount="5"
-            tools:listitem="@layout/venue_parameter_item"
+            tools:listitem="@layout/venue_option_item"
             tools:visibility="visible" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/venueRecyclerImages"
+            android:id="@+id/venueImagesRecycler"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_xsmall"
@@ -114,7 +114,7 @@
             app:layoutManager="android.support.v7.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/venueRecyclerParameters"
+            app:layout_constraintTop_toBottomOf="@id/venueOptionsRecycler"
             tools:itemCount="5"
             tools:listitem="@layout/venue_image_item"
             tools:visibility="visible" />
@@ -125,7 +125,7 @@
             android:layout_height="200dp"
             android:layout_marginTop="@dimen/margin_small"
             android:visibility="invisible"
-            app:layout_constraintTop_toBottomOf="@id/venueRecyclerImages"
+            app:layout_constraintTop_toBottomOf="@id/venueImagesRecycler"
             tools:background="@color/dark_grey"
             tools:visibility="visible" />
 
