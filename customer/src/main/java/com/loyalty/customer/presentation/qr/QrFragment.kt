@@ -6,6 +6,7 @@ import com.loyalty.core.presentation.base.BaseEvent
 import com.loyalty.core.presentation.mvvm.MvvmFragment
 import com.loyalty.core.util.extensions.exhaustive
 import com.loyalty.core.util.extensions.gone
+import com.loyalty.core.util.extensions.invisible
 import com.loyalty.core.util.extensions.visible
 import com.loyalty.customer.R
 import kotlinx.android.synthetic.main.qr_fragment.qrCodeImage
@@ -37,9 +38,9 @@ class QrFragment : MvvmFragment<QrState, BaseEvent>() {
     }
 
     private fun processLoadingState() {
-        qrShowCashierHeader.gone()
-        qrCodeImage.gone()
-        qrYourQrHeader.gone()
+        qrShowCashierHeader.invisible()
+        qrCodeImage.invisible()
+        qrYourQrHeader.invisible()
         qrProgressBar.visible()
     }
 

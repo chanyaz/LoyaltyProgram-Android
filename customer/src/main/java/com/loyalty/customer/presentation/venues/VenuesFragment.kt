@@ -7,6 +7,7 @@ import com.loyalty.core.exceptions.UnexpectedStateException
 import com.loyalty.core.presentation.base.BaseEvent
 import com.loyalty.core.presentation.mvvm.MvvmFragment
 import com.loyalty.core.util.extensions.gone
+import com.loyalty.core.util.extensions.invisible
 import com.loyalty.core.util.extensions.setOnQueryChangedListener
 import com.loyalty.core.util.extensions.visible
 import com.loyalty.customer.R
@@ -60,8 +61,8 @@ class VenuesFragment : MvvmFragment<VenuesState, BaseEvent>() {
     }
 
     private fun processLoadingState() {
-        venuesRecycler.gone()
-        venuesEmpty.gone()
+        venuesRecycler.invisible()
+        venuesEmpty.invisible()
         venuesProgressBar.visible()
     }
 
@@ -71,7 +72,7 @@ class VenuesFragment : MvvmFragment<VenuesState, BaseEvent>() {
 
     private fun processLoadedState(venues: List<VenueItemUIModel>) {
         venuesRecycler.visible()
-        venuesEmpty.gone()
+        venuesEmpty.invisible()
         venuesProgressBar.gone()
 
         if (!::venuesAdapter.isInitialized) {
@@ -89,7 +90,7 @@ class VenuesFragment : MvvmFragment<VenuesState, BaseEvent>() {
     }
 
     private fun processEmptyState() {
-        venuesRecycler.gone()
+        venuesRecycler.invisible()
         venuesEmpty.visible()
         venuesProgressBar.gone()
     }
