@@ -10,7 +10,7 @@ class VenueFragment : MvvmFragment<BaseState, BaseEvent>() {
 
     override val layout: Int get() =  R.layout.venue_fragment
 
-    override val viewModel: VenueViewModel by inject()
+    override val viewModel: VenueViewModelImpl by inject()
 
 
 
