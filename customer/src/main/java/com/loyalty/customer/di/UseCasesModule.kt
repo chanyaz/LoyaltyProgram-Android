@@ -7,6 +7,8 @@ import com.loyalty.customer.usecases.qr.LoadQrStringCase
 import com.loyalty.customer.usecases.qr.LoadQrStringCaseImpl
 import com.loyalty.customer.usecases.qr.StringToQrBitmapCase
 import com.loyalty.customer.usecases.qr.StringToQrBitmapCaseImpl
+import com.loyalty.customer.usecases.venue.LoadVenuePage
+import com.loyalty.customer.usecases.venue.LoadVenuePageImpl
 import com.loyalty.customer.usecases.venues.FilterVenues
 import com.loyalty.customer.usecases.venues.FilterVenuesImpl
 import com.loyalty.customer.usecases.venues.LoadVenues
@@ -25,5 +27,9 @@ val useCasesModule = module {
 
     factory<FilterVenues> { FilterVenuesImpl(get(name = BaseConsts.SCHEDULER_COMPUTATION)) }
     factory<LoadVenues> { LoadVenuesImpl(get(), get()) }
+
+    /* Venue */
+
+    factory<LoadVenuePage> { LoadVenuePageImpl(get()) }
 
 }

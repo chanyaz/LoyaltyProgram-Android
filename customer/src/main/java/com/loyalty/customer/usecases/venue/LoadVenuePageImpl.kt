@@ -8,8 +8,7 @@ class LoadVenuePageImpl(
         private val venuePageRepository: VenuePageRepository
 ) : LoadVenuePage {
 
-    override fun loadVenuePage(id: String): Single<VenuePageUIModel> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun loadVenuePage(id: String): Single<VenuePageUIModel> =
+            venuePageRepository.loadVenuePage("lol")
 
 }
