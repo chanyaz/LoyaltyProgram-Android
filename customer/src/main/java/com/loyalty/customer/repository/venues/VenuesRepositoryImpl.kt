@@ -48,9 +48,9 @@ class VenuesRepositoryImpl(
                 }
     }
 
-}
+    private data class ShouldUpdateVenuesModel(
+            val shouldUpdateVenues: Boolean,
+            val venuesVersion: Long
+    )
 
-private data class ShouldUpdateVenuesModel(
-        val shouldUpdateVenues: Boolean,
-        val venuesVersion: Long
-)
+}
