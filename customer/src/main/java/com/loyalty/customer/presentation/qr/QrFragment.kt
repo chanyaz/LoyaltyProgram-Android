@@ -31,7 +31,7 @@ class QrFragment : MvvmFragment<QrState, BaseEvent>() {
         super.processState(state)
         when (state) {
             is QrState.QrLoading -> processLoadingState()
-            is QrState.QrError -> processLoadingState()
+            is QrState.QrError -> processErrorState()
             is QrState.QrLoaded -> processLoadedState(state)
         }.exhaustive
     }

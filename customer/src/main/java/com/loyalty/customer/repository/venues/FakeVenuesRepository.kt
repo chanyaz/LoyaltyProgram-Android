@@ -14,21 +14,12 @@ class FakeVenuesRepository : VenuesRepository {
             VenueItemUIModel("https://img.grouponcdn.com/deal/usyc5qMhACid4zb7b34DdtkC4Vh/us-1374x824/v1/t440x300.jpg", "Expresso", "ул. Чачи, 666", "с 11.00 до 22.00"),
             VenueItemUIModel("https://img.grouponcdn.com/deal/usyc5qMhACid4zb7b34DdtkC4Vh/us-1374x824/v1/t440x300.jpg", "Lolo4ka", "ул. Чачи, 45", "с 11.00 до 22.00"),
             VenueItemUIModel("https://img.grouponcdn.com/deal/usyc5qMhACid4zb7b34DdtkC4Vh/us-1374x824/v1/t440x300.jpg", "Wine ", "ул. Чачи, 77", "с 11.00 до 22.00")
-//            VenuePageUIModel("https://img.grouponcdn.com/deal/usyc5qMhACid4zb7b34DdtkC4Vh/us-1374x824/v1/t440x300.jpg", "Wine ", "ул. Чачи, 77", "с 11.00 до 22.00", "", emptyList(), "", 0.0, 0.0),
-//            VenuePageUIModel("https://img.grouponcdn.com/deal/usyc5qMhACid4zb7b34DdtkC4Vh/us-1374x824/v1/t440x300.jpg", "Wine ", "ул. Чачи, 77", "с 11.00 до 22.00", "", emptyList(), "", 0.0, 0.0),
-//            VenuePageUIModel("https://img.grouponcdn.com/deal/usyc5qMhACid4zb7b34DdtkC4Vh/us-1374x824/v1/t440x300.jpg", "Wine ", "ул. Чачи, 77", "с 11.00 до 22.00", "", emptyList(), "", 0.0, 0.0),
-//            VenuePageUIModel("https://img.grouponcdn.com/deal/usyc5qMhACid4zb7b34DdtkC4Vh/us-1374x824/v1/t440x300.jpg", "Wine ", "ул. Чачи, 77", "с 11.00 до 22.00", "", emptyList(), "", 0.0, 0.0),
-//            VenuePageUIModel("https://img.grouponcdn.com/deal/usyc5qMhACid4zb7b34DdtkC4Vh/us-1374x824/v1/t440x300.jpg", "Wine ", "ул. Чачи, 77", "с 11.00 до 22.00", "", emptyList(), "", 0.0, 0.0),
-//            VenuePageUIModel("https://img.grouponcdn.com/deal/usyc5qMhACid4zb7b34DdtkC4Vh/us-1374x824/v1/t440x300.jpg", "Wine ", "ул. Чачи, 77", "с 11.00 до 22.00", "", emptyList(), "", 0.0, 0.0),
-//            VenuePageUIModel("https://img.grouponcdn.com/deal/usyc5qMhACid4zb7b34DdtkC4Vh/us-1374x824/v1/t440x300.jpg", "Wine ", "ул. Чачи, 77", "с 11.00 до 22.00", "", emptyList(), "", 0.0, 0.0),
-//            VenuePageUIModel("https://img.grouponcdn.com/deal/usyc5qMhACid4zb7b34DdtkC4Vh/us-1374x824/v1/t440x300.jpg", "Wine ", "ул. Чачи, 77", "с 11.00 до 22.00", "", emptyList(), "", 0.0, 0.0),
-//            VenuePageUIModel("https://img.grouponcdn.com/deal/usyc5qMhACid4zb7b34DdtkC4Vh/us-1374x824/v1/t440x300.jpg", "Wine ", "ул. Чачи, 77", "с 11.00 до 22.00", "", emptyList(), "", 0.0, 0.0),
-//            VenuePageUIModel("https://img.grouponcdn.com/deal/usyc5qMhACid4zb7b34DdtkC4Vh/us-1374x824/v1/t440x300.jpg", "Wine ", "ул. Чачи, 77", "с 11.00 до 22.00", "", emptyList(), "", 0.0, 0.0)
     )
 
     override fun getVenues(city: String): Single<List<VenueItemUIModel>> {
         return Single.just(venues)
                 .delay(2, TimeUnit.SECONDS, Schedulers.io())
+                .cache()
     }
 
 }

@@ -1,39 +1,51 @@
 package com.loyalty.customer.presentation.venues
 
 import com.loyalty.core.util.extensions.observeOnUi
+import com.loyalty.core.util.extensions.subscribeOrError
+import com.loyalty.customer.ui.models.VenueItemUIModel
 import com.loyalty.customer.usecases.venues.FilterVenues
 import com.loyalty.customer.usecases.venues.LoadVenues
+import io.reactivex.subjects.BehaviorSubject
+import timber.log.Timber
 
 class VenuesViewModelImpl(
         private val loadVenues: LoadVenues,
         private val filterVenues: FilterVenues
 ) : VenuesViewModel() {
 
+    private val querySubject: BehaviorSubject<String> = BehaviorSubject.createDefault("")
+    private var cachedVenues: List<VenueItemUIModel> = emptyList()
+
     override fun initViewModel() {
-        setState(VenuesState.VenuesLoading)
+        setState(VenuesState())
         loadVenues()
     }
 
     private fun loadVenues() {
         subscribe(loadVenues.loadVenues()
+                .flatMap { filterVenues.filter(querySubject.value!!, it) }
                 .observeOnUi()
-                .subscribe({
-                    setState(if (it.isEmpty()) VenuesState.VenuesEmpty else VenuesState.VenuesLoaded(it))
-                }, {
-                    setState(VenuesState.VenuesError)
-                }))
+                .subscribe(::onLoadVenuesSuccess, ::onLoadVenuesError)
+        )
     }
 
-    override fun filterVenues(query: String) {
-        val venues = (stateSubject.value as? VenuesState.VenuesLoaded)?.venues ?: return
+    private fun onLoadVenuesSuccess(venues: List<VenueItemUIModel>) {
+        cachedVenues = venues
+        setState(currentState.copy(venues = venues, isLoading = false, isError = false))
+    }
 
-        subscribe(filterVenues.filter(query, venues)
+    private fun onLoadVenuesError(error: Throwable) {
+        Timber.e(error)
+        setState(currentState.copy(isLoading = false, isError = true))
+    }
+
+    override fun filterVenues(searchQuery: String) {
+        querySubject.onNext(searchQuery)
+        subscribe(filterVenues.filter(searchQuery, cachedVenues)
                 .observeOnUi()
-                .subscribe({
-                    setState(if (it.isEmpty()) VenuesState.VenuesEmpty else VenuesState.VenuesLoaded(it))
-                }, {
-                    setState(VenuesState.VenuesError)
-                })
+                .subscribeOrError("Error while filtering venue list") {
+                    setState(currentState.copy(venues = it))
+                }
         )
     }
 

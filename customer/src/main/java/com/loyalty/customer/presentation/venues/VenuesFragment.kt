@@ -3,13 +3,14 @@ package com.loyalty.customer.presentation.venues
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import com.loyalty.core.exceptions.UnexpectedStateException
 import com.loyalty.core.presentation.mvvm.MvvmFragment
-import com.loyalty.core.util.extensions.exhaustive
 import com.loyalty.core.util.extensions.gone
 import com.loyalty.core.util.extensions.setOnQueryChangedListener
 import com.loyalty.core.util.extensions.visible
 import com.loyalty.customer.R
 import com.loyalty.customer.presentation.venues.adapter.VenuesAdapter
+import com.loyalty.customer.ui.models.VenueItemUIModel
 import kotlinx.android.synthetic.main.venues_fragment.searchVenues
 import kotlinx.android.synthetic.main.venues_fragment.venuesEmpty
 import kotlinx.android.synthetic.main.venues_fragment.venuesProgressBar
@@ -28,22 +29,33 @@ class VenuesFragment : MvvmFragment<VenuesState, VenuesEvent>() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.initViewModel()
+        initViews()
+    }
+
+    private fun initViews() {
+        searchVenues.setOnQueryChangedListener { query ->
+            viewModel.filterVenues(query)
+        }
+        searchVenues.setOnCloseListener {
+            searchVenues.setQuery("", true)
+            searchVenues.clearFocus()
+            false
+        }
     }
 
     override fun processState(state: VenuesState) {
         super.processState(state)
-        when (state) {
-            VenuesState.VenuesEmpty -> processEmptyState()
-            VenuesState.VenuesLoading -> processLoadingState()
-            VenuesState.VenuesError -> processErrorState()
-            is VenuesState.VenuesLoaded -> processLoadedState(state)
-        }.exhaustive
-    }
-
-    private fun processEmptyState() {
-        venuesRecycler.gone()
-        venuesEmpty.visible()
-        venuesProgressBar.gone()
+        if (state.isLoading) {
+            processLoadingState()
+        } else if (state.isError) {
+            processErrorState()
+        } else if (!state.isLoading && !state.isError && state.venues.isEmpty()) {
+            processEmptyState()
+        } else if (!state.isLoading && !state.isError) {
+            processLoadedState(state.venues)
+        } else {
+            throw UnexpectedStateException(state.toString())
+        }
     }
 
     private fun processLoadingState() {
@@ -56,26 +68,29 @@ class VenuesFragment : MvvmFragment<VenuesState, VenuesEvent>() {
         TODO()
     }
 
-    private fun processLoadedState(state: VenuesState.VenuesLoaded) {
+    private fun processLoadedState(venues: List<VenueItemUIModel>) {
         venuesRecycler.visible()
         venuesEmpty.gone()
         venuesProgressBar.gone()
 
         if (!::venuesAdapter.isInitialized) {
-            initVenuesAdapter(state)
+            initVenuesAdapter(venues)
         }
-        venuesAdapter.notifyDataSetChanged()
+        venuesAdapter.setItems(venues)
     }
 
-    private fun initVenuesAdapter(state: VenuesState.VenuesLoaded) {
-        venuesAdapter = VenuesAdapter(state.venues).apply { filter.filter("") }
+    private fun initVenuesAdapter(venues: List<VenueItemUIModel>) {
+        venuesAdapter = VenuesAdapter(venues)
         venuesRecycler.apply {
             adapter = venuesAdapter
             layoutManager = LinearLayoutManager(activity)
         }
-        searchVenues.setOnQueryChangedListener { query ->
-            venuesAdapter.filter.filter(query)
-        }
+    }
+
+    private fun processEmptyState() {
+        venuesRecycler.gone()
+        venuesEmpty.visible()
+        venuesProgressBar.gone()
     }
 
     companion object {

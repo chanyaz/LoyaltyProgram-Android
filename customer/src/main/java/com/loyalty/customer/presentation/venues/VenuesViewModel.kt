@@ -6,6 +6,6 @@ abstract class VenuesViewModel: BaseViewModel<VenuesState, VenuesEvent>() {
 
     abstract fun initViewModel()
 
-    abstract fun filterVenues(query: String)
+    abstract fun filterVenues(searchQuery: String)
 
 }
