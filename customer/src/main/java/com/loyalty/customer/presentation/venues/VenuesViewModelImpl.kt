@@ -2,6 +2,7 @@ package com.loyalty.customer.presentation.venues
 
 import com.loyalty.core.util.extensions.observeOnUi
 import com.loyalty.core.util.extensions.subscribeOrError
+import com.loyalty.customer.presentation.navigation.CustomerScreens
 import com.loyalty.customer.ui.models.VenueItemUIModel
 import com.loyalty.customer.usecases.venues.FilterVenues
 import com.loyalty.customer.usecases.venues.LoadVenues
@@ -47,6 +48,10 @@ class VenuesViewModelImpl(
                     setState(currentState.copy(venues = it))
                 }
         )
+    }
+
+    override fun selectVenue(position: Int) {
+        router.navigateTo(CustomerScreens.KEY_VENUE.name)
     }
 
 }

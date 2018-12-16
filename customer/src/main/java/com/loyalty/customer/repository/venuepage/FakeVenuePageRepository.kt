@@ -21,7 +21,7 @@ class FakeVenuePageRepository : VenuePageRepository {
                     VenueOptionUIModel(android.R.drawable.presence_online, "+ 375 29 148 88 88", Intent(Intent.ACTION_DIAL, Uri.parse("tel:+ 375 29 148 88 88"))),
                     VenueOptionUIModel(android.R.drawable.presence_online, "+ 375 17 274 74 22", Intent(Intent.ACTION_DIAL, Uri.parse("tel:+ 375 17 274 74 22"))),
                     VenueOptionUIModel(android.R.drawable.presence_online, "+ 375 44 902 00 00", Intent(Intent.ACTION_DIAL, Uri.parse("tel:+ 375 44 902 00 00"))),
-                    VenueOptionUIModel(android.R.drawable.presence_online, "https://www.linkedin.com/", null)
+                    VenueOptionUIModel(android.R.drawable.presence_online, "https://www.linkedin.com/", Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/")))
             ),
             images = listOf(
                     "https://c1.staticflickr.com/3/2291/2407610845_92a010d53e_b.jpg",

@@ -32,5 +32,6 @@ enum class CustomerScreens {
     KEY_THIRD,
 
     KEY_QR,
-    KEY_VENUES
+    KEY_VENUES,
+    KEY_VENUE
 }

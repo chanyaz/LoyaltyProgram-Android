@@ -82,7 +82,7 @@ class VenuesFragment : MvvmFragment<VenuesState, BaseEvent>() {
     }
 
     private fun initVenuesRecycler(venues: List<VenueItemUIModel>) {
-        venuesAdapter = VenuesAdapter(venues)
+        venuesAdapter = VenuesAdapter(venues) { viewModel.selectVenue(it) }
         venuesRecycler.apply {
             adapter = venuesAdapter
             layoutManager = LinearLayoutManager(activity)

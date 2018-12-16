@@ -9,4 +9,6 @@ abstract class VenuesViewModel: BaseViewModel<VenuesState, BaseEvent>() {
 
     abstract fun filterVenues(searchQuery: String)
 
+    abstract fun selectVenue(position: Int)
+
 }

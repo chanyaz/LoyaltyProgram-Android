@@ -33,10 +33,7 @@ class VenueFragment : MvvmFragment<VenueState, BaseEvent>() {
 
     override val viewModel: VenueViewModel by inject()
 
-    private val groupContent: List<View> = listOf(
-            venueImage, venueName, venueType, venueCardsInThisVenueText, venueCardsInThisVenue,
-            venueAboutText, venueOptionsRecycler, venueImagesRecycler, venueMap
-    )
+    private lateinit var groupContent: List<View>
 
     private lateinit var venueOptionsAdapter: VenueOptionsAdapter
     private lateinit var venueImagesAdapter: VenueImagesAdapter
@@ -44,7 +41,15 @@ class VenueFragment : MvvmFragment<VenueState, BaseEvent>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initViews()
         viewModel.initViewModel()
+    }
+
+    private fun initViews() {
+        groupContent = listOf(
+                venueImage, venueName, venueType, venueCardsInThisVenueText, venueCardsInThisVenue,
+                venueAboutText, venueOptionsRecycler, venueImagesRecycler, venueMap
+        )
     }
 
     override fun processState(state: VenueState) {
@@ -93,7 +98,7 @@ class VenueFragment : MvvmFragment<VenueState, BaseEvent>() {
         venueImagesAdapter = VenueImagesAdapter(urls)
         venueImagesRecycler.apply {
             adapter = venueImagesAdapter
-            layoutManager = LinearLayoutManager(activity)
+            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
             setHasFixedSize(true)
         }
     }
