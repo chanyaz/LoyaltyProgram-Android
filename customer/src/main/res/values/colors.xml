@@ -35,6 +35,10 @@
     <color name="toolbar_text_color">@color/color_accent</color>
     <color name="toolbar_icon_color">@color/color_accent</color>
 
+    <!-- ProgressBar -->
+
+    <color name="progress_bar_color">@color/dark_grey</color>
+
     <!-- Qr -->
 
     <color name="qr_header_color">@color/white</color>

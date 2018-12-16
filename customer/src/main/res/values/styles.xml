@@ -89,6 +89,12 @@
         <item name="android:src">?homeAsUpIndicator</item>
     </style>
 
+    <!-- ProgressBar -->
+
+    <style name="Zalik.ProgressBar">
+        <item name="android:indeterminateTint">@color/progress_bar_color</item>
+    </style>
+
     <!-- Card -->
 
     <style name="Zalik.Card">
