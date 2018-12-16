@@ -17,7 +17,7 @@ class VenueHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val venueImage = itemView.venueImage
 
     fun bind(model: VenueItemUIModel) {
-        with (model) {
+        with(model) {
             venueName.text = name
             venueAddress.text = address
             venueWorkingHours.text = workingHours
