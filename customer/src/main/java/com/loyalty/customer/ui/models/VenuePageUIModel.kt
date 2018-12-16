@@ -8,6 +8,7 @@ data class VenuePageUIModel(
         val workingHours: String,
         val phones: List<String>,
         val website: String,
+        val images: List<String>,
         val latitude: Double,
         val longitude: Double
 )
