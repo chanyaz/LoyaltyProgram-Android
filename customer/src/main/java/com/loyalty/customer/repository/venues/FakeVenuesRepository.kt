@@ -19,7 +19,6 @@ class FakeVenuesRepository : VenuesRepository {
     override fun getVenues(city: String): Single<List<VenueItemUIModel>> {
         return Single.just(venues)
                 .delay(2, TimeUnit.SECONDS, Schedulers.io())
-                .cache()
     }
 
 }
