@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.loyalty.core.exceptions.UnexpectedStateException
+import com.loyalty.core.presentation.base.BaseEvent
 import com.loyalty.core.presentation.mvvm.MvvmFragment
 import com.loyalty.core.util.extensions.gone
 import com.loyalty.core.util.extensions.setOnQueryChangedListener
@@ -17,7 +18,7 @@ import kotlinx.android.synthetic.main.venues_fragment.venuesProgressBar
 import kotlinx.android.synthetic.main.venues_fragment.venuesRecycler
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class VenuesFragment : MvvmFragment<VenuesState, VenuesEvent>() {
+class VenuesFragment : MvvmFragment<VenuesState, BaseEvent>() {
 
     override val layout: Int get() = R.layout.venues_fragment
 
