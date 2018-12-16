@@ -17,7 +17,7 @@ val viewModelModule = module {
     viewModel { CoordinatorViewModel(get()) }
     viewModel<QrViewModel> { QrViewModelImpl(get()) }
     viewModel<VenuesViewModel> { VenuesViewModelImpl(get(), get()) }
-    viewModel<VenueViewModel> { VenueViewModelImpl() }
+    viewModel<VenueViewModel> { VenueViewModelImpl(get()) }
 
     viewModel { TestViewModel1() }
     viewModel { TestViewModel2() }

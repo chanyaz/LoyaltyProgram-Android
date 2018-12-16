@@ -76,12 +76,12 @@ class VenuesFragment : MvvmFragment<VenuesState, BaseEvent>() {
         venuesProgressBar.gone()
 
         if (!::venuesAdapter.isInitialized) {
-            initVenuesAdapter(venues)
+            initVenuesRecycler(venues)
         }
         venuesAdapter.setItems(venues)
     }
 
-    private fun initVenuesAdapter(venues: List<VenueItemUIModel>) {
+    private fun initVenuesRecycler(venues: List<VenueItemUIModel>) {
         venuesAdapter = VenuesAdapter(venues)
         venuesRecycler.apply {
             adapter = venuesAdapter
