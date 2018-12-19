@@ -10,7 +10,7 @@ class StringToQrBitmapCaseImpl(
         private val computation: Scheduler
 ) : StringToQrBitmapCase {
 
-    override fun stringToBitmap(qrString: String, width: Int, height: Int): Single<Bitmap> =
+    override fun invoke(qrString: String, width: Int, height: Int): Single<Bitmap> =
             Single.just(qrString)
                     .subscribeOn(computation)
                     .map {

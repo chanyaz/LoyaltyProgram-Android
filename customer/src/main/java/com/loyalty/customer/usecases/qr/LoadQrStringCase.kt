@@ -4,6 +4,6 @@ import io.reactivex.Single
 
 interface LoadQrStringCase {
 
-    fun loadQrString(): Single<String>
+    operator fun invoke(): Single<String>
 
 }

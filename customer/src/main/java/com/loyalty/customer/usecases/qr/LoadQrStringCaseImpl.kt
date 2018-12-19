@@ -8,7 +8,7 @@ class LoadQrStringCaseImpl(
         private val qrPreferences: QrPreferences
 ) : LoadQrStringCase {
 
-    override fun loadQrString(): Single<String> =
+    override fun invoke(): Single<String> =
             Single.just("Pidor")
                     .delay(3, TimeUnit.SECONDS)
 

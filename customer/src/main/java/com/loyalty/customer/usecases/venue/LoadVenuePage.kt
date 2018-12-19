@@ -5,6 +5,6 @@ import io.reactivex.Single
 
 interface LoadVenuePage {
 
-    fun loadVenuePage(id: String): Single<VenuePageUIModel>
+    operator fun invoke(id: String): Single<VenuePageUIModel>
 
 }

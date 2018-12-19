@@ -5,6 +5,6 @@ import io.reactivex.Single
 
 interface FilterVenues {
 
-    fun filter(query: String, venues: List<VenueItemUIModel>): Single<List<VenueItemUIModel>>
+    operator fun invoke(query: String, venues: List<VenueItemUIModel>): Single<List<VenueItemUIModel>>
 
 }

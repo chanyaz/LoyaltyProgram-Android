@@ -15,7 +15,7 @@ class VenueViewModelImpl(
     }
 
     private fun loadVenue() {
-        subscribe(loadVenuePage.loadVenuePage("")
+        subscribe(loadVenuePage("")
                 .observeOnUi()
                 .subscribe(::onLoadVenueSuccess, ::onLoadVenueError)
         )

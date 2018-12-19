@@ -8,7 +8,7 @@ class LoadVenuePageImpl(
         private val venuePageRepository: VenuePageRepository
 ) : LoadVenuePage {
 
-    override fun loadVenuePage(id: String): Single<VenuePageUIModel> =
+    override fun invoke(id: String): Single<VenuePageUIModel> =
             venuePageRepository.loadVenuePage("lol")
 
 }

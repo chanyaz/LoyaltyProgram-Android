@@ -8,7 +8,7 @@ class FilterVenuesImpl(
         private val computation: Scheduler
 ) : FilterVenues {
 
-    override fun filter(query: String, venues: List<VenueItemUIModel>): Single<List<VenueItemUIModel>> =
+    override fun invoke(query: String, venues: List<VenueItemUIModel>): Single<List<VenueItemUIModel>> =
             Single.just(venues)
                     .map { list ->
                         list.filter { it.name.contains(query, true) || it.address.contains(query, true) }

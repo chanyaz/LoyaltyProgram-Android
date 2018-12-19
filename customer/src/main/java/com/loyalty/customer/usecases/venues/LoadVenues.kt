@@ -5,6 +5,6 @@ import io.reactivex.Single
 
 interface LoadVenues {
 
-    fun loadVenues(): Single<List<VenueItemUIModel>>
+    operator fun invoke(): Single<List<VenueItemUIModel>>
 
 }

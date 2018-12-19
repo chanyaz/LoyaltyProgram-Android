@@ -19,12 +19,13 @@ class VenuesViewModelImpl(
 
     override fun initViewModel() {
         setState(VenuesState())
-        loadVenues()
+        loadData()
     }
 
-    private fun loadVenues() {
-        subscribe(loadVenues.loadVenues()
-                .flatMap { filterVenues.filter(querySubject.value!!, it) }
+    /* Force unwrap is possible as querySubject always has default value */
+    private fun loadData() {
+        subscribe(loadVenues()
+                .flatMap { filterVenues(querySubject.value!!, it) }
                 .observeOnUi()
                 .subscribe(::onLoadVenuesSuccess, ::onLoadVenuesError)
         )
@@ -42,7 +43,7 @@ class VenuesViewModelImpl(
 
     override fun filterVenues(searchQuery: String) {
         querySubject.onNext(searchQuery)
-        subscribe(filterVenues.filter(searchQuery, cachedVenues)
+        subscribe(filterVenues(searchQuery, cachedVenues)
                 .observeOnUi()
                 .subscribeOrError("Error while filtering venue list") {
                     setState(currentState.copy(venues = it))

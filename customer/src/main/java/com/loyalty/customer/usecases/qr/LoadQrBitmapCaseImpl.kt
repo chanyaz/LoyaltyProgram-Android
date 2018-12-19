@@ -8,10 +8,10 @@ class LoadQrBitmapCaseImpl(
         private val stringToQrBitmapCase: StringToQrBitmapCase
 ) : LoadQrBitmapCase {
 
-    override fun loadQrBitmap(width: Int, height: Int): Single<Bitmap> =
-            loadQrStringCase.loadQrString()
+    override fun invoke(width: Int, height: Int): Single<Bitmap> =
+            loadQrStringCase.invoke()
                     .flatMap {
-                        stringToQrBitmapCase.stringToBitmap(it, width = width, height = height)
+                        stringToQrBitmapCase(it, width = width, height = height)
                     }
 
 }

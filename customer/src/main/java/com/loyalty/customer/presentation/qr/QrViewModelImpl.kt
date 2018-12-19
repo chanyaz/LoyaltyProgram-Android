@@ -13,7 +13,7 @@ class QrViewModelImpl(
     }
 
     private fun loadQrCode(qrWidth: Int, qrHeight: Int) {
-        subscribe(loadQrBitmapCase.loadQrBitmap(width = qrWidth, height = qrHeight)
+        subscribe(loadQrBitmapCase(width = qrWidth, height = qrHeight)
                 .observeOnUi()
                 .subscribe({
                     setState(QrState.QrLoaded(it))

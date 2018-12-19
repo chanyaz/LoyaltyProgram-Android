@@ -5,6 +5,6 @@ import io.reactivex.Single
 
 interface StringToQrBitmapCase {
 
-    fun stringToBitmap(qrString: String, width: Int, height: Int): Single<Bitmap>
+    operator fun invoke(qrString: String, width: Int, height: Int): Single<Bitmap>
 
 }

@@ -5,6 +5,6 @@ import io.reactivex.Single
 
 interface LoadQrBitmapCase {
 
-    fun loadQrBitmap(width: Int, height: Int): Single<Bitmap>
+    operator fun invoke(width: Int, height: Int): Single<Bitmap>
 
 }

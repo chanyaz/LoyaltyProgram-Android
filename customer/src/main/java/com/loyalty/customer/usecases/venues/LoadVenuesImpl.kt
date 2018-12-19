@@ -10,7 +10,7 @@ class LoadVenuesImpl(
         private val locationPreferences: LocationPreferences
 ) : LoadVenues {
 
-    override fun loadVenues(): Single<List<VenueItemUIModel>> =
+    override fun invoke(): Single<List<VenueItemUIModel>> =
             locationPreferences.getCurrentLocation()
                     .flatMap { venuesRepository.getVenues(it) }
 
