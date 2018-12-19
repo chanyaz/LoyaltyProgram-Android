@@ -24,4 +24,11 @@
     <string name="venue_cards_in_this_venue">Карточки в этом заведении</string>
     <string name="venue_about_this_venue">О заведении</string>
 
+    <!-- Cards -->
+
+    <string name="cards_title">Мои карточки</string>
+    <string name="cards_empty">Здесь пусто и очень грустно…</string>
+    <string name="card_number_of_stamps">Количество штампов:</string>
+
+
 </resources>
