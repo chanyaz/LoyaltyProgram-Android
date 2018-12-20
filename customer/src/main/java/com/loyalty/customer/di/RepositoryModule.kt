@@ -1,5 +1,7 @@
 package com.loyalty.customer.di
 
+import com.loyalty.customer.repository.cards.CardsRepository
+import com.loyalty.customer.repository.cards.FakeCardsRepository
 import com.loyalty.customer.repository.venuepage.FakeVenuePageRepository
 import com.loyalty.customer.repository.venuepage.VenuePageRepository
 import com.loyalty.customer.repository.venues.FakeVenuesRepository
@@ -12,5 +14,8 @@ val repositoryModule = module {
     }
     factory<VenuePageRepository> {
         FakeVenuePageRepository()
+    }
+    factory<CardsRepository> {
+        FakeCardsRepository()
     }
 }
