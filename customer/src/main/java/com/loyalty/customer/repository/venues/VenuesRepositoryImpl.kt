@@ -35,7 +35,7 @@ class VenuesRepositoryImpl(
 
     private fun getAndSaveVenues(city: String, shouldUpdateVenuesModel: ShouldUpdateVenuesModel): Single<List<VenueItemUIModel>> {
         return venuesApi.getVenues(city)
-                .doOnSuccess { venues ->
+                .doOnSuccess { venues -> // todo consider using .flatMap { venues -> and .toSingleDefault(venues) instead of doOnSuccess and blockingAwait
                     venuesStorage.clearVenues(city)
                             .andThen {
                                 Completable.mergeArray(
