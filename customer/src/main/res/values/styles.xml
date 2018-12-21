@@ -78,7 +78,7 @@
     <style name="Zalik.Toolbar.Subtitle">
         <item name="layout_constraintEnd_toEndOf">parent</item>
         <item name="layout_constraintStart_toStartOf">parent</item>
-        <item name="android:textSize">@dimen/toolbar_text_size</item>
+        <item name="android:textSize">@dimen/toolbar_subtitle_text_size</item>
         <item name="android:textColor">@color/toolbar_text_color</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
