@@ -8,5 +8,6 @@ data class CardItemUIModel(
         val eventDate: String,
         val eventType: EventType,
         val currentStamps: Int,
-        val outOfStamps: Int
+        val outOfStamps: Int,
+        var isExpandedState: Boolean = false
 )
