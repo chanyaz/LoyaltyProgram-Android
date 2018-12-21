@@ -10,11 +10,11 @@ import com.loyalty.core.exceptions.NavigationException
 import com.loyalty.core.presentation.navigation.subnavigation.LocalCiceroneHolder
 import com.loyalty.core.presentation.base.view.BaseFragment
 import com.loyalty.core.presentation.base.view.OnBackPressedListener
+import com.loyalty.core.presentation.navigation.navigator.FragmentNavigator
+import com.loyalty.core.presentation.navigation.router.Router
 import org.koin.android.ext.android.inject
 import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.Navigator
-import ru.terrakok.cicerone.Router
-import ru.terrakok.cicerone.android.SupportFragmentNavigator
 
 abstract class NavigationFragment : Fragment(), OnBackPressedListener {
 
@@ -39,11 +39,10 @@ abstract class NavigationFragment : Fragment(), OnBackPressedListener {
     private val navigationContainerId: Int get() = R.id.navigationContainer
 
     private val navigator: Navigator by lazy {
-        object : SupportFragmentNavigator(childFragmentManager, navigationContainerId) {
+        object : FragmentNavigator(childFragmentManager, navigationContainerId) {
             override fun createFragment(screenKey: String, data: Any?): Fragment =
                     this@NavigationFragment.createFragment(screenKey, data)
             override fun exit() = activity?.finish() ?: Unit
-            override fun showSystemMessage(message: String?) = Unit
         }
     }
 

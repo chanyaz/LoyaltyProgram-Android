@@ -8,10 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.loyalty.core.exceptions.NavigationException
 import com.loyalty.core.presentation.navigation.NavigationFragment
+import com.loyalty.core.presentation.navigation.router.Router
 import com.loyalty.core.util.extensions.plusAssign
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
-import ru.terrakok.cicerone.Router
 
 abstract class BaseFragment : Fragment(), OnBackPressedListener {
 

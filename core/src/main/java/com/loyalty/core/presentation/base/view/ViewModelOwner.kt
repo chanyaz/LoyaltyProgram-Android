@@ -4,10 +4,10 @@ import android.support.annotation.CallSuper
 import com.loyalty.core.presentation.base.BaseEvent
 import com.loyalty.core.presentation.base.BaseState
 import com.loyalty.core.presentation.mvvm.BaseViewModel
+import com.loyalty.core.presentation.navigation.router.Router
 import com.loyalty.core.util.extensions.plusAssign
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import ru.terrakok.cicerone.Router
 import timber.log.Timber
 
 interface ViewModelOwner<S: BaseState, E: BaseEvent> {

@@ -5,15 +5,15 @@ import com.loyalty.core.logging.DebugTree
 import com.loyalty.core.logging.ReleaseTree
 import com.loyalty.core.di.ciceroneModule
 import com.loyalty.core.di.schedulerModule
+import com.loyalty.core.presentation.navigation.router.Router
 import org.koin.android.ext.android.startKoin
 import org.koin.dsl.module.Module
 import ru.terrakok.cicerone.Cicerone
-import ru.terrakok.cicerone.Router
 import timber.log.Timber
 
 abstract class BaseApp: MultiDexApplication() {
 
-    private val cicerone: Cicerone<Router> = Cicerone.create()
+    private val cicerone: Cicerone<Router> = Cicerone.create(Router())
 
     val router: Router get() = cicerone.router
 
