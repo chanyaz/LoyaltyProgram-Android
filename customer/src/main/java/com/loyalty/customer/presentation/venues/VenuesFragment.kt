@@ -2,7 +2,11 @@ package com.loyalty.customer.presentation.venues
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
+import android.view.ContextMenu
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import com.loyalty.core.exceptions.UnexpectedStateException
 import com.loyalty.core.presentation.base.BaseEvent
 import com.loyalty.core.presentation.mvvm.MvvmFragment

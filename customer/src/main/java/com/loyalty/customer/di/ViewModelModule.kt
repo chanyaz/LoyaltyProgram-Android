@@ -1,5 +1,7 @@
 package com.loyalty.customer.di
 
+import com.loyalty.customer.presentation.cards.CardsViewModel
+import com.loyalty.customer.presentation.cards.CardsViewModelImpl
 import com.loyalty.customer.presentation.coordinator.CoordinatorViewModel
 import com.loyalty.customer.presentation.navigation.flows.test.TestViewModel1
 import com.loyalty.customer.presentation.navigation.flows.test.TestViewModel2
@@ -18,6 +20,7 @@ val viewModelModule = module {
     viewModel<QrViewModel> { QrViewModelImpl(get()) }
     viewModel<VenuesViewModel> { VenuesViewModelImpl(get(), get()) }
     viewModel<VenueViewModel> { VenueViewModelImpl(get()) }
+    viewModel<CardsViewModel> { CardsViewModelImpl(get()) }
 
     viewModel { TestViewModel1() }
     viewModel { TestViewModel2() }
