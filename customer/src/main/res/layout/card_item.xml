@@ -103,6 +103,7 @@
             tools:text="11" />
 
         <TextView
+            android:id="@+id/cardNumberOutOf"
             style="@style/Zalik.Text.Card.Points.OutOf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

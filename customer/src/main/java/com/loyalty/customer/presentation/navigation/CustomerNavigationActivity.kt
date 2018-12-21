@@ -35,7 +35,7 @@ class CustomerNavigationActivity : NavigationActivity() {
     }
 
     private fun inflateMenu() {
-        navigationBar.inflateMenu(if (isUserLoggedIn) R.menu.navigation_menu else R.menu.navigation_menu_not_logged)
+        navigationBar.inflateMenu(if (isUserLoggedIn) R.menu.navigation_menu else R.menu.navigation_menu) // TODO is this needed?
     }
 
     companion object {

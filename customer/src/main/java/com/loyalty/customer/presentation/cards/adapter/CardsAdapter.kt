@@ -23,7 +23,7 @@ class CardsAdapter(
     override fun onViewAttachedToWindow(holder: CardViewHolder) {
         super.onViewAttachedToWindow(holder)
         holder.itemView.setOnClickListener {
-            TODO()
+            /* TODO */
         }
     }
 

@@ -13,7 +13,6 @@ import com.loyalty.customer.ui.models.CardItemUIModel
 import kotlinx.android.synthetic.main.cards_fragment.cardsEmpty
 import kotlinx.android.synthetic.main.cards_fragment.cardsProgressBar
 import kotlinx.android.synthetic.main.cards_fragment.cardsRecycler
-import kotlinx.android.synthetic.main.venues_fragment.venuesRecycler
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class CardsFragment : MvvmFragment<CardsState, BaseEvent>() {
@@ -56,8 +55,8 @@ class CardsFragment : MvvmFragment<CardsState, BaseEvent>() {
     }
 
     private fun processLoadedState(cards: List<CardItemUIModel>) {
-        cardsRecycler.invisible()
-        cardsEmpty.visible()
+        cardsRecycler.visible()
+        cardsEmpty.invisible()
         cardsProgressBar.gone()
 
         if (!::cardsAdapter.isInitialized) {
@@ -68,10 +67,14 @@ class CardsFragment : MvvmFragment<CardsState, BaseEvent>() {
 
     private fun initCardsAdapter(cards: List<CardItemUIModel>) {
         cardsAdapter = CardsAdapter(cards) { viewModel.selectCard(it) }
-        venuesRecycler.apply {
+        cardsRecycler.apply {
             adapter = cardsAdapter
             layoutManager = LinearLayoutManager(activity)
         }
+    }
+
+    companion object {
+        fun newInstance(): CardsFragment = CardsFragment()
     }
 
 }
