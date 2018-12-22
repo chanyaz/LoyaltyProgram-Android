@@ -15,6 +15,7 @@ import com.loyalty.customer.presentation.venue.adapter.images.VenueImagesAdapter
 import com.loyalty.customer.presentation.venue.adapter.options.VenueOptionsAdapter
 import com.loyalty.customer.ui.models.VenueOptionUIModel
 import com.loyalty.customer.ui.models.VenuePageUIModel
+import kotlinx.android.synthetic.main.venue_fragment.backButton
 import kotlinx.android.synthetic.main.venue_fragment.venueAboutText
 import kotlinx.android.synthetic.main.venue_fragment.venueCardsInThisVenue
 import kotlinx.android.synthetic.main.venue_fragment.venueCardsInThisVenueText
@@ -50,6 +51,9 @@ class VenueFragment : MvvmFragment<VenueState, BaseEvent>() {
                 venueImage, venueName, venueType, venueCardsInThisVenueText, venueCardsInThisVenue,
                 venueAboutText, venueOptionsRecycler, venueImagesRecycler, venueMap
         )
+        backButton.setOnClickListener {
+            viewModel.back()
+        }
     }
 
     override fun processState(state: VenueState) {

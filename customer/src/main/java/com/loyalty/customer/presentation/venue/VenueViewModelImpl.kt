@@ -30,4 +30,8 @@ class VenueViewModelImpl(
         setState(currentState.copy(isLoading = false, isError = true))
     }
 
+    override fun back() {
+        router.backNShow()
+    }
+
 }
