@@ -7,7 +7,7 @@ import com.loyalty.customer.R
 import com.loyalty.customer.ui.models.VenueOptionUIModel
 
 class VenueOptionsAdapter(
-        private val options: List<VenueOptionUIModel>
+        private var options: List<VenueOptionUIModel> = emptyList()
 ) : RecyclerView.Adapter<VenueOptionHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): VenueOptionHolder {
@@ -32,6 +32,11 @@ class VenueOptionsAdapter(
     override fun onViewDetachedFromWindow(holder: VenueOptionHolder) {
         super.onViewDetachedFromWindow(holder)
         holder.itemView.setOnClickListener(null)
+    }
+
+    fun setItems(items: List<VenueOptionUIModel>) {
+        options = items // todo use diff util
+        notifyDataSetChanged()
     }
 
 }

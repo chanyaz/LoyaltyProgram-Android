@@ -158,15 +158,23 @@
                 tools:listitem="@layout/venue_image_item"
                 tools:visibility="visible" />
 
-            <View
-                android:id="@+id/venueMap"
+            <FrameLayout
+                android:id="@+id/venueMapContainer"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginTop="@dimen/margin_small"
-                android:background="@color/dark_grey"
                 android:visibility="invisible"
                 app:layout_constraintTop_toBottomOf="@id/venueImagesRecycler"
-                tools:visibility="visible" />
+                tools:visibility="visible">
+
+                <fragment
+                    android:id="@+id/venueMap"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </FrameLayout>
+
 
         </android.support.constraint.ConstraintLayout>
 

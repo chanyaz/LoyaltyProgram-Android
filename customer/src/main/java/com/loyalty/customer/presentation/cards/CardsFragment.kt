@@ -65,7 +65,7 @@ class CardsFragment : MvvmFragment<CardsState, BaseEvent>() {
         cardsAdapter.setItems(cards)
     }
 
-    private fun initCardsAdapter(cards: List<CardItemUIModel>) {
+    private fun initCardsAdapter(cards: List<CardItemUIModel>) { // todo refactor this
         cardsAdapter = CardsAdapter(cards) { viewModel.selectCard(it) }
         cardsRecycler.apply {
             adapter = cardsAdapter

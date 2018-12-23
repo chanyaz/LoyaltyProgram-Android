@@ -7,6 +7,8 @@ abstract class VenueViewModel : BaseViewModel<VenueState, BaseEvent>() {
 
     abstract fun initViewModel()
 
+    abstract fun mapLoaded()
+
     abstract fun back()
 
 }

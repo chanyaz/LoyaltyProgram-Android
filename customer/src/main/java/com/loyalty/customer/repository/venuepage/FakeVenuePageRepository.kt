@@ -2,6 +2,7 @@ package com.loyalty.customer.repository.venuepage
 
 import android.content.Intent
 import android.net.Uri
+import com.google.android.gms.maps.model.LatLng
 import com.loyalty.customer.ui.models.VenueOptionUIModel
 import com.loyalty.customer.ui.models.VenuePageUIModel
 import io.reactivex.Single
@@ -28,8 +29,7 @@ class FakeVenuePageRepository : VenuePageRepository {
                     "https://c8.alamy.com/comp/G3F2TH/rembrandtplein-coffee-shop-amsterdam-holland-netherlands-G3F2TH.jpg",
                     "https://c8.alamy.com/comp/A09JPD/coffeeshop-amsterdam-A09JPD.jpg"
             ),
-            latitude = 53.896078,
-            longitude = 27.556120
+            location = LatLng(53.896078, 27.556120)
     )
 
     override fun loadVenuePage(id: String): Single<VenuePageUIModel> =

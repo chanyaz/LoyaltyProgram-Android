@@ -81,7 +81,7 @@ class VenuesFragment : MvvmFragment<VenuesState, BaseEvent>() {
         venuesAdapter.setItems(venues)
     }
 
-    private fun initVenuesRecycler(venues: List<VenueItemUIModel>) {
+    private fun initVenuesRecycler(venues: List<VenueItemUIModel>) { // todo refactor this
         venuesAdapter = VenuesAdapter(venues) { viewModel.selectVenue(it) }
         venuesRecycler.apply {
             adapter = venuesAdapter
