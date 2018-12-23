@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.bumptech.glide.Glide
+import com.loyalty.core.ui.adapter.SimpleHolder
 import com.loyalty.customer.ui.models.CardItemUIModel
 import kotlinx.android.synthetic.main.card_item.view.cardDate
 import kotlinx.android.synthetic.main.card_item.view.cardDaysLeft
@@ -13,7 +14,7 @@ import kotlinx.android.synthetic.main.card_item.view.cardNumberOutOf
 import kotlinx.android.synthetic.main.card_item.view.cardVenueName
 import kotlinx.android.synthetic.main.card_item.view.cardVenueType
 
-class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class CardViewHolder(itemView: View) : SimpleHolder<CardItemUIModel>(itemView) {
 
     private val cardVenueName = itemView.cardVenueName
     private val cardVenueType = itemView.cardVenueType
@@ -24,7 +25,7 @@ class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val cardLogo = itemView.cardLogo
 
     @SuppressLint("SetTextI18n")
-    fun bind(model: CardItemUIModel) {
+    override fun bind(model: CardItemUIModel) {
         with(model) {
             cardVenueName.text = venueName
             cardVenueType.text = venueType

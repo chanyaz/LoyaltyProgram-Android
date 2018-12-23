@@ -1,41 +1,31 @@
 package com.loyalty.customer.presentation.cards.adapter
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.loyalty.core.ui.adapter.SimpleAdapter
+import com.loyalty.core.ui.adapter.SimpleHolder
 import com.loyalty.customer.R
 import com.loyalty.customer.ui.models.CardItemUIModel
 
 class CardsAdapter(
         private val onCardClicked: (Int) -> Unit
-) : RecyclerView.Adapter<CardViewHolder>() {
-
-    private var elements: List<CardItemUIModel> = emptyList()
+) : SimpleAdapter<CardItemUIModel>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): CardViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.card_item, parent, false)
         return CardViewHolder(view)
     }
 
-    override fun getItemCount(): Int = elements.size
-
-    override fun onBindViewHolder(holder: CardViewHolder, position: Int) = holder.bind(elements[position])
-
-    override fun onViewAttachedToWindow(holder: CardViewHolder) {
+    override fun onViewAttachedToWindow(holder: SimpleHolder<CardItemUIModel>) {
         super.onViewAttachedToWindow(holder)
         holder.itemView.setOnClickListener {
             /* TODO */
         }
     }
 
-    override fun onViewDetachedFromWindow(holder: CardViewHolder) {
+    override fun onViewDetachedFromWindow(holder: SimpleHolder<CardItemUIModel>) {
         super.onViewDetachedFromWindow(holder)
         holder.itemView.setOnClickListener(null)
-    }
-
-    fun setItems(items: List<CardItemUIModel>) {
-        elements = items
-        notifyDataSetChanged() // todo use diff util AND create base adapter class with it
     }
 
 }
