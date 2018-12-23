@@ -59,14 +59,14 @@ class CardsFragment : MvvmFragment<CardsState, BaseEvent>() {
         cardsEmpty.invisible()
         cardsProgressBar.gone()
 
-        if (!::cardsAdapter.isInitialized) {
-            initCardsAdapter(cards)
-        }
+        if (!::cardsAdapter.isInitialized)
+            initCardsAdapter()
+
         cardsAdapter.setItems(cards)
     }
 
-    private fun initCardsAdapter(cards: List<CardItemUIModel>) { // todo refactor this
-        cardsAdapter = CardsAdapter(cards) { viewModel.selectCard(it) }
+    private fun initCardsAdapter() {
+        cardsAdapter = CardsAdapter { viewModel.selectCard(it) }
         cardsRecycler.apply {
             adapter = cardsAdapter
             layoutManager = LinearLayoutManager(activity)

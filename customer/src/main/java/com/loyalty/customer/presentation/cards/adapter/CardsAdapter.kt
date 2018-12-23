@@ -7,9 +7,10 @@ import com.loyalty.customer.R
 import com.loyalty.customer.ui.models.CardItemUIModel
 
 class CardsAdapter(
-        private var elements: List<CardItemUIModel>,
         private val onCardClicked: (Int) -> Unit
 ) : RecyclerView.Adapter<CardViewHolder>() {
+
+    private var elements: List<CardItemUIModel> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): CardViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.card_item, parent, false)

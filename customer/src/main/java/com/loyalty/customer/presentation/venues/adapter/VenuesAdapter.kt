@@ -7,9 +7,10 @@ import com.loyalty.customer.R
 import com.loyalty.customer.ui.models.VenueItemUIModel
 
 class VenuesAdapter(
-        private var elements: List<VenueItemUIModel>,
         private val onVenueClicked: (Int) -> Unit
 ) : RecyclerView.Adapter<VenueHolder>() {
+
+    private var elements: List<VenueItemUIModel> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): VenueHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.venue_item, parent, false)

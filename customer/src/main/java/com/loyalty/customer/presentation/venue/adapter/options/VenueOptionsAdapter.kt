@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import com.loyalty.customer.R
 import com.loyalty.customer.ui.models.VenueOptionUIModel
 
-class VenueOptionsAdapter(
-        private var options: List<VenueOptionUIModel> = emptyList()
-) : RecyclerView.Adapter<VenueOptionHolder>() {
+class VenueOptionsAdapter : RecyclerView.Adapter<VenueOptionHolder>() {
+
+    private var options: List<VenueOptionUIModel> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): VenueOptionHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.venue_option_item, parent, false)
@@ -24,7 +24,7 @@ class VenueOptionsAdapter(
         super.onViewAttachedToWindow(holder)
         holder.itemView.setOnClickListener { view ->
             options[holder.adapterPosition].intent?.let {
-                holder.itemView.context.startActivity(it) // todo check here
+                holder.itemView.context.startActivity(it)
             }
         }
     }

@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.loyalty.customer.R
 
-class VenueImagesAdapter(
-        private var urls: List<String> = emptyList()
-) : RecyclerView.Adapter<VenueImageHolder>() {
+class VenueImagesAdapter : RecyclerView.Adapter<VenueImageHolder>() {
+
+    private var urls: List<String> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): VenueImageHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.venue_image_item, parent, false)

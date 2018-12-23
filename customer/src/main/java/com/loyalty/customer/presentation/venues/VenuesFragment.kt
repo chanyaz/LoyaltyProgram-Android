@@ -75,14 +75,14 @@ class VenuesFragment : MvvmFragment<VenuesState, BaseEvent>() {
         venuesEmpty.invisible()
         venuesProgressBar.gone()
 
-        if (!::venuesAdapter.isInitialized) {
-            initVenuesRecycler(venues)
-        }
+        if (!::venuesAdapter.isInitialized)
+            initVenuesRecycler()
+
         venuesAdapter.setItems(venues)
     }
 
-    private fun initVenuesRecycler(venues: List<VenueItemUIModel>) { // todo refactor this
-        venuesAdapter = VenuesAdapter(venues) { viewModel.selectVenue(it) }
+    private fun initVenuesRecycler() {
+        venuesAdapter = VenuesAdapter { viewModel.selectVenue(it) }
         venuesRecycler.apply {
             adapter = venuesAdapter
             layoutManager = LinearLayoutManager(activity)
