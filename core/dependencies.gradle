@@ -15,6 +15,7 @@ ext {
     v_zxing = "3.6.0"
     v_multidex = "1.0.3"
     v_auth = "0.2.1"
+    v_maps = "16.0.0"
     v_permissiondispatcher = "3.3.1"
 }
 
@@ -76,6 +77,10 @@ ext.permissiondispatcher = [
 
 ext.zxing = [
         core: "com.journeyapps:zxing-android-embedded:$v_zxing"
+]
+
+ext.maps = [
+        core: "com.google.android.gms:play-services-maps:$v_maps"
 ]
 
 ext.logs = [

@@ -81,6 +81,9 @@ dependencies {
         exclude group: 'com.android.support'
     }
 
+    /* Maps */
+    api maps.core
+
     /* Logging */
     api logs.timber
 
