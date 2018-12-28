@@ -7,8 +7,9 @@
     <color name="transparent_black">#00000000</color>
 
     <color name="white">#ffffff</color>
+    <color name="white_transparent">#80ffffff</color>
     <color name="dark_green">#0e9090</color>
-    <color name="light_green">#49B9BA</color>
+    <color name="light_green">#52c1c1</color>
     <color name="lighter_green">#a7dede</color>
 
     <color name="pale_grey">#F5F3FA</color>
@@ -30,7 +31,7 @@
 
     <color name="navigation_menu_background_color">@color/color_primary</color>
     <color name="navigation_menu_item_active_color">@color/color_accent</color>
-    <color name="navigation_menu_item_inactive_color">@color/lighter_green</color>
+    <color name="navigation_menu_item_inactive_color">@color/white_transparent</color>
 
     <!-- Toolbar -->
 
