@@ -9,6 +9,8 @@
     <dimen name="margin_medium">16dp</dimen>
     <dimen name="margin_big">20dp</dimen>
     <dimen name="margin_xbig">24dp</dimen>
+    <dimen name="margin_xxbig">28dp</dimen>
+    <dimen name="margin_xxxbig">32dp</dimen>
 
     <!-- Text sizes -->
 
