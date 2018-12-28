@@ -1,0 +1,123 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Zalik" />
+
+    <!-- Main theme -->
+
+    <style name="Zalik.Default" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/color_primary_dark</item>
+        <item name="colorAccent">@color/color_accent</item>
+
+        <item name="android:statusBarColor">?colorPrimaryDark</item>
+        <item name="android:colorBackground">@color/window_background_color</item>
+
+        <item name="android:textViewStyle">@style/Zalik.Text</item>
+    </style>
+
+    <!-- The theme should have the "AppTheme" name because of sucky microsoft, yey! -->
+    <style name="AppTheme" parent="Zalik.Default" tools:ignore="PrivateResource" />
+
+    <!-- Transparent theme -->
+
+    <style name="Zalik.Transparent" parent="Theme.AppCompat">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/transparent_white</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <!-- Elements styles -->
+
+    <!-- Text -->
+
+    <style name="Zalik.Text">
+        <item name="android:textColor">@color/dark_grey</item>
+    </style>
+
+    <!-- Bottom Navigation -->
+
+    <style name="Zalik.BottomNavigationView">
+        <item name="android:background">@color/navigation_menu_background_color</item>
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="itemIconTint">@drawable/bottom_navigation_color_selector</item>
+        <item name="itemTextColor">@drawable/bottom_navigation_color_selector</item>
+    </style>
+
+    <!-- Toolbar -->
+
+    <style name="Zalik.Toolbar"/>
+
+    <style name="Zalik.Toolbar.Element">
+        <item name="android:background">@color/toolbar_background_color</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:contentInsetStart">@dimen/toolbar_margin</item>
+        <item name="contentInsetStart">@dimen/toolbar_margin</item>
+        <item name="android:contentInsetLeft">@dimen/toolbar_margin</item>
+        <item name="contentInsetLeft">@dimen/toolbar_margin</item>
+        <item name="android:contentInsetEnd">@dimen/toolbar_margin</item>
+        <item name="contentInsetEnd">@dimen/toolbar_margin</item>
+        <item name="android:contentInsetRight">@dimen/toolbar_margin</item>
+        <item name="contentInsetRight">@dimen/toolbar_margin</item>
+    </style>
+
+    <style name="Zalik.Toolbar.Title">
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="android:textSize">@dimen/toolbar_text_size</item>
+        <item name="android:textColor">@color/toolbar_text_color</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Zalik.Toolbar.Subtitle">
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="android:textSize">@dimen/toolbar_subtitle_text_size</item>
+        <item name="android:textColor">@color/toolbar_text_color</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Zalik.Toolbar.Icon">
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="android:layout_width">@dimen/toolbar_icon_size</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:tint">@color/toolbar_icon_color</item>
+        <item name="android:background">@color/toolbar_background_color</item>
+    </style>
+
+    <style name="Zalik.Toolbar.Icon.Back">
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="android:src">?homeAsUpIndicator</item>
+    </style>
+
+    <!-- ProgressBar -->
+
+    <style name="Zalik.ProgressBar">
+        <item name="android:indeterminateTint">@color/progress_bar_color</item>
+    </style>
+
+    <!-- Card -->
+
+    <style name="Zalik.Card">
+        <item name="android:background">@color/card_background_color</item>
+        <item name="android:layout_margin">@dimen/margin_xsmall</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+    </style>
+
+    <!-- Separator line -->
+
+    <style name="Zalik.Separator">
+        <item name="android:background">@color/separator_color</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+    </style>
+
+</resources>

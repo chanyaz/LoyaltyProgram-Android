@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Colors -->
+
+    <color name="transparent_white">#00ffffff</color>
+    <color name="transparent_black">#00000000</color>
+
+    <color name="white">#ffffff</color>
+    <color name="dark_green">#0e9090</color>
+    <color name="light_green">#49B9BA</color>
+    <color name="lighter_green">#a7dede</color>
+
+    <color name="pale_grey">#F5F3FA</color>
+    <color name="dark_grey">#8B93A9</color>
+    <color name="light_grey">#ADB3C2</color>
+
+    <color name="orange">#FFBE19</color>
+
+    <!-- Theme colors -->
+
+    <color name="color_primary">@color/light_green</color>
+    <color name="color_primary_dark">@color/dark_green</color>
+    <color name="color_accent">@color/white</color>
+
+    <color name="window_background_color">@color/pale_grey</color>
+    <color name="text_color_primary_color">@color/dark_grey</color>
+
+    <!-- Bottom navigation -->
+
+    <color name="navigation_menu_background_color">@color/color_primary</color>
+    <color name="navigation_menu_item_active_color">@color/color_accent</color>
+    <color name="navigation_menu_item_inactive_color">@color/lighter_green</color>
+
+    <!-- Toolbar -->
+
+    <color name="toolbar_background_color">@color/color_primary</color>
+    <color name="toolbar_text_color">@color/color_accent</color>
+    <color name="toolbar_icon_color">@color/color_accent</color>
+
+    <!-- ProgressBar -->
+
+    <color name="progress_bar_color">@color/dark_grey</color>
+
+    <!-- Card -->
+
+    <color name="card_background_color">@color/white</color>
+    <color name="separator_color">@color/light_grey</color>
+
+</resources>

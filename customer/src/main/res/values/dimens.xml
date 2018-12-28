@@ -1,39 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Margins -->
-
-    <dimen name="margin_xxsmall">4dp</dimen>
-    <dimen name="margin_xsmall">8dp</dimen>
-    <dimen name="margin_small">12dp</dimen>
-    <dimen name="margin_medium">16dp</dimen>
-    <dimen name="margin_big">20dp</dimen>
-    <dimen name="margin_xbig">24dp</dimen>
-
-    <!-- Text sizes -->
-
-    <dimen name="size_xsmall">8dp</dimen>
-    <dimen name="size_small">12dp</dimen>
-    <dimen name="size_medium">16dp</dimen>
-    <dimen name="size_big">20dp</dimen>
-    <dimen name="size_xbig">24dp</dimen>
-
-    <!-- Bottom navigation -->
-
-    <dimen name="design_bottom_navigation_text_size" tools:override="true">10dp</dimen>
-    <dimen name="design_bottom_navigation_active_text_size" tools:override="true">10dp</dimen>
-
-    <!-- Toolbar -->
-
-    <dimen name="toolbar_icon_size">30dp</dimen>
-    <dimen name="toolbar_text_size">@dimen/size_medium</dimen>
-    <dimen name="toolbar_subtitle_text_size">@dimen/size_small</dimen>
-    <dimen name="toolbar_margin">@dimen/margin_small</dimen>
-
-    <!-- Card -->
-
-    <dimen name="card_corner_radius">8dp</dimen>
-
     <!-- Qr -->
 
     <dimen name="margin_qr">@dimen/margin_big</dimen>
@@ -56,6 +23,5 @@
     <dimen name="size_cards_out_of_points">@dimen/size_big</dimen>
 
     <dimen name="cards_date_corner_radius">4dp</dimen>
-
 
 </resources>
