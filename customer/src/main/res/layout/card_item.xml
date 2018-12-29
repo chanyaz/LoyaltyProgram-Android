@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/Zalik.Card"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -109,6 +110,18 @@
             app:layout_constraintBottom_toBottomOf="@id/numberOfStamps"
             app:layout_constraintStart_toEndOf="@id/cardNumberOfStamps"
             tools:text="/12" />
+
+        <View
+            android:id="@+id/cardTypeView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:background="@color/light_green"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardLineSeparator"
+            tools:visibility="visible" />
 
     </android.support.constraint.ConstraintLayout>
 

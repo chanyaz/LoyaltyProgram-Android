@@ -7,6 +7,6 @@ data class VenuePageUIModel(
         val name: String,
         val type: String,
         val venueOptions: List<VenueOptionUIModel>,
-        val images: List<String>,
+        val images: List<VenueImageUIModel>,
         val location: LatLng
 )

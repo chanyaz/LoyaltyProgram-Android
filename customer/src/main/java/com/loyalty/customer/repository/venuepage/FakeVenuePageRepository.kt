@@ -3,6 +3,7 @@ package com.loyalty.customer.repository.venuepage
 import android.content.Intent
 import android.net.Uri
 import com.google.android.gms.maps.model.LatLng
+import com.loyalty.customer.ui.models.VenueImageUIModel
 import com.loyalty.customer.ui.models.VenueOptionUIModel
 import com.loyalty.customer.ui.models.VenuePageUIModel
 import io.reactivex.Single
@@ -25,9 +26,9 @@ class FakeVenuePageRepository : VenuePageRepository {
                     VenueOptionUIModel(android.R.drawable.presence_online, "https://www.linkedin.com/", Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/")))
             ),
             images = listOf(
-                    "https://c1.staticflickr.com/3/2291/2407610845_92a010d53e_b.jpg",
-                    "https://c8.alamy.com/comp/G3F2TH/rembrandtplein-coffee-shop-amsterdam-holland-netherlands-G3F2TH.jpg",
-                    "https://c8.alamy.com/comp/A09JPD/coffeeshop-amsterdam-A09JPD.jpg"
+                    VenueImageUIModel("https://c1.staticflickr.com/3/2291/2407610845_92a010d53e_b.jpg"),
+                    VenueImageUIModel("https://c8.alamy.com/comp/G3F2TH/rembrandtplein-coffee-shop-amsterdam-holland-netherlands-G3F2TH.jpg"),
+                    VenueImageUIModel("https://c8.alamy.com/comp/A09JPD/coffeeshop-amsterdam-A09JPD.jpg")
             ),
             location = LatLng(53.896078, 27.556120)
     )

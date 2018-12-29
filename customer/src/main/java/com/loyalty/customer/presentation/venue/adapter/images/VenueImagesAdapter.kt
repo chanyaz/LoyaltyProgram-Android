@@ -4,8 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.loyalty.customer.R
 import com.loyalty.core.ui.adapter.SimpleAdapter
+import com.loyalty.customer.ui.models.VenueImageUIModel
 
-class VenueImagesAdapter : SimpleAdapter<String>() {
+class VenueImagesAdapter : SimpleAdapter<VenueImageUIModel>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): VenueImageHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.venue_image_item, parent, false)

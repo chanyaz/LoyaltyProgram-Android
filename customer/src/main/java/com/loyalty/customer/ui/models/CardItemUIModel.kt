@@ -1,5 +1,7 @@
 package com.loyalty.customer.ui.models
 
+import com.loyalty.core.ui.adapter.SimpleRecyclerModel
+
 data class CardItemUIModel(
         val imageUrl: String,
         val venueName: String,
@@ -10,4 +12,8 @@ data class CardItemUIModel(
         val currentStamps: Int,
         val outOfStamps: Int,
         var isExpandedState: Boolean = false
-)
+) : SimpleRecyclerModel {
+
+    override val id: Any get() = venueName
+
+}

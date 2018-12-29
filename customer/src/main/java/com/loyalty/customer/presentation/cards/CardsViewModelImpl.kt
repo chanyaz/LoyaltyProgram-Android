@@ -34,6 +34,10 @@ class CardsViewModelImpl(
     }
 
     override fun selectCard(position: Int) {
+        val newCards = cachedCards.map { it.copy() } // todo operate here!!!
+        newCards[position].isExpandedState = !newCards[position].isExpandedState
+
+        setState(currentState.copy(cards = newCards))
 //        cachedCards[position].isExpandedState.flip
     }
 

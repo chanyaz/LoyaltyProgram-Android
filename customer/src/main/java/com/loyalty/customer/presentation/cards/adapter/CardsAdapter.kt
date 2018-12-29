@@ -19,7 +19,7 @@ class CardsAdapter(
     override fun onViewAttachedToWindow(holder: SimpleHolder<CardItemUIModel>) {
         super.onViewAttachedToWindow(holder)
         holder.itemView.setOnClickListener {
-            /* TODO */
+            onCardClicked(holder.adapterPosition)
         }
     }
 
