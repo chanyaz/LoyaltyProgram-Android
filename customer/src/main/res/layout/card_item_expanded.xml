@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -85,30 +84,55 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_medium"
             android:layout_marginTop="@dimen/margin_medium"
-            android:layout_marginBottom="@dimen/margin_medium"
             android:text="@string/card_number_of_stamps"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardLineSeparator" />
 
-        <TextView
-            android:id="@+id/cardNumberOfStamps"
-            style="@style/Zalik.Text.Card.Points.Current"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_xxsmall"
-            app:layout_constraintBaseline_toBaselineOf="@+id/numberOfStamps"
-            app:layout_constraintStart_toEndOf="@id/numberOfStamps"
-            tools:text="11" />
+        <View
+            android:id="@+id/cardTypeView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:background="@color/light_green"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardLineSeparator" />
 
-        <TextView
-            android:id="@+id/cardNumberOutOf"
-            style="@style/Zalik.Text.Card.Points.OutOf"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBaseline_toBaselineOf="@+id/numberOfStamps"
-            app:layout_constraintStart_toEndOf="@id/cardNumberOfStamps"
-            tools:text="/12" />
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/margin_small"
+            android:background="@drawable/stamps_background"
+            app:layout_constraintBottom_toBottomOf="@id/cardTypeView"
+            app:layout_constraintEnd_toEndOf="@id/numberOfStamps"
+            app:layout_constraintStart_toStartOf="@id/numberOfStamps"
+            app:layout_constraintTop_toBottomOf="@id/numberOfStamps">
+
+            <TextView
+                android:id="@+id/cardNumberOfStamps"
+                style="@style/Zalik.Text.Card.Points.Current.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/cardNumberOutOf"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="11" />
+
+            <TextView
+                android:id="@+id/cardNumberOutOf"
+                style="@style/Zalik.Text.Card.Points.OutOf.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBaseline_toBaselineOf="@+id/cardNumberOfStamps"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cardNumberOfStamps"
+                tools:text="/12" />
+
+        </android.support.constraint.ConstraintLayout>
 
     </android.support.constraint.ConstraintLayout>
 

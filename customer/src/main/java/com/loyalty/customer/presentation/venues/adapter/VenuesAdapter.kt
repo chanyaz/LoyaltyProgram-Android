@@ -11,7 +11,7 @@ class VenuesAdapter(
         private val onVenueClicked: (Int) -> Unit
 ) : SimpleAdapter<VenueItemUIModel>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, position: Int): VenueHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VenueHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.venue_item, parent, false)
         return VenueHolder(view)
     }

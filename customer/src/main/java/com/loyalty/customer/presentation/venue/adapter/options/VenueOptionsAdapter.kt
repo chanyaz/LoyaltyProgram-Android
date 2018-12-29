@@ -9,7 +9,7 @@ import com.loyalty.customer.ui.models.VenueOptionUIModel
 
 class VenueOptionsAdapter : SimpleAdapter<VenueOptionUIModel>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, position: Int): VenueOptionHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VenueOptionHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.venue_option_item, parent, false)
         return VenueOptionHolder(view)
     }

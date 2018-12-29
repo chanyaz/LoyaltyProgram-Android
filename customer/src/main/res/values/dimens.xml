@@ -21,7 +21,9 @@
     <dimen name="size_cards_date">@dimen/size_small</dimen>
 
     <dimen name="size_cards_current_points">@dimen/size_xbig</dimen>
+    <dimen name="size_cards_current_points_big">@dimen/size_5xbig</dimen>
     <dimen name="size_cards_out_of_points">@dimen/size_big</dimen>
+    <dimen name="size_cards_out_of_points_big">@dimen/size_xxxbig</dimen>
 
     <dimen name="cards_date_corner_radius">4dp</dimen>
 

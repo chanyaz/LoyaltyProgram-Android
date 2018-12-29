@@ -61,8 +61,16 @@
         <item name="android:textSize">@dimen/size_cards_current_points</item>
     </style>
 
+    <style name="Zalik.Text.Card.Points.Current.Big">
+        <item name="android:textSize">@dimen/size_cards_current_points_big</item>
+    </style>
+
     <style name="Zalik.Text.Card.Points.OutOf">
         <item name="android:textSize">@dimen/size_cards_out_of_points</item>
+    </style>
+
+    <style name="Zalik.Text.Card.Points.OutOf.Big">
+        <item name="android:textSize">@dimen/size_cards_out_of_points_big</item>
     </style>
 
 </resources>
