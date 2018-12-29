@@ -13,8 +13,9 @@
     <color name="lighter_green">#a7dede</color>
 
     <color name="pale_grey">#F5F3FA</color>
-    <color name="dark_grey">#8B93A9</color>
+    <color name="dark_grey">#8b91a9</color>
     <color name="light_grey">#ADB3C2</color>
+    <color name="lighter_grey">#ebeaf2</color>
 
     <color name="orange">#FFBE19</color>
 
@@ -46,6 +47,6 @@
     <!-- Card -->
 
     <color name="card_background_color">@color/white</color>
-    <color name="separator_color">@color/light_grey</color>
+    <color name="separator_color">@color/lighter_grey</color>
 
 </resources>
