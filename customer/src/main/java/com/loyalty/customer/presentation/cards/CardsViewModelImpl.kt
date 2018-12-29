@@ -1,8 +1,10 @@
 package com.loyalty.customer.presentation.cards
 
+import com.loyalty.core.util.extensions.flip
 import com.loyalty.core.util.extensions.observeOnUi
 import com.loyalty.customer.ui.models.CardItemUIModel
 import com.loyalty.customer.usecases.cards.LoadCards
+import com.loyalty.customer.util.extensions.deepCopy
 import timber.log.Timber
 
 class CardsViewModelImpl(
@@ -34,11 +36,9 @@ class CardsViewModelImpl(
     }
 
     override fun selectCard(position: Int) {
-        val newCards = cachedCards.map { it.copy() } // todo operate here!!!
-        newCards[position].isExpandedState = !newCards[position].isExpandedState
-
-        setState(currentState.copy(cards = newCards))
-//        cachedCards[position].isExpandedState.flip
+        cachedCards = cachedCards.deepCopy()
+        cachedCards[position]::isExpandedState.flip()
+        setState(currentState.copy(cards = cachedCards))
     }
 
 }
