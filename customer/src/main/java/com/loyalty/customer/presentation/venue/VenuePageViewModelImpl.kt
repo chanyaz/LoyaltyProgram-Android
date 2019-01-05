@@ -5,12 +5,12 @@ import com.loyalty.customer.ui.models.VenuePageUIModel
 import com.loyalty.customer.usecases.venue.LoadVenuePage
 import timber.log.Timber
 
-class VenueViewModelImpl(
+class VenuePageViewModelImpl(
         private val loadVenuePage: LoadVenuePage
-) : VenueViewModel() {
+) : VenuePageViewModel() {
 
     override fun initViewModel() {
-        setState(VenueState())
+        setState(VenuePageState())
         loadVenue()
     }
 

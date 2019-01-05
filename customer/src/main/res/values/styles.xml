@@ -26,6 +26,53 @@
         <item name="android:textSize">@dimen/size_venues_secondary</item>
     </style>
 
+    <!-- Venue -->
+
+    <style name="Zalik.Text.Venue"/>
+
+    <style name="Zalik.Text.Venue.Header">
+        <item name="android:textSize">@dimen/size_venue_header</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="Zalik.Text.Venue.Secondary">
+        <item name="android:textSize">@dimen/size_venue_secondary</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="Zalik.Text.Venue.Option"/>
+
+    <style name="Zalik.Text.Venue.Option.Header">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">@dimen/size_venue_option_header</item>
+        <item name="android:textColor">@color/venue_option_header_color</item>
+    </style>
+
+    <style name="Zalik.Text.Venue.Option.Icon">
+        <item name="android:layout_width">@dimen/size_venue_option_icon</item>
+        <item name="android:layout_height">@dimen/size_venue_option_icon</item>
+    </style>
+
+    <style name="Zalik.Text.Venue.Option.Text">
+        <item name="android:maxLines">1</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginStart">@dimen/margin_venue_option_item_margin</item>
+    </style>
+
+    <style name="Zalik.Text.Venue.Option.Text.Active">
+        <item name="android:textSize">@dimen/size_venue_option_active</item>
+        <item name="android:textColor">@color/venue_option_active_color</item>
+    </style>
+
+    <style name="Zalik.Text.Venue.Option.Text.Inactive">
+        <item name="android:textSize">@dimen/size_venue_option_inactive</item>
+        <item name="android:textColor">@color/venue_option_inactive_color</item>
+    </style>
+
+    <style name="Zalik.Text.Venue.Option.Text.Inactive.Secondary">
+        <item name="android:textStyle">normal</item>
+    </style>
+
     <!-- Card -->
 
     <style name="Zalik.Text.Card"/>

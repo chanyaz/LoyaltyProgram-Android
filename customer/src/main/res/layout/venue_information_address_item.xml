@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/venueOption"
-    android:autoLink=""
-    style="@style/Zalik.Text.Venues.Main"
+    android:id="@+id/venueInformationAddress"
+    style="@style/Zalik.Text.Venue.Option.Text.Active"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/margin_xxsmall"
-    android:layout_marginBottom="@dimen/margin_xxsmall"
-    android:drawablePadding="@dimen/margin_xxsmall"
-    tools:drawableStart="@android:drawable/presence_online"
+    android:autoLink=""
     tools:text="ул. Калиновского 57" />

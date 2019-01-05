@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        android:id="@+id/venueProgressBar"
+        style="@style/Zalik.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            style="@style/Zalik.Toolbar.Element"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentScrim="@color/toolbar_background_color"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:background="@color/dark_grey" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Zalik.Toolbar.Light"
+                app:popupTheme="@style/Zalik.Toolbar.Light">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        style="@style/Zalik.Toolbar.Title"
+                        android:text="@string/venue_description" />
+
+                    <ImageView
+                        android:id="@+id/backButton"
+                        style="@style/Zalik.Toolbar.Icon.Back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:ignore="ContentDescription" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/venueGroupContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:visibility="invisible"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:visibility="visible">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/venueName"
+                style="@style/Zalik.Text.Venue.Header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_medium"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Coffeeholic" />
+
+            <TextView
+                android:id="@+id/venueType"
+                style="@style/Zalik.Text.Venue.Secondary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@id/venueName"
+                app:layout_constraintStart_toStartOf="@id/venueName"
+                app:layout_constraintTop_toBottomOf="@id/venueName"
+                tools:text="Кофейня" />
+
+            <View
+                android:id="@+id/venueTopSeparator"
+                style="@style/Zalik.Separator"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/size_medium"
+                app:layout_constraintEnd_toEndOf="@id/venueName"
+                app:layout_constraintStart_toStartOf="@id/venueName"
+                app:layout_constraintTop_toBottomOf="@id/venueType" />
+
+            <TextView
+                android:id="@+id/venueCardsInThisVenue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_medium"
+                android:text="@string/venue_cards_in_this_venue"
+                app:layout_constraintEnd_toEndOf="@id/venueName"
+                app:layout_constraintStart_toStartOf="@id/venueName"
+                app:layout_constraintTop_toBottomOf="@id/venueTopSeparator" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/venueCardsRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:paddingStart="@dimen/margin_xsmall"
+                android:paddingTop="@dimen/margin_xsmall"
+                android:paddingEnd="@dimen/margin_xsmall"
+                app:layout_constraintTop_toBottomOf="@id/venueCardsInThisVenue"
+                tools:itemCount="1"
+                tools:listitem="@layout/card_item" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/venueInformationRecycler"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/venueCardsRecycler"
+                tools:itemCount="5" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

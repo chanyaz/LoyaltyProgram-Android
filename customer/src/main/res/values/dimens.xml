@@ -13,6 +13,17 @@
     <dimen name="size_venues_main">@dimen/size_small</dimen>
     <dimen name="size_venues_secondary">@dimen/size_small</dimen>
 
+    <!-- Venue -->
+
+    <dimen name="size_venue_header">@dimen/size_xbig</dimen>
+    <dimen name="size_venue_secondary">@dimen/size_medium</dimen>
+
+    <dimen name="size_venue_option_header">@dimen/size_small</dimen>
+    <dimen name="size_venue_option_icon">20dp</dimen>
+    <dimen name="margin_venue_option_item_margin">52dp</dimen> <!-- this is a sum of 2 different margins ;( based on venue_option_header_item.xml margin -->
+    <dimen name="size_venue_option_active">@dimen/size_medium</dimen>
+    <dimen name="size_venue_option_inactive">@dimen/size_medium</dimen>
+
     <!-- Cards -->
 
     <dimen name="size_cards_header">@dimen/size_medium</dimen>

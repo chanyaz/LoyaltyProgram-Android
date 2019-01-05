@@ -50,6 +50,20 @@
 
     <style name="Zalik.Toolbar"/>
 
+    <style name="Zalik.Toolbar.Light" parent="ThemeOverlay.AppCompat.Light">
+        <item name="layout_collapseMode">pin</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:contentInsetStart">@dimen/toolbar_margin</item>
+        <item name="contentInsetStart">@dimen/toolbar_margin</item>
+        <item name="android:contentInsetLeft">@dimen/toolbar_margin</item>
+        <item name="contentInsetLeft">@dimen/toolbar_margin</item>
+        <item name="android:contentInsetEnd">@dimen/toolbar_margin</item>
+        <item name="contentInsetEnd">@dimen/toolbar_margin</item>
+        <item name="android:contentInsetRight">@dimen/toolbar_margin</item>
+        <item name="contentInsetRight">@dimen/toolbar_margin</item>
+    </style>
+
     <style name="Zalik.Toolbar.Element">
         <item name="android:background">@color/toolbar_background_color</item>
         <item name="android:layout_width">match_parent</item>
@@ -90,7 +104,7 @@
         <item name="android:layout_width">@dimen/toolbar_icon_size</item>
         <item name="android:layout_height">0dp</item>
         <item name="android:tint">@color/toolbar_icon_color</item>
-        <item name="android:background">@color/toolbar_background_color</item>
+        <item name="android:background">@color/toolbar_icon_background_color</item>
     </style>
 
     <style name="Zalik.Toolbar.Icon.Back">
@@ -108,7 +122,7 @@
 
     <style name="Zalik.Card">
         <item name="android:background">@color/card_background_color</item>
-        <item name="android:layout_margin">@dimen/margin_xsmall</item>
+        <item name="android:layout_margin">@dimen/card_margin</item>
         <item name="cardCornerRadius">@dimen/card_corner_radius</item>
     </style>
 

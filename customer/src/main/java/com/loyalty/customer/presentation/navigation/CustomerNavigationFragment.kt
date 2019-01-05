@@ -10,7 +10,7 @@ import com.loyalty.customer.presentation.navigation.flows.test.TestFragment1
 import com.loyalty.customer.presentation.navigation.flows.test.TestFragment2
 import com.loyalty.customer.presentation.navigation.flows.test.TestFragment3
 import com.loyalty.customer.presentation.qr.QrFragment
-import com.loyalty.customer.presentation.venue.VenueFragment
+import com.loyalty.customer.presentation.venue.VenuePageFragment
 import com.loyalty.customer.presentation.venues.VenuesFragment
 
 class CustomerNavigationFragment : NavigationFragment() {
@@ -19,7 +19,7 @@ class CustomerNavigationFragment : NavigationFragment() {
         return when (screenKey) {
             CustomerScreens.KEY_QR.name -> QrFragment.newInstance()
             CustomerScreens.KEY_VENUES.name -> VenuesFragment.newInstance()
-            CustomerScreens.KEY_VENUE.name -> VenueFragment.newInstance()
+            CustomerScreens.KEY_VENUE_NEW.name -> VenuePageFragment.newInstance()
             CustomerScreens.KEY_CARDS.name -> CardsFragment.newInstance()
             CustomerScreens.KEY_FIRST.name -> TestFragment1()
             CustomerScreens.KEY_SECOND.name -> TestFragment2()

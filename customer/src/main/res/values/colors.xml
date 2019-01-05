@@ -14,4 +14,10 @@
 
     <color name="cards_points_color">@color/light_green</color>
 
+    <!-- Venue -->
+
+    <color name="venue_option_header_color">@color/dark_grey</color>
+    <color name="venue_option_active_color">@color/light_green</color>
+    <color name="venue_option_inactive_color">@color/dark_grey</color>
+
 </resources>

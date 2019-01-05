@@ -38,6 +38,7 @@
 
     <!-- Card -->
 
-    <dimen name="card_corner_radius">4dp</dimen>
+    <dimen name="card_corner_radius">@dimen/margin_xxsmall</dimen>
+    <dimen name="card_margin">@dimen/margin_xsmall</dimen>
 
 </resources>

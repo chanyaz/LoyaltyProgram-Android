@@ -24,6 +24,10 @@
     <string name="venue_cards_in_this_venue">Карточки в этом заведении</string>
     <string name="venue_description">Описание</string>
     <string name="venue_about_this_venue">О заведении</string>
+    <string name="venue_address">Адрес</string>
+    <string name="venue_schedule">Время работы</string>
+    <string name="venue_phone">Телефоны</string>
+    <string name="venue_web_site">Веб-сайт</string>
 
     <!-- Cards -->
 

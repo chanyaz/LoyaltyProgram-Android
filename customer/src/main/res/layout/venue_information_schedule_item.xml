@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin_xxsmall">
+
+    <TextView
+        android:id="@+id/venueInformationScheduleDay"
+        style="@style/Zalik.Text.Venue.Option.Text.Inactive.Secondary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/venueInformationScheduleWorkingHours"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Будние" />
+
+    <TextView
+        android:id="@+id/venueInformationScheduleWorkingHours"
+        style="@style/Zalik.Text.Venue.Option.Text.Inactive"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/venueInformationScheduleDay"
+        tools:text="с 11.00 до 2.00" />
+
+</android.support.constraint.ConstraintLayout>
