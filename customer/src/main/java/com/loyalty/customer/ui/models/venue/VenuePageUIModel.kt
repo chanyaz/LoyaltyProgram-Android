@@ -14,6 +14,6 @@ data class VenuePageUIModel(
 //        val schedules: List<VenueInfoScheduleUIModel>,
 //        val phones: List<VenueInfoPhoneUIModel>,
 //        val website: List<VenueInfoWebsiteUIModel>,
-        val description: String,
+//        val description: String,
         val location: LatLng
 )

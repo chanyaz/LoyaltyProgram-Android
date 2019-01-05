@@ -43,9 +43,15 @@
     <style name="Zalik.Text.Venue.Option"/>
 
     <style name="Zalik.Text.Venue.Option.Header">
+        <item name="android:maxLines">1</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">@dimen/size_venue_option_header</item>
         <item name="android:textColor">@color/venue_option_header_color</item>
+    </style>
+
+    <style name="Zalik.Text.Venue.Option.Description">
+        <item name="android:textSize">@dimen/size_venue_option_description</item>
+        <item name="android:textColor">@color/venue_option_description_color</item>
     </style>
 
     <style name="Zalik.Text.Venue.Option.Icon">

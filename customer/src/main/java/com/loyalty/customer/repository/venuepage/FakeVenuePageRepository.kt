@@ -11,6 +11,8 @@ import com.loyalty.customer.ui.models.venue.information.VenueInfoScheduleUIModel
 import com.loyalty.customer.ui.models.venue.information.VenueInfoSeparatorUIModel
 import com.loyalty.customer.ui.models.venue.information.VenueInfoWebsiteUIModel
 import com.loyalty.customer.ui.models.venue.VenuePageUIModel
+import com.loyalty.customer.ui.models.venue.information.VenueInfoDescriptionUIModel
+import com.loyalty.customer.ui.models.venue.information.VenueInfoHeader2UIModel
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
@@ -53,10 +55,11 @@ class FakeVenuePageRepository : VenuePageRepository {
                     VenueInfoSeparatorUIModel(),
                     VenueInfoHeaderUIModel("Веб-Сайт", R.drawable.ic_website),
                     VenueInfoWebsiteUIModel("www.calabria.by"),
-                    VenueInfoSeparatorUIModel()
-            ),
-            location = LatLng(53.896078, 27.556120),
-            description = "Высокий уровень обслуживания, приятная обстановка, приветливый персонал, кофе и чай разных сортов."
+                    VenueInfoSeparatorUIModel(),
+                    VenueInfoHeader2UIModel("Описание"),
+                    VenueInfoDescriptionUIModel("Высокий уровень обслуживания, приятная обстановка, приветливый персонал, кофе и чай разных сортов.")
+                    ),
+            location = LatLng(53.896078, 27.556120)
     )
 
     override fun loadVenuePage(id: String): Single<VenuePageUIModel> =
