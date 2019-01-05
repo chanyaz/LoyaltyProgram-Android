@@ -1,6 +1,6 @@
 package com.loyalty.customer.usecases.venues
 
-import com.loyalty.customer.ui.models.VenueItemUIModel
+import com.loyalty.customer.ui.models.venue.VenueItemUIModel
 import io.reactivex.Scheduler
 import io.reactivex.Single
 

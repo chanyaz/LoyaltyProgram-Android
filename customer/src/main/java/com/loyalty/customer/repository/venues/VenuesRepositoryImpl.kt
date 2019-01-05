@@ -3,7 +3,7 @@ package com.loyalty.customer.repository.venues
 import com.loyalty.customer.network.api.VenuesApi
 import com.loyalty.customer.persistence.venues.VenuesStorage
 import com.loyalty.customer.preferences.venuesversion.VenuesVPreferences
-import com.loyalty.customer.ui.models.VenueItemUIModel
+import com.loyalty.customer.ui.models.venue.VenueItemUIModel
 import io.reactivex.Completable
 import io.reactivex.Single
 import io.reactivex.functions.BiFunction

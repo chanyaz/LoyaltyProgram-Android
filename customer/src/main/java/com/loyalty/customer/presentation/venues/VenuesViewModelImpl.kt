@@ -3,7 +3,7 @@ package com.loyalty.customer.presentation.venues
 import com.loyalty.core.util.extensions.observeOnUi
 import com.loyalty.core.util.extensions.subscribeOrError
 import com.loyalty.customer.presentation.navigation.CustomerScreens
-import com.loyalty.customer.ui.models.VenueItemUIModel
+import com.loyalty.customer.ui.models.venue.VenueItemUIModel
 import com.loyalty.customer.usecases.venues.FilterVenues
 import com.loyalty.customer.usecases.venues.LoadVenues
 import io.reactivex.subjects.BehaviorSubject

@@ -1,7 +1,7 @@
 package com.loyalty.customer.presentation.venue
 
 import com.loyalty.core.presentation.base.BaseState
-import com.loyalty.customer.ui.models.VenuePageUIModel
+import com.loyalty.customer.ui.models.venue.VenuePageUIModel
 
 data class VenuePageState(
         val model: VenuePageUIModel? = null,

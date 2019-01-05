@@ -7,24 +7,24 @@
     android:layout_marginTop="@dimen/margin_xxsmall">
 
     <TextView
-        android:id="@+id/venueInformationScheduleDay"
+        android:id="@+id/venueInfoScheduleDay"
         style="@style/Zalik.Text.Venue.Option.Text.Inactive.Secondary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@id/venueInformationScheduleWorkingHours"
+        app:layout_constraintEnd_toStartOf="@id/venueInfoScheduleWorkingHours"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="Будние" />
 
     <TextView
-        android:id="@+id/venueInformationScheduleWorkingHours"
+        android:id="@+id/venueInfoScheduleWorkingHours"
         style="@style/Zalik.Text.Venue.Option.Text.Inactive"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@id/venueInformationScheduleDay"
+        app:layout_constraintStart_toEndOf="@id/venueInfoScheduleDay"
         tools:text="с 11.00 до 2.00" />
 
 </android.support.constraint.ConstraintLayout>

@@ -12,30 +12,24 @@ import com.loyalty.core.util.extensions.visible
 import com.loyalty.customer.R
 import org.koin.android.ext.android.inject
 import com.loyalty.customer.presentation.cards.adapter.CardsAdapter
-import com.loyalty.customer.presentation.venue.adapter.VenueInformationAdapter
-import com.loyalty.customer.ui.models.VenueInformationAddressUIModel
-import com.loyalty.customer.ui.models.VenueInformationHeaderUIModel
-import com.loyalty.customer.ui.models.VenueInformationPhoneUIModel
-import com.loyalty.customer.ui.models.VenueInformationScheduleUIModel
-import com.loyalty.customer.ui.models.VenueInformationSeparatorUIModel
-import com.loyalty.customer.ui.models.VenueInformationWebsiteUIModel
-import com.loyalty.customer.ui.models.VenuePageUIModel
-import kotlinx.android.synthetic.main.venue_page_fragment_new.backButton
-import kotlinx.android.synthetic.main.venue_page_fragment_new.venueCardsRecycler
-import kotlinx.android.synthetic.main.venue_page_fragment_new.venueGroupContent
-import kotlinx.android.synthetic.main.venue_page_fragment_new.venueInformationRecycler
-import kotlinx.android.synthetic.main.venue_page_fragment_new.venueName
-import kotlinx.android.synthetic.main.venue_page_fragment_new.venueProgressBar
-import kotlinx.android.synthetic.main.venue_page_fragment_new.venueType
+import com.loyalty.customer.presentation.venue.adapter.VenueInfoAdapter
+import com.loyalty.customer.ui.models.venue.VenuePageUIModel
+import kotlinx.android.synthetic.main.venue_page_fragment.backButton
+import kotlinx.android.synthetic.main.venue_page_fragment.venueCardsRecycler
+import kotlinx.android.synthetic.main.venue_page_fragment.venueGroupContent
+import kotlinx.android.synthetic.main.venue_page_fragment.venueInformationRecycler
+import kotlinx.android.synthetic.main.venue_page_fragment.venueName
+import kotlinx.android.synthetic.main.venue_page_fragment.venueProgressBar
+import kotlinx.android.synthetic.main.venue_page_fragment.venueType
 
 class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
 
-    override val layout: Int get() =  R.layout.venue_page_fragment_new
+    override val layout: Int get() =  R.layout.venue_page_fragment
 
     override val viewModel: VenuePageViewModel by inject()
 
     private lateinit var venueCardsAdapter: CardsAdapter
-    private lateinit var venueInformationAdapter: VenueInformationAdapter
+    private lateinit var venueInfoAdapter: VenueInfoAdapter
 
 //    private lateinit var googleMap: GoogleMap
 
@@ -106,26 +100,11 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
         if (!::venueCardsAdapter.isInitialized)
             initCardsAdapter()
 
-        if (!::venueInformationAdapter.isInitialized)
+        if (!::venueInfoAdapter.isInitialized)
             initInformationAdapter()
 
         venueCardsAdapter.setItems(model.cards)
-        venueInformationAdapter.setItems(listOf( // todo
-                VenueInformationHeaderUIModel("Адрес", R.drawable.ic_location),
-                VenueInformationAddressUIModel("г. Минск, ул. Калиновского, 24"),
-                VenueInformationSeparatorUIModel(),
-                VenueInformationHeaderUIModel("Время работы", R.drawable.ic_schedule),
-                VenueInformationScheduleUIModel("Будние", "с 11.00 до 2.00"),
-                VenueInformationScheduleUIModel("Выходные", "с 18.00 до 5.00"),
-                VenueInformationSeparatorUIModel(),
-                VenueInformationHeaderUIModel("Телефоны", R.drawable.ic_phone),
-                VenueInformationPhoneUIModel("+ 375 (33) 202 03 27"),
-                VenueInformationPhoneUIModel("+ 375 (44) 202 03 27"),
-                VenueInformationSeparatorUIModel(),
-                VenueInformationHeaderUIModel("Веб-Сайт", R.drawable.ic_website),
-                VenueInformationWebsiteUIModel("www.calabria.by"),
-                VenueInformationSeparatorUIModel()
-                ))
+        venueInfoAdapter.setItems(model.venueInfoListUIModel)
     }
 
     private fun initCardsAdapter() {
@@ -139,10 +118,11 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
     }
 
     private fun initInformationAdapter() {
-        venueInformationAdapter = VenueInformationAdapter()
+        venueInfoAdapter = VenueInfoAdapter()
         venueInformationRecycler.apply {
-            adapter = venueInformationAdapter
+            adapter = venueInfoAdapter
             layoutManager = LinearLayoutManager(activity)
+            setHasFixedSize(true)
         }
     }
 

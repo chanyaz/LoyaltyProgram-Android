@@ -2,7 +2,7 @@ package com.loyalty.customer.usecases.cards
 
 import com.loyalty.customer.preferences.location.LocationPreferences
 import com.loyalty.customer.repository.cards.CardsRepository
-import com.loyalty.customer.ui.models.CardItemUIModel
+import com.loyalty.customer.ui.models.card.CardItemUIModel
 import io.reactivex.Single
 
 class LoadCardsImpl(

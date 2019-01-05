@@ -1,4 +1,4 @@
-package com.loyalty.customer.ui.models
+package com.loyalty.customer.ui.models.venue
 
 import com.loyalty.core.ui.adapter.SimpleRecyclerModel
 

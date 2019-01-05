@@ -1,7 +1,7 @@
 package com.loyalty.customer.usecases.venue
 
 import com.loyalty.customer.repository.venuepage.VenuePageRepository
-import com.loyalty.customer.ui.models.VenuePageUIModel
+import com.loyalty.customer.ui.models.venue.VenuePageUIModel
 import io.reactivex.Single
 
 class LoadVenuePageImpl(

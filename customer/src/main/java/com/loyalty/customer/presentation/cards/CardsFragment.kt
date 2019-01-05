@@ -9,7 +9,7 @@ import com.loyalty.core.util.extensions.invisible
 import com.loyalty.core.util.extensions.visible
 import com.loyalty.customer.R
 import com.loyalty.customer.presentation.cards.adapter.CardsAdapter
-import com.loyalty.customer.ui.models.CardItemUIModel
+import com.loyalty.customer.ui.models.card.CardItemUIModel
 import kotlinx.android.synthetic.main.cards_fragment.cardsEmpty
 import kotlinx.android.synthetic.main.cards_fragment.cardsProgressBar
 import kotlinx.android.synthetic.main.cards_fragment.cardsRecycler

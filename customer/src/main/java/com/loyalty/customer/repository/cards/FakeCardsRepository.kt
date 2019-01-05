@@ -1,7 +1,7 @@
 package com.loyalty.customer.repository.cards
 
-import com.loyalty.customer.ui.models.CardItemUIModel
-import com.loyalty.customer.ui.models.EventType
+import com.loyalty.customer.ui.models.card.CardItemUIModel
+import com.loyalty.customer.ui.models.card.EventType
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit

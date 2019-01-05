@@ -1,6 +1,6 @@
 package com.loyalty.customer.repository.venues
 
-import com.loyalty.customer.ui.models.VenueItemUIModel
+import com.loyalty.customer.ui.models.venue.VenueItemUIModel
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit

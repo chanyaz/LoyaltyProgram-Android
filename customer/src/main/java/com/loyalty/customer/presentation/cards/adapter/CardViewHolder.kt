@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.View
 import com.bumptech.glide.Glide
 import com.loyalty.core.ui.adapter.SimpleHolder
-import com.loyalty.customer.ui.models.CardItemUIModel
+import com.loyalty.customer.ui.models.card.CardItemUIModel
 import kotlinx.android.synthetic.main.card_item.view.cardDate
 import kotlinx.android.synthetic.main.card_item.view.cardDaysLeft
 import kotlinx.android.synthetic.main.card_item.view.cardLogo

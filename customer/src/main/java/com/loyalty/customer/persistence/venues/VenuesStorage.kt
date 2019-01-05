@@ -1,6 +1,6 @@
 package com.loyalty.customer.persistence.venues
 
-import com.loyalty.customer.ui.models.VenueItemUIModel
+import com.loyalty.customer.ui.models.venue.VenueItemUIModel
 import io.reactivex.Completable
 import io.reactivex.Single
 

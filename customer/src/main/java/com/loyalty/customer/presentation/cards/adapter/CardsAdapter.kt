@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import com.loyalty.core.ui.adapter.SimpleAdapter
 import com.loyalty.core.ui.adapter.SimpleHolder
 import com.loyalty.customer.R
-import com.loyalty.customer.ui.models.CardItemUIModel
+import com.loyalty.customer.ui.models.card.CardItemUIModel
 
 class CardsAdapter(
         private val onCardClicked: (Int) -> Unit

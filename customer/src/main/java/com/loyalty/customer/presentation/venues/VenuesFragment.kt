@@ -12,7 +12,7 @@ import com.loyalty.core.util.extensions.setOnQueryChangedListener
 import com.loyalty.core.util.extensions.visible
 import com.loyalty.customer.R
 import com.loyalty.customer.presentation.venues.adapter.VenuesAdapter
-import com.loyalty.customer.ui.models.VenueItemUIModel
+import com.loyalty.customer.ui.models.venue.VenueItemUIModel
 import kotlinx.android.synthetic.main.venues_fragment.searchVenues
 import kotlinx.android.synthetic.main.venues_fragment.venuesEmpty
 import kotlinx.android.synthetic.main.venues_fragment.venuesProgressBar

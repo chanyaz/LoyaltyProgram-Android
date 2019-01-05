@@ -1,9 +1,16 @@
 package com.loyalty.customer.repository.venuepage
 
 import com.google.android.gms.maps.model.LatLng
-import com.loyalty.customer.ui.models.CardItemUIModel
-import com.loyalty.customer.ui.models.EventType
-import com.loyalty.customer.ui.models.VenuePageUIModel
+import com.loyalty.customer.R
+import com.loyalty.customer.ui.models.card.CardItemUIModel
+import com.loyalty.customer.ui.models.card.EventType
+import com.loyalty.customer.ui.models.venue.information.VenueInfoAddressUIModel
+import com.loyalty.customer.ui.models.venue.information.VenueInfoHeaderUIModel
+import com.loyalty.customer.ui.models.venue.information.VenueInfoPhoneUIModel
+import com.loyalty.customer.ui.models.venue.information.VenueInfoScheduleUIModel
+import com.loyalty.customer.ui.models.venue.information.VenueInfoSeparatorUIModel
+import com.loyalty.customer.ui.models.venue.information.VenueInfoWebsiteUIModel
+import com.loyalty.customer.ui.models.venue.VenuePageUIModel
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
@@ -20,16 +27,6 @@ class FakeVenuePageRepository : VenuePageRepository {
                     EventType.COFFEE_STAMPS,
                     13,
                     14
-            ),
-            CardItemUIModel(
-                    "http://javamark.com/wp-content/uploads/2016/03/Java-Mark-Logo-Color-png-2.png",
-                    "Zerno",
-                    "Coffeeshop",
-                    22,
-                    "02.02-03.03",
-                    EventType.COFFEE_STAMPS,
-                    13,
-                    14
             )
     )
 
@@ -42,10 +39,22 @@ class FakeVenuePageRepository : VenuePageRepository {
                     "https://c8.alamy.com/comp/A09JPD/coffeeshop-amsterdam-A09JPD.jpg"
             ),
             cards = cards,
-            addresses = listOf(),
-            schedules = listOf(),
-            phones = listOf(),
-            website = listOf(),
+            venueInfoListUIModel = listOf( // todo move this to use case
+                    VenueInfoHeaderUIModel("Адрес", R.drawable.ic_location),
+                    VenueInfoAddressUIModel("г. Минск, ул. Калиновского, 24"),
+                    VenueInfoSeparatorUIModel(),
+                    VenueInfoHeaderUIModel("Время работы", R.drawable.ic_schedule),
+                    VenueInfoScheduleUIModel("Будние", "с 11.00 до 2.00"),
+                    VenueInfoScheduleUIModel("Выходные", "с 18.00 до 5.00"),
+                    VenueInfoSeparatorUIModel(),
+                    VenueInfoHeaderUIModel("Телефоны", R.drawable.ic_phone),
+                    VenueInfoPhoneUIModel("+ 375 (33) 202 03 27"),
+                    VenueInfoPhoneUIModel("+ 375 (44) 202 03 27"),
+                    VenueInfoSeparatorUIModel(),
+                    VenueInfoHeaderUIModel("Веб-Сайт", R.drawable.ic_website),
+                    VenueInfoWebsiteUIModel("www.calabria.by"),
+                    VenueInfoSeparatorUIModel()
+            ),
             location = LatLng(53.896078, 27.556120),
             description = "Высокий уровень обслуживания, приятная обстановка, приветливый персонал, кофе и чай разных сортов."
     )

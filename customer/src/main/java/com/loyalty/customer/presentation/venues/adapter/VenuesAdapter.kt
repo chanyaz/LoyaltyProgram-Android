@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import com.loyalty.core.ui.adapter.SimpleAdapter
 import com.loyalty.core.ui.adapter.SimpleHolder
 import com.loyalty.customer.R
-import com.loyalty.customer.ui.models.VenueItemUIModel
+import com.loyalty.customer.ui.models.venue.VenueItemUIModel
 
 class VenuesAdapter(
         private val onVenueClicked: (Int) -> Unit

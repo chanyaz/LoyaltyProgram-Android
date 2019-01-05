@@ -1,6 +1,6 @@
 package com.loyalty.customer.network.api
 
-import com.loyalty.customer.ui.models.VenueItemUIModel
+import com.loyalty.customer.ui.models.venue.VenueItemUIModel
 import io.reactivex.Single
 
 interface VenuesApi {

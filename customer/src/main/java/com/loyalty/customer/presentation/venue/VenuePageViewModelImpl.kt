@@ -1,7 +1,7 @@
 package com.loyalty.customer.presentation.venue
 
 import com.loyalty.core.util.extensions.observeOnUi
-import com.loyalty.customer.ui.models.VenuePageUIModel
+import com.loyalty.customer.ui.models.venue.VenuePageUIModel
 import com.loyalty.customer.usecases.venue.LoadVenuePage
 import timber.log.Timber
 

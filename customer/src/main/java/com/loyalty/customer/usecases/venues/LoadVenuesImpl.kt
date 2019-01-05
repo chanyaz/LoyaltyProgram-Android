@@ -2,7 +2,7 @@ package com.loyalty.customer.usecases.venues
 
 import com.loyalty.customer.preferences.location.LocationPreferences
 import com.loyalty.customer.repository.venues.VenuesRepository
-import com.loyalty.customer.ui.models.VenueItemUIModel
+import com.loyalty.customer.ui.models.venue.VenueItemUIModel
 import io.reactivex.Single
 
 class LoadVenuesImpl(

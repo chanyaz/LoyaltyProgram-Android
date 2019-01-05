@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/venueInformationPhone"
+    android:id="@+id/venueInfoAddress"
     style="@style/Zalik.Text.Venue.Option.Text.Active"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/margin_xxsmall"
     android:autoLink=""
-    tools:text="+ 375 (29) 202-03-27" />
+    tools:text="ул. Калиновского 57" />

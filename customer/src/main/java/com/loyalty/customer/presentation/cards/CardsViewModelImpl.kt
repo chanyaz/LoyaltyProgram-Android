@@ -2,7 +2,7 @@ package com.loyalty.customer.presentation.cards
 
 import com.loyalty.core.util.extensions.flip
 import com.loyalty.core.util.extensions.observeOnUi
-import com.loyalty.customer.ui.models.CardItemUIModel
+import com.loyalty.customer.ui.models.card.CardItemUIModel
 import com.loyalty.customer.usecases.cards.LoadCards
 import com.loyalty.customer.util.extensions.deepCopy
 import timber.log.Timber

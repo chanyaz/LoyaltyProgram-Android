@@ -3,7 +3,7 @@ package com.loyalty.customer.presentation.venues.adapter
 import android.view.View
 import com.bumptech.glide.Glide
 import com.loyalty.core.ui.adapter.SimpleHolder
-import com.loyalty.customer.ui.models.VenueItemUIModel
+import com.loyalty.customer.ui.models.venue.VenueItemUIModel
 import kotlinx.android.synthetic.main.venue_item.view.venueAddress
 import kotlinx.android.synthetic.main.venue_item.view.venueImage
 import kotlinx.android.synthetic.main.venue_item.view.venueName
