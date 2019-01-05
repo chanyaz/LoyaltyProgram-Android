@@ -63,6 +63,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
+        android:fillViewport="true"
         android:visibility="invisible"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:visibility="visible">
@@ -96,7 +97,7 @@
                 android:id="@+id/venueTopSeparator"
                 style="@style/Zalik.Separator"
                 android:layout_width="0dp"
-                android:layout_marginTop="@dimen/size_medium"
+                android:layout_marginTop="@dimen/margin_medium"
                 app:layout_constraintEnd_toEndOf="@id/venueName"
                 app:layout_constraintStart_toStartOf="@id/venueName"
                 app:layout_constraintTop_toBottomOf="@id/venueType" />
@@ -105,7 +106,7 @@
                 android:id="@+id/venueCardsInThisVenue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/size_medium"
+                android:layout_marginTop="@dimen/margin_medium"
                 android:text="@string/venue_cards_in_this_venue"
                 app:layout_constraintEnd_toEndOf="@id/venueName"
                 app:layout_constraintStart_toStartOf="@id/venueName"
@@ -133,9 +134,26 @@
                 android:clipToPadding="false"
                 android:nestedScrollingEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="@dimen/margin_medium"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/venueCardsRecycler"
+                app:layout_constraintTop_toBottomOf="@id/venueCardsRecycler"
+                app:layout_constraintBottom_toTopOf="@id/venueMapContainer"
                 tools:itemCount="5" />
+
+            <FrameLayout
+                android:id="@+id/venueMapContainer"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="@dimen/margin_medium"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <fragment
+                    android:id="@+id/venueMap"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </FrameLayout>
 
         </android.support.constraint.ConstraintLayout>
 

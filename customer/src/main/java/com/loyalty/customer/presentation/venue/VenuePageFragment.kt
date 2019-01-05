@@ -3,6 +3,10 @@ package com.loyalty.customer.presentation.venue
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.MarkerOptions
 import com.loyalty.core.exceptions.UnexpectedStateException
 import com.loyalty.core.presentation.base.BaseEvent
 import com.loyalty.core.presentation.mvvm.MvvmFragment
@@ -31,7 +35,7 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
     private lateinit var venueCardsAdapter: CardsAdapter
     private lateinit var venueInfoAdapter: VenueInfoAdapter
 
-//    private lateinit var googleMap: GoogleMap
+    private lateinit var googleMap: GoogleMap
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -44,19 +48,18 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
         backButton.setOnClickListener {
             viewModel.back()
         }
-//        (childFragmentManager.findFragmentById(R.id.venueMap) as? SupportMapFragment)?.apply {
-//            getMapAsync { map ->
-//                googleMap = map
-//                googleMap.uiSettings.apply {
-//                    isScrollGesturesEnabled = false
-//                    isRotateGesturesEnabled = false
-//                    isZoomGesturesEnabled = false
-//
-//                    isZoomControlsEnabled = true
-//                }
-//                viewModel.mapLoaded()
-//            }
-//        }
+        (childFragmentManager.findFragmentById(R.id.venueMap) as? SupportMapFragment)?.apply {
+            getMapAsync { map ->
+                googleMap = map
+                googleMap.uiSettings.apply {
+                    isScrollGesturesEnabled = false
+                    isRotateGesturesEnabled = false
+                    isZoomGesturesEnabled = false
+                    isZoomControlsEnabled = true
+                }
+                viewModel.mapLoaded()
+            }
+        }
     }
 
     override fun processState(state: VenuePageState) {
@@ -88,14 +91,14 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
         venueName.text = model.name
         venueType.text = model.type
 
-//        if (::googleMap.isInitialized) {
-//            googleMap.apply {
-//                clear()
-//                addMarker(MarkerOptions().position(model.location).title(model.name))
-//                moveCamera(CameraUpdateFactory.newLatLng(model.location))
-//                animateCamera(CameraUpdateFactory.zoomTo(15f))
-//            }
-//        }
+        if (::googleMap.isInitialized) { // todo what if the map loads after the venue page
+            googleMap.apply {
+                clear()
+                addMarker(MarkerOptions().position(model.location).title(model.name))
+                moveCamera(CameraUpdateFactory.newLatLng(model.location))
+                animateCamera(CameraUpdateFactory.zoomTo(15f))
+            }
+        }
 
         if (!::venueCardsAdapter.isInitialized)
             initCardsAdapter()
@@ -125,15 +128,6 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
             setHasFixedSize(true)
         }
     }
-
-//    private fun initVenueImagesRecycler() {
-//        venueImagesAdapter = VenueImagesAdapter()
-//        venueImagesRecycler.apply {
-//            adapter = venueImagesAdapter
-//            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-//            setHasFixedSize(true)
-//        }
-//    }
 
     companion object {
         fun newInstance(): VenuePageFragment = VenuePageFragment()
