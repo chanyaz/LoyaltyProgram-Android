@@ -12,6 +12,7 @@ import com.loyalty.core.presentation.base.BaseEvent
 import com.loyalty.core.presentation.mvvm.MvvmFragment
 import com.loyalty.core.util.extensions.gone
 import com.loyalty.core.util.extensions.invisible
+import com.loyalty.core.util.extensions.setOnCollapseListener
 import com.loyalty.core.util.extensions.visible
 import com.loyalty.customer.R
 import org.koin.android.ext.android.inject
@@ -21,12 +22,15 @@ import com.loyalty.customer.presentation.venue.pager.VenueImageAdapter
 import com.loyalty.customer.ui.models.venue.VenueImageUIModel
 import com.loyalty.customer.ui.models.venue.VenuePageUIModel
 import kotlinx.android.synthetic.main.venue_page_fragment.backButton
+import kotlinx.android.synthetic.main.venue_page_fragment.toolbarSubtitle
+import kotlinx.android.synthetic.main.venue_page_fragment.toolbarTitle
 import kotlinx.android.synthetic.main.venue_page_fragment.venueCardsRecycler
 import kotlinx.android.synthetic.main.venue_page_fragment.venueGroupContent
 import kotlinx.android.synthetic.main.venue_page_fragment.venueImagesPager
 import kotlinx.android.synthetic.main.venue_page_fragment.venueImagesTabs
 import kotlinx.android.synthetic.main.venue_page_fragment.venueInformationRecycler
 import kotlinx.android.synthetic.main.venue_page_fragment.venueName
+import kotlinx.android.synthetic.main.venue_page_fragment.venuePageAppBarLayout
 import kotlinx.android.synthetic.main.venue_page_fragment.venueProgressBar
 import kotlinx.android.synthetic.main.venue_page_fragment.venueType
 
@@ -66,6 +70,13 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
             }
         }
         venueImagesTabs.setupWithViewPager(venueImagesPager, true)
+        venuePageAppBarLayout.setOnCollapseListener(onCollapse = {
+            toolbarTitle.visible()
+            toolbarSubtitle.visible()
+        }, onExpand = {
+            toolbarTitle.invisible()
+            toolbarSubtitle.invisible()
+        })
     }
 
     override fun processState(state: VenuePageState) {
@@ -95,7 +106,10 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
         venueGroupContent.visible()
 
         venueName.text = model.name
+        toolbarTitle.text = model.name
+
         venueType.text = model.type
+        toolbarSubtitle.text = model.type
 
         if (::googleMap.isInitialized) {
             googleMap.apply {
