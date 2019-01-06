@@ -11,7 +11,7 @@ import com.loyalty.customer.R
 import com.loyalty.customer.ui.models.venue.VenueImageUIModel
 import kotlinx.android.synthetic.main.venue_image_item.view.venueImageItem
 
-class VenueImageAdapter(private val images: List<VenueImageUIModel>, context: Context?) : PagerAdapter() {
+class VenueImagesAdapter(private val images: List<VenueImageUIModel>, context: Context?) : PagerAdapter() {
 
     private val inflater = LayoutInflater.from(context)
 

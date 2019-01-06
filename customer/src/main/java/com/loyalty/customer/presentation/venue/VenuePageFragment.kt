@@ -18,7 +18,7 @@ import com.loyalty.customer.R
 import org.koin.android.ext.android.inject
 import com.loyalty.customer.presentation.cards.adapter.CardsAdapter
 import com.loyalty.customer.presentation.venue.adapter.VenueInfoAdapter
-import com.loyalty.customer.presentation.venue.pager.VenueImageAdapter
+import com.loyalty.customer.presentation.venue.pager.VenueImagesAdapter
 import com.loyalty.customer.ui.models.venue.VenueImageUIModel
 import com.loyalty.customer.ui.models.venue.VenuePageUIModel
 import kotlinx.android.synthetic.main.venue_page_fragment.backButton
@@ -40,7 +40,7 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
 
     override val viewModel: VenuePageViewModel by inject()
 
-    private lateinit var venueImageAdapter: VenueImageAdapter
+    private lateinit var venueImagesAdapter: VenueImagesAdapter
     private lateinit var venueCardsAdapter: CardsAdapter
     private lateinit var venueInfoAdapter: VenueInfoAdapter
 
@@ -133,8 +133,8 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
     }
 
     private fun initImagesAdapter(images: List<VenueImageUIModel>) {
-        venueImageAdapter = VenueImageAdapter(images, context)
-        venueImagesPager.adapter = venueImageAdapter
+        venueImagesAdapter = VenueImagesAdapter(images, context)
+        venueImagesPager.adapter = venueImagesAdapter
     }
 
     private fun initCardsAdapter() {
