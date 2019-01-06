@@ -50,4 +50,7 @@
     <color name="card_background_color">@color/white</color>
     <color name="separator_color">@color/lighter_grey</color>
 
+    <!-- Tab indicator -->
+    <color name="tab_indicator_color">@color/white</color>
+
 </resources>

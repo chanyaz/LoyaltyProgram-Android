@@ -17,10 +17,14 @@ import com.loyalty.customer.R
 import org.koin.android.ext.android.inject
 import com.loyalty.customer.presentation.cards.adapter.CardsAdapter
 import com.loyalty.customer.presentation.venue.adapter.VenueInfoAdapter
+import com.loyalty.customer.presentation.venue.pager.VenueImageAdapter
+import com.loyalty.customer.ui.models.venue.VenueImageUIModel
 import com.loyalty.customer.ui.models.venue.VenuePageUIModel
 import kotlinx.android.synthetic.main.venue_page_fragment.backButton
 import kotlinx.android.synthetic.main.venue_page_fragment.venueCardsRecycler
 import kotlinx.android.synthetic.main.venue_page_fragment.venueGroupContent
+import kotlinx.android.synthetic.main.venue_page_fragment.venueImagesPager
+import kotlinx.android.synthetic.main.venue_page_fragment.venueImagesTabs
 import kotlinx.android.synthetic.main.venue_page_fragment.venueInformationRecycler
 import kotlinx.android.synthetic.main.venue_page_fragment.venueName
 import kotlinx.android.synthetic.main.venue_page_fragment.venueProgressBar
@@ -32,6 +36,7 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
 
     override val viewModel: VenuePageViewModel by inject()
 
+    private lateinit var venueImageAdapter: VenueImageAdapter
     private lateinit var venueCardsAdapter: CardsAdapter
     private lateinit var venueInfoAdapter: VenueInfoAdapter
 
@@ -60,6 +65,7 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
                 viewModel.mapLoaded()
             }
         }
+        venueImagesTabs.setupWithViewPager(venueImagesPager, true)
     }
 
     override fun processState(state: VenuePageState) {
@@ -91,7 +97,7 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
         venueName.text = model.name
         venueType.text = model.type
 
-        if (::googleMap.isInitialized) { // todo what if the map loads after the venue page
+        if (::googleMap.isInitialized) {
             googleMap.apply {
                 clear()
                 addMarker(MarkerOptions().position(model.location).title(model.name))
@@ -99,6 +105,8 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
                 animateCamera(CameraUpdateFactory.zoomTo(15f))
             }
         }
+
+        initImagesAdapter(model.imageUrls)
 
         if (!::venueCardsAdapter.isInitialized)
             initCardsAdapter()
@@ -108,6 +116,11 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
 
         venueCardsAdapter.setItems(model.cards)
         venueInfoAdapter.setItems(model.venueInfoListUIModel)
+    }
+
+    private fun initImagesAdapter(images: List<VenueImageUIModel>) {
+        venueImageAdapter = VenueImageAdapter(images, context)
+        venueImagesPager.adapter = venueImageAdapter
     }
 
     private fun initCardsAdapter() {

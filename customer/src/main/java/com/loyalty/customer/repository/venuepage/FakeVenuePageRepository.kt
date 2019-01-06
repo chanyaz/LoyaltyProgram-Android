@@ -4,6 +4,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.loyalty.customer.R
 import com.loyalty.customer.ui.models.card.CardItemUIModel
 import com.loyalty.customer.ui.models.card.EventType
+import com.loyalty.customer.ui.models.venue.VenueImageUIModel
 import com.loyalty.customer.ui.models.venue.information.VenueInfoAddressUIModel
 import com.loyalty.customer.ui.models.venue.information.VenueInfoHeaderUIModel
 import com.loyalty.customer.ui.models.venue.information.VenueInfoPhoneUIModel
@@ -36,9 +37,9 @@ class FakeVenuePageRepository : VenuePageRepository {
             name = "Coffeeholic",
             type = "Ресторан и пиццерия",
             imageUrls = listOf(
-                    "https://c1.staticflickr.com/3/2291/2407610845_92a010d53e_b.jpg",
-                    "https://c8.alamy.com/comp/G3F2TH/rembrandtplein-coffee-shop-amsterdam-holland-netherlands-G3F2TH.jpg",
-                    "https://c8.alamy.com/comp/A09JPD/coffeeshop-amsterdam-A09JPD.jpg"
+                    VenueImageUIModel("https://ms1.relax.by/images/5da23058500fe4a6857e31cd0906d449/resize/w=1200,h=800,q=80,watermark=true/place_gallery_photo/d1/80/4d/d1804d0455b1486af0202214064fbac0.jpg"),
+                    VenueImageUIModel("https://ms1.relax.by/images/5da23058500fe4a6857e31cd0906d449/resize/w=1200,h=800,q=80,watermark=true/place_gallery_photo/af/d6/c1/afd6c1215dc8418b73856caab0716e51.jpg"),
+                    VenueImageUIModel("https://ms1.relax.by/images/5da23058500fe4a6857e31cd0906d449/resize/w=1200,h=800,q=80,watermark=true/place_gallery_photo/ee/28/1a/ee281a3fee06ae4a54701c335063341c.jpg")
             ),
             cards = cards,
             venueInfoListUIModel = listOf( // todo move this to use case

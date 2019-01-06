@@ -17,6 +17,7 @@
 
     <dimen name="size_venue_header">@dimen/size_xbig</dimen>
     <dimen name="size_venue_secondary">@dimen/size_medium</dimen>
+    <dimen name="size_venue_images_height">220dp</dimen>
 
     <dimen name="size_venue_option_header">@dimen/size_small</dimen>
     <dimen name="size_venue_option_description">@dimen/size_medium</dimen>

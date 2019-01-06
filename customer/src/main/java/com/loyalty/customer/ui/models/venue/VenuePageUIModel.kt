@@ -7,7 +7,7 @@ import com.loyalty.customer.ui.models.venue.information.VenueInfoUIModel
 data class VenuePageUIModel(
         val name: String,
         val type: String,
-        val imageUrls: List<String>,
+        val imageUrls: List<VenueImageUIModel>,
         val cards: List<CardItemUIModel>,
         val venueInfoListUIModel: List<VenueInfoUIModel>,
 //        val addresses: List<VenueInfoAddressUIModel>,
