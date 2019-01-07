@@ -10,19 +10,19 @@ class FakeCardsRepository : CardsRepository {
 
     private val cards: List<CardItemUIModel> = listOf(
             CardItemUIModel(
-                    "http://javamark.com/wp-content/uploads/2016/03/Java-Mark-Logo-Color-png-2.png",
-                    "Java Shop",
-                    "Coffeeshop",
-                    2,
+                    "https://media-cdn.tripadvisor.com/media/photo-s/09/00/42/4f/lamppost-coffee.jpg",
+                    "Lamppost Coffee",
+                    "Кофейня",
+                    5,
                     "02.02-03.03",
                     EventType.COFFEE_STAMPS,
                     13,
-                    14
+                    10
             ),
             CardItemUIModel(
-                    "http://javamark.com/wp-content/uploads/2016/03/Java-Mark-Logo-Color-png-2.png",
-                    "Kotlin Shop",
-                    "Coffeeshop",
+                    "https://us.123rf.com/450wm/arcady31/arcady311202/arcady31120200035/12414954-znak-przerwa-kawowa.jpg",
+                    "Surf Coffee",
+                    "Кофейня",
                     3,
                     "03.03-04.03",
                     EventType.COFFEE_STAMPS,
@@ -30,24 +30,24 @@ class FakeCardsRepository : CardsRepository {
                     10
             ),
             CardItemUIModel(
-                    "http://javamark.com/wp-content/uploads/2016/03/Java-Mark-Logo-Color-png-2.png",
-                    "Union Coffee",
-                    "Coffeeshop",
+                    "http://bridgeviewcoffeebar.com/assets/img/Logo_Round5a.png",
+                    "Bridge View Coffee Bar",
+                    "Кофейня",
                     2,
                     "02.02-03.03",
                     EventType.COFFEE_STAMPS,
                     14,
-                    10
+                    8
             ),
             CardItemUIModel(
-                    "http://javamark.com/wp-content/uploads/2016/03/Java-Mark-Logo-Color-png-2.png",
-                    "Zerno",
-                    "Coffeeshop",
+                    "https://99designs-blog.imgix.net/wp-content/uploads/2017/05/attachment_82713536-e1493764721590.png?auto=format&q=60&fit=max&w=930",
+                    "Refuge Coffee",
+                    "Кофейня",
                     22,
                     "02.02-03.03",
                     EventType.COFFEE_STAMPS,
-                    13,
-                    14
+                    7,
+                    10
             )
     )
 

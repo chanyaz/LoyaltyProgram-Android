@@ -22,9 +22,9 @@ class FakeVenuePageRepository : VenuePageRepository {
 
     private val cards: List<CardItemUIModel> = listOf(
             CardItemUIModel(
-                    "http://javamark.com/wp-content/uploads/2016/03/Java-Mark-Logo-Color-png-2.png",
-                    "Java Shop",
-                    "Coffeeshop",
+                    "https://us.123rf.com/450wm/arcady31/arcady311202/arcady31120200035/12414954-znak-przerwa-kawowa.jpg",
+                    "Surf Coffee",
+                    "Кофейня",
                     2,
                     "02.02-03.03",
                     EventType.COFFEE_STAMPS,
