@@ -34,28 +34,28 @@ class FakeVenuePageRepository : VenuePageRepository {
     )
 
     private val fakeVenuePageUIModel: VenuePageUIModel = VenuePageUIModel(
-            name = "Coffeeholic",
-            type = "Ресторан и пиццерия",
+            name = "Surf Coffee",
+            type = "Кофейня",
             imageUrls = listOf(
-                    VenueImageUIModel("https://ms1.relax.by/images/5da23058500fe4a6857e31cd0906d449/resize/w=1200,h=800,q=80,watermark=true/place_gallery_photo/d1/80/4d/d1804d0455b1486af0202214064fbac0.jpg"),
-                    VenueImageUIModel("https://ms1.relax.by/images/5da23058500fe4a6857e31cd0906d449/resize/w=1200,h=800,q=80,watermark=true/place_gallery_photo/af/d6/c1/afd6c1215dc8418b73856caab0716e51.jpg"),
-                    VenueImageUIModel("https://ms1.relax.by/images/5da23058500fe4a6857e31cd0906d449/resize/w=1200,h=800,q=80,watermark=true/place_gallery_photo/ee/28/1a/ee281a3fee06ae4a54701c335063341c.jpg")
+                    VenueImageUIModel("https://static.relax.by/images/common/wysiwyg/2016/07/e4c23b9772521cb152653112b7f56c6d.jpg"),
+                    VenueImageUIModel("https://static.relax.by/images/common/wysiwyg/2016/07/85abafe684f2cf55aab17ed67417eefa.jpg"),
+                    VenueImageUIModel("https://static.relax.by/images/common/wysiwyg/2016/07/9559c54abfd4bdc9acf7f37435231784.jpg")
             ),
             cards = cards,
             venueInfoListUIModel = listOf( // todo move this to use case
                     VenueInfoHeaderUIModel("Адрес", R.drawable.ic_location),
-                    VenueInfoAddressUIModel("г. Минск, ул. Калиновского, 24"),
+                    VenueInfoAddressUIModel("Минск, ул. Кирова, 19"),
                     VenueInfoSeparatorUIModel(),
                     VenueInfoHeaderUIModel("Время работы", R.drawable.ic_schedule),
-                    VenueInfoScheduleUIModel("Будние", "с 11.00 до 2.00"),
-                    VenueInfoScheduleUIModel("Выходные", "с 18.00 до 5.00"),
+                    VenueInfoScheduleUIModel("Будние", "с 08.00 до 23.00"),
+                    VenueInfoScheduleUIModel("Выходные", "с 10.00 до 23.00"),
                     VenueInfoSeparatorUIModel(),
                     VenueInfoHeaderUIModel("Телефоны", R.drawable.ic_phone),
                     VenueInfoPhoneUIModel("+ 375 (33) 202 03 27"),
                     VenueInfoPhoneUIModel("+ 375 (44) 202 03 27"),
                     VenueInfoSeparatorUIModel(),
                     VenueInfoHeaderUIModel("Веб-Сайт", R.drawable.ic_website),
-                    VenueInfoWebsiteUIModel("www.calabria.by"),
+                    VenueInfoWebsiteUIModel("https://surfcoffee.relax.by/"),
                     VenueInfoSeparatorUIModel(),
                     VenueInfoHeader2UIModel("Описание"),
                     VenueInfoDescriptionUIModel("Высокий уровень обслуживания, приятная обстановка, приветливый персонал, кофе и чай разных сортов.")
