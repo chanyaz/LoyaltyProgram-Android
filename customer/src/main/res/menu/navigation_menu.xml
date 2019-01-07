@@ -15,14 +15,14 @@
         android:icon="@drawable/ic_cards"
         android:title="@string/navigation_cards" />
 
-    <item
-        android:id="@+id/buttonNavigationMap"
-        android:icon="@drawable/ic_map"
-        android:title="@string/navigation_map" />
+    <!--<item-->
+        <!--android:id="@+id/buttonNavigationMap"-->
+        <!--android:icon="@drawable/ic_map"-->
+        <!--android:title="@string/navigation_map" />-->
 
-    <item
-        android:id="@+id/buttonNavigationProfile"
-        android:icon="@drawable/ic_profile"
-        android:title="@string/navigation_profile" />
+    <!--<item-->
+        <!--android:id="@+id/buttonNavigationProfile"-->
+        <!--android:icon="@drawable/ic_profile"-->
+        <!--android:title="@string/navigation_profile" />-->
 
 </menu>
