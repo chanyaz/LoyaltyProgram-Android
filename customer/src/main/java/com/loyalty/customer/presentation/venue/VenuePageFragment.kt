@@ -128,8 +128,8 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
         if (!::venueInfoAdapter.isInitialized)
             initInformationAdapter()
 
-        venueCardsAdapter.setItems(model.cards)
-        venueInfoAdapter.setItems(model.venueInfoListUIModel)
+        venueCardsAdapter.items = model.cards
+        venueInfoAdapter.items = model.venueInfoListUIModel
     }
 
     private fun initImagesAdapter(images: List<VenueImageUIModel>) {

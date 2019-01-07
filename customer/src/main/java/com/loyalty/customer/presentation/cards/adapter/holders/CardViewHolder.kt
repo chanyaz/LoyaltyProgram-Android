@@ -1,20 +1,20 @@
-package com.loyalty.customer.presentation.cards.adapter
+package com.loyalty.customer.presentation.cards.adapter.holders
 
 import android.annotation.SuppressLint
 import android.view.View
 import com.bumptech.glide.Glide
-import com.loyalty.core.ui.adapter.SimpleHolder
+import com.loyalty.core.ui.adapter.SimpleDelegationHolder
 import com.loyalty.customer.ui.models.card.CardItemUIModel
-import kotlinx.android.synthetic.main.card_item.view.cardDate
-import kotlinx.android.synthetic.main.card_item.view.cardDaysLeft
-import kotlinx.android.synthetic.main.card_item.view.cardLogo
-import kotlinx.android.synthetic.main.card_item.view.cardNumberOfStamps
-import kotlinx.android.synthetic.main.card_item.view.cardNumberOutOf
-import kotlinx.android.synthetic.main.card_item.view.cardVenueName
-import kotlinx.android.synthetic.main.card_item.view.cardVenueType
+import kotlinx.android.synthetic.main.card_item_collapsed.view.cardDate
+import kotlinx.android.synthetic.main.card_item_collapsed.view.cardDaysLeft
+import kotlinx.android.synthetic.main.card_item_collapsed.view.cardLogo
+import kotlinx.android.synthetic.main.card_item_collapsed.view.cardNumberOfStamps
+import kotlinx.android.synthetic.main.card_item_collapsed.view.cardNumberOutOf
+import kotlinx.android.synthetic.main.card_item_collapsed.view.cardVenueName
+import kotlinx.android.synthetic.main.card_item_collapsed.view.cardVenueType
 import kotlinx.android.synthetic.main.card_item_expanded.view.cardTypeView
 
-class CardViewHolder(itemView: View) : SimpleHolder<CardItemUIModel>(itemView) {
+class CardViewHolder(itemView: View) : SimpleDelegationHolder<CardItemUIModel>(itemView) {
 
     private val cardVenueName = itemView.cardVenueName
     private val cardVenueType = itemView.cardVenueType

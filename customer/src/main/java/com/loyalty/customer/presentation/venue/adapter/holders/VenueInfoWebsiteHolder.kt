@@ -1,4 +1,4 @@
-package com.loyalty.customer.presentation.venue.adapter
+package com.loyalty.customer.presentation.venue.adapter.holders
 
 import android.view.View
 import com.loyalty.customer.ui.models.venue.information.VenueInfoWebsiteUIModel

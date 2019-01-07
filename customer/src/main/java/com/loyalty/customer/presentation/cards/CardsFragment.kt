@@ -62,7 +62,7 @@ class CardsFragment : MvvmFragment<CardsState, BaseEvent>() {
         if (!::cardsAdapter.isInitialized)
             initCardsAdapter()
 
-        cardsAdapter.setItems(cards)
+        cardsAdapter.items = cards
     }
 
     private fun initCardsAdapter() {

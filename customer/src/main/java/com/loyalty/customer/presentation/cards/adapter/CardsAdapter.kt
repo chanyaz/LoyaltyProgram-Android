@@ -1,35 +1,16 @@
 package com.loyalty.customer.presentation.cards.adapter
 
-import android.support.annotation.LayoutRes
-import android.view.LayoutInflater
-import android.view.ViewGroup
-import com.loyalty.core.ui.adapter.SimpleAdapter
-import com.loyalty.core.ui.adapter.SimpleHolder
-import com.loyalty.customer.R
+import com.hannesdorfmann.adapterdelegates3.AdapterDelegatesManager
+import com.loyalty.core.ui.adapter.SimpleDelegationAdapter
+import com.loyalty.customer.presentation.cards.adapter.delegates.CollapsedCardsDelegate
+import com.loyalty.customer.presentation.cards.adapter.delegates.ExpandedCardsDelegate
 import com.loyalty.customer.ui.models.card.CardItemUIModel
 
 class CardsAdapter(
         private val onCardClicked: (Int) -> Unit
-) : SimpleAdapter<CardItemUIModel>() {
-
-    override fun onCreateViewHolder(parent: ViewGroup, @LayoutRes viewType: Int): CardViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(viewType, parent, false)
-        return CardViewHolder(view)
-    }
-
-    override fun getItemViewType(position: Int): Int =
-            if (elements[position].isExpandedState) R.layout.card_item_expanded else R.layout.card_item
-
-    override fun onViewAttachedToWindow(holder: SimpleHolder<CardItemUIModel>) {
-        super.onViewAttachedToWindow(holder)
-        holder.itemView.setOnClickListener {
-            onCardClicked(holder.adapterPosition)
+) : SimpleDelegationAdapter<CardItemUIModel>(
+        AdapterDelegatesManager<List<CardItemUIModel>>().apply {
+            addDelegate(CollapsedCardsDelegate(onCardClicked))
+            addDelegate(ExpandedCardsDelegate(onCardClicked))
         }
-    }
-
-    override fun onViewDetachedFromWindow(holder: SimpleHolder<CardItemUIModel>) {
-        super.onViewDetachedFromWindow(holder)
-        holder.itemView.setOnClickListener(null)
-    }
-
-}
+)

@@ -11,7 +11,7 @@ import com.loyalty.core.util.extensions.invisible
 import com.loyalty.core.util.extensions.setOnQueryChangedListener
 import com.loyalty.core.util.extensions.visible
 import com.loyalty.customer.R
-import com.loyalty.customer.presentation.venues.adapter.VenuesAdapter
+import com.loyalty.customer.presentation.venues.adapter.VenueAdapter
 import com.loyalty.customer.ui.models.venue.VenueItemUIModel
 import kotlinx.android.synthetic.main.venues_fragment.searchVenues
 import kotlinx.android.synthetic.main.venues_fragment.venuesEmpty
@@ -25,7 +25,7 @@ class VenuesFragment : MvvmFragment<VenuesState, BaseEvent>() {
 
     override val viewModel: VenuesViewModel by viewModel()
 
-    private lateinit var venuesAdapter: VenuesAdapter
+    private lateinit var venuesAdapter: VenueAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -78,11 +78,11 @@ class VenuesFragment : MvvmFragment<VenuesState, BaseEvent>() {
         if (!::venuesAdapter.isInitialized)
             initVenuesRecycler()
 
-        venuesAdapter.setItems(venues)
+        venuesAdapter.items = venues
     }
 
     private fun initVenuesRecycler() {
-        venuesAdapter = VenuesAdapter { viewModel.selectVenue(it) }
+        venuesAdapter = VenueAdapter { viewModel.selectVenue(it) }
         venuesRecycler.apply {
             adapter = venuesAdapter
             layoutManager = LinearLayoutManager(activity)

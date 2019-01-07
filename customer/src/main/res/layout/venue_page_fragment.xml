@@ -152,7 +152,7 @@
                 android:paddingEnd="@dimen/margin_xsmall"
                 app:layout_constraintTop_toBottomOf="@id/venueCardsInThisVenue"
                 tools:itemCount="1"
-                tools:listitem="@layout/card_item" />
+                tools:listitem="@layout/card_item_collapsed" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/venueInformationRecycler"

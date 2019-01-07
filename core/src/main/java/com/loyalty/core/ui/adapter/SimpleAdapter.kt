@@ -3,6 +3,7 @@ package com.loyalty.core.ui.adapter
 import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
 
+@Deprecated("Use SimpleDelegationAdapter")
 abstract class SimpleAdapter<T : SimpleRecyclerModel> : RecyclerView.Adapter<SimpleHolder<T>>() {
 
     protected var elements: List<T> = emptyList()
