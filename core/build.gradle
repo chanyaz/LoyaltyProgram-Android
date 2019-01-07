@@ -39,6 +39,9 @@ dependencies {
     api compat.cards
     api compat.constraint
 
+    /* Adapter */
+    api adapter.core
+
     /* Navigation */
     api cicerone.core
 
@@ -92,9 +95,6 @@ dependencies {
 
     /* Test */
 //    testApi "org.koin:koin-test:$v_koin"
-
-    api 'com.hannesdorfmann:adapterdelegates3:3.1.0'
-
 
 }
 
