@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/venueInfoScheduleDay"
-        style="@style/Zalik.Text.Venue.Option.Text.Inactive.Secondary"
+        style="@style/Zalik.Venue.Option.Text.Inactive.Secondary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@id/venueInfoScheduleWorkingHours"
@@ -18,7 +18,7 @@
 
     <TextView
         android:id="@+id/venueInfoScheduleWorkingHours"
-        style="@style/Zalik.Text.Venue.Option.Text.Inactive"
+        style="@style/Zalik.Venue.Option.Text.Inactive"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"

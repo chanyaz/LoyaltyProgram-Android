@@ -8,13 +8,13 @@
 
     <ImageView
         android:id="@+id/venueInfoHeaderIcon"
-        style="@style/Zalik.Text.Venue.Option.Icon"
+        style="@style/Zalik.Venue.Option.Icon"
         android:src="@drawable/ic_location"
         tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/venueInfoHeaderText"
-        style="@style/Zalik.Text.Venue.Option.Header"
+        style="@style/Zalik.Venue.Option.Header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

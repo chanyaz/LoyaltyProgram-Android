@@ -12,7 +12,7 @@
 
         <android.support.v7.widget.CardView
             android:id="@+id/venueImageContainer"
-            style="@style/Zalik.Text.Venues.ImageContainer"
+            style="@style/Zalik.Venues.ImageContainer"
             android:layout_margin="@dimen/margin_xsmall"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -20,7 +20,7 @@
 
             <ImageView
                 android:id="@+id/venueImage"
-                style="@style/Zalik.Text.Venues.Image"
+                style="@style/Zalik.Venues.Image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:ignore="ContentDescription"
@@ -30,7 +30,7 @@
 
         <TextView
             android:id="@+id/venueName"
-            style="@style/Zalik.Text.Venues.Header"
+            style="@style/Zalik.Venues.Header"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_xsmall"
@@ -44,7 +44,7 @@
 
         <TextView
             android:id="@+id/venueAddress"
-            style="@style/Zalik.Text.Venues.Main"
+            style="@style/Zalik.Venues.Main"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/venueMiddleGuideline"
@@ -55,7 +55,7 @@
 
         <ImageView
             android:id="@+id/venueScheduleIcon"
-            style="@style/Zalik.Text.Venues.Icon"
+            style="@style/Zalik.Venues.Icon"
             android:layout_marginBottom="@dimen/margin_xsmall"
             android:src="@drawable/ic_schedule"
             app:layout_constraintBottom_toBottomOf="@+id/venueImageContainer"
@@ -64,7 +64,7 @@
 
         <TextView
             android:id="@+id/venueWorkingHours"
-            style="@style/Zalik.Text.Venues.Secondary"
+            style="@style/Zalik.Venues.Secondary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_xsmall"

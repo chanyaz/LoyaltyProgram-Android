@@ -2,7 +2,7 @@
 
     <!-- Qr -->
 
-    <style name="Zalik.Text.Qr">
+    <style name="Zalik.Qr" parent="Zalik.Text">
         <item name="android:textColor">@color/qr_header_color</item>
         <item name="android:textSize">@dimen/size_qr_header</item>
         <item name="android:gravity">center</item>
@@ -11,111 +11,111 @@
 
     <!-- Venues -->
 
-    <style name="Zalik.Text.Venues"/>
+    <style name="Zalik.Venues"/>
 
-    <style name="Zalik.Text.Venues.ImageContainer">
+    <style name="Zalik.Venues.ImageContainer">
         <item name="cardCornerRadius">@dimen/card_corner_radius</item>
         <item name="android:layout_width">@dimen/size_venues_image_width</item>
         <item name="android:layout_height">@dimen/size_venues_image_height</item>
     </style>
 
-    <style name="Zalik.Text.Venues.Image">
+    <style name="Zalik.Venues.Image">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:scaleType">centerCrop</item>
     </style>
 
-    <style name="Zalik.Text.Venues.Icon">
+    <style name="Zalik.Venues.Icon">
         <item name="android:layout_width">@dimen/size_venues_icon</item>
         <item name="android:layout_height">@dimen/size_venues_icon</item>
     </style>
 
-    <style name="Zalik.Text.Venues.Header">
+    <style name="Zalik.Venues.Header" parent="Zalik.Text">
         <item name="android:textSize">@dimen/size_venues_header</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="Zalik.Text.Venues.Main">
+    <style name="Zalik.Venues.Main" parent="Zalik.Text">
         <item name="android:textSize">@dimen/size_venues_main</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="Zalik.Text.Venues.Secondary">
+    <style name="Zalik.Venues.Secondary" parent="Zalik.Text">
         <item name="android:textSize">@dimen/size_venues_secondary</item>
     </style>
 
     <!-- Venue -->
 
-    <style name="Zalik.Text.Venue"/>
+    <style name="Zalik.Venue"/>
 
-    <style name="Zalik.Text.Venue.Header">
+    <style name="Zalik.Venue.Header" parent="Zalik.Text">
         <item name="android:textSize">@dimen/size_venue_header</item>
         <item name="android:maxLines">1</item>
     </style>
 
-    <style name="Zalik.Text.Venue.Secondary">
+    <style name="Zalik.Venue.Secondary" parent="Zalik.Text">
         <item name="android:textSize">@dimen/size_venue_secondary</item>
         <item name="android:maxLines">1</item>
     </style>
 
-    <style name="Zalik.Text.Venue.Option"/>
+    <style name="Zalik.Venue.Option"/>
 
-    <style name="Zalik.Text.Venue.Option.Header">
+    <style name="Zalik.Venue.Option.Header" parent="Zalik.Text">
         <item name="android:maxLines">1</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">@dimen/size_venue_option_header</item>
         <item name="android:textColor">@color/venue_option_header_color</item>
     </style>
 
-    <style name="Zalik.Text.Venue.Option.Description">
+    <style name="Zalik.Venue.Option.Description" parent="Zalik.Text">
         <item name="android:textSize">@dimen/size_venue_option_description</item>
         <item name="android:textColor">@color/venue_option_description_color</item>
     </style>
 
-    <style name="Zalik.Text.Venue.Option.Icon">
+    <style name="Zalik.Venue.Option.Icon">
         <item name="android:layout_width">@dimen/size_venue_option_icon</item>
         <item name="android:layout_height">@dimen/size_venue_option_icon</item>
     </style>
 
-    <style name="Zalik.Text.Venue.Option.Text">
+    <style name="Zalik.Venue.Option.Text" parent="Zalik.Text">
         <item name="android:maxLines">1</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_marginStart">@dimen/margin_venue_option_item_margin</item>
     </style>
 
-    <style name="Zalik.Text.Venue.Option.Text.Active">
+    <style name="Zalik.Venue.Option.Text.Active">
         <item name="android:textSize">@dimen/size_venue_option_active</item>
         <item name="android:textColor">@color/venue_option_active_color</item>
     </style>
 
-    <style name="Zalik.Text.Venue.Option.Text.Inactive">
+    <style name="Zalik.Venue.Option.Text.Inactive">
         <item name="android:textSize">@dimen/size_venue_option_inactive</item>
         <item name="android:textColor">@color/venue_option_inactive_color</item>
     </style>
 
-    <style name="Zalik.Text.Venue.Option.Text.Inactive.Secondary">
+    <style name="Zalik.Venue.Option.Text.Inactive.Secondary">
         <item name="android:textStyle">normal</item>
     </style>
 
     <!-- Card -->
 
-    <style name="Zalik.Text.Card"/>
+    <style name="Zalik.CardItem"/>
 
-    <style name="Zalik.Text.Card.Header">
+    <style name="Zalik.CardItem.Header" parent="Zalik.Text">
         <item name="android:textSize">@dimen/size_cards_header</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="Zalik.Text.Card.Main">
+    <style name="Zalik.CardItem.Main" parent="Zalik.Text">
         <item name="android:textSize">@dimen/size_cards_main</item>
     </style>
 
-    <style name="Zalik.Text.Card.Secondary">
+    <style name="Zalik.CardItem.Secondary" parent="Zalik.Text">
         <item name="android:textSize">@dimen/size_cards_secondary</item>
         <item name="android:textColor">@color/cards_text_secondary_color</item>
     </style>
 
-    <style name="Zalik.Text.Card.Date">
+    <style name="Zalik.CardItem.Date" parent="Zalik.Text">
         <item name="android:paddingStart">@dimen/margin_xsmall</item>
         <item name="android:paddingEnd">@dimen/margin_xsmall</item>
         <item name="android:paddingTop">@dimen/margin_xxsmall</item>
@@ -124,23 +124,23 @@
         <item name="android:textColor">@color/cards_text_date_color</item>
     </style>
 
-    <style name="Zalik.Text.Card.Points">
+    <style name="Zalik.CardItem.Points" parent="Zalik.Text">
         <item name="android:textColor">@color/cards_points_color</item>
     </style>
 
-    <style name="Zalik.Text.Card.Points.Current">
+    <style name="Zalik.CardItem.Points.Current">
         <item name="android:textSize">@dimen/size_cards_current_points</item>
     </style>
 
-    <style name="Zalik.Text.Card.Points.Current.Big">
+    <style name="Zalik.CardItem.Points.Current.Big">
         <item name="android:textSize">@dimen/size_cards_current_points_big</item>
     </style>
 
-    <style name="Zalik.Text.Card.Points.OutOf">
+    <style name="Zalik.CardItem.Points.OutOf">
         <item name="android:textSize">@dimen/size_cards_out_of_points</item>
     </style>
 
-    <style name="Zalik.Text.Card.Points.OutOf.Big">
+    <style name="Zalik.CardItem.Points.OutOf.Big">
         <item name="android:textSize">@dimen/size_cards_out_of_points_big</item>
     </style>
 

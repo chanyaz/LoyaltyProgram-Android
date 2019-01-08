@@ -23,7 +23,7 @@
 
         <TextView
             android:id="@+id/cardVenueName"
-            style="@style/Zalik.Text.Card.Header"
+            style="@style/Zalik.CardItem.Header"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_small"
@@ -36,7 +36,7 @@
 
         <TextView
             android:id="@+id/cardVenueType"
-            style="@style/Zalik.Text.Card.Main"
+            style="@style/Zalik.CardItem.Main"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_medium"
@@ -48,7 +48,7 @@
 
         <TextView
             android:id="@+id/cardDaysLeft"
-            style="@style/Zalik.Text.Card.Secondary"
+            style="@style/Zalik.CardItem.Secondary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@+id/cardLogo"
@@ -59,7 +59,7 @@
 
         <TextView
             android:id="@+id/cardDate"
-            style="@style/Zalik.Text.Card.Date"
+            style="@style/Zalik.CardItem.Date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_medium"
@@ -79,7 +79,7 @@
 
         <TextView
             android:id="@+id/numberOfStamps"
-            style="@style/Zalik.Text.Card.Secondary"
+            style="@style/Zalik.CardItem.Secondary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_medium"
@@ -112,7 +112,7 @@
 
             <TextView
                 android:id="@+id/cardNumberOfStamps"
-                style="@style/Zalik.Text.Card.Points.Current.Big"
+                style="@style/Zalik.CardItem.Points.Current.Big"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -124,7 +124,7 @@
 
             <TextView
                 android:id="@+id/cardNumberOutOf"
-                style="@style/Zalik.Text.Card.Points.OutOf.Big"
+                style="@style/Zalik.CardItem.Points.OutOf.Big"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBaseline_toBaselineOf="@+id/cardNumberOfStamps"
