@@ -35,6 +35,7 @@
     <dimen name="size_cards_main">@dimen/size_small</dimen>
     <dimen name="size_cards_secondary">@dimen/size_small</dimen>
     <dimen name="size_cards_date">@dimen/size_small</dimen>
+    <dimen name="size_cards_stamp_quantity">100dp</dimen>
 
     <dimen name="size_cards_current_points">@dimen/size_xbig</dimen>
     <dimen name="size_cards_current_points_big">@dimen/size_5xbig</dimen>

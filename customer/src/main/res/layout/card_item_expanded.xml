@@ -88,24 +88,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardLineSeparator" />
 
-        <View
+        <ImageView
             android:id="@+id/cardTypeView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginEnd="@dimen/margin_medium"
-            android:layout_marginBottom="@dimen/margin_medium"
-            android:background="@color/light_green"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardLineSeparator" />
+            app:layout_constraintTop_toTopOf="@id/numberOfStamps"
+            tools:src="@drawable/img_coffe_cap_80" />
 
         <android.support.constraint.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/size_cards_stamp_quantity"
             android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/margin_medium"
             android:background="@drawable/stamps_background"
-            app:layout_constraintBottom_toBottomOf="@id/cardTypeView"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/numberOfStamps"
             app:layout_constraintStart_toStartOf="@id/numberOfStamps"
             app:layout_constraintTop_toBottomOf="@id/numberOfStamps">
