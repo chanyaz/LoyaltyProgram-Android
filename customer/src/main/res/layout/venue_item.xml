@@ -10,31 +10,36 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/venueImage"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="@dimen/margin_small"
-            android:scaleType="centerCrop"
+        <android.support.v7.widget.CardView
+            android:id="@+id/venueImageContainer"
+            style="@style/Zalik.Text.Venues.ImageContainer"
+            android:layout_margin="@dimen/margin_xsmall"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.20"
-            tools:background="@color/dark_grey" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/venueImage"
+                style="@style/Zalik.Text.Venues.Image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="ContentDescription"
+                tools:src="@color/dark_grey" />
+
+        </android.support.v7.widget.CardView>
 
         <TextView
             android:id="@+id/venueName"
             style="@style/Zalik.Text.Venues.Header"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_small"
-            android:layout_marginEnd="@dimen/margin_small"
-            app:layout_constraintBottom_toTopOf="@+id/venueAddress"
+            android:layout_marginStart="@dimen/margin_xsmall"
+            android:layout_marginTop="@dimen/margin_xsmall"
+            android:layout_marginEnd="@dimen/margin_xsmall"
+            app:layout_constraintBottom_toTopOf="@id/venueAddress"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/venueImage"
-            app:layout_constraintTop_toTopOf="@+id/venueImage"
-            app:layout_constraintVertical_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@id/venueImageContainer"
+            app:layout_constraintTop_toTopOf="@+id/venueImageContainer"
             tools:text="Calabria" />
 
         <TextView
@@ -42,22 +47,39 @@
             style="@style/Zalik.Text.Venues.Main"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/venueWorkingHours"
+            app:layout_constraintBottom_toTopOf="@+id/venueMiddleGuideline"
             app:layout_constraintEnd_toEndOf="@id/venueName"
             app:layout_constraintStart_toStartOf="@id/venueName"
-            app:layout_constraintTop_toBottomOf="@+id/venueName"
+            app:layout_constraintTop_toBottomOf="@id/venueName"
             tools:text="ул. Калиновского 57" />
+
+        <ImageView
+            android:id="@+id/venueScheduleIcon"
+            style="@style/Zalik.Text.Venues.Icon"
+            android:layout_marginBottom="@dimen/margin_xsmall"
+            android:src="@drawable/ic_schedule"
+            app:layout_constraintBottom_toBottomOf="@+id/venueImageContainer"
+            app:layout_constraintStart_toStartOf="@id/venueName"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/venueWorkingHours"
             style="@style/Zalik.Text.Venues.Secondary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/venueImage"
+            android:layout_marginStart="@dimen/margin_xsmall"
+            app:layout_constraintBottom_toBottomOf="@+id/venueScheduleIcon"
             app:layout_constraintEnd_toEndOf="@id/venueName"
-            app:layout_constraintStart_toStartOf="@id/venueName"
-            app:layout_constraintTop_toBottomOf="@+id/venueAddress"
+            app:layout_constraintStart_toEndOf="@id/venueScheduleIcon"
+            app:layout_constraintTop_toTopOf="@+id/venueScheduleIcon"
             tools:text="с 8.00 до 2.00" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/venueMiddleGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.50" />
 
     </android.support.constraint.ConstraintLayout>
 

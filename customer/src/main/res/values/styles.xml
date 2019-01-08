@@ -12,6 +12,23 @@
 
     <style name="Zalik.Text.Venues"/>
 
+    <style name="Zalik.Text.Venues.ImageContainer">
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="android:layout_width">@dimen/size_venues_image_width</item>
+        <item name="android:layout_height">@dimen/size_venues_image_height</item>
+    </style>
+
+    <style name="Zalik.Text.Venues.Image">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="Zalik.Text.Venues.Icon">
+        <item name="android:layout_width">@dimen/size_venues_icon</item>
+        <item name="android:layout_height">@dimen/size_venues_icon</item>
+    </style>
+
     <style name="Zalik.Text.Venues.Header">
         <item name="android:textSize">@dimen/size_venues_header</item>
         <item name="android:textStyle">bold</item>

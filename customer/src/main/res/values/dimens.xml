@@ -10,6 +10,9 @@
     <!-- Venues -->
 
     <dimen name="size_venues_header">@dimen/size_medium</dimen>
+    <dimen name="size_venues_image_width">85dp</dimen>
+    <dimen name="size_venues_image_height">95dp</dimen>
+    <dimen name="size_venues_icon">12dp</dimen>
     <dimen name="size_venues_main">@dimen/size_small</dimen>
     <dimen name="size_venues_secondary">@dimen/size_small</dimen>
 
