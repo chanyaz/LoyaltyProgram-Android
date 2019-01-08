@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/qrShowCashierHeader"
-        style="@style/Zalik.Qr"
+        style="@style/Zalik.Qr.Header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_qr"
@@ -50,7 +50,7 @@
 
     <TextView
         android:id="@+id/qrYourQrHeader"
-        style="@style/Zalik.Qr"
+        style="@style/Zalik.Qr.Header.Big"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_qr"

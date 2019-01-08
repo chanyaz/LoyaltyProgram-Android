@@ -6,6 +6,7 @@
     <dimen name="margin_qr">@dimen/margin_xxxbig</dimen>
     <dimen name="margin_qr_borders">64dp</dimen>
     <dimen name="size_qr_header">@dimen/size_big</dimen>
+    <dimen name="size_qr_header_big">@dimen/size_xbig</dimen>
 
     <!-- Venues -->
 
