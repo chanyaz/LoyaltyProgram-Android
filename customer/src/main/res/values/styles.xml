@@ -53,11 +53,13 @@
     <style name="Zalik.Venue"/>
 
     <style name="Zalik.Venue.Header" parent="Zalik.Text">
+        <item name="android:textColor">@color/venue_header_color</item>
         <item name="android:textSize">@dimen/size_venue_header</item>
         <item name="android:maxLines">1</item>
     </style>
 
     <style name="Zalik.Venue.Secondary" parent="Zalik.Text">
+        <item name="android:textColor">@color/venue_secondary_color</item>
         <item name="android:textSize">@dimen/size_venue_secondary</item>
         <item name="android:maxLines">1</item>
     </style>

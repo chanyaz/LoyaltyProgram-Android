@@ -5,13 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ProgressBar
-        android:id="@+id/venueProgressBar"
-        style="@style/Zalik.ProgressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center" />
-
     <android.support.design.widget.AppBarLayout
         android:id="@+id/venuePageAppBarLayout"
         android:layout_width="match_parent"
@@ -26,8 +19,7 @@
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/window_background_color">
+                android:layout_height="wrap_content">
 
                 <android.support.v4.view.ViewPager
                     android:id="@+id/venueImagesPager"
@@ -72,6 +64,16 @@
                     app:layout_constraintEnd_toEndOf="@id/venueName"
                     app:layout_constraintStart_toStartOf="@id/venueName"
                     app:layout_constraintTop_toBottomOf="@id/venueType" />
+
+                <ProgressBar
+                    android:id="@+id/venueProgressBar"
+                    style="@style/Zalik.ProgressBar.Contrast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/venueName" />
 
             </android.support.constraint.ConstraintLayout>
 
