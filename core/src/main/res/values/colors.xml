@@ -44,7 +44,8 @@
 
     <!-- ProgressBar -->
 
-    <color name="progress_bar_color">@color/dark_grey</color>
+    <color name="progress_bar_color">@color/color_primary</color>
+    <color name="progress_bar_contrast_color">@color/white</color>
 
     <!-- Card -->
 

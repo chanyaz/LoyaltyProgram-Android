@@ -118,6 +118,10 @@
         <item name="android:indeterminateTint">@color/progress_bar_color</item>
     </style>
 
+    <style name="Zalik.ProgressBar.Contrast">
+        <item name="android:indeterminateTint">@color/progress_bar_contrast_color</item>
+    </style>
+
     <!-- Card -->
 
     <style name="Zalik.Card">
