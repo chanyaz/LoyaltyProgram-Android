@@ -30,6 +30,7 @@ class QrFragment : MvvmFragment<QrState, BaseEvent>() {
 
     override fun processState(state: QrState) {
         super.processState(state)
+//        TransitionManager.beginDelayedTransition(qrFragment) todo consider moving this to common logic
         when (state) {
             is QrState.QrLoading -> processLoadingState()
             is QrState.QrError -> processErrorState()
