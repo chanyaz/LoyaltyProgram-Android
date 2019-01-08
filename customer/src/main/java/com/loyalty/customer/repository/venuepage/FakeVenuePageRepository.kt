@@ -65,6 +65,6 @@ class FakeVenuePageRepository : VenuePageRepository {
 
     override fun loadVenuePage(id: String): Single<VenuePageUIModel> =
             Single.just(fakeVenuePageUIModel)
-                    .delay(300, TimeUnit.MILLISECONDS, Schedulers.io())
+                    .delay(500, TimeUnit.MILLISECONDS, Schedulers.io())
 
 }

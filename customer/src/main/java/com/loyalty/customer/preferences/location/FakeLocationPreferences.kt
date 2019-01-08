@@ -18,6 +18,6 @@ class FakeLocationPreferences(
 
     override fun getCurrentLocation(): Single<String> =
             Single.just("Minsk")
-                    .delay(300, TimeUnit.MILLISECONDS, io)
+                    .delay(500, TimeUnit.MILLISECONDS, io)
 
 }

@@ -53,6 +53,6 @@ class FakeCardsRepository : CardsRepository {
 
     override fun loadCards(): Single<List<CardItemUIModel>> =
             Single.just(cards)
-                    .delay(1200, TimeUnit.MILLISECONDS, Schedulers.io())
+                    .delay(500, TimeUnit.MILLISECONDS, Schedulers.io())
 
 }

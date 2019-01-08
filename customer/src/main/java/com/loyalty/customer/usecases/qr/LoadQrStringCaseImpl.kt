@@ -10,6 +10,6 @@ class LoadQrStringCaseImpl(
 
     override fun invoke(): Single<String> =
             Single.just("Pidor")
-                    .delay(3, TimeUnit.SECONDS)
+                    .delay(500, TimeUnit.MILLISECONDS)
 
 }
