@@ -5,6 +5,7 @@
     <style name="Zalik.Text.Qr">
         <item name="android:textColor">@color/qr_header_color</item>
         <item name="android:textSize">@dimen/size_qr_header</item>
+        <item name="android:gravity">center</item>
         <item name="android:textStyle">bold</item>
     </style>
 

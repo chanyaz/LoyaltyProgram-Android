@@ -11,8 +11,7 @@
 
     <!-- Qr -->
 
-    <string name="qr_show_this_code">Покажите этот код кассиру</string>
-    <string name="qr_your_qr">Ваш QR-код</string>
+    <string name="qr_show_this_code">Покажите этот код кассиру\nили назовите номер</string>
 
     <!-- Venues -->
 
