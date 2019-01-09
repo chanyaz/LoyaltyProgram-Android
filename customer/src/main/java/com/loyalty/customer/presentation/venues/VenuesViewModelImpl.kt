@@ -55,4 +55,11 @@ class VenuesViewModelImpl(
         router.hideNAdd(CustomerScreens.KEY_VENUE_NEW.name)
     }
 
+    override fun openSearch() {
+        setState(currentState.copy(isSearchOpen = true))
+    }
+
+    override fun closeSearch() {
+        setState(currentState.copy(isSearchOpen = false))
+    }
 }

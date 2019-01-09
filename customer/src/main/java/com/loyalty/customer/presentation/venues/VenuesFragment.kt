@@ -15,6 +15,7 @@ import com.loyalty.customer.presentation.venues.adapter.VenueAdapter
 import com.loyalty.customer.ui.models.venue.VenueItemUIModel
 import kotlinx.android.synthetic.main.venues_fragment.searchVenues
 import kotlinx.android.synthetic.main.venues_fragment.toolbarSubtitle
+import kotlinx.android.synthetic.main.venues_fragment.toolbarTitle
 import kotlinx.android.synthetic.main.venues_fragment.venuesEmpty
 import kotlinx.android.synthetic.main.venues_fragment.venuesProgressBar
 import kotlinx.android.synthetic.main.venues_fragment.venuesRecycler
@@ -36,13 +37,19 @@ class VenuesFragment : MvvmFragment<VenuesState, BaseEvent>() {
     }
 
     private fun initViews() {
-        searchVenues.setOnQueryChangedListener { query ->
-            viewModel.filterVenues(query)
-        }
-        searchVenues.setOnCloseListener {
-            searchVenues.setQuery("", true)
-            searchVenues.clearFocus()
-            false
+        searchVenues.apply {
+            setOnQueryChangedListener { query ->
+                viewModel.filterVenues(query)
+            }
+            setOnCloseListener {
+                searchVenues.setQuery("", true)
+                searchVenues.clearFocus()
+                viewModel.closeSearch()
+                false
+            }
+            setOnSearchClickListener {
+                viewModel.openSearch()
+            }
         }
     }
 
@@ -59,6 +66,8 @@ class VenuesFragment : MvvmFragment<VenuesState, BaseEvent>() {
         } else {
             throw UnexpectedStateException(state.toString())
         }
+
+        processToolbarState(state.isSearchOpen)
     }
 
     private fun processLoadingState() {
@@ -96,6 +105,16 @@ class VenuesFragment : MvvmFragment<VenuesState, BaseEvent>() {
         venuesRecycler.invisible()
         venuesEmpty.visible()
         venuesProgressBar.gone()
+    }
+
+    private fun processToolbarState(isSearchOpen: Boolean) {
+        if (isSearchOpen) {
+            toolbarSubtitle.invisible()
+            toolbarTitle.invisible()
+        } else {
+            toolbarSubtitle.visible()
+            toolbarTitle.visible()
+        }
     }
 
     companion object {
