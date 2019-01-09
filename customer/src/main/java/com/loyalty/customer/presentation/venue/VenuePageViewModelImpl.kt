@@ -38,4 +38,11 @@ class VenuePageViewModelImpl(
         router.backNShow()
     }
 
+    override fun hideToolbarTitles() {
+        setState(currentState.copy(areToolbarTitlesShown = false))
+    }
+
+    override fun showToolbarTitles() {
+        setState(currentState.copy(areToolbarTitlesShown = true))
+    }
 }

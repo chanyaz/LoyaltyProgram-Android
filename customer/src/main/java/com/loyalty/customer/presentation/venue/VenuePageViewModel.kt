@@ -11,4 +11,8 @@ abstract class VenuePageViewModel : BaseViewModel<VenuePageState, BaseEvent>() {
 
     abstract fun back()
 
+    abstract fun hideToolbarTitles()
+
+    abstract fun showToolbarTitles()
+
 }

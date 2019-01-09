@@ -45,6 +45,7 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
     private lateinit var venueInfoAdapter: VenueInfoAdapter
 
     private lateinit var googleMap: GoogleMap
+    private var isMapDrawn: Boolean = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -70,13 +71,10 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
             }
         }
         venueImagesTabs.setupWithViewPager(venueImagesPager, true)
-        venuePageAppBarLayout.setOnCollapseListener(onCollapse = {
-            toolbarTitle.visible()
-            toolbarSubtitle.visible()
-        }, onExpand = {
-            toolbarTitle.invisible()
-            toolbarSubtitle.invisible()
-        })
+        venuePageAppBarLayout.setOnCollapseListener(
+                onCollapse = { viewModel.showToolbarTitles() },
+                onExpand = { viewModel.hideToolbarTitles() }
+        )
     }
 
     override fun processState(state: VenuePageState) {
@@ -90,6 +88,8 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
         } else {
             throw UnexpectedStateException(state.toString())
         }
+
+        processToolbarState(state.areToolbarTitlesShown)
     }
 
     private fun processLoadingState() {
@@ -111,7 +111,8 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
         venueType.text = model.type
         toolbarSubtitle.text = model.type
 
-        if (::googleMap.isInitialized) {
+        if (::googleMap.isInitialized && !isMapDrawn) { /* todo make something about this flag */
+            isMapDrawn = true
             googleMap.apply {
                 clear()
                 addMarker(MarkerOptions().position(model.location).title(model.name))
@@ -120,7 +121,8 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
             }
         }
 
-        initImagesAdapter(model.imageUrls)
+        if (!::venueImagesAdapter.isInitialized)
+            initImagesAdapter(model.imageUrls)
 
         if (!::venueCardsAdapter.isInitialized)
             initCardsAdapter()
@@ -153,6 +155,16 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
             adapter = venueInfoAdapter
             layoutManager = LinearLayoutManager(activity)
             setHasFixedSize(true)
+        }
+    }
+
+    private fun processToolbarState(areToolbarTitlesShown: Boolean) {
+        if (areToolbarTitlesShown) {
+            toolbarTitle.visible()
+            toolbarSubtitle.visible()
+        } else {
+            toolbarTitle.invisible()
+            toolbarSubtitle.invisible()
         }
     }
 
