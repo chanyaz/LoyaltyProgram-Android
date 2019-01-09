@@ -13,6 +13,7 @@ import com.loyalty.customer.ui.models.card.CardItemUIModel
 import kotlinx.android.synthetic.main.cards_fragment.cardsEmpty
 import kotlinx.android.synthetic.main.cards_fragment.cardsProgressBar
 import kotlinx.android.synthetic.main.cards_fragment.cardsRecycler
+import kotlinx.android.synthetic.main.cards_fragment.toolbarSubtitle
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class CardsFragment : MvvmFragment<CardsState, BaseEvent>() {
@@ -58,6 +59,8 @@ class CardsFragment : MvvmFragment<CardsState, BaseEvent>() {
         cardsRecycler.visible()
         cardsEmpty.invisible()
         cardsProgressBar.gone()
+
+        toolbarSubtitle.text = resources.getQuantityString(R.plurals.cards_plurals, cards.size, cards.size)
 
         if (!::cardsAdapter.isInitialized)
             initCardsAdapter()

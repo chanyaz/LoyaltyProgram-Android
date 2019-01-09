@@ -17,6 +17,14 @@
 
     <string name="venues_empty">Здесь пусто и очень грустно…</string>
     <string name="venues_list_title">Список заведений</string>
+    <plurals name="venues_plurals">
+        <item quantity="zero">Нет заведений</item>
+        <item quantity="one">%1$d заведение</item>
+        <item quantity="two">%1$d заведения</item>
+        <item quantity="few">%1$d заведения</item>
+        <item quantity="many">%1$d заведений</item>
+        <item quantity="other">%1$d заведений</item>
+    </plurals>
 
     <!-- Venue -->
 
@@ -33,6 +41,14 @@
     <string name="cards_title">Мои карточки</string>
     <string name="cards_empty">Здесь пусто и очень грустно…</string>
     <string name="card_number_of_stamps">Количество штампов:</string>
+    <plurals name="cards_plurals">
+        <item quantity="zero">Нет карточек</item>
+        <item quantity="one">%1$d карточка</item>
+        <item quantity="two">%1$d карточки</item>
+        <item quantity="few">%1$d карточки</item>
+        <item quantity="many">%1$d карточек</item>
+        <item quantity="other">%1$d карточек</item>
+    </plurals>
 
 
 </resources>

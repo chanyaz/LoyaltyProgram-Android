@@ -14,6 +14,7 @@ import com.loyalty.customer.R
 import com.loyalty.customer.presentation.venues.adapter.VenueAdapter
 import com.loyalty.customer.ui.models.venue.VenueItemUIModel
 import kotlinx.android.synthetic.main.venues_fragment.searchVenues
+import kotlinx.android.synthetic.main.venues_fragment.toolbarSubtitle
 import kotlinx.android.synthetic.main.venues_fragment.venuesEmpty
 import kotlinx.android.synthetic.main.venues_fragment.venuesProgressBar
 import kotlinx.android.synthetic.main.venues_fragment.venuesRecycler
@@ -74,6 +75,8 @@ class VenuesFragment : MvvmFragment<VenuesState, BaseEvent>() {
         venuesRecycler.visible()
         venuesEmpty.invisible()
         venuesProgressBar.gone()
+
+        toolbarSubtitle.text = resources.getQuantityString(R.plurals.venues_plurals, venues.size, venues.size)
 
         if (!::venuesAdapter.isInitialized)
             initVenuesRecycler()
