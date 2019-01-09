@@ -16,7 +16,7 @@ class FakeCardsRepository : CardsRepository {
                     5,
                     "02.02-03.03",
                     EventType.COFFEE_STAMPS,
-                    13,
+                    2,
                     10
             ),
             CardItemUIModel(
@@ -26,7 +26,7 @@ class FakeCardsRepository : CardsRepository {
                     3,
                     "03.03-04.03",
                     EventType.COFFEE_STAMPS,
-                    9,
+                    5,
                     10
             ),
             CardItemUIModel(
@@ -46,7 +46,7 @@ class FakeCardsRepository : CardsRepository {
                     22,
                     "02.02-03.03",
                     EventType.COFFEE_STAMPS,
-                    7,
+                    8,
                     10
             )
     )
