@@ -11,7 +11,7 @@ import org.koin.dsl.module.Module
 
 class CustomerApp : BaseApp() {
 
-    override val clientModules: List<Module> = listOf(
+    override val clientModules: List<Module> get() = listOf(
             viewModelModule,
             preferencesModule,
             networkModule,
