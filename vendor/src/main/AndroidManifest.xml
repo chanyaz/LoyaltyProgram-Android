@@ -30,7 +30,7 @@
         </activity>
 
         <activity
-            android:name=".presentation.navigation.CustomerNavigationActivity"
+            android:name=".presentation.navigation.VendorNavigationActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
 

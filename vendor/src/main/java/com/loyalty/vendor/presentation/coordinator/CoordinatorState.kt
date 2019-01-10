@@ -1,4 +1,5 @@
 package com.loyalty.vendor.presentation.coordinator
 
-class CoordinatorState {
-}
+import com.loyalty.core.presentation.base.BaseState
+
+data class CoordinatorState(val isUserLoggedIn: Boolean) : BaseState()
