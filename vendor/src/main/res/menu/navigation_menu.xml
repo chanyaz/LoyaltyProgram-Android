@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<item
+		android:id="@+id/buttonNavigationQr"
+		android:icon="@drawable/ic_qr_code"
+		android:title="@string/navigation_qr" />
+
+	<!--<item-->
+		<!--android:id="@+id/buttonNavigationProfile"-->
+		<!--android:icon="@drawable/ic_profile"-->
+		<!--android:title="@string/navigation_profile" />-->
+
+</menu>
