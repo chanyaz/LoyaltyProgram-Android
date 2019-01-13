@@ -71,10 +71,7 @@ dependencies {
     kapt lifecycle.compiler
 
     /* Permissions */
-    api (permissiondispatcher.core) {
-        exclude group: 'com.android.support'
-    }
-    kapt permissiondispatcher.compiler
+    api rxpermissions.core
 
     /* Auth */
     api auth.core

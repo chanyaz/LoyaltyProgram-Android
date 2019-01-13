@@ -5,6 +5,8 @@ class BaseConsts private constructor(){
     companion object {
         const val SCHEDULER_IO = "SCHEDULER_IO"
         const val SCHEDULER_COMPUTATION = "SCHEDULER_COMPUTATION"
+
+        const val SINGLE_PERMISSION_CODE = 1
     }
 
 }

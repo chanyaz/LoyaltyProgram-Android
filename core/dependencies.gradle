@@ -17,7 +17,7 @@ ext {
     v_multidex = "1.0.3"
     v_auth = "0.2.1"
     v_maps = "16.0.0"
-    v_permissiondispatcher = "3.3.1"
+    v_rxpermissions = "0.10.2"
 }
 
 ext.kotlin = [
@@ -75,9 +75,8 @@ ext.auth = [
         core: "com.microsoft.identity.client:msal:$v_auth"
 ]
 
-ext.permissiondispatcher = [
-        core: "com.github.hotchemi:permissionsdispatcher:$v_permissiondispatcher",
-        compiler: "com.github.hotchemi:permissionsdispatcher-processor:$v_permissiondispatcher"
+ext.rxpermissions = [
+        core: "com.github.tbruyelle:rxpermissions:$v_rxpermissions"
 ]
 
 ext.zxing = [

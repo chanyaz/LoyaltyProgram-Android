@@ -4,4 +4,15 @@
 	android:layout_height="match_parent"
 	android:background="@color/dark_grey">
 
+	<com.journeyapps.barcodescanner.DecoratedBarcodeView
+		android:id="@+id/qrScanner"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent" />
+
+	<!--<com.loyalty.core.camera.SimpleBarcodeView-->
+		<!--android:layout_width="match_parent"-->
+		<!--android:layout_height="match_parent">-->
+<!---->
+	<!--</com.loyalty.core.camera.SimpleBarcodeView>-->
+
 </android.support.constraint.ConstraintLayout>
