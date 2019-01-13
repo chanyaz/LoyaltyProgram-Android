@@ -7,9 +7,7 @@ class ScanViewModelImpl : ScanViewModel() {
     }
 
     override fun initialiseCamera() {
-        if (!currentState.isCameraInitialised) {
-            setState(currentState.copy(isCameraInitialised = true))
-        }
+        setState(currentState.copy(shouldInitialiseCamera = true))
     }
 
 }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<!-- Scan -->
+
+	<dimen name="margin_frame">64dp</dimen>
+	<dimen name="scan_header_size">@dimen/size_big</dimen>
+
+</resources>

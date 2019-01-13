@@ -1,18 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:background="@color/dark_grey">
+	android:layout_height="match_parent">
 
-	<com.journeyapps.barcodescanner.DecoratedBarcodeView
+	<com.loyalty.core.camera.SimpleBarcodeView
 		android:id="@+id/qrScanner"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent" />
 
-	<!--<com.loyalty.core.camera.SimpleBarcodeView-->
-		<!--android:layout_width="match_parent"-->
-		<!--android:layout_height="match_parent">-->
-<!---->
-	<!--</com.loyalty.core.camera.SimpleBarcodeView>-->
+	<ImageView
+		android:id="@+id/scanFrameImage"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:layout_marginStart="@dimen/margin_frame"
+		android:layout_marginEnd="@dimen/margin_frame"
+		android:src="@drawable/img_scan_frame"
+		android:visibility="invisible"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintDimensionRatio="1:1"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:ignore="ContentDescription"
+		tools:visibility="visible" />
+
+	<TextView
+		android:id="@+id/scanPointCameraText"
+		style="@style/Zalik.Scan.Header"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/margin_medium"
+		android:text="@string/scan_point_camera_at_qr"
+		android:visibility="invisible"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/scanFrameImage"
+		tools:visibility="visible" />
 
 </android.support.constraint.ConstraintLayout>

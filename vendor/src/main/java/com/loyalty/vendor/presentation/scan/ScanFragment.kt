@@ -9,7 +9,10 @@ import com.loyalty.core.presentation.mvvm.MvvmFragment
 import com.loyalty.vendor.Consts
 import com.loyalty.vendor.R
 import android.Manifest
+import com.loyalty.core.util.extensions.visible
 import kotlinx.android.synthetic.main.scan_fragment.qrScanner
+import kotlinx.android.synthetic.main.scan_fragment.scanFrameImage
+import kotlinx.android.synthetic.main.scan_fragment.scanPointCameraText
 import org.koin.android.ext.android.inject
 
 class ScanFragment : MvvmFragment<ScanState, BaseEvent>() {
@@ -40,7 +43,7 @@ class ScanFragment : MvvmFragment<ScanState, BaseEvent>() {
 
     override fun processState(state: ScanState) {
         super.processState(state)
-        if (state.isCameraInitialised) {
+        if (state.shouldInitialiseCamera) {
             initCamera()
         }
     }
@@ -48,6 +51,8 @@ class ScanFragment : MvvmFragment<ScanState, BaseEvent>() {
     private fun initCamera() {
         qrScanner.barcodeView.decoderFactory = DefaultDecoderFactory(Consts.QR_FORMATS)
         qrScanner.decodeContinuous(callback)
+        scanFrameImage.visible()
+        scanPointCameraText.visible()
     }
 
     companion object {
