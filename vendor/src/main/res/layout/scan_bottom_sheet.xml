@@ -1,18 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:layout_height="400dp"
-	xmlns:app="http://schemas.android.com/apk/res-auto">
+	android:layout_height="wrap_content">
+
+	<ImageView
+		android:id="@+id/scanCustomerImage"
+		android:layout_width="80dp"
+		android:layout_height="80dp"
+		android:layout_marginStart="@dimen/margin_medium"
+		android:layout_marginTop="@dimen/margin_medium"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:background="@color/dark_grey"
+		tools:ignore="ContentDescription" />
 
 	<TextView
-		android:text="testetettwetrwtterewtewtrtwetr"
-		app:layout_constraintBottom_toBottomOf="parent"
+		android:id="@+id/scanCustomerName"
+		style="@style/Zalik.Scan.CustomerName"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="@dimen/margin_medium"
+		android:layout_marginEnd="@dimen/margin_medium"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toEndOf="@id/scanCustomerImage"
+		app:layout_constraintTop_toTopOf="@id/scanCustomerImage"
+		tools:text="Герасимович Светлана" />
+
+	<TextView
+		android:id="@+id/scanPoints"
+		style="@style/Zalik.Scan.Points"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/margin_xsmall"
+		android:text="@string/scan_points"
+		app:layout_constraintEnd_toStartOf="@id/scanNumberStepper"
+		app:layout_constraintStart_toStartOf="@id/scanCustomerName"
+		app:layout_constraintTop_toBottomOf="@id/scanCustomerName" />
+
+	<com.loyalty.core.ui.views.NumberStepper
+		android:id="@+id/scanNumberStepper"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		app:layout_constraintBottom_toBottomOf="@id/scanPoints"
+		app:layout_constraintEnd_toEndOf="@id/scanCustomerName"
+		app:layout_constraintStart_toEndOf="@id/scanPoints"
+		app:layout_constraintTop_toTopOf="@id/scanPoints" />
+
+	<android.support.constraint.Barrier
+		android:id="@+id/scanBarrier"
 		android:layout_width="wrap_content"
-		android:layout_height="wrap_content" />
+		android:layout_height="wrap_content"
+		app:barrierDirection="bottom"
+		app:constraint_referenced_ids="scanCustomerImage,scanPoints" />
 
 	<Button
-		android:text="Lol"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content" />
+		android:id="@+id/scanConfirmButton"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="@dimen/margin_medium"
+		android:layout_marginTop="@dimen/margin_4xbig"
+		android:layout_marginEnd="@dimen/margin_medium"
+		android:layout_marginBottom="@dimen/margin_4xbig"
+		android:text="@string/scan_confirm"
+		android:textAllCaps="true"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/scanBarrier" />
 
 </android.support.constraint.ConstraintLayout>

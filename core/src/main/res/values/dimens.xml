@@ -11,6 +11,7 @@
     <dimen name="margin_xbig">24dp</dimen>
     <dimen name="margin_xxbig">28dp</dimen>
     <dimen name="margin_xxxbig">32dp</dimen>
+    <dimen name="margin_4xbig">36dp</dimen>
 
     <!-- Text sizes -->
 
@@ -26,7 +27,7 @@
     <dimen name="size_5xbig">40dp</dimen>
 
     <!-- Button -->
-    <dimen name="button_corner_radius">8dp</dimen>
+    <dimen name="button_corner_radius">4dp</dimen>
 
     <!-- Bottom navigation -->
 

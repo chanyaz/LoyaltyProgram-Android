@@ -5,5 +5,8 @@
 
 	<dimen name="margin_frame">64dp</dimen>
 	<dimen name="scan_header_size">@dimen/size_big</dimen>
+	<dimen name="scan_customer_name_size">@dimen/size_medium</dimen>
+	<dimen name="scan_points_size">@dimen/size_xbig</dimen>
+	<dimen name="scan_secondary_size">@dimen/size_medium</dimen>
 
 </resources>

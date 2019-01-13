@@ -9,4 +9,21 @@
 		<item name="android:textStyle">bold</item>
 	</style>
 
+	<style name="Zalik.Scan.CustomerName" parent="Zalik.Text">
+		<item name="android:textSize">@dimen/scan_header_size</item>
+		<item name="android:maxLines">1</item>
+		<item name="android:ellipsize">end</item>
+	</style>
+
+	<style name="Zalik.Scan.Points" parent="Zalik.Text">
+		<item name="android:textSize">@dimen/scan_points_size</item>
+		<item name="android:maxLines">1</item>
+	</style>
+
+	<style name="Zalik.Scan.Secondary" parent="Zalik.Text">
+		<item name="android:textSize">@dimen/scan_secondary_size</item>
+		<item name="android:maxLines">1</item>
+		<item name="android:ellipsize">end</item>
+	</style>
+
 </resources>
