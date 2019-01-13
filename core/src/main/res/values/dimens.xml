@@ -37,6 +37,11 @@
     <dimen name="toolbar_subtitle_text_size">@dimen/size_small</dimen>
     <dimen name="toolbar_margin">@dimen/margin_small</dimen>
 
+    <!-- Stepper -->
+
+    <dimen name="stepper_text_size">@dimen/size_medium</dimen>
+    <dimen name="stepper_margin">@dimen/margin_xxsmall</dimen>
+
     <!-- Card -->
 
     <dimen name="card_corner_radius">@dimen/margin_xxsmall</dimen>

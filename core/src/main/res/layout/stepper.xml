@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="@drawable/stepper">
+
+	<TextView
+		android:id="@+id/stepperNegative"
+		style="@style/Zalik.Stepper.Text"
+		android:text="-"
+		app:layout_constraintEnd_toStartOf="@id/stepperNumber"
+		app:layout_constraintStart_toStartOf="parent"
+		tools:ignore="HardcodedText" />
+
+	<TextView
+		android:id="@+id/stepperNumber"
+		style="@style/Zalik.Stepper.Text"
+		android:text="0"
+		app:layout_constraintEnd_toEndOf="@id/stepperPositive"
+		app:layout_constraintStart_toEndOf="@id/stepperNegative" />
+
+	<TextView
+		android:id="@+id/stepperPositive"
+		style="@style/Zalik.Stepper.Text"
+		android:text="+"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toEndOf="@id/stepperNumber"
+		tools:ignore="HardcodedText" />
+
+</android.support.constraint.ConstraintLayout>

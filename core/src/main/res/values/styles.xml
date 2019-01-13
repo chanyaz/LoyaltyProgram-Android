@@ -112,6 +112,20 @@
         <item name="android:src">?homeAsUpIndicator</item>
     </style>
 
+    <!-- Stepper -->
+
+    <style name="Zalik.Stepper.Text" parent="Zalik.Text">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/stepper_text_color</item>
+        <item name="android:textSize">@dimen/stepper_text_size</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="android:layout_marginTop">@dimen/stepper_margin</item>
+        <item name="android:layout_marginBottom">@dimen/stepper_margin</item>
+    </style>
+
     <!-- ProgressBar -->
 
     <style name="Zalik.ProgressBar">

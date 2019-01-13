@@ -42,6 +42,10 @@
     <color name="toolbar_text_color">@color/color_accent</color>
     <color name="toolbar_icon_color">@color/color_accent</color>
 
+    <!-- Stepper -->
+
+    <color name="stepper_text_color">@color/color_primary</color>
+
     <!-- ProgressBar -->
 
     <color name="progress_bar_color">@color/color_primary</color>
