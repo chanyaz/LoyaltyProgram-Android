@@ -25,6 +25,9 @@
     <dimen name="size_4xbig">36dp</dimen>
     <dimen name="size_5xbig">40dp</dimen>
 
+    <!-- Button -->
+    <dimen name="button_corner_radius">8dp</dimen>
+
     <!-- Bottom navigation -->
 
     <dimen name="design_bottom_navigation_text_size" tools:override="true">10dp</dimen>
