@@ -77,31 +77,31 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
         )
     }
 
-    override fun processState(state: VenuePageState) {
-        super.processState(state)
+    override fun renderState(state: VenuePageState) {
+        super.renderState(state)
         if (state.isLoading) {
-            processLoadingState()
+            renderLoadingState()
         } else if (state.isError) {
-            processErrorState()
+            renderErrorState()
         } else if (!state.isLoading && !state.isError && state.model != null) {
-            processLoadedState(state.model)
+            renderLoadedState(state.model)
         } else {
             throw UnexpectedStateException(state.toString())
         }
 
-        processToolbarState(state.areToolbarTitlesShown)
+        renderToolbarState(state.areToolbarTitlesShown)
     }
 
-    private fun processLoadingState() {
+    private fun renderLoadingState() {
         venueGroupContent.invisible()
         venueProgressBar.visible()
     }
 
-    private fun processErrorState() {
+    private fun renderErrorState() {
         TODO()
     }
 
-    private fun processLoadedState(model: VenuePageUIModel) {
+    private fun renderLoadedState(model: VenuePageUIModel) {
         venueProgressBar.gone()
         venueGroupContent.visible()
 
@@ -158,7 +158,7 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
         }
     }
 
-    private fun processToolbarState(areToolbarTitlesShown: Boolean) {
+    private fun renderToolbarState(areToolbarTitlesShown: Boolean) {
         if (areToolbarTitlesShown) {
             toolbarTitle.visible()
             toolbarSubtitle.visible()

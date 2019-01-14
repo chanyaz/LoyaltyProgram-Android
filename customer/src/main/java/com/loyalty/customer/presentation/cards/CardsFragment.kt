@@ -24,38 +24,38 @@ class CardsFragment : MvvmFragment<CardsState, BaseEvent>() {
 
     private lateinit var cardsAdapter: CardsAdapter
 
-    override fun processState(state: CardsState) {
-        super.processState(state)
+    override fun renderState(state: CardsState) {
+        super.renderState(state)
         if (state.isLoading) {
-            processLoadingState()
+            renderLoadingState()
         } else if (state.isError) {
-            processErrorState()
+            renderErrorState()
         } else if (!state.isLoading && !state.isError && state.cards.isEmpty()) {
-            processEmptyState()
+            renderEmptyState()
         } else if (!state.isLoading && !state.isError) {
-            processLoadedState(state.cards)
+            renderLoadedState(state.cards)
         } else {
             throw UnexpectedStateException(state.toString())
         }
     }
 
-    private fun processLoadingState() {
+    private fun renderLoadingState() {
         cardsRecycler.invisible()
         cardsEmpty.invisible()
         cardsProgressBar.visible()
     }
 
-    private fun processErrorState() {
+    private fun renderErrorState() {
         TODO()
     }
 
-    private fun processEmptyState() {
+    private fun renderEmptyState() {
         cardsRecycler.invisible()
         cardsEmpty.visible()
         cardsProgressBar.gone()
     }
 
-    private fun processLoadedState(cards: List<CardItemUIModel>) {
+    private fun renderLoadedState(cards: List<CardItemUIModel>) {
         cardsRecycler.visible()
         cardsEmpty.invisible()
         cardsProgressBar.gone()

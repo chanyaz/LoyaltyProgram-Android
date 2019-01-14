@@ -28,28 +28,28 @@ class QrFragment : MvvmFragment<QrState, BaseEvent>() {
         }
     }
 
-    override fun processState(state: QrState) {
-        super.processState(state)
+    override fun renderState(state: QrState) {
+        super.renderState(state)
 //        TransitionManager.beginDelayedTransition(qrFragment) todo consider moving this to common logic
         when (state) {
-            is QrState.QrLoading -> processLoadingState()
-            is QrState.QrError -> processErrorState()
-            is QrState.QrLoaded -> processLoadedState(state)
+            is QrState.QrLoading -> renderLoadingState()
+            is QrState.QrError -> renderErrorState()
+            is QrState.QrLoaded -> renderLoadedState(state)
         }.exhaustive
     }
 
-    private fun processLoadingState() {
+    private fun renderLoadingState() {
         qrShowCashierHeader.invisible()
         qrCodeImage.invisible()
         qrYourQrHeader.invisible()
         qrProgressBar.visible()
     }
 
-    private fun processErrorState() {
+    private fun renderErrorState() {
         TODO()
     }
 
-    private fun processLoadedState(state: QrState.QrLoaded) {
+    private fun renderLoadedState(state: QrState.QrLoaded) {
         qrShowCashierHeader.visible()
         qrCodeImage.visible()
         qrYourQrHeader.visible()

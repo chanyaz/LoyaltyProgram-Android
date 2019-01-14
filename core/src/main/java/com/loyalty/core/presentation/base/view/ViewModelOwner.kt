@@ -19,13 +19,13 @@ interface ViewModelOwner<S: BaseState, E: BaseEvent> {
         compositeDisposable += viewModel.stateObservable
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
-                    processState(it)
+                    renderState(it)
                 }
 
         compositeDisposable += viewModel.eventObservable
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
-                    processEvent(it)
+                    triggerEvent(it)
                 }
 
         if (shouldInitRouter)
@@ -33,13 +33,13 @@ interface ViewModelOwner<S: BaseState, E: BaseEvent> {
     }
 
     @CallSuper
-    fun processState(state: S) {
-        Timber.d("Processing stateObservable: ${state.javaClass.simpleName}")
+    fun renderState(state: S) {
+        Timber.d("Rendering stateObservable: ${state.javaClass.simpleName}")
     }
 
     @CallSuper
-    fun processEvent(event: E) {
-        Timber.d("Processing eventObservable: ${event.javaClass.simpleName}")
+    fun triggerEvent(event: E) {
+        Timber.d("Triggering eventObservable: ${event.javaClass.simpleName}")
     }
 
 }

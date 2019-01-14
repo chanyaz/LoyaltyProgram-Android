@@ -14,8 +14,8 @@ class CoordinatorActivity : MvvmActivity<CoordinatorState, BaseEvent>() {
 
     override val router: Nothing get() = throw RuntimeException("Regular activity does not need router")
 
-    override fun processState(state: CoordinatorState) {
-        super.processState(state)
+    override fun renderState(state: CoordinatorState) {
+        super.renderState(state)
         startActivity(VendorNavigationActivity.newIntent(this, state.isUserLoggedIn))
     }
 }

@@ -34,8 +34,8 @@ class ScanBottomSheetFragment : BottomSheetMvvmFragment<ScanBottomSheetState, Ba
         }
     }
 
-    override fun processState(state: ScanBottomSheetState) {
-        super.processState(state)
+    override fun renderState(state: ScanBottomSheetState) {
+        super.renderState(state)
         if (state.customer == null) {
             renderEmptyState()
         } else if (state.customer != null) {

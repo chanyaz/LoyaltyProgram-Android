@@ -50,8 +50,8 @@ class ScanFragment : MvvmFragment<ScanState, BaseEvent>() {
         qrScanner.pause()
     }
 
-    override fun processState(state: ScanState) {
-        super.processState(state)
+    override fun renderState(state: ScanState) {
+        super.renderState(state)
         if (state.shouldInitialiseCamera) {
             initCamera()
         }

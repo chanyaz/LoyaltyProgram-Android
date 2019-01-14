@@ -53,16 +53,16 @@ class VenuesFragment : MvvmFragment<VenuesState, BaseEvent>() {
         }
     }
 
-    override fun processState(state: VenuesState) {
-        super.processState(state)
+    override fun renderState(state: VenuesState) {
+        super.renderState(state)
         if (state.isLoading) {
-            processLoadingState()
+            renderLoadingState()
         } else if (state.isError) {
-            processErrorState()
+            renderErrorState()
         } else if (!state.isLoading && !state.isError && state.venues.isEmpty()) {
-            processEmptyState()
+            renderEmptyState()
         } else if (!state.isLoading && !state.isError) {
-            processLoadedState(state.venues)
+            renderLoadedState(state.venues)
         } else {
             throw UnexpectedStateException(state.toString())
         }
@@ -70,17 +70,17 @@ class VenuesFragment : MvvmFragment<VenuesState, BaseEvent>() {
         processToolbarState(state.isSearchOpen)
     }
 
-    private fun processLoadingState() {
+    private fun renderLoadingState() {
         venuesRecycler.invisible()
         venuesEmpty.invisible()
         venuesProgressBar.visible()
     }
 
-    private fun processErrorState() {
+    private fun renderErrorState() {
         TODO()
     }
 
-    private fun processLoadedState(venues: List<VenueItemUIModel>) {
+    private fun renderLoadedState(venues: List<VenueItemUIModel>) {
         venuesRecycler.visible()
         venuesEmpty.invisible()
         venuesProgressBar.gone()
@@ -101,7 +101,7 @@ class VenuesFragment : MvvmFragment<VenuesState, BaseEvent>() {
         }
     }
 
-    private fun processEmptyState() {
+    private fun renderEmptyState() {
         venuesRecycler.invisible()
         venuesEmpty.visible()
         venuesProgressBar.gone()
