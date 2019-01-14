@@ -1,7 +1,9 @@
 package com.loyalty.customer.presentation.qr
 
+import android.graphics.Bitmap
 import com.loyalty.core.util.extensions.observeOnUi
 import com.loyalty.customer.usecases.qr.LoadQrBitmapCase
+import timber.log.Timber
 
 class QrViewModelImpl(
         private val loadQrBitmapCase: LoadQrBitmapCase
@@ -17,11 +19,16 @@ class QrViewModelImpl(
     private fun loadQrCode(qrWidth: Int, qrHeight: Int) {
         subscribe(loadQrBitmapCase(width = qrWidth, height = qrHeight)
                 .observeOnUi()
-                .subscribe({
-                    setState(QrState(isLoading = false, isError = false, qrBitmap = it))
-                }, {
-                    setState(QrState(isLoading = false, isError = true))
-                }))
+                .subscribe(::onLoadQrCodeSuccess, ::onLoadQrCodeError))
+    }
+
+    private fun onLoadQrCodeSuccess(qrImage: Bitmap) {
+        setState(QrState(isLoading = false, isError = false, qrBitmap = qrImage))
+    }
+
+    private fun onLoadQrCodeError(error: Throwable) {
+        Timber.e(error)
+        setState(QrState(isLoading = false, isError = true))
     }
 
 }
