@@ -1,10 +1,11 @@
 package com.loyalty.customer.presentation.qr
 
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.View
+import com.loyalty.core.exceptions.UnexpectedStateException
 import com.loyalty.core.presentation.base.BaseEvent
 import com.loyalty.core.presentation.mvvm.MvvmFragment
-import com.loyalty.core.util.extensions.exhaustive
 import com.loyalty.core.util.extensions.gone
 import com.loyalty.core.util.extensions.invisible
 import com.loyalty.core.util.extensions.visible
@@ -31,11 +32,15 @@ class QrFragment : MvvmFragment<QrState, BaseEvent>() {
     override fun renderState(state: QrState) {
         super.renderState(state)
 //        TransitionManager.beginDelayedTransition(qrFragment) todo consider moving this to common logic
-        when (state) {
-            is QrState.QrLoading -> renderLoadingState()
-            is QrState.QrError -> renderErrorState()
-            is QrState.QrLoaded -> renderLoadedState(state)
-        }.exhaustive
+        if (state.isLoading) {
+            renderLoadingState()
+        } else if (state.isError) {
+            renderErrorState()
+        } else if (!state.isLoading && !state.isError && state.qrBitmap != null) {
+            renderLoadedState(state.qrBitmap)
+        } else {
+            throw UnexpectedStateException(state.toString())
+        }
     }
 
     private fun renderLoadingState() {
@@ -49,12 +54,12 @@ class QrFragment : MvvmFragment<QrState, BaseEvent>() {
         TODO()
     }
 
-    private fun renderLoadedState(state: QrState.QrLoaded) {
+    private fun renderLoadedState(qrImage: Bitmap) {
         qrShowCashierHeader.visible()
         qrCodeImage.visible()
         qrYourQrHeader.visible()
         qrProgressBar.gone()
-        qrCodeImage.setImageBitmap(state.bitmap)
+        qrCodeImage.setImageBitmap(qrImage)
     }
 
     companion object {

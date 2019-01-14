@@ -1,6 +1,7 @@
 package com.loyalty.customer.presentation.qr
 
 import com.loyalty.core.util.extensions.observeOnUi
+import com.loyalty.core.util.extensions.subscribeOrError
 import com.loyalty.customer.usecases.qr.LoadQrBitmapCase
 
 class QrViewModelImpl(
@@ -8,7 +9,7 @@ class QrViewModelImpl(
 ) : QrViewModel() {
 
     override fun initViewModel(qrWidth: Int, qrHeight: Int) {
-        setState(QrState.QrLoading)
+        setState(QrState())
         loadQrCode(qrWidth, qrHeight)
     }
 
@@ -16,9 +17,9 @@ class QrViewModelImpl(
         subscribe(loadQrBitmapCase(width = qrWidth, height = qrHeight)
                 .observeOnUi()
                 .subscribe({
-                    setState(QrState.QrLoaded(it))
+                    setState(QrState(isLoading = false, isError = false, qrBitmap = it))
                 }, {
-                    setState(QrState.QrError)
+                    setState(QrState(isLoading = false, isError = true))
                 }))
     }
 

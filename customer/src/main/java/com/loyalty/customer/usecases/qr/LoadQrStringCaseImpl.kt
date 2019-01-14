@@ -9,7 +9,7 @@ class LoadQrStringCaseImpl(
 ) : LoadQrStringCase {
 
     override fun invoke(): Single<String> =
-            Single.just("Pidor")
+            Single.error<String>(RuntimeException("Not possible to load qr code"))
                     .delay(500, TimeUnit.MILLISECONDS)
 
 }

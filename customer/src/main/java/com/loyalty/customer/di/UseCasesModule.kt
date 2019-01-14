@@ -15,6 +15,7 @@ import com.loyalty.customer.usecases.venues.FilterVenues
 import com.loyalty.customer.usecases.venues.FilterVenuesImpl
 import com.loyalty.customer.usecases.venues.LoadVenues
 import com.loyalty.customer.usecases.venues.LoadVenuesImpl
+import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module.module
 
 val useCasesModule = module {
@@ -23,7 +24,7 @@ val useCasesModule = module {
 
     factory<LoadQrStringCase> { LoadQrStringCaseImpl(get()) }
     factory<StringToQrBitmapCase> { StringToQrBitmapCaseImpl(get(name = BaseConsts.SCHEDULER_COMPUTATION)) }
-    factory<LoadQrBitmapCase> { LoadQrBitmapCaseImpl(get(), get()) }
+    factory<LoadQrBitmapCase> { LoadQrBitmapCaseImpl(get(), get(), androidApplication()) }
 
     /* Venues */
 
