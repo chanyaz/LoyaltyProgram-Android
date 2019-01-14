@@ -5,8 +5,6 @@ import com.loyalty.core.presentation.mvvm.BaseViewModel
 
 abstract class VenuePageViewModel : BaseViewModel<VenuePageState, BaseEvent>() {
 
-    abstract fun initViewModel()
-
     abstract fun mapLoaded()
 
     abstract fun back()

@@ -1,6 +1,8 @@
 package com.loyalty.customer.presentation.cards
 
+import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
 import com.loyalty.core.exceptions.UnexpectedStateException
 import com.loyalty.core.presentation.base.BaseEvent
 import com.loyalty.core.presentation.mvvm.MvvmFragment
@@ -22,7 +24,19 @@ class CardsFragment : MvvmFragment<CardsState, BaseEvent>() {
 
     override val viewModel: CardsViewModel by viewModel()
 
-    private lateinit var cardsAdapter: CardsAdapter
+    private val cardsAdapter: CardsAdapter = CardsAdapter { viewModel.selectCard(it) }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initViews()
+    }
+
+    private fun initViews() {
+        cardsRecycler.apply {
+            adapter = cardsAdapter
+            layoutManager = LinearLayoutManager(activity)
+        }
+    }
 
     override fun renderState(state: CardsState) {
         super.renderState(state)
@@ -62,18 +76,7 @@ class CardsFragment : MvvmFragment<CardsState, BaseEvent>() {
 
         toolbarSubtitle.text = resources.getQuantityString(R.plurals.cards_plurals, cards.size, cards.size)
 
-        if (!::cardsAdapter.isInitialized)
-            initCardsAdapter()
-
         cardsAdapter.items = cards
-    }
-
-    private fun initCardsAdapter() {
-        cardsAdapter = CardsAdapter { viewModel.selectCard(it) }
-        cardsRecycler.apply {
-            adapter = cardsAdapter
-            layoutManager = LinearLayoutManager(activity)
-        }
     }
 
     companion object {

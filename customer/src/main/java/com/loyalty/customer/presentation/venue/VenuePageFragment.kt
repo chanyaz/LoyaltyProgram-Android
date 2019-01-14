@@ -41,17 +41,16 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
     override val viewModel: VenuePageViewModel by inject()
 
     private lateinit var venueImagesAdapter: VenueImagesAdapter
-    private lateinit var venueCardsAdapter: CardsAdapter
-    private lateinit var venueInfoAdapter: VenueInfoAdapter
+
+    private val venueCardsAdapter: CardsAdapter = CardsAdapter { /* todo */ }
+    private val venueInfoAdapter: VenueInfoAdapter = VenueInfoAdapter()
 
     private lateinit var googleMap: GoogleMap
     private var isMapDrawn: Boolean = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         initViews()
-        viewModel.initViewModel()
     }
 
     private fun initViews() {
@@ -75,6 +74,14 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
                 onCollapse = { viewModel.showToolbarTitles() },
                 onExpand = { viewModel.hideToolbarTitles() }
         )
+        venueCardsRecycler.apply {
+            adapter = venueCardsAdapter
+            layoutManager = LinearLayoutManager(activity)
+        }
+        venueInformationRecycler.apply {
+            adapter = venueInfoAdapter
+            layoutManager = LinearLayoutManager(activity)
+        }
     }
 
     override fun renderState(state: VenuePageState) {
@@ -124,12 +131,6 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
         if (!::venueImagesAdapter.isInitialized)
             initImagesAdapter(model.imageUrls)
 
-        if (!::venueCardsAdapter.isInitialized)
-            initCardsAdapter()
-
-        if (!::venueInfoAdapter.isInitialized)
-            initInformationAdapter()
-
         venueCardsAdapter.items = model.cards
         venueInfoAdapter.items = model.venueInfoListUIModel
     }
@@ -137,25 +138,6 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
     private fun initImagesAdapter(images: List<VenueImageUIModel>) {
         venueImagesAdapter = VenueImagesAdapter(images, context)
         venueImagesPager.adapter = venueImagesAdapter
-    }
-
-    private fun initCardsAdapter() {
-        venueCardsAdapter = CardsAdapter {
-//            viewModel.selectCard(it) // todo
-        }
-        venueCardsRecycler.apply {
-            adapter = venueCardsAdapter
-            layoutManager = LinearLayoutManager(activity)
-        }
-    }
-
-    private fun initInformationAdapter() {
-        venueInfoAdapter = VenueInfoAdapter()
-        venueInformationRecycler.apply {
-            adapter = venueInfoAdapter
-            layoutManager = LinearLayoutManager(activity)
-            setHasFixedSize(true)
-        }
     }
 
     private fun renderToolbarState(areToolbarTitlesShown: Boolean) {

@@ -17,7 +17,7 @@ class VenuesViewModelImpl(
     private val querySubject: BehaviorSubject<String> = BehaviorSubject.createDefault("")
     private var cachedVenues: List<VenueItemUIModel> = emptyList()
 
-    override fun initViewModel() {
+    init {
         setState(VenuesState())
         loadData()
     }

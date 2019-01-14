@@ -10,7 +10,7 @@ import com.tbruyelle.rxpermissions2.RxPermissions
 
 abstract class MvvmFragment<S: BaseState, E: BaseEvent> : BaseFragment(), ViewModelOwner<S, E> {
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) { /* todo add request state function */
         super.onViewCreated(view, savedInstanceState)
         subscribeToViewModel(lifecycleDisposable)
     }

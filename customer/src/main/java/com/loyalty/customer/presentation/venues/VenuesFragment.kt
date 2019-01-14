@@ -27,12 +27,10 @@ class VenuesFragment : MvvmFragment<VenuesState, BaseEvent>() {
 
     override val viewModel: VenuesViewModel by viewModel()
 
-    private lateinit var venuesAdapter: VenueAdapter
+    private val venuesAdapter: VenueAdapter = VenueAdapter { viewModel.selectVenue(it) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        viewModel.initViewModel()
         initViews()
     }
 
@@ -50,6 +48,10 @@ class VenuesFragment : MvvmFragment<VenuesState, BaseEvent>() {
             setOnSearchClickListener {
                 viewModel.openSearch()
             }
+        }
+        venuesRecycler.apply {
+            adapter = venuesAdapter
+            layoutManager = LinearLayoutManager(activity)
         }
     }
 
@@ -87,18 +89,7 @@ class VenuesFragment : MvvmFragment<VenuesState, BaseEvent>() {
 
         toolbarSubtitle.text = resources.getQuantityString(R.plurals.venues_plurals, venues.size, venues.size)
 
-        if (!::venuesAdapter.isInitialized)
-            initVenuesRecycler()
-
         venuesAdapter.items = venues
-    }
-
-    private fun initVenuesRecycler() {
-        venuesAdapter = VenueAdapter { viewModel.selectVenue(it) }
-        venuesRecycler.apply {
-            adapter = venuesAdapter
-            layoutManager = LinearLayoutManager(activity)
-        }
     }
 
     private fun renderEmptyState() {

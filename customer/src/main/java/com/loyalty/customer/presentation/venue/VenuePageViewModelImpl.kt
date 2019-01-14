@@ -9,7 +9,7 @@ class VenuePageViewModelImpl(
         private val loadVenuePage: LoadVenuePage
 ) : VenuePageViewModel() {
 
-    override fun initViewModel() {
+    init {
         setState(VenuePageState())
         loadVenue()
     }
