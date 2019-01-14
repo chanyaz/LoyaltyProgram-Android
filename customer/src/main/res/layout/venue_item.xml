@@ -23,6 +23,7 @@
                 style="@style/Zalik.Venues.Image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:scaleType="centerCrop"
                 tools:ignore="ContentDescription"
                 tools:src="@color/dark_grey" />
 

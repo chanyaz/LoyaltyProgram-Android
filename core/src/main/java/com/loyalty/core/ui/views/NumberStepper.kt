@@ -14,8 +14,6 @@ class NumberStepper @JvmOverloads constructor(
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
     var stepValue: Int = 0
-        private set
-
     var maxValue: Int? = null
     var minValue: Int? = null
 

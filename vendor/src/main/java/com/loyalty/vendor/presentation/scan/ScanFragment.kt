@@ -9,10 +9,15 @@ import com.loyalty.core.presentation.mvvm.MvvmFragment
 import com.loyalty.vendor.Consts
 import com.loyalty.vendor.R
 import android.Manifest
+import com.loyalty.core.exceptions.UnexpectedStateException
+import com.loyalty.core.util.extensions.gone
 import com.loyalty.core.util.extensions.visible
+import com.loyalty.vendor.presentation.scan.bottomsheet.ScanBottomSheetFragment
+import com.loyalty.vendor.ui.models.CustomerSheetUIModel
 import kotlinx.android.synthetic.main.scan_fragment.qrScanner
 import kotlinx.android.synthetic.main.scan_fragment.scanFrameImage
 import kotlinx.android.synthetic.main.scan_fragment.scanPointCameraText
+import kotlinx.android.synthetic.main.scan_fragment.scanProgressBar
 import org.koin.android.ext.android.inject
 
 class ScanFragment : MvvmFragment<ScanState, BaseEvent>() {
@@ -21,8 +26,12 @@ class ScanFragment : MvvmFragment<ScanState, BaseEvent>() {
 
     override val viewModel: ScanViewModel by inject()
 
+    private var bottomSheetFragment: ScanBottomSheetFragment? = null
+
     private val callback = object : BarcodeCallback {
-        override fun barcodeResult(result: BarcodeResult) = Unit
+        override fun barcodeResult(result: BarcodeResult) {
+            viewModel.scanBarcode(result)
+        }
         override fun possibleResultPoints(resultPoints: List<ResultPoint>) = Unit
     }
 
@@ -46,6 +55,18 @@ class ScanFragment : MvvmFragment<ScanState, BaseEvent>() {
         if (state.shouldInitialiseCamera) {
             initCamera()
         }
+
+        if (state.isLoading) {
+            renderLoadingState()
+        } else if (state.isError) {
+            renderErrorState()
+        } else if (!state.isLoading && !state.isError && state.customer == null) {
+            renderEmptyState()
+        } else if (!state.isLoading && !state.isError && state.isBottomSheetShown && state.customer != null) {
+            renderLoadedState(state.customer)
+        } else {
+            throw UnexpectedStateException(state.toString())
+        }
     }
 
     private fun initCamera() {
@@ -53,6 +74,26 @@ class ScanFragment : MvvmFragment<ScanState, BaseEvent>() {
         qrScanner.decodeContinuous(callback)
         scanFrameImage.visible()
         scanPointCameraText.visible()
+    }
+
+    private fun renderLoadingState() {
+        bottomSheetFragment?.dismiss()
+        scanProgressBar.visible()
+    }
+
+    private fun renderErrorState() {
+        TODO()
+    }
+
+    private fun renderEmptyState() {
+        scanProgressBar.gone()
+    }
+
+    private fun renderLoadedState(customer: CustomerSheetUIModel) {
+        bottomSheetFragment?.dismiss()
+        scanProgressBar.gone()
+        bottomSheetFragment = ScanBottomSheetFragment.newInstance(customer)
+        bottomSheetFragment?.show(childFragmentManager, "")
     }
 
     companion object {

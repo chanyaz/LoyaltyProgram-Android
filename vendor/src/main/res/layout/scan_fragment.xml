@@ -39,4 +39,16 @@
 		app:layout_constraintTop_toBottomOf="@id/scanFrameImage"
 		tools:visibility="visible" />
 
+	<ProgressBar
+		android:id="@+id/scanProgressBar"
+		style="@style/Zalik.ProgressBar.Contrast"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:visibility="gone"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:visibility="visible" />
+
 </android.support.constraint.ConstraintLayout>
