@@ -6,6 +6,8 @@ import com.loyalty.core.presentation.mvvm.BaseViewModel
 
 class TestViewModel2() : BaseViewModel<BaseState, BaseEvent>() {
 
+    override val initialState: BaseState get() = object : BaseState() {}
+
     fun moveToThree() {
         router.navigateTo("KEY_THIRD")
     }

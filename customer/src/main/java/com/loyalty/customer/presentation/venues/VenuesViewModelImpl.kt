@@ -14,11 +14,12 @@ class VenuesViewModelImpl(
         private val filterVenues: FilterVenues
 ) : VenuesViewModel() {
 
+    override val initialState: VenuesState get() = VenuesState()
+
     private val querySubject: BehaviorSubject<String> = BehaviorSubject.createDefault("")
     private var cachedVenues: List<VenueItemUIModel> = emptyList()
 
     init {
-        setState(VenuesState())
         loadData()
     }
 

@@ -9,7 +9,7 @@ fun AppBarLayout.setOnCollapseListener(onCollapse: () -> Unit, onExpand: () -> U
             return@OnOffsetChangedListener
 
         previousVerticalOffset = verticalOffset
-        if (Math.abs(verticalOffset) - appBarLayout.getTotalScrollRange() == 0) {
+        if (Math.abs(verticalOffset) - appBarLayout.totalScrollRange == 0) {
             onCollapse()
         } else {
             onExpand()

@@ -1,12 +1,13 @@
 package com.loyalty.customer.presentation.qr
 
 import com.loyalty.core.util.extensions.observeOnUi
-import com.loyalty.core.util.extensions.subscribeOrError
 import com.loyalty.customer.usecases.qr.LoadQrBitmapCase
 
 class QrViewModelImpl(
         private val loadQrBitmapCase: LoadQrBitmapCase
 ) : QrViewModel() {
+
+    override val initialState: QrState get() = QrState()
 
     override fun initViewModel(qrWidth: Int, qrHeight: Int) {
         setState(QrState())

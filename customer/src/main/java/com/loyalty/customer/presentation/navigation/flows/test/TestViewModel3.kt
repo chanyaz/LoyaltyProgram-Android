@@ -7,6 +7,6 @@ import ru.terrakok.cicerone.Router
 
 class TestViewModel3() : BaseViewModel<BaseState, BaseEvent>() {
 
-
+    override val initialState: BaseState get() = object : BaseState() {}
 
 }

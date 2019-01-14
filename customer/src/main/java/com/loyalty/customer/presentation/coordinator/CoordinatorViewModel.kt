@@ -10,6 +10,8 @@ class CoordinatorViewModel(
         private val tokenPreferences: TokenPreferences
 ) : BaseViewModel<BaseState, CoordinatorEvent>() {
 
+    override val initialState: BaseState get() = object : BaseState() {}
+
     init {
         selectUserFlow()
     }

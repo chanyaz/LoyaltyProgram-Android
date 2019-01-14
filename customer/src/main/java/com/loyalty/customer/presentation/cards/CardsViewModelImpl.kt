@@ -11,10 +11,11 @@ class CardsViewModelImpl(
         private val loadCards: LoadCards
 ) : CardsViewModel() {
 
+    override val initialState: CardsState get() = CardsState()
+
     private var cachedCards: List<CardItemUIModel> = emptyList()
 
     init {
-        setState(CardsState())
         loadData()
     }
 

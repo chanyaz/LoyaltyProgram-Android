@@ -14,13 +14,17 @@ abstract class BaseViewModel<S, E> : ViewModel() {
     protected val disposables: CompositeDisposable = CompositeDisposable()
     protected lateinit var router: Router
 
-    private val stateSubject: BehaviorSubject<S> = BehaviorSubject.create()
-    internal val stateObservable: Observable<S> = stateSubject
+    private val stateSubject: BehaviorSubject<S> by lazy { BehaviorSubject.createDefault(initialState) }
+
+    internal val stateObservable: Observable<S> get() = stateSubject
 
     protected val currentState: S get() = stateSubject.value ?: throw RuntimeException("Current state is empty")
 
+    protected abstract val initialState: S
+    internal fun requestState(): S = initialState
+
     private val eventSubject: PublishSubject<E> = PublishSubject.create()
-    internal val eventObservable: Observable<E> = eventSubject
+    internal val eventObservable: Observable<E> get() = eventSubject
 
     internal fun initRouter(router: Router) {
         this.router = router
