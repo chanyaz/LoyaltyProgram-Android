@@ -32,4 +32,8 @@ class ScanViewModelImpl(
         setState(currentState.copy(shouldInitialiseCamera = false, isBottomSheetShown = false, isLoading = false, isError = true))
     }
 
+    override fun closeBottomSheet() {
+        setState(currentState.copy(customer = null, shouldInitialiseCamera = false, isBottomSheetShown = false, isLoading = false, isError = false))
+    }
+
 }

@@ -10,4 +10,6 @@ abstract class ScanViewModel : BaseViewModel<ScanState, BaseEvent>() {
 
     abstract fun scanBarcode(barcodeResult: BarcodeResult)
 
+    abstract fun closeBottomSheet()
+
 }

@@ -5,6 +5,7 @@ import com.loyalty.vendor.ui.models.CustomerSheetUIModel
 class ScanBottomSheetViewModelImpl : ScanBottomSheetViewModel() {
 
     override val initialState: ScanBottomSheetState get() = ScanBottomSheetState()
+
     private var customer: CustomerSheetUIModel? = null
 
     override fun initViewModel(customer: CustomerSheetUIModel?) {
@@ -13,5 +14,7 @@ class ScanBottomSheetViewModelImpl : ScanBottomSheetViewModel() {
 
         setState(currentState.copy(customer = customer))
     }
+
+
 
 }

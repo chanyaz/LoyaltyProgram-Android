@@ -10,6 +10,7 @@ import com.loyalty.vendor.Consts
 import com.loyalty.vendor.R
 import android.Manifest
 import com.loyalty.core.exceptions.UnexpectedStateException
+import com.loyalty.core.presentation.base.view.OnBottomSheetDismissListener
 import com.loyalty.core.util.extensions.gone
 import com.loyalty.core.util.extensions.visible
 import com.loyalty.vendor.presentation.scan.bottomsheet.ScanBottomSheetFragment
@@ -20,7 +21,7 @@ import kotlinx.android.synthetic.main.scan_fragment.scanPointCameraText
 import kotlinx.android.synthetic.main.scan_fragment.scanProgressBar
 import org.koin.android.ext.android.inject
 
-class ScanFragment : MvvmFragment<ScanState, BaseEvent>() {
+class ScanFragment : MvvmFragment<ScanState, BaseEvent>(), OnBottomSheetDismissListener {
 
     override val layout: Int get() = R.layout.scan_fragment
 
@@ -62,7 +63,7 @@ class ScanFragment : MvvmFragment<ScanState, BaseEvent>() {
             renderErrorState()
         } else if (!state.isLoading && !state.isError && state.customer == null) {
             renderEmptyState()
-        } else if (!state.isLoading && !state.isError && state.isBottomSheetShown && state.customer != null) {
+        } else if (!state.isLoading && !state.isError && state.isBottomSheetShown && state.customer != null) { //
             renderLoadedState(state.customer)
         } else {
             throw UnexpectedStateException(state.toString())
@@ -94,6 +95,10 @@ class ScanFragment : MvvmFragment<ScanState, BaseEvent>() {
         scanProgressBar.gone()
         bottomSheetFragment = ScanBottomSheetFragment.newInstance(customer)
         bottomSheetFragment?.show(childFragmentManager, "")
+    }
+
+    override fun onBottomSheetDismiss() {
+        viewModel.closeBottomSheet()
     }
 
     companion object {

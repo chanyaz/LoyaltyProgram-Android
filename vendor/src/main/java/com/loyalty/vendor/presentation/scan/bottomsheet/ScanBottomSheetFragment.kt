@@ -1,11 +1,13 @@
 package com.loyalty.vendor.presentation.scan.bottomsheet
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.loyalty.core.exceptions.UnexpectedStateException
 import com.loyalty.core.presentation.base.BaseEvent
+import com.loyalty.core.presentation.base.view.OnBottomSheetDismissListener
 import com.loyalty.core.presentation.mvvm.BottomSheetMvvmFragment
 import com.loyalty.vendor.R
 import com.loyalty.vendor.ui.models.CustomerSheetUIModel
@@ -56,6 +58,11 @@ class ScanBottomSheetFragment : BottomSheetMvvmFragment<ScanBottomSheetState, Ba
             stepValue = customer.points
             minValue = customer.points
         }
+    }
+
+    override fun onDismiss(dialog: DialogInterface?) {
+        super.onDismiss(dialog)
+        (parentFragment as? OnBottomSheetDismissListener)?.onBottomSheetDismiss()
     }
 
     companion object {
