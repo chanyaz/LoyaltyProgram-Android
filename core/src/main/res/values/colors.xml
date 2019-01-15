@@ -8,6 +8,7 @@
 
     <color name="white">#ffffff</color>
     <color name="white_transparent">#80ffffff</color>
+    <color name="black_transparent">#80000000</color>
     <color name="dark_green">#0e9090</color>
     <color name="light_green">#52c1c1</color>
     <color name="lighter_green">#a7dede</color>
@@ -28,6 +29,19 @@
 
     <color name="window_background_color">@color/pale_grey</color>
     <color name="text_color_primary_color">@color/dark_grey</color>
+
+    <!-- Text -->
+
+    <color name="text_color">@color/dark_grey</color>
+
+    <!-- Button -->
+
+    <color name="button_color">@color/color_accent</color>
+
+    <!-- Dialog -->
+
+    <color name="dialog_window_background_color">@color/black_transparent</color>
+    <color name="dialog_background_color">@color/window_background_color</color>
 
     <!-- Bottom navigation -->
 
