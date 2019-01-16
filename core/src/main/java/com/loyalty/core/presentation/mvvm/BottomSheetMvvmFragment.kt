@@ -19,13 +19,4 @@ abstract class BottomSheetMvvmFragment<S: BaseState, E: BaseEvent> : BaseBottomS
         renderState(viewModel.requestState())
     }
 
-    protected fun executeWithPermission(permission: String, onPermissionGranted: () -> Unit, onPermissionDenied: () -> Unit) {
-        subscribe(RxPermissions(this)
-                .request(permission)
-                .subscribe {  isPermissionGranted ->
-                    if (isPermissionGranted) onPermissionGranted() else onPermissionDenied()
-                }
-        )
-    }
-
 }

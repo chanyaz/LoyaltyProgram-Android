@@ -1,8 +1,10 @@
 package com.loyalty.vendor.presentation.scan
 
 import com.journeyapps.barcodescanner.BarcodeResult
+import com.loyalty.core.util.extensions.observeOnUi
 import com.loyalty.vendor.ui.models.CustomerSheetUIModel
 import com.loyalty.vendor.usecases.scan.ProcessBarcode
+import timber.log.Timber
 
 class ScanViewModelImpl(
         private val processBarcode: ProcessBarcode
@@ -18,22 +20,24 @@ class ScanViewModelImpl(
         if (currentState.isLoading || currentState.isBottomSheetShown)
             return
 
-        setState(currentState.copy(shouldInitialiseCamera = false, isLoading = true, isError = false))
+        setState(initialState.copy(isLoading = true))
         subscribe(processBarcode(barcodeResult)
+                .observeOnUi()
                 .subscribe(::onProcessBarcodeSuccess, ::onProcessBarcodeError)
         )
     }
 
     private fun onProcessBarcodeSuccess(customer: CustomerSheetUIModel) {
-        setState(currentState.copy(customer = customer, shouldInitialiseCamera = false, isBottomSheetShown = true, isLoading = false, isError = false))
+        setState(initialState.copy(customer = customer, isBottomSheetShown = true))
     }
 
     private fun onProcessBarcodeError(error: Throwable) {
-        setState(currentState.copy(shouldInitialiseCamera = false, isBottomSheetShown = false, isLoading = false, isError = true))
+        Timber.e(error)
+        setState(initialState.copy(isError = true))
     }
 
     override fun closeBottomSheet() {
-        setState(currentState.copy(customer = null, shouldInitialiseCamera = false, isBottomSheetShown = false, isLoading = false, isError = false))
+        setState(initialState)
     }
 
 }

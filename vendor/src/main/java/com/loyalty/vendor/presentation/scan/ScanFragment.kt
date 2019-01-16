@@ -9,6 +9,8 @@ import com.loyalty.core.presentation.mvvm.MvvmFragment
 import com.loyalty.vendor.Consts
 import com.loyalty.vendor.R
 import android.Manifest
+import android.os.Bundle
+import android.view.View
 import com.loyalty.core.exceptions.UnexpectedStateException
 import com.loyalty.core.presentation.base.view.OnBottomSheetDismissListener
 import com.loyalty.core.util.extensions.gone
@@ -36,19 +38,27 @@ class ScanFragment : MvvmFragment<ScanState, BaseEvent>(), OnBottomSheetDismissL
         override fun possibleResultPoints(resultPoints: List<ResultPoint>) = Unit
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        executeWithPermission(Manifest.permission.CAMERA, { viewModel.initialiseCamera() })
+    }
+
     override fun onStart() {
         super.onStart()
-        executeWithPermission(Manifest.permission.CAMERA, { viewModel.initialiseCamera() }, {})
+        if (isPermissionGranted(Manifest.permission.CAMERA))
+            return
+
+        executeWithPermission(Manifest.permission.CAMERA, { viewModel.initialiseCamera() })
     }
 
     override fun onResume() {
         super.onResume()
-        qrScanner.resume()
+        executeIfPermissionGranted(Manifest.permission.CAMERA, { qrScanner.resume() })
     }
 
     override fun onPause() {
         super.onPause()
-        qrScanner.pause()
+        executeIfPermissionGranted(Manifest.permission.CAMERA, { qrScanner.pause() })
     }
 
     override fun renderState(state: ScanState) {

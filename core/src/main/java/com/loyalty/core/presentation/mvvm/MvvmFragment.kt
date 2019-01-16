@@ -18,13 +18,25 @@ abstract class MvvmFragment<S: BaseState, E: BaseEvent> : BaseFragment(), ViewMo
         renderState(viewModel.requestState())
     }
 
-    protected fun executeWithPermission(permission: String, onPermissionGranted: () -> Unit, onPermissionDenied: () -> Unit) {
+    protected fun executeWithPermission(permission: String, onPermissionGranted: () -> Unit, onPermissionDenied: () -> Unit = {}) {
         subscribe(RxPermissions(this)
                 .request(permission)
-                .subscribe {  isPermissionGranted ->
+                .take(1)
+                .subscribe { isPermissionGranted ->
                     if (isPermissionGranted) onPermissionGranted() else onPermissionDenied()
                 }
         )
     }
+
+    protected fun executeIfPermissionGranted(permission: String, onPermissionGranted: () -> Unit, onPermissionDenied: () -> Unit = {}) {
+        if (isPermissionGranted(permission)) {
+            onPermissionGranted()
+        } else {
+            onPermissionDenied()
+        }
+    }
+
+    protected fun isPermissionGranted(permission: String): Boolean =
+            RxPermissions(this).isGranted(permission)
 
 }
