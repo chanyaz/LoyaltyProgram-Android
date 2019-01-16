@@ -45,9 +45,6 @@ class ScanFragment : MvvmFragment<ScanState, BaseEvent>(), OnBottomSheetDismissL
 
     override fun onStart() {
         super.onStart()
-        if (isPermissionGranted(Manifest.permission.CAMERA))
-            return
-
         executeWithPermission(Manifest.permission.CAMERA, { viewModel.initialiseCamera() })
     }
 
@@ -73,7 +70,7 @@ class ScanFragment : MvvmFragment<ScanState, BaseEvent>(), OnBottomSheetDismissL
             renderErrorState()
         } else if (!state.isLoading && !state.isError && state.customer == null) {
             renderEmptyState()
-        } else if (!state.isLoading && !state.isError && state.isBottomSheetShown && state.customer != null) { //
+        } else if (!state.isLoading && !state.isError && state.shouldShowBottomSheet && state.customer != null) {
             renderLoadedState(state.customer)
         } else {
             throw UnexpectedStateException(state.toString())
@@ -101,8 +98,8 @@ class ScanFragment : MvvmFragment<ScanState, BaseEvent>(), OnBottomSheetDismissL
     }
 
     private fun renderLoadedState(customer: CustomerSheetUIModel) {
-        bottomSheetFragment?.dismiss()
         scanProgressBar.gone()
+        bottomSheetFragment?.dismiss()
         bottomSheetFragment = ScanBottomSheetFragment.newInstance(customer)
         bottomSheetFragment?.show(childFragmentManager, "")
     }

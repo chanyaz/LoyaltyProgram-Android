@@ -6,7 +6,7 @@ import com.loyalty.vendor.ui.models.CustomerSheetUIModel
 data class ScanState(
         val customer: CustomerSheetUIModel? = null,
         val shouldInitialiseCamera: Boolean = false,
-        val isBottomSheetShown: Boolean = false,
+        val shouldShowBottomSheet: Boolean = false,
         val isLoading: Boolean = false,
         val isError: Boolean = false
 ) : BaseState()

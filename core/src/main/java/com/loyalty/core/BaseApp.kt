@@ -28,7 +28,7 @@ abstract class BaseApp: MultiDexApplication() {
     }
 
     private fun setupLogging() {
-        Timber.plant(if (BuildConfig.DEBUG) DebugTree() else ReleaseTree())
+        Timber.plant(if (BuildConfig.DEBUG) Timber.DebugTree() else ReleaseTree()) /* todo check what's wrong with projects debug tree */
     }
 
     private fun setupKoin() {

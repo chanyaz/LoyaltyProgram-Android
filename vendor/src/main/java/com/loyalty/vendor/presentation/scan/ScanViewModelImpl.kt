@@ -13,11 +13,11 @@ class ScanViewModelImpl(
     override val initialState: ScanState get() = ScanState()
 
     override fun initialiseCamera() {
-        setState(currentState.copy(shouldInitialiseCamera = true))
+        setState(initialState.copy(shouldInitialiseCamera = true))
     }
 
     override fun scanBarcode(barcodeResult: BarcodeResult) {
-        if (currentState.isLoading || currentState.isBottomSheetShown)
+        if (currentState.isLoading || currentState.shouldShowBottomSheet)
             return
 
         setState(initialState.copy(isLoading = true))
@@ -28,7 +28,7 @@ class ScanViewModelImpl(
     }
 
     private fun onProcessBarcodeSuccess(customer: CustomerSheetUIModel) {
-        setState(initialState.copy(customer = customer, isBottomSheetShown = true))
+        setState(initialState.copy(customer = customer, shouldShowBottomSheet = true))
     }
 
     private fun onProcessBarcodeError(error: Throwable) {

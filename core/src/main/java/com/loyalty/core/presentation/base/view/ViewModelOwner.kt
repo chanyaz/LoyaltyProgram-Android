@@ -34,12 +34,12 @@ interface ViewModelOwner<S: BaseState, E: BaseEvent> {
 
     @CallSuper
     fun renderState(state: S) {
-        Timber.d("Rendering stateObservable: ${state.javaClass.simpleName}")
+        Timber.d("Rendering state: $state")
     }
 
     @CallSuper
     fun triggerEvent(event: E) {
-        Timber.d("Triggering eventObservable: ${event.javaClass.simpleName}")
+        Timber.d("Triggering event: $event")
     }
 
 }
