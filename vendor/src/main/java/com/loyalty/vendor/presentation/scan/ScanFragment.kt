@@ -14,6 +14,7 @@ import android.view.View
 import com.loyalty.core.exceptions.UnexpectedStateException
 import com.loyalty.core.presentation.base.view.OnBottomSheetDismissListener
 import com.loyalty.core.util.extensions.gone
+import com.loyalty.core.util.extensions.invisible
 import com.loyalty.core.util.extensions.visible
 import com.loyalty.vendor.presentation.scan.bottomsheet.ScanBottomSheetFragment
 import com.loyalty.vendor.ui.models.CustomerSheetUIModel
@@ -40,52 +41,80 @@ class ScanFragment : MvvmFragment<ScanState, BaseEvent>(), OnBottomSheetDismissL
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        executeWithPermission(Manifest.permission.CAMERA, { viewModel.initialiseCamera() })
+        executeWithPermission(Manifest.permission.CAMERA, { viewModel.initialiseCamera() }, { viewModel.turnOffCamera() })
+
+        childFragmentManager.fragments.forEach { /* todo remove this when the fragments state is saved the appropriate way! */
+            childFragmentManager.beginTransaction().remove(it).commit()
+        }
     }
 
     override fun onStart() {
         super.onStart()
-        executeWithPermission(Manifest.permission.CAMERA, { viewModel.initialiseCamera() })
+        executeWithPermission(Manifest.permission.CAMERA, { viewModel.initialiseCamera() }, { viewModel.turnOffCamera() })
     }
 
     override fun onResume() {
         super.onResume()
-        executeIfPermissionGranted(Manifest.permission.CAMERA, { qrScanner.resume() })
+        executeIfPermissionGranted(Manifest.permission.CAMERA, { viewModel.resumeCamera() }, { viewModel.turnOffCamera() })
     }
 
     override fun onPause() {
         super.onPause()
-        executeIfPermissionGranted(Manifest.permission.CAMERA, { qrScanner.pause() })
+        executeIfPermissionGranted(Manifest.permission.CAMERA, { viewModel.pauseCamera() }, { viewModel.turnOffCamera() })
     }
 
     override fun renderState(state: ScanState) {
         super.renderState(state)
-        if (state.shouldInitialiseCamera) {
-            initCamera()
+
+        val cameraState = state.cameraState
+        val sheetState = state.bottomSheetState
+
+        if (!cameraState.isCameraShown) {
+            renderCameraNotShown()
+        } else if (cameraState.isCameraShown && cameraState.isCameraRunning && !sheetState.isBottomSheetPresent) {
+            renderCameraRunning()
+        } else if (cameraState.isCameraShown && !cameraState.isCameraRunning) {
+            renderCameraPaused()
+        } else {
+            throw UnexpectedStateException(state.toString())
+        }
+
+        val shouldShowBottomSheet = sheetState.shouldShowBottomSheet.value
+        if (shouldShowBottomSheet && !state.isLoading && !state.isError && state.customer != null) {
+            renderLoadedState(state.customer)
         }
 
         if (state.isLoading) {
             renderLoadingState()
         } else if (state.isError) {
             renderErrorState()
-        } else if (!state.isLoading && !state.isError && state.customer == null) {
+        } else if (!state.isLoading && !state.isError) {
             renderEmptyState()
-        } else if (!state.isLoading && !state.isError && state.shouldShowBottomSheet && state.customer != null) {
-            renderLoadedState(state.customer)
-        } else {
-            throw UnexpectedStateException(state.toString())
         }
     }
 
-    private fun initCamera() {
-        qrScanner.barcodeView.decoderFactory = DefaultDecoderFactory(Consts.QR_FORMATS)
-        qrScanner.decodeContinuous(callback)
+    private fun renderCameraNotShown() {
+        scanFrameImage.invisible()
+        scanPointCameraText.invisible()
+    }
+
+    private fun renderCameraRunning() {
+        qrScanner.apply {
+            barcodeView.decoderFactory = DefaultDecoderFactory(Consts.QR_FORMATS)
+            decodeSingle(callback)
+            resume()
+        }
         scanFrameImage.visible()
         scanPointCameraText.visible()
     }
 
+    private fun renderCameraPaused() {
+        scanFrameImage.visible()
+        scanPointCameraText.visible()
+        qrScanner.pause()
+    }
+
     private fun renderLoadingState() {
-        bottomSheetFragment?.dismiss()
         scanProgressBar.visible()
     }
 
