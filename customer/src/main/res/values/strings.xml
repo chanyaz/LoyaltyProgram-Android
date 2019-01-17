@@ -50,5 +50,13 @@
         <item quantity="other">%1$d карточек</item>
     </plurals>
 
+    <plurals name="cards_days_left_plurals">
+        <item quantity="zero">Акция заканчивается сегодня</item>
+        <item quantity="one">%1$d день до окончания акции</item>
+        <item quantity="two">%1$d дня до окончания акции</item>
+        <item quantity="few">%1$d дня до окончания акции</item>
+        <item quantity="many">%1$d дней до окончания акции</item>
+        <item quantity="other">%1$d дней до окончания акции</item>
+    </plurals>
 
 </resources>

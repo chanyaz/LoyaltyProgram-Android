@@ -23,7 +23,7 @@ class FakeCardsRepository : CardsRepository {
                     "https://us.123rf.com/450wm/arcady31/arcady311202/arcady31120200035/12414954-znak-przerwa-kawowa.jpg",
                     "Surf Coffee",
                     "Кофейня",
-                    3,
+                    0,
                     "03.03-04.03",
                     EventType.COFFEE_STAMPS,
                     5,

@@ -32,7 +32,7 @@ class CardViewHolder(itemView: View) : SimpleDelegationHolder<CardItemUIModel>(i
         with(model) {
             cardVenueName.text = venueName
             cardVenueType.text = venueType
-            cardDaysLeft.text = daysLeft.toString()
+            cardDaysLeft.text = itemView.context.resources.getQuantityString(R.plurals.cards_days_left_plurals, daysLeft, daysLeft)
             cardDate.text = eventDate
             cardNumberOfStamps.text = currentStamps.toString()
             cardNumberOutOf.text = "/$outOfStamps"
