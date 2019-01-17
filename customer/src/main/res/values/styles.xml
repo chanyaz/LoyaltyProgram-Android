@@ -74,6 +74,7 @@
 
     <style name="Zalik.Venue.Option.Header" parent="Zalik.Text">
         <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">@dimen/size_venue_option_header</item>
         <item name="android:textColor">@color/venue_option_header_color</item>
@@ -91,6 +92,7 @@
 
     <style name="Zalik.Venue.Option.Text" parent="Zalik.Text">
         <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_marginStart">@dimen/margin_venue_option_item_margin</item>
     </style>

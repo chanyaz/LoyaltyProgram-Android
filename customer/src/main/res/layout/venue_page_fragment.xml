@@ -19,7 +19,8 @@
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/margin_medium">
 
                 <android.support.v4.view.ViewPager
                     android:id="@+id/venueImagesPager"
@@ -55,15 +56,6 @@
                     app:layout_constraintStart_toStartOf="@id/venueName"
                     app:layout_constraintTop_toBottomOf="@id/venueName"
                     tools:text="Кофейня" />
-
-                <View
-                    android:id="@+id/venueTopSeparator"
-                    style="@style/Zalik.Separator"
-                    android:layout_width="0dp"
-                    android:layout_marginTop="@dimen/margin_medium"
-                    app:layout_constraintEnd_toEndOf="@id/venueName"
-                    app:layout_constraintStart_toStartOf="@id/venueName"
-                    app:layout_constraintTop_toBottomOf="@id/venueType" />
 
                 <ProgressBar
                     android:id="@+id/venueProgressBar"
