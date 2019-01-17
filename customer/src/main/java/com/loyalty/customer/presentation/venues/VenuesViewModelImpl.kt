@@ -52,7 +52,7 @@ class VenuesViewModelImpl(
         )
     }
 
-    override fun selectVenue(position: Int) {
+    override fun selectVenue(position: Int) { /* todo need position of the filtered venue!!!!*/
         router.hideNAdd(CustomerScreens.KEY_VENUE_NEW.name)
     }
 
