@@ -6,8 +6,6 @@ import com.loyalty.core.presentation.mvvm.BaseViewModel
 
 abstract class ScanViewModel : BaseViewModel<ScanState, BaseEvent>() {
 
-//    abstract fun initialiseScreen(withCamera: Boolean)
-
     abstract fun initialiseCamera()
 
     abstract fun turnOffCamera()

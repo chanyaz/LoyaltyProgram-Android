@@ -13,18 +13,11 @@ class ScanViewModelImpl(
 
     override val initialState: ScanState get() = ScanState()
 
-//    override fun initialiseScreen(withCamera: Boolean) {
-//        if (withCamera) {
-//            setState(initialState.copy(cameraState = CameraState(
-//                    isCameraShown = true,
-//                    isCameraRunning = true
-//            )))
-//        } else {
-//            setState(initialState)
-//        }
-//    }
-
     override fun initialiseCamera() {
+        launchCamera()
+    }
+
+    private fun launchCamera() {
         if (currentState.bottomSheetState.isBottomSheetPresent)
             return
 
@@ -42,13 +35,7 @@ class ScanViewModelImpl(
     }
 
     override fun resumeCamera() {
-        if (currentState.bottomSheetState.isBottomSheetPresent)
-            return
-
-        setState(currentState.copy(cameraState = CameraState(
-                isCameraShown = true,
-                isCameraRunning = true
-        )))
+        launchCamera()
     }
 
     override fun pauseCamera() {
