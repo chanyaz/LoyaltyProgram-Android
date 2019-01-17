@@ -55,12 +55,39 @@
             tools:text="ул. Калиновского 57" />
 
         <ImageView
+            android:id="@+id/venueLocationIcon"
+            style="@style/Zalik.Venues.Icon"
+            android:layout_width="@dimen/size_venues_icon"
+            android:layout_marginBottom="@dimen/margin_xsmall"
+            android:src="@drawable/ic_location"
+            app:layout_constraintBottom_toBottomOf="@+id/venueImageContainer"
+            app:layout_constraintEnd_toStartOf="@id/venueLocationDistance"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="@id/venueName"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/venueLocationDistance"
+            style="@style/Zalik.Venues.Secondary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_xsmall"
+            app:layout_constraintBottom_toBottomOf="@+id/venueLocationIcon"
+            app:layout_constraintEnd_toStartOf="@id/venueScheduleIcon"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/venueLocationIcon"
+            app:layout_constraintTop_toTopOf="@+id/venueLocationIcon"
+            tools:text="0,84 км" />
+
+        <ImageView
             android:id="@+id/venueScheduleIcon"
             style="@style/Zalik.Venues.Icon"
-            android:layout_marginBottom="@dimen/margin_xsmall"
+            android:layout_width="@dimen/size_venues_icon"
+            android:layout_marginStart="@dimen/margin_medium"
             android:src="@drawable/ic_schedule"
-            app:layout_constraintBottom_toBottomOf="@+id/venueImageContainer"
-            app:layout_constraintStart_toStartOf="@id/venueName"
+            app:layout_constraintBottom_toBottomOf="@id/venueLocationIcon"
+            app:layout_constraintEnd_toStartOf="@id/venueWorkingHours"
+            app:layout_constraintStart_toEndOf="@id/venueLocationDistance"
             tools:ignore="ContentDescription" />
 
         <TextView
@@ -69,10 +96,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_xsmall"
-            app:layout_constraintBottom_toBottomOf="@+id/venueScheduleIcon"
+            app:layout_constraintBottom_toBottomOf="@id/venueLocationIcon"
             app:layout_constraintEnd_toEndOf="@id/venueName"
+            app:layout_constraintHorizontal_weight="2"
             app:layout_constraintStart_toEndOf="@id/venueScheduleIcon"
-            app:layout_constraintTop_toTopOf="@+id/venueScheduleIcon"
+            app:layout_constraintTop_toTopOf="@id/venueLocationIcon"
             tools:text="с 8.00 до 2.00" />
 
         <android.support.constraint.Guideline

@@ -37,15 +37,21 @@
     <style name="Zalik.Venues.Header" parent="Zalik.Text">
         <item name="android:textSize">@dimen/size_venues_header</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <style name="Zalik.Venues.Main" parent="Zalik.Text">
         <item name="android:textSize">@dimen/size_venues_main</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <style name="Zalik.Venues.Secondary" parent="Zalik.Text">
         <item name="android:textSize">@dimen/size_venues_secondary</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <!-- Venue -->
@@ -110,15 +116,21 @@
     <style name="Zalik.CardItem.Header" parent="Zalik.Text">
         <item name="android:textSize">@dimen/size_cards_header</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <style name="Zalik.CardItem.Main" parent="Zalik.Text">
         <item name="android:textSize">@dimen/size_cards_main</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <style name="Zalik.CardItem.Secondary" parent="Zalik.Text">
         <item name="android:textSize">@dimen/size_cards_secondary</item>
         <item name="android:textColor">@color/cards_text_secondary_color</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <style name="Zalik.CardItem.Date" parent="Zalik.Text">

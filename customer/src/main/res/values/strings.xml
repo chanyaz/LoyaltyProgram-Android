@@ -35,6 +35,7 @@
     <string name="venue_schedule">Время работы</string>
     <string name="venue_phone">Телефоны</string>
     <string name="venue_web_site">Веб-сайт</string>
+    <string name="venue_km_distance">%1$.2f км</string>
 
     <!-- Cards -->
 

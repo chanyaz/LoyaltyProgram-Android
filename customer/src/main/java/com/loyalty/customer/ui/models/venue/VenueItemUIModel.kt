@@ -6,6 +6,7 @@ data class VenueItemUIModel(
         val imageUrl: String,
         val name: String,
         val address: String,
+        val distance: Double?,
         val workingHours: String
 ): SimpleRecyclerModel {
 
