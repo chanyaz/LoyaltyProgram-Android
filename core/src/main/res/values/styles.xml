@@ -129,6 +129,12 @@
         <item name="android:src">?homeAsUpIndicator</item>
     </style>
 
+    <style name="Zalik.Toolbar.SearchView">
+        <item name="android:textColorPrimary">@color/toolbar_searchview_tint_color</item>
+        <item name="android:textColorSecondary">@color/toolbar_searchview_tint_color</item>
+        <item name="android:background">@color/toolbar_icon_background_color</item>
+    </style>
+
     <!-- Stepper -->
 
     <style name="Zalik.Stepper.Text" parent="Zalik.Text">

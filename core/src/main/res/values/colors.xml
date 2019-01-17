@@ -55,6 +55,7 @@
     <color name="toolbar_icon_background_color">@color/transparent_white</color>
     <color name="toolbar_text_color">@color/color_accent</color>
     <color name="toolbar_icon_color">@color/color_accent</color>
+    <color name="toolbar_searchview_tint_color">@color/color_accent</color>
 
     <!-- Stepper -->
 

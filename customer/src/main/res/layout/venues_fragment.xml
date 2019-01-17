@@ -31,9 +31,12 @@
 
             <android.support.v7.widget.SearchView
                 android:id="@+id/searchVenues"
-                style="@style/Zalik.Toolbar.Icon"
                 android:layout_width="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:theme="@style/Zalik.Toolbar.SearchView" />
 
         </android.support.constraint.ConstraintLayout>
 
