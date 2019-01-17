@@ -12,14 +12,14 @@ import com.loyalty.customer.presentation.venue.adapter.delegates.VenueInfoSepara
 import com.loyalty.customer.presentation.venue.adapter.delegates.VenueInfoWebsiteDelegate
 import com.loyalty.customer.ui.models.venue.information.VenueInfoUIModel
 
-class VenueInfoAdapter : SimpleDelegationAdapter<VenueInfoUIModel>(
+class VenueInfoAdapter(onVenueOptionClicked: (Int) -> Unit = {}) : SimpleDelegationAdapter<VenueInfoUIModel>(
         AdapterDelegatesManager<List<VenueInfoUIModel>>().apply {
             addDelegate(VenueInfoHeaderDelegate())
-            addDelegate(VenueInfoAddressDelegate())
+            addDelegate(VenueInfoAddressDelegate(onVenueOptionClicked))
             addDelegate(VenueInfoSeparatorDelegate())
             addDelegate(VenueInfoScheduleDelegate())
-            addDelegate(VenueInfoPhoneDelegate())
-            addDelegate(VenueInfoWebsiteDelegate())
+            addDelegate(VenueInfoPhoneDelegate(onVenueOptionClicked))
+            addDelegate(VenueInfoWebsiteDelegate(onVenueOptionClicked))
             addDelegate(VenueInfoHeader2Delegate())
             addDelegate(VenueInfoDescriptionDelegate())
         }

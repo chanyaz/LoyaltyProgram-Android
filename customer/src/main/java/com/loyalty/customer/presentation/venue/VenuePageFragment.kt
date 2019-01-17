@@ -8,7 +8,6 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.MarkerOptions
 import com.loyalty.core.exceptions.UnexpectedStateException
-import com.loyalty.core.presentation.base.BaseEvent
 import com.loyalty.core.presentation.mvvm.MvvmFragment
 import com.loyalty.core.util.extensions.gone
 import com.loyalty.core.util.extensions.invisible
@@ -34,7 +33,7 @@ import kotlinx.android.synthetic.main.venue_page_fragment.venuePageAppBarLayout
 import kotlinx.android.synthetic.main.venue_page_fragment.venueProgressBar
 import kotlinx.android.synthetic.main.venue_page_fragment.venueType
 
-class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
+class VenuePageFragment : MvvmFragment<VenuePageState, VenuePageEvent>() {
 
     override val layout: Int get() =  R.layout.venue_page_fragment
 
@@ -43,7 +42,9 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
     private lateinit var venueImagesAdapter: VenueImagesAdapter
 
     private val venueCardsAdapter: CardsAdapter = CardsAdapter { /* todo */ }
-    private val venueInfoAdapter: VenueInfoAdapter = VenueInfoAdapter()
+    private val venueInfoAdapter: VenueInfoAdapter = VenueInfoAdapter {
+        viewModel.venueOptionClicked(it)
+    }
 
     private lateinit var googleMap: GoogleMap
     private var isMapDrawn: Boolean = false
@@ -82,6 +83,11 @@ class VenuePageFragment : MvvmFragment<VenuePageState, BaseEvent>() {
             adapter = venueInfoAdapter
             layoutManager = LinearLayoutManager(activity)
         }
+    }
+
+    override fun triggerEvent(event: VenuePageEvent) {
+        super.triggerEvent(event)
+        startActivity(event.intent)
     }
 
     override fun renderState(state: VenuePageState) {
