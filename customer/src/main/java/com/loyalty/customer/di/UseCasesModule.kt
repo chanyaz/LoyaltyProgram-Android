@@ -3,6 +3,8 @@ package com.loyalty.customer.di
 import com.loyalty.core.BaseConsts
 import com.loyalty.customer.usecases.cards.LoadCards
 import com.loyalty.customer.usecases.cards.LoadCardsImpl
+import com.loyalty.customer.usecases.map.LoadMapVenues
+import com.loyalty.customer.usecases.map.LoadMapVenuesImpl
 import com.loyalty.customer.usecases.qr.LoadQrBitmapCase
 import com.loyalty.customer.usecases.qr.LoadQrBitmapCaseImpl
 import com.loyalty.customer.usecases.qr.LoadQrStringCase
@@ -38,5 +40,9 @@ val useCasesModule = module {
     /* Cards */
 
     factory<LoadCards> { LoadCardsImpl(get(), get()) }
+
+    /* Map */
+
+    factory<LoadMapVenues> { LoadMapVenuesImpl() }
 
 }

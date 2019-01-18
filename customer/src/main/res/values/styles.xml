@@ -164,4 +164,26 @@
         <item name="android:textSize">@dimen/size_cards_out_of_points_big</item>
     </style>
 
+    <!-- Map -->
+
+    <style name="Zalik.Map"/>
+
+    <style name="Zalik.Map.Header" parent="Zalik.Text">
+        <item name="android:textSize">@dimen/size_map_header</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="Zalik.Map.Secondary" parent="Zalik.Text">
+        <item name="android:textSize">@dimen/size_map_secondary</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="Zalik.Map.Location" parent="Zalik.Text">
+        <item name="android:textSize">@dimen/size_map_location</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
 </resources>

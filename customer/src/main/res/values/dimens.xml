@@ -45,4 +45,10 @@
 
     <dimen name="cards_date_corner_radius">4dp</dimen>
 
+    <!-- Map -->
+
+    <dimen name="size_map_header">@dimen/size_xbig</dimen>
+    <dimen name="size_map_secondary">@dimen/size_medium</dimen>
+    <dimen name="size_map_location">@dimen/size_medium</dimen>
+
 </resources>

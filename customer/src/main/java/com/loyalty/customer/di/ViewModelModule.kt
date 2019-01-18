@@ -3,6 +3,10 @@ package com.loyalty.customer.di
 import com.loyalty.customer.presentation.cards.CardsViewModel
 import com.loyalty.customer.presentation.cards.CardsViewModelImpl
 import com.loyalty.customer.presentation.coordinator.CoordinatorViewModel
+import com.loyalty.customer.presentation.map.MapViewModel
+import com.loyalty.customer.presentation.map.MapViewModelImpl
+import com.loyalty.customer.presentation.map.bottomsheet.VenueSheetViewModel
+import com.loyalty.customer.presentation.map.bottomsheet.VenueSheetViewModelImpl
 import com.loyalty.customer.presentation.navigation.flows.test.TestViewModel1
 import com.loyalty.customer.presentation.navigation.flows.test.TestViewModel2
 import com.loyalty.customer.presentation.navigation.flows.test.TestViewModel3
@@ -16,11 +20,27 @@ import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 
 val viewModelModule = module {
-    viewModel { CoordinatorViewModel(get()) }
-    viewModel<QrViewModel> { QrViewModelImpl(get()) }
-    viewModel<VenuesViewModel> { VenuesViewModelImpl(get(), get()) }
-    viewModel<VenuePageViewModel> { VenuePageViewModelImpl(get()) }
-    viewModel<CardsViewModel> { CardsViewModelImpl(get()) }
+    viewModel {
+        CoordinatorViewModel(get())
+    }
+    viewModel<QrViewModel> {
+        QrViewModelImpl(get())
+    }
+    viewModel<VenuesViewModel> {
+        VenuesViewModelImpl(get(), get())
+    }
+    viewModel<VenuePageViewModel> {
+        VenuePageViewModelImpl(get())
+    }
+    viewModel<CardsViewModel> {
+        CardsViewModelImpl(get())
+    }
+    viewModel<MapViewModel> {
+        MapViewModelImpl(get())
+    }
+    viewModel<VenueSheetViewModel> {
+        VenueSheetViewModelImpl()
+    }
 
     viewModel { TestViewModel1() }
     viewModel { TestViewModel2() }

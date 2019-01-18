@@ -60,4 +60,8 @@
         <item quantity="other">%1$d дней до окончания акции</item>
     </plurals>
 
+    <!-- Map -->
+
+    <string name="map_more_information">Ознакомиться подробнее</string>
+
 </resources>
