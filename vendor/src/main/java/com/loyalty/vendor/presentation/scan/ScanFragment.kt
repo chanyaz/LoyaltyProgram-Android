@@ -16,7 +16,7 @@ import com.loyalty.core.presentation.base.view.OnBottomSheetDismissListener
 import com.loyalty.core.util.extensions.gone
 import com.loyalty.core.util.extensions.invisible
 import com.loyalty.core.util.extensions.visible
-import com.loyalty.vendor.presentation.scan.bottomsheet.ScanBottomSheetFragment
+import com.loyalty.vendor.presentation.scan.bottomsheet.ScanSheetFragment
 import com.loyalty.vendor.ui.models.CustomerSheetUIModel
 import kotlinx.android.synthetic.main.scan_fragment.qrScanner
 import kotlinx.android.synthetic.main.scan_fragment.scanFrameImage
@@ -30,7 +30,7 @@ class ScanFragment : MvvmFragment<ScanState, BaseEvent>(), OnBottomSheetDismissL
 
     override val viewModel: ScanViewModel by inject()
 
-    private var bottomSheetFragment: ScanBottomSheetFragment? = null
+    private var bottomSheetFragment: ScanSheetFragment? = null
 
     private val callback = object : BarcodeCallback {
         override fun barcodeResult(result: BarcodeResult) {
@@ -129,7 +129,7 @@ class ScanFragment : MvvmFragment<ScanState, BaseEvent>(), OnBottomSheetDismissL
     private fun renderLoadedState(customer: CustomerSheetUIModel) {
         scanProgressBar.gone()
         bottomSheetFragment?.dismiss()
-        bottomSheetFragment = ScanBottomSheetFragment.newInstance(customer)
+        bottomSheetFragment = ScanSheetFragment.newInstance(customer)
         bottomSheetFragment?.show(childFragmentManager, "")
     }
 

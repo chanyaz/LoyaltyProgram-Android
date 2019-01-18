@@ -2,9 +2,9 @@ package com.loyalty.vendor.presentation.scan.bottomsheet
 
 import com.loyalty.vendor.ui.models.CustomerSheetUIModel
 
-class ScanBottomSheetViewModelImpl : ScanBottomSheetViewModel() {
+class ScanSheetViewModelImpl : ScanSheetViewModel() {
 
-    override val initialState: ScanBottomSheetState get() = ScanBottomSheetState()
+    override val initialState: ScanSheetState get() = ScanSheetState()
 
     private var customer: CustomerSheetUIModel? = null
 

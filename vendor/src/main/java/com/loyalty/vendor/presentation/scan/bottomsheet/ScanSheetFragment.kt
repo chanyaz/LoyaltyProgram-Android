@@ -17,11 +17,11 @@ import kotlinx.android.synthetic.main.scan_bottom_sheet.scanCustomerName
 import kotlinx.android.synthetic.main.scan_bottom_sheet.scanNumberStepper
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class ScanBottomSheetFragment : BottomSheetMvvmFragment<ScanBottomSheetState, BaseEvent>() {
+class ScanSheetFragment : BottomSheetMvvmFragment<ScanSheetState, BaseEvent>() {
 
     override val layout: Int get() = R.layout.scan_bottom_sheet
 
-    override val viewModel: ScanBottomSheetViewModel by viewModel()
+    override val viewModel: ScanSheetViewModel by viewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -36,7 +36,7 @@ class ScanBottomSheetFragment : BottomSheetMvvmFragment<ScanBottomSheetState, Ba
         }
     }
 
-    override fun renderState(state: ScanBottomSheetState) {
+    override fun renderState(state: ScanSheetState) {
         super.renderState(state)
         if (state.customer == null) {
             renderEmptyState()
@@ -68,8 +68,8 @@ class ScanBottomSheetFragment : BottomSheetMvvmFragment<ScanBottomSheetState, Ba
     companion object {
         private const val KEY_CUSTOMER = "KEY_CUSTOMER"
 
-        fun newInstance(customer: CustomerSheetUIModel): ScanBottomSheetFragment =
-                ScanBottomSheetFragment().apply {
+        fun newInstance(customer: CustomerSheetUIModel): ScanSheetFragment =
+                ScanSheetFragment().apply {
                     arguments = Bundle().apply {
                         putParcelable(KEY_CUSTOMER, customer)
                     }
