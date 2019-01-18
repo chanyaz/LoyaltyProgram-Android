@@ -11,15 +11,15 @@ import com.loyalty.core.presentation.base.view.OnBottomSheetDismissListener
 import com.loyalty.core.presentation.mvvm.BottomSheetMvvmFragment
 import com.loyalty.vendor.R
 import com.loyalty.vendor.ui.models.CustomerSheetUIModel
-import kotlinx.android.synthetic.main.scan_bottom_sheet.scanConfirmButton
-import kotlinx.android.synthetic.main.scan_bottom_sheet.scanCustomerImage
-import kotlinx.android.synthetic.main.scan_bottom_sheet.scanCustomerName
-import kotlinx.android.synthetic.main.scan_bottom_sheet.scanNumberStepper
+import kotlinx.android.synthetic.main.scan_sheet.scanConfirmButton
+import kotlinx.android.synthetic.main.scan_sheet.scanCustomerImage
+import kotlinx.android.synthetic.main.scan_sheet.scanCustomerName
+import kotlinx.android.synthetic.main.scan_sheet.scanNumberStepper
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class ScanSheetFragment : BottomSheetMvvmFragment<ScanSheetState, BaseEvent>() {
 
-    override val layout: Int get() = R.layout.scan_bottom_sheet
+    override val layout: Int get() = R.layout.scan_sheet
 
     override val viewModel: ScanSheetViewModel by viewModel()
 
