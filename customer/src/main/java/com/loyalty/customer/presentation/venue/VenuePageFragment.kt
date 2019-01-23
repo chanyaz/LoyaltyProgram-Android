@@ -1,6 +1,7 @@
 package com.loyalty.customer.presentation.venue
 
 import android.os.Bundle
+import android.support.v4.view.ViewCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -18,7 +19,6 @@ import org.koin.android.ext.android.inject
 import com.loyalty.customer.presentation.cards.adapter.CardsAdapter
 import com.loyalty.customer.presentation.venue.adapter.VenueInfoAdapter
 import com.loyalty.customer.presentation.venue.pager.VenueImagesAdapter
-import com.loyalty.customer.ui.models.venue.VenueImageUIModel
 import com.loyalty.customer.ui.models.venue.VenuePageUIModel
 import kotlinx.android.synthetic.main.venue_page_fragment.backButton
 import kotlinx.android.synthetic.main.venue_page_fragment.toolbarSubtitle
@@ -30,6 +30,7 @@ import kotlinx.android.synthetic.main.venue_page_fragment.venueImagesTabs
 import kotlinx.android.synthetic.main.venue_page_fragment.venueInformationRecycler
 import kotlinx.android.synthetic.main.venue_page_fragment.venueName
 import kotlinx.android.synthetic.main.venue_page_fragment.venuePageAppBarLayout
+import kotlinx.android.synthetic.main.venue_page_fragment.venuePageLayout
 import kotlinx.android.synthetic.main.venue_page_fragment.venueProgressBar
 import kotlinx.android.synthetic.main.venue_page_fragment.venueType
 
@@ -39,15 +40,13 @@ class VenuePageFragment : MvvmFragment<VenuePageState, VenuePageEvent>() {
 
     override val viewModel: VenuePageViewModel by inject()
 
-    private lateinit var venueImagesAdapter: VenueImagesAdapter
-
+    private val venueImagesAdapter: VenueImagesAdapter by lazy { VenueImagesAdapter(activity) }
     private val venueCardsAdapter: CardsAdapter = CardsAdapter { /* todo */ }
     private val venueInfoAdapter: VenueInfoAdapter = VenueInfoAdapter {
         viewModel.venueOptionClicked(it)
     }
 
     private lateinit var googleMap: GoogleMap
-    private var isMapDrawn: Boolean = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -83,6 +82,8 @@ class VenuePageFragment : MvvmFragment<VenuePageState, VenuePageEvent>() {
             adapter = venueInfoAdapter
             layoutManager = LinearLayoutManager(activity)
         }
+        venueImagesPager.adapter = venueImagesAdapter
+        ViewCompat.requestApplyInsets(venuePageLayout)
     }
 
     override fun triggerEvent(event: VenuePageEvent) {
@@ -92,12 +93,12 @@ class VenuePageFragment : MvvmFragment<VenuePageState, VenuePageEvent>() {
 
     override fun renderState(state: VenuePageState) {
         super.renderState(state)
-        if (state.isLoading) {
-            renderLoadingState()
-        } else if (state.isError) {
+        if (state.isError) {
             renderErrorState()
+        } else if (state.isLoading) {
+            renderLoadingState()
         } else if (!state.isLoading && !state.isError && state.model != null) {
-            renderLoadedState(state.model)
+            renderLoadedState(state.model, state.shouldDrawMap.value)
         } else {
             throw UnexpectedStateException(state.toString())
         }
@@ -114,7 +115,7 @@ class VenuePageFragment : MvvmFragment<VenuePageState, VenuePageEvent>() {
         TODO()
     }
 
-    private fun renderLoadedState(model: VenuePageUIModel) {
+    private fun renderLoadedState(model: VenuePageUIModel, shouldDrawMap: Boolean) {
         venueProgressBar.gone()
         venueGroupContent.visible()
 
@@ -124,8 +125,7 @@ class VenuePageFragment : MvvmFragment<VenuePageState, VenuePageEvent>() {
         venueType.text = model.type
         toolbarSubtitle.text = model.type
 
-        if (::googleMap.isInitialized && !isMapDrawn) { /* todo make something about this flag */
-            isMapDrawn = true
+        if (shouldDrawMap) {
             googleMap.apply {
                 clear()
                 addMarker(MarkerOptions().position(model.location).title(model.name))
@@ -134,16 +134,15 @@ class VenuePageFragment : MvvmFragment<VenuePageState, VenuePageEvent>() {
             }
         }
 
-        if (!::venueImagesAdapter.isInitialized)
-            initImagesAdapter(model.imageUrls)
+        if (venueImagesAdapter.images.isEmpty()) {
+            venueImagesAdapter.apply {
+                images = model.imageUrls
+                notifyDataSetChanged()
+            }
+        }
 
         venueCardsAdapter.items = model.cards
         venueInfoAdapter.items = model.venueInfoListUIModel
-    }
-
-    private fun initImagesAdapter(images: List<VenueImageUIModel>) {
-        venueImagesAdapter = VenueImagesAdapter(images, context)
-        venueImagesPager.adapter = venueImagesAdapter
     }
 
     private fun renderToolbarState(areToolbarTitlesShown: Boolean) {
