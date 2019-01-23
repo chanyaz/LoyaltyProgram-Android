@@ -11,7 +11,7 @@ data class CardItemUIModel(
         val eventType: EventType,
         val currentStamps: Int,
         val outOfStamps: Int,
-        var isExpandedState: Boolean = false
+        val isExpandedState: Boolean = false
 ) : SimpleRecyclerModel {
 
     override val id: Any get() = venueName
