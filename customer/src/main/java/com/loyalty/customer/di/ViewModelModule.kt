@@ -27,7 +27,7 @@ val viewModelModule = module {
         QrViewModelImpl(get(), get())
     }
     viewModel<VenuesViewModel> {
-        VenuesViewModelImpl(get(), get())
+        VenuesViewModelImpl(get())
     }
     viewModel<VenuePageViewModel> {
         VenuePageViewModelImpl(get())
