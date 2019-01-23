@@ -40,10 +40,10 @@ class CardsFragment : MvvmFragment<CardsState, BaseEvent>() {
 
     override fun renderState(state: CardsState) {
         super.renderState(state)
-        if (state.isLoading) {
-            renderLoadingState()
-        } else if (state.isError) {
+        if (state.isError) {
             renderErrorState()
+        } else if (state.isLoading) {
+            renderLoadingState()
         } else if (!state.isLoading && !state.isError && state.cards.isEmpty()) {
             renderEmptyState()
         } else if (!state.isLoading && !state.isError) {
