@@ -2,31 +2,44 @@ package com.loyalty.customer.presentation.qr
 
 import android.graphics.Bitmap
 import com.loyalty.core.util.extensions.observeOnUi
-import com.loyalty.customer.usecases.qr.LoadQrBitmapCase
+import com.loyalty.customer.usecases.qr.LoadQrStringCase
+import com.loyalty.customer.usecases.qr.StringToQrBitmapCase
 import timber.log.Timber
 
 class QrViewModelImpl(
-        private val loadQrBitmapCase: LoadQrBitmapCase
+        private val loadQrStringCase: LoadQrStringCase,
+        private val stringToQrBitmapCase: StringToQrBitmapCase
 ) : QrViewModel() {
 
     override val initialState: QrState get() = QrState()
 
-    override fun initViewModel(qrWidth: Int, qrHeight: Int) {
-        setState(QrState())
-        loadQrCode(qrWidth, qrHeight)
+    init {
+        loadData()
     }
 
-    private fun loadQrCode(qrWidth: Int, qrHeight: Int) {
-        subscribe(loadQrBitmapCase(width = qrWidth, height = qrHeight)
+    private fun loadData() {
+        subscribe(loadQrStringCase()
                 .observeOnUi()
-                .subscribe(::onLoadQrCodeSuccess, ::onLoadQrCodeError))
-    }
-
-    private fun onLoadQrCodeSuccess(qrImage: Bitmap) {
-        setState(QrState(isLoading = false, isError = false, qrBitmap = qrImage))
+                .subscribe({}, ::onLoadQrCodeError))
     }
 
     private fun onLoadQrCodeError(error: Throwable) {
+        Timber.e(error)
+        setState(QrState(isLoading = false, isError = true))
+    }
+
+    override fun drawQrCode(qrWidth: Int, qrHeight: Int) {
+        subscribe(loadQrStringCase()
+                .flatMap { stringToQrBitmapCase(it, qrWidth, qrHeight) }
+                .observeOnUi()
+                .subscribe(::onDrawQrCodeSuccess, ::onDrawQrCodeError))
+    }
+
+    private fun onDrawQrCodeSuccess(qrCodeImage: Bitmap) {
+        setState(QrState(isLoading = false, isError = false, qrBitmap = qrCodeImage))
+    }
+
+    private fun onDrawQrCodeError(error: Throwable) {
         Timber.e(error)
         setState(QrState(isLoading = false, isError = true))
     }

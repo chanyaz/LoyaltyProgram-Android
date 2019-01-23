@@ -25,7 +25,7 @@ class QrFragment : MvvmFragment<QrState, BaseEvent>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         qrCodeImage.post {
-            viewModel.initViewModel(qrWidth = qrCodeImage.width, qrHeight = qrCodeImage.height)
+            viewModel.drawQrCode(qrWidth = qrCodeImage.width, qrHeight = qrCodeImage.height)
         }
     }
 
