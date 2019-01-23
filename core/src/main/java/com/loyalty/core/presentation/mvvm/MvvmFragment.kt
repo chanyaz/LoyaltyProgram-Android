@@ -11,11 +11,17 @@ import com.tbruyelle.rxpermissions2.RxPermissions
 
 abstract class MvvmFragment<S: BaseState, E: BaseEvent> : BaseFragment(), ViewModelOwner<S, E> {
 
+    /* *
+     * In case of any issues take a look at
+     * @see <a href="https://gist.github.com/SpKiwi/c440f938b24abcc96bfe6e44b28109d2">A certain way to check if the fragment is visible</a>
+     * */
+
     @CallSuper
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) { /* todo add request state function */
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         subscribeToViewModel(lifecycleDisposable)
-        renderState(viewModel.requestState())
+
+        renderState(viewModel.requestInitialLayoutState())
     }
 
     protected fun executeWithPermission(permission: String, onPermissionGranted: () -> Unit, onPermissionDenied: () -> Unit = {}) {
