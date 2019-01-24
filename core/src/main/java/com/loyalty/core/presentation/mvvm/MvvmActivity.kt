@@ -12,7 +12,7 @@ abstract class MvvmActivity<S: BaseState, E: BaseEvent> : BaseActivity(), ViewMo
     @CallSuper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        subscribeToViewModel(lifecycleDisposable, false)
+        subscribeToViewModel(lifecycleDisposable, null)
         renderState(viewModel.requestInitialLayoutState())
     }
 

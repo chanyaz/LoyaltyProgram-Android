@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.loyalty.core.exceptions.NavigationException
 import com.loyalty.core.presentation.navigation.router.Router
+import com.loyalty.core.presentation.navigation.router.RouterOwner
 import com.loyalty.core.util.extensions.plusAssign
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
@@ -18,7 +19,7 @@ abstract class BaseBottomSheet : BottomSheetDialogFragment(), OnBackPressedListe
     abstract val layout: Int
 
     val router: Router by lazy {
-        (parentFragment as? BaseFragment)?.router ?: throw NavigationException("Router should not be null")
+        (parentFragment as? RouterOwner)?.router ?: throw NavigationException("Router should not be null")
     }
 
     protected val lifecycleDisposable: CompositeDisposable = CompositeDisposable()

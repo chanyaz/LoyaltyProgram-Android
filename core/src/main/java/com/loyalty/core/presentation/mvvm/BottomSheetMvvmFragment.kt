@@ -13,7 +13,7 @@ abstract class BottomSheetMvvmFragment<S: BaseState, E: BaseEvent> : BaseBottomS
     @CallSuper
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        subscribeToViewModel(lifecycleDisposable)
+        subscribeToViewModel(lifecycleDisposable, null)
         renderState(viewModel.requestInitialLayoutState())
     }
 

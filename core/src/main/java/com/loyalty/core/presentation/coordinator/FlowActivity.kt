@@ -11,8 +11,6 @@ abstract class FlowActivity<E: FlowEvent> : MvvmActivity<BaseState, E>() {
 
     abstract override val viewModel: FlowViewModel<E>
 
-    override val router: Nothing get() = throw RuntimeException("Regular activity does not need router")
-
     /* *
      * this check is implemented to address the following issue
      * https://stackoverflow.com/questions/19545889/app-restarts-rather-than-resumes
