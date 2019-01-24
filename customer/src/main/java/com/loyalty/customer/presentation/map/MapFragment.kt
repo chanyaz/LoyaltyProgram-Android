@@ -85,7 +85,8 @@ class MapFragment : MvvmFragment<MapState, BaseEvent>() {
         val height = calculateSide(globalMapContainer.height)
         val cameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, width, height, 0)
 
-        googleMap.animateCamera(cameraUpdate)
+        if (width > 0 && height > 0)
+            googleMap.animateCamera(cameraUpdate)
     }
 
     private fun calculateSide(initialLength: Int): Int =
