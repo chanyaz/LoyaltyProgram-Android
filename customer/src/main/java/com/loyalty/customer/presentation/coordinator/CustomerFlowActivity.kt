@@ -10,7 +10,6 @@ class CustomerFlowActivity : FlowActivity<CustomerFlowEvent>() {
 
     override fun triggerEvent(event: CustomerFlowEvent) {
         super.triggerEvent(event)
-        /* todo use router inside of presenter to do this */
         if (event.isUserLoggedIn) {
             startActivity(CustomerNavigationActivity.newIntent(this, event.isUserLoggedIn))
         }
