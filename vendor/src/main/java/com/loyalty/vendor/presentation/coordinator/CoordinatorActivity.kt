@@ -13,8 +13,6 @@ class CoordinatorActivity : MvvmActivity<BaseState, CoordinatorEvent>() {
 
     override val viewModel: CoordinatorViewModel by viewModel()
 
-    override val router: Nothing get() = throw RuntimeException("Regular activity does not need router")
-
     override fun triggerEvent(event: CoordinatorEvent) {
         super.triggerEvent(event)
         when (event) {
