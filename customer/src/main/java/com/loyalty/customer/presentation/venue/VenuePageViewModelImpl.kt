@@ -2,6 +2,7 @@ package com.loyalty.customer.presentation.venue
 
 import android.content.Intent
 import android.net.Uri
+import com.loyalty.core.util.SingleEventFlag
 import com.loyalty.core.util.extensions.observeOnUi
 import com.loyalty.customer.ui.models.venue.VenuePageUIModel
 import com.loyalty.customer.ui.models.venue.information.VenueInfoAddressUIModel
@@ -38,7 +39,7 @@ class VenuePageViewModelImpl(
     }
 
     override fun mapLoaded() {
-        setState(currentState.copy())
+        setState(currentState.copy(shouldDrawMap = SingleEventFlag(true)))
     }
 
     override fun venueOptionClicked(position: Int) {

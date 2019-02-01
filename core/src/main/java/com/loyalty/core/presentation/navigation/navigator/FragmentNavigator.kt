@@ -17,20 +17,19 @@ abstract class FragmentNavigator(
     /* Primary navigation fragment is never null, as some fragment must always be active */
     override fun applyCommand(command: Command) {
         when (command) {
-            is HideNAdd -> {
+            is HideNAdd -> { /* todo rename (?) commands */
                 _fragmentManager
                         .beginTransaction()
-                        .hide(_fragmentManager.findFragmentById(_containerId)!!)
-                        .add(_containerId, createFragment(command.screenKey, command.transitionData))
+                        .replace(_containerId, createFragment(command.screenKey, command.transitionData))
                         .addToBackStack(command.screenKey)
                         .commit()
             }
             is BackNShow -> {
                 if (_fragmentManager.backStackEntryCount > 0) {
                     _fragmentManager.popBackStackImmediate()
-                    _fragmentManager.beginTransaction()
-                            .show(_fragmentManager.findFragmentById(_containerId)!!)
-                            .commit()
+//                    _fragmentManager.beginTransaction()
+//                            .attach(_fragmentManager.findFragmentById(_containerId)!!)
+//                            .commit()
                 } else {
                     exit()
                 }

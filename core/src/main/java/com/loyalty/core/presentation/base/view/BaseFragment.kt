@@ -6,23 +6,16 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.loyalty.core.exceptions.NavigationException
-import com.loyalty.core.presentation.navigation.NavigationFragment
-import com.loyalty.core.presentation.navigation.router.Router
 import com.loyalty.core.util.extensions.plusAssign
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
-abstract class BaseFragment : Fragment(), OnBackPressedListener {
+abstract class BaseFragment : Fragment() {
 
     @get:LayoutRes
     abstract val layout: Int
 
     protected val lifecycleDisposable: CompositeDisposable = CompositeDisposable()
-
-    val router: Router by lazy {
-        (parentFragment as? NavigationFragment)?.cicerone?.router ?: throw NavigationException("Router should not be null")
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(layout, container, false)
@@ -31,11 +24,6 @@ abstract class BaseFragment : Fragment(), OnBackPressedListener {
     override fun onDestroyView() {
         super.onDestroyView()
         lifecycleDisposable.clear()
-    }
-
-    override fun onBackPressed(): Boolean {
-        router.exit()
-        return true
     }
 
     protected fun subscribe(disposable: Disposable) {

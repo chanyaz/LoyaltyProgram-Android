@@ -13,9 +13,8 @@ import timber.log.Timber
 interface ViewModelOwner<S: BaseState, E: BaseEvent> {
 
     val viewModel: BaseViewModel<S, E>
-    val router: Router
 
-    fun subscribeToViewModel(compositeDisposable: CompositeDisposable, shouldInitRouter: Boolean = true) {
+    fun subscribeToViewModel(compositeDisposable: CompositeDisposable, router: Router?) {
         compositeDisposable += viewModel.stateObservable
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
@@ -28,8 +27,9 @@ interface ViewModelOwner<S: BaseState, E: BaseEvent> {
                     triggerEvent(it)
                 }
 
-        if (shouldInitRouter)
-            viewModel.initRouter(router)
+        router?.let {
+            viewModel.initRouter(it)
+        }
     }
 
     @CallSuper

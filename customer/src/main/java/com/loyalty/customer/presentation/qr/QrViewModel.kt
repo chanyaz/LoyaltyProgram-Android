@@ -5,6 +5,6 @@ import com.loyalty.core.presentation.mvvm.BaseViewModel
 
 abstract class QrViewModel: BaseViewModel<QrState, BaseEvent>() {
 
-    abstract fun initViewModel(qrWidth: Int, qrHeight: Int)
+    abstract fun drawQrCode(qrWidth: Int, qrHeight: Int)
 
 }

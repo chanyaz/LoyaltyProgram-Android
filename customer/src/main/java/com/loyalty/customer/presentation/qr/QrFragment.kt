@@ -25,17 +25,17 @@ class QrFragment : MvvmFragment<QrState, BaseEvent>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         qrCodeImage.post {
-            viewModel.initViewModel(qrWidth = qrCodeImage.width, qrHeight = qrCodeImage.height)
+            viewModel.drawQrCode(qrWidth = qrCodeImage.width, qrHeight = qrCodeImage.height)
         }
     }
 
     override fun renderState(state: QrState) {
         super.renderState(state)
 //        TransitionManager.beginDelayedTransition(qrFragment) todo consider moving this to common logic
-        if (state.isLoading) {
-            renderLoadingState()
-        } else if (state.isError) {
+        if (state.isError) {
             renderErrorState()
+        } else if (state.isLoading) {
+            renderLoadingState()
         } else if (!state.isLoading && !state.isError && state.qrBitmap != null) {
             renderLoadedState(state.qrBitmap)
         } else {

@@ -13,8 +13,6 @@ import com.loyalty.customer.usecases.qr.StringToQrBitmapCase
 import com.loyalty.customer.usecases.qr.StringToQrBitmapCaseImpl
 import com.loyalty.customer.usecases.venue.LoadVenuePage
 import com.loyalty.customer.usecases.venue.LoadVenuePageImpl
-import com.loyalty.customer.usecases.venues.FilterVenues
-import com.loyalty.customer.usecases.venues.FilterVenuesImpl
 import com.loyalty.customer.usecases.venues.LoadVenues
 import com.loyalty.customer.usecases.venues.LoadVenuesImpl
 import org.koin.android.ext.koin.androidApplication
@@ -30,7 +28,6 @@ val useCasesModule = module {
 
     /* Venues */
 
-    factory<FilterVenues> { FilterVenuesImpl(get(name = BaseConsts.SCHEDULER_COMPUTATION)) }
     factory<LoadVenues> { LoadVenuesImpl(get(), get()) }
 
     /* Venue */

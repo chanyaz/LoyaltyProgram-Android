@@ -1,6 +1,5 @@
 package com.loyalty.customer.presentation.cards
 
-import com.loyalty.core.util.extensions.flip
 import com.loyalty.core.util.extensions.observeOnUi
 import com.loyalty.customer.ui.models.card.CardItemUIModel
 import com.loyalty.customer.usecases.cards.LoadCards
@@ -28,7 +27,7 @@ class CardsViewModelImpl(
 
     private fun onLoadCardsSuccess(cards: List<CardItemUIModel>) {
         cachedCards = cards
-        setState(currentState.copy(cards = cards, isLoading = false, isError = false))
+        setState(currentState.copy(cards = cards, isLoading = false))
     }
 
     private fun onLoadCardsError(error: Throwable) {
@@ -37,8 +36,13 @@ class CardsViewModelImpl(
     }
 
     override fun selectCard(position: Int) {
-        cachedCards = cachedCards.deepCopy()
-        cachedCards[position]::isExpandedState.flip()
+        val newCards = cachedCards.deepCopy().toMutableList()
+        val card = newCards[position]
+        val newCard = card.copy(isExpandedState = !card.isExpandedState)
+
+        newCards[position] = newCard
+        cachedCards = newCards
+
         setState(currentState.copy(cards = cachedCards))
     }
 

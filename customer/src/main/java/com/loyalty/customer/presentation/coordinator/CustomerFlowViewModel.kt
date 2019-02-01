@@ -1,26 +1,19 @@
 package com.loyalty.customer.presentation.coordinator
 
-import com.loyalty.core.presentation.base.BaseState
-import com.loyalty.core.presentation.mvvm.BaseViewModel
+import com.loyalty.core.presentation.coordinator.FlowViewModel
 import com.loyalty.core.util.extensions.observeOnUi
 import com.loyalty.core.util.extensions.subscribeOrError
 import com.loyalty.customer.preferences.token.TokenPreferences
 
-class CoordinatorViewModel(
+class CustomerFlowViewModel(
         private val tokenPreferences: TokenPreferences
-) : BaseViewModel<BaseState, CoordinatorEvent>() {
+) : FlowViewModel<CustomerFlowEvent>() {
 
-    override val initialState: BaseState get() = object : BaseState() {}
-
-    init {
-        selectUserFlow()
-    }
-
-    private fun selectUserFlow() {
+    override fun selectUserFlow() {
         subscribe(tokenPreferences.isUserLoggedIn()
                 .observeOnUi()
                 .subscribeOrError("Unexpected error") { isUserLoggedIn ->
-                    triggerEvent(CoordinatorEvent.CreateNavigation(isUserLoggedIn))
+                    triggerEvent(CustomerFlowEvent(true))
                 }
         )
     }

@@ -57,10 +57,10 @@ class VenuesFragment : MvvmFragment<VenuesState, BaseEvent>() {
 
     override fun renderState(state: VenuesState) {
         super.renderState(state)
-        if (state.isLoading) {
-            renderLoadingState()
-        } else if (state.isError) {
+        if (state.isError) {
             renderErrorState()
+        } else if (state.isLoading) {
+            renderLoadingState()
         } else if (!state.isLoading && !state.isError && state.venues.isEmpty()) {
             renderEmptyState()
         } else if (!state.isLoading && !state.isError) {
@@ -105,6 +105,7 @@ class VenuesFragment : MvvmFragment<VenuesState, BaseEvent>() {
         } else {
             toolbarSubtitle.visible()
             toolbarTitle.visible()
+            searchVenues.onActionViewCollapsed()
         }
     }
 

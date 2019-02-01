@@ -11,7 +11,9 @@ import com.loyalty.customer.R
 import com.loyalty.customer.ui.models.venue.VenueImageUIModel
 import kotlinx.android.synthetic.main.venue_image_item.view.venueImageItem
 
-class VenueImagesAdapter(private val images: List<VenueImageUIModel>, context: Context?) : PagerAdapter() {
+class VenueImagesAdapter(context: Context?) : PagerAdapter() {
+
+    var images: List<VenueImageUIModel> = emptyList()
 
     private val inflater = LayoutInflater.from(context)
 
@@ -31,5 +33,7 @@ class VenueImagesAdapter(private val images: List<VenueImageUIModel>, context: C
     override fun getCount(): Int = images.size
 
     override fun isViewFromObject(view: View, obj: Any): Boolean = (view == obj)
+
+    override fun getItemPosition(obj: Any): Int = POSITION_NONE
 
 }

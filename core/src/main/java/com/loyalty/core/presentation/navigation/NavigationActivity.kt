@@ -31,15 +31,15 @@ abstract class NavigationActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initNavigationView()
+        initViews()
 
-        selectTab(initialFragmentKey)
+        if (savedInstanceState == null) {
+            selectTab(initialFragmentKey)
+        }
     }
 
-    private fun initNavigationView() {
-        navigationBar.setOnNavigationItemSelectedListener {
-            selectMenuItem(it)
-        }
+    private fun initViews() {
+        navigationBar.setOnNavigationItemSelectedListener { selectMenuItem(it) }
     }
 
     private fun selectMenuItem(item: MenuItem): Boolean {
@@ -55,18 +55,19 @@ abstract class NavigationActivity : BaseActivity() {
 
     private fun selectTab(fragmentKey: String) {
         val currentFragment = supportFragmentManager.fragments.find { it.isVisible }
-        val newFragment = supportFragmentManager.findFragmentByTag(fragmentKey)
+        var newFragment = supportFragmentManager.findFragmentByTag(fragmentKey)
 
         if (currentFragment != null && newFragment != null && currentFragment === newFragment) return
 
         supportFragmentManager.beginTransaction().apply {
             if (newFragment == null) {
-                add(containerId, createNavigationFragment(fragmentKey), fragmentKey)
+                newFragment = createNavigationFragment(fragmentKey)
             }
-            currentFragment?.let { hide(currentFragment) }
-            newFragment?.let { show(newFragment) }
-            commitNow()
+            replace(containerId, newFragment!!, fragmentKey)
+            addToBackStack(null)
+            commit()
         }
+        supportFragmentManager.executePendingTransactions()
     }
 
     override fun onBackPressed() {

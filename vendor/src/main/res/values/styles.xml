@@ -1,6 +1,6 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
 
-	<!-- Scan -->
+<!-- Scan -->
 
 	<style name="Zalik.Scan.Header" parent="Zalik.Text">
 		<item name="android:textColor">@color/scan_header_color</item>

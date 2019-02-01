@@ -2,7 +2,7 @@ package com.loyalty.customer.di
 
 import com.loyalty.customer.presentation.cards.CardsViewModel
 import com.loyalty.customer.presentation.cards.CardsViewModelImpl
-import com.loyalty.customer.presentation.coordinator.CoordinatorViewModel
+import com.loyalty.customer.presentation.coordinator.CustomerFlowViewModel
 import com.loyalty.customer.presentation.map.MapViewModel
 import com.loyalty.customer.presentation.map.MapViewModelImpl
 import com.loyalty.customer.presentation.map.bottomsheet.VenueSheetViewModel
@@ -21,13 +21,13 @@ import org.koin.dsl.module.module
 
 val viewModelModule = module {
     viewModel {
-        CoordinatorViewModel(get())
+        CustomerFlowViewModel(get())
     }
     viewModel<QrViewModel> {
-        QrViewModelImpl(get())
+        QrViewModelImpl(get(), get())
     }
     viewModel<VenuesViewModel> {
-        VenuesViewModelImpl(get(), get())
+        VenuesViewModelImpl(get())
     }
     viewModel<VenuePageViewModel> {
         VenuePageViewModelImpl(get())

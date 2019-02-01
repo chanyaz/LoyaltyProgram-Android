@@ -4,37 +4,44 @@ import com.loyalty.core.util.extensions.observeOnUi
 import com.loyalty.core.util.extensions.subscribeOrError
 import com.loyalty.customer.presentation.navigation.CustomerScreens
 import com.loyalty.customer.ui.models.venue.VenueItemUIModel
-import com.loyalty.customer.usecases.venues.FilterVenues
 import com.loyalty.customer.usecases.venues.LoadVenues
+import io.reactivex.Observable
+import io.reactivex.functions.BiFunction
 import io.reactivex.subjects.BehaviorSubject
 import timber.log.Timber
 
 class VenuesViewModelImpl(
-        private val loadVenues: LoadVenues,
-        private val filterVenues: FilterVenues
+        private val loadVenues: LoadVenues
 ) : VenuesViewModel() {
 
     override val initialState: VenuesState get() = VenuesState()
 
     private val querySubject: BehaviorSubject<String> = BehaviorSubject.createDefault("")
-    private var cachedVenues: List<VenueItemUIModel> = emptyList()
+    private val venuesSubject: BehaviorSubject<List<VenueItemUIModel>> = BehaviorSubject.createDefault(emptyList())
+
+    private val venuesObservable: Observable<List<VenueItemUIModel>> =
+            Observable.combineLatest(querySubject, venuesSubject, BiFunction { query: String, venues: List<VenueItemUIModel> ->
+                venues.filter { it.name.contains(query, true) || it.address.contains(query, true) }
+            }).skip(1)
 
     init {
         loadData()
+        subscribe(venuesObservable
+                .subscribeOrError("Error while emitting venues") {
+                    setState(currentState.copy(venues = it))
+                })
     }
 
-    /* Force unwrap is possible as querySubject always has default value */
     private fun loadData() {
         subscribe(loadVenues()
-                .flatMap { filterVenues(querySubject.value!!, it) }
                 .observeOnUi()
                 .subscribe(::onLoadVenuesSuccess, ::onLoadVenuesError)
         )
     }
 
     private fun onLoadVenuesSuccess(venues: List<VenueItemUIModel>) {
-        cachedVenues = venues
-        setState(currentState.copy(venues = venues, isLoading = false, isError = false))
+        setState(currentState.copy(isLoading = false))
+        venuesSubject.onNext(venues)
     }
 
     private fun onLoadVenuesError(error: Throwable) {
@@ -44,12 +51,6 @@ class VenuesViewModelImpl(
 
     override fun filterVenues(searchQuery: String) {
         querySubject.onNext(searchQuery)
-        subscribe(filterVenues(searchQuery, cachedVenues)
-                .observeOnUi()
-                .subscribeOrError("Error while filtering venue list") {
-                    setState(currentState.copy(venues = it))
-                }
-        )
     }
 
     override fun selectVenue(position: Int) { /* todo need position of the filtered venue!!!!*/

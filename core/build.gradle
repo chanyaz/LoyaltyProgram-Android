@@ -74,7 +74,9 @@ dependencies {
     api rxpermissions.core
 
     /* Auth */
-    api auth.core
+    api (auth.core) {
+        exclude group: 'com.android.support'
+    }
 
     /* Vision */
     api (zxing.core) {
@@ -82,7 +84,9 @@ dependencies {
     }
 
     /* Maps */
-    api maps.core
+    api (maps.core) {
+        exclude group: 'com.android.support'
+    }
 
     /* Logging */
     api logs.timber
